@@ -1,20 +1,20 @@
-span.sl-keyword {
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+td.fromOption, td.toOption {
+  font-size: 15pt;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 100;
+}
+td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
+  font-size: 15pt;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
 }
 span.header {
-  font-size: 20pt;
-  font-family: 'Roboto', sans-serif;
+  font-size: 18pt;
+  font-family: 'PT Sans', sans-serif;
   font-weight: 400;
 }
 input {
-  font-size: 16pt;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-}
-td.fromOption, td.toOption {
-  font-size: 16pt;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-size: 15pt;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 400;
 }
