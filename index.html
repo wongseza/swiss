@@ -11,8 +11,8 @@
       <table>
         <tr><th>From</th><th>To</th></tr>
         <tr>
-          <td><input id="from" list="fromList"></input></td>
-          <td><input id="to" list="toList"></input></td>
+          <td><input id="from" size="30"></input></td>
+          <td><input id="to" size="30"></input></td>
         </tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
@@ -28,11 +28,10 @@
     </form>
   </body>
   <script>
-    var from = document.getElementById('from');
-    var to = document.getElementById('to');
-    var fromOptionList = document.getElementsByClassName('fromOption');
-    var toOptionList = document.getElementsByClassName('toOption');
-    
+    var from = document.querySelector('#from');
+    var to = document.querySelector('#to');
+    var fromOptionList = document.querySelectorAll('td.fromOption');
+    var toOptionList = document.querySelectorAll('td.toOption');
     var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train"];
     
     from.addEventListener('input', function() {
@@ -40,6 +39,31 @@
     });
     to.addEventListener('input', function() {
       httpGet('https://timetable.search.ch/api/completion.json?term=' + to.value, 'to', locationsCallback);
+    });
+    
+    fromOptionList.forEach(function(fromOption) {
+      fromOption.addEventListener('click', function() {
+        if (fromOption.innerHTML === "") {
+          return;
+        }
+        from.value = fromOption.innerHTML;
+        for (option of fromOptionList) {
+          option.style.backgroundColor = "white";
+        }
+        fromOption.style.backgroundColor = "#eee";
+      });
+    });
+    toOptionList.forEach(function(toOption) {
+      toOption.addEventListener('click', function() {
+        if (toOption.innerHTML === "") {
+          return;
+        }
+        to.value = toOption.innerHTML;
+        for (option of toOptionList) {
+          option.style.backgroundColor = "white";
+        }
+        toOption.style.backgroundColor = "#eee";
+      });
     });
     
     function locationsCallback(json, type) {
@@ -52,6 +76,7 @@
       if (type === 'from') {
         for (fromOption of fromOptionList) {
           fromOption.innerHTML = "";
+          fromOption.style.backgroundColor = "white";
         }
         for (var i = 0; i < stationList.length; i++) {
           fromOptionList[i].innerHTML = stationList[i];
@@ -59,6 +84,7 @@
       } else {
         for (toOption of toOptionList) {
           toOption.innerHTML = "";
+          toOption.style.backgroundColor = "white";
         }
         for (var i = 0; i < stationList.length; i++) {
           toOptionList[i].innerHTML = stationList[i];
