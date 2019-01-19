@@ -1,5 +1,5 @@
 body {
-  font-size: 14pt;
+  font-size: 16pt;
   font-family: 'Open Sans', sans-serif;
   font-weight: 100;
 }
@@ -7,6 +7,7 @@ table, th, td {
   margin-left: auto;
   margin-right: auto;
   border-spacing: 0pt;
+  #border: 1pt solid black;
 }
 table.locations {
   border-spacing: 0pt;
@@ -14,7 +15,7 @@ table.locations {
   border-color: black;
 }
 th.header, td.header {
-  font-size: 12pt;
+  font-size: 14pt;
   font-weight: 100;
   text-align: left;
   font-family: 'Open Sans', sans-serif;
@@ -23,17 +24,19 @@ th.header, td.header {
   padding-bottom: 3pt;
 }
 td.fromOption, td.toOption {
-  font-size: 14pt;
+  font-size: 16pt;
   font-family: 'Open Sans', sans-serif;
 }
+
 td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
-  font-size: 14pt;
+  font-size: 16pt;
   font-weight: 700;
   font-family: 'Open Sans', sans-serif;
 }
+
 td.checkbox {
   padding: 5pt 10pt;
-  width: 70pt;
+  width: 120pt;
 }
 
 td {
@@ -41,20 +44,20 @@ td {
 }
 
 span.transportation {
-  padding-left: 40pt;
+  padding-left: 50pt;
   padding-right: 20pt;
   font-family: 'Open Sans', sans-serif;
 }
 
 input {
-  font-size: 14pt;
+  font-size: 16pt;
   font-weight: 400;
   font-family: 'Open Sans', sans-serif;
 }
 
 input.box {
   margin: 0pt 10pt 5pt 10pt;
-  font-size: 14pt;
+  font-size: 16pt;
   font-weight: 400;
   font-family: 'Open Sans', sans-serif;
   padding: 10pt;
@@ -64,8 +67,8 @@ input.box {
 .switch {
   position: relative;
   display: block;
-  width: 30pt;
-  height: 17pt;
+  width: 45pt;
+  height: 25pt;
 }
 
 /* Hide default HTML checkbox */
@@ -91,10 +94,10 @@ input.box {
 .slider:before {
   position: absolute;
   content: "";
-  height: 13pt;
-  width: 13pt;
-  left: 2pt;
-  bottom: 2pt;
+  height: 20pt;
+  width: 20pt;
+  left: 3pt;
+  bottom: 3pt;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
@@ -109,14 +112,14 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(13pt);
-  -ms-transform: translateX(13pt);
-  transform: translateX(13pt);
+  -webkit-transform: translateX(19pt);
+  -ms-transform: translateX(19pt);
+  transform: translateX(19pt);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 17pt;
+  border-radius: 25pt;
 }
 
 .slider.round:before {
