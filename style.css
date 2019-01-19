@@ -3,17 +3,20 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 100;
 }
+
 table, th, td {
   margin-left: auto;
   margin-right: auto;
   border-spacing: 0pt;
   #border: 1pt solid black;
 }
+
 table.locations {
   border-spacing: 0pt;
   border-width: 1pt;
   border-color: black;
 }
+
 th.header, td.header {
   font-size: 14pt;
   font-weight: 100;
@@ -23,6 +26,11 @@ th.header, td.header {
   padding-left: 13pt;
   padding-bottom: 3pt;
 }
+
+td.isArrivalTime {
+  padding-left: 13pt;
+}
+
 td.fromOption, td.toOption {
   font-size: 16pt;
   font-family: 'Open Sans', sans-serif;
@@ -63,12 +71,17 @@ input.box {
   padding: 10pt;
 }
 
+#transportations {
+  padding-left: 25pt;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
   display: block;
   width: 45pt;
   height: 25pt;
+  margin: 0pt 10pt 5pt 10pt;
 }
 
 /* Hide default HTML checkbox */
