@@ -8,10 +8,11 @@
   <body>
     <form autocomplete="off">
       <table>
-        <tr><th>From</th><th>To</th></tr>
+        <tr><th>From</th><th>To</th><th>Date</th></tr>
         <tr>
           <td><input id="from" size="30"></input></td>
           <td><input id="to" size="30"></input></td>
+          <td><input type="date" id="date"></input></td>
         </tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
@@ -34,7 +35,9 @@
     var fromOptionList = document.querySelectorAll('td.fromOption');
     var toOptionList = document.querySelectorAll('td.toOption');
     var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train"];
+    var date = document.querySelector('#date')
     
+    date.valueAsDate = new Date();
     from.addEventListener('input', function() {
       fromCount++;
       httpGet('https://timetable.search.ch/api/completion.json?term=' + from.value, 'from', locationsCallback, fromCount);
