@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset="UTF-8">
     <title>Swiss planner</title>
   </head>
   <body>
     <h1>Hello World</h1>
     <p>I'm hosted with GitHub Pages.</p>
-    <form autocomplete="off">
-      From <input type="text" name="from" />
-      <br/>
-      To <input type="text" name="to" />
+    <form>
+      From <input id="from" list="fromList" size="40"></input>
+      To <input id="to" list="toList" size="40"></input>
+      <datalist id="fromList"></datalist>
+      <datalist id="toList"></datalist>
+      <div id="message"></div>
     </form>
   </body>
+  <script>
+    var from = document.getElementById('from');
+    var to = document.getElementById('to');
+    
+    from.addEventListener('input', function() {
+      httpGet('http://transport.opendata.ch/v1/locations?query=' + from.value, 'fromList', locationsCallback);
+    });
+    to.addEventListener('input', function() {
+      httpGet('http://transport.opendata.ch/v1/locations?query=' + to.value, 'toList', locationsCallback);
+    });
+    
+    function locationsCallback(json, listId) {
+      var datalist = document.getElementById(listId);
+      while (datalist.firstChild) {
+        datalist.removeChild(datalist.firstChild);
+      }
+      var message = document.getElementById('message');
+      message.textContent = "";
+      for (station of json.stations) {
+        if (station.name === null) {
+          return;
+        }
+        var option = document.createElement('option');
+        //option.value = station.name;
+        option.innerHTML = station.name;
+        datalist.appendChild(option);
+        message.textContent += station.name + " / ";
+      }
+    }
+    
+    function httpGet(url, listId, callback) {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState === XMLHttpRequest.DONE && xmlHttp.status === 200)
+          callback(JSON.parse(xmlHttp.responseText), listId);
+      }
+      xmlHttp.open("GET", url, true);
+      xmlHttp.send(null);
+    }
+  </script>
 </html>
