@@ -37,8 +37,12 @@
     var toOptionList = document.querySelectorAll('td.toOption');
     var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train"];
     var date = document.querySelector('#date')
+    var time = document.querySelector('#time')
     
-    date.valueAsDate = new Date();
+    var currentTime = new Date();
+    date.valueAsDate = currentTime;
+    time.value = currentTime.getHours() + ":" + currentTime.getMinutes();
+    
     from.addEventListener('input', function() {
       fromCount++;
       httpGet('https://timetable.search.ch/api/completion.json?term=' + from.value, 'from', locationsCallback, fromCount);
