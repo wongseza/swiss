@@ -7,50 +7,71 @@
   <body>
     <h1>Hello World</h1>
     <p>I'm hosted with GitHub Pages.</p>
-    <form>
-      From <input id="from" list="fromList" size="40"></input>
-      To <input id="to" list="toList" size="40"></input>
-      <datalist id="fromList"></datalist>
-      <datalist id="toList"></datalist>
-      <div id="message"></div>
+    <form autocomplete="off">
+      <table>
+        <tr><th>From</th><th>To</th></tr>
+        <tr>
+          <td><input id="from" list="fromList"></input></td>
+          <td><input id="to" list="toList"></input></td>
+        </tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+      </table>
     </form>
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/datalist-polyfill/1.23.2/datalist-polyfill.min.js"></script>
   <script>
     var from = document.getElementById('from');
     var to = document.getElementById('to');
+    var fromOptionList = document.getElementsByClassName('fromOption');
+    var toOptionList = document.getElementsByClassName('toOption');
+    
+    var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train"];
     
     from.addEventListener('input', function() {
-      httpGet('https://transport.opendata.ch/v1/locations?query=' + from.value, 'fromList', locationsCallback);
+      httpGet('https://timetable.search.ch/api/completion.json?term=' + from.value, 'from', locationsCallback);
     });
     to.addEventListener('input', function() {
-      httpGet('https://transport.opendata.ch/v1/locations?query=' + to.value, 'toList', locationsCallback);
+      httpGet('https://timetable.search.ch/api/completion.json?term=' + to.value, 'to', locationsCallback);
     });
     
-    function locationsCallback(json, listId) {
-      var datalist = document.getElementById(listId);
-      while (datalist.firstChild) {
-        datalist.removeChild(datalist.firstChild);
-      }
-      var message = document.getElementById('message');
-      message.textContent = "";
-      for (station of json.stations) {
-        if (station.name === null) {
-          return;
+    function locationsCallback(json, type) {
+      var stationList = []
+      for (station of json) {
+        if (iconList.includes(station.iconclass)) {
+          stationList.push(station.label);
         }
-        var option = document.createElement('option');
-        //option.value = station.name;
-        option.innerHTML = station.name;
-        datalist.appendChild(option);
-        message.textContent += station.name + " / ";
+      }
+      if (type === 'from') {
+        for (fromOption of fromOptionList) {
+          fromOption.innerHTML = "";
+        }
+        for (var i = 0; i < stationList.length; i++) {
+          fromOptionList[i].innerHTML = stationList[i];
+        }
+      } else {
+        for (toOption of toOptionList) {
+          toOption.innerHTML = "";
+        }
+        for (var i = 0; i < stationList.length; i++) {
+          toOptionList[i].innerHTML = stationList[i];
+        }
       }
     }
     
-    function httpGet(url, listId, callback) {
+    function httpGet(url, type, callback) {
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState === XMLHttpRequest.DONE && xmlHttp.status === 200)
-          callback(JSON.parse(xmlHttp.responseText), listId);
+        if (xmlHttp.readyState === XMLHttpRequest.DONE && xmlHttp.status === 200) {
+          callback(JSON.parse(xmlHttp.responseText), type);
+        }
       }
       xmlHttp.open("GET", url, true);
       xmlHttp.send(null);
