@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
-    <title>Swiss planner</title>
+    <title>Swiss Planner</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -15,7 +15,7 @@
           <td><input type="date" id="date"></input></td>
           <td><input type="time" id="time"></input></td>
         </tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td><td id="tmpDate"></td><td id="tmpTime"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
@@ -50,6 +50,14 @@
     to.addEventListener('input', function() {
       toCount++;
       httpGet('https://timetable.search.ch/api/completion.json?term=' + to.value, 'to', locationsCallback, toCount);
+    });
+    date.addEventListener('input', function() {
+      var tmpDate = document.querySelector('#tmpDate');
+      tmpDate.innerHTML = date.value;
+    });
+    time.addEventListener('input', function() {
+      var tmpTime = document.querySelector('#tmpTime');
+      tmpTime.innerHTML = time.value;
     });
     
     fromOptionList.forEach(function(fromOption) {
