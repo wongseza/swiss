@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
     <title>Swiss Planner</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
     <form autocomplete="off">
       <table>
-        <tr><th>From</th><th>To</th><th>Date</th><th>Time</th></tr>
+        <tr>
+          <th><span class="header">From</span></th>
+          <th><span class="header">To</span></th>
+          <th><span class="header">Date</span></th>
+          <th><span class="header">Time</span></th>
+        </tr>
         <tr>
           <td><input id="from" size="30"></input></td>
           <td><input id="to" size="30"></input></td>
           <td><input type="date" id="date"></input></td>
           <td><input type="time" id="time"></input></td>
         </tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td><td id="tmpDate"></td><td id="tmpTime"></td></tr>
+        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
@@ -50,14 +56,6 @@
     to.addEventListener('input', function() {
       toCount++;
       httpGet('https://timetable.search.ch/api/completion.json?term=' + to.value, 'to', locationsCallback, toCount);
-    });
-    date.addEventListener('input', function() {
-      var tmpDate = document.querySelector('#tmpDate');
-      tmpDate.innerHTML = date.value;
-    });
-    time.addEventListener('input', function() {
-      var tmpTime = document.querySelector('#tmpTime');
-      tmpTime.innerHTML = time.value;
     });
     
     fromOptionList.forEach(function(fromOption) {
