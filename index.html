@@ -20,10 +20,10 @@
     var to = document.getElementById('to');
     
     from.addEventListener('input', function() {
-      httpGet('http://transport.opendata.ch/v1/locations?query=' + from.value, 'fromList', locationsCallback);
+      httpGet('https://transport.opendata.ch/v1/locations?query=' + from.value, 'fromList', locationsCallback);
     });
     to.addEventListener('input', function() {
-      httpGet('http://transport.opendata.ch/v1/locations?query=' + to.value, 'toList', locationsCallback);
+      httpGet('https://transport.opendata.ch/v1/locations?query=' + to.value, 'toList', locationsCallback);
     });
     
     function locationsCallback(json, listId) {
