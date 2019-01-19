@@ -32,17 +32,60 @@
         <tr>
           <th class="header">Date</th>
           <th class="header">Time</th>
-          <td class="header">Transportations</td>
+          <th class="header">Departure/Arrival</th>
+          <th class="header" colspan="3">Transportations</td>
         </tr>
         <tr>
-          <td><input class="box" type="date" id="date"></input></td>
-          <td><input class="box" type="time" id="time"></input></td>
-          <td>
-            <input type="checkbox" value="train" checked><span class="transportation">Train</span></input>
-            <input type="checkbox" value="tram" checked><span class="transportation">Tram</span></input>
-            <input type="checkbox" value="ship" checked><span class="transportation">Ship</span></input>
-            <input type="checkbox" value="bus" checked><span class="transportation">Bus</span></input>
-            <input type="checkbox" value="cableway" checked><span class="transportation">Cableway</span></input>
+          <td valign="top" rowspan="2"><input class="box" type="date" id="date"></input></td>
+          <td valign="top" rowspan="2"><input class="box" type="time" id="time"></input></td>
+          <td align="center">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </td>
+          <td class="checkbox">
+            <label class="switch">
+              <input type="checkbox" value="train" checked>
+              <span class="slider round">
+                <span class="transportation">Train</span>
+              </span>
+            </label>
+          </td>
+          <td class="checkbox">
+            <label class="switch">
+              <input type="checkbox" value="ship" checked>
+              <span class="slider round">
+                <span class="transportation">Ship</span>
+              </span>
+            </label>
+          </td>
+          <td class="checkbox">
+            <label class="switch">
+              <input type="checkbox" value="cableway" checked>
+              <span class="slider round">
+                <span class="transportation">Cableway</span>
+              </span>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="checkbox">
+            <label class="switch">
+              <input type="checkbox" value="tram" checked>
+              <span class="slider round">
+                <span class="transportation">Tram</span>
+              </span>
+            </label>
+          </td>
+          <td class="checkbox">
+            <label class="switch">
+              <input type="checkbox" value="bus" checked>
+              <span class="slider round">
+                <span class="transportation">Bus</span>
+              </span>
+            </label>
           </td>
         </tr>
       </table>

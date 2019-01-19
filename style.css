@@ -1,34 +1,20 @@
 body {
-  font-size: 12pt;
+  font-size: 14pt;
   font-family: 'Open Sans', sans-serif;
   font-weight: 100;
-}
-table.locations {
-  border-spacing: 0pt;
-  border-width: 1px;
-  border-color: black;
 }
 table, th, td {
   margin-left: auto;
   margin-right: auto;
   border-spacing: 0pt;
 }
-span.transportation {
-  padding-left: 5pt;
-  padding-right: 5pt;
-  font-family: 'Open Sans', sans-serif;
-}
-td.fromOption, td.toOption {
-  font-size: 12pt;
-  font-family: 'Open Sans', sans-serif;
-}
-td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
-  font-size: 12pt;
-  font-weight: 700;
-  font-family: 'Open Sans', sans-serif;
+table.locations {
+  border-spacing: 0pt;
+  border-width: 1pt;
+  border-color: black;
 }
 th.header, td.header {
-  font-size: 10pt;
+  font-size: 12pt;
   font-weight: 100;
   text-align: left;
   font-family: 'Open Sans', sans-serif;
@@ -36,18 +22,103 @@ th.header, td.header {
   padding-left: 13pt;
   padding-bottom: 3pt;
 }
+td.fromOption, td.toOption {
+  font-size: 14pt;
+  font-family: 'Open Sans', sans-serif;
+}
+td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
+  font-size: 14pt;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+}
+td.checkbox {
+  padding: 5pt 10pt;
+  width: 70pt;
+}
+
 td {
   padding: 0pt;
 }
+
+span.transportation {
+  padding-left: 40pt;
+  padding-right: 20pt;
+  font-family: 'Open Sans', sans-serif;
+}
+
 input {
-  font-size: 12pt;
+  font-size: 14pt;
   font-weight: 400;
   font-family: 'Open Sans', sans-serif;
 }
+
 input.box {
   margin: 0pt 10pt 5pt 10pt;
-  font-size: 12pt;
+  font-size: 14pt;
   font-weight: 400;
   font-family: 'Open Sans', sans-serif;
   padding: 10pt;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: block;
+  width: 30pt;
+  height: 17pt;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13pt;
+  width: 13pt;
+  left: 2pt;
+  bottom: 2pt;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1pt #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13pt);
+  -ms-transform: translateX(13pt);
+  transform: translateX(13pt);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17pt;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
