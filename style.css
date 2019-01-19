@@ -1,20 +1,53 @@
-td.fromOption, td.toOption {
-  font-size: 15pt;
-  font-family: 'PT Sans', sans-serif;
+body {
+  font-size: 12pt;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 100;
 }
-td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
-  font-size: 15pt;
-  font-family: 'PT Sans', sans-serif;
-  font-weight: 700;
+table.locations {
+  border-spacing: 0pt;
+  border-width: 1px;
+  border-color: black;
 }
-span.header {
-  font-size: 18pt;
-  font-family: 'PT Sans', sans-serif;
-  font-weight: 400;
+table, th, td {
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 0pt;
+}
+span.transportation {
+  padding-left: 5pt;
+  padding-right: 5pt;
+  font-family: 'Open Sans', sans-serif;
+}
+td.fromOption, td.toOption {
+  font-size: 12pt;
+  font-family: 'Open Sans', sans-serif;
+}
+td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
+  font-size: 12pt;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+}
+th.header, td.header {
+  font-size: 10pt;
+  font-weight: 100;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 10pt;
+  padding-left: 13pt;
+  padding-bottom: 3pt;
+}
+td {
+  padding: 0pt;
 }
 input {
-  font-size: 15pt;
-  font-family: 'PT Sans', sans-serif;
+  font-size: 12pt;
   font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+}
+input.box {
+  margin: 0pt 10pt 5pt 10pt;
+  font-size: 12pt;
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  padding: 10pt;
 }

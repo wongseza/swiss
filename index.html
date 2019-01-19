@@ -4,22 +4,18 @@
     <meta charset="UTF-8">
     <title>Swiss Planner</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body>
     <form autocomplete="off">
-      <table>
+      <table class="locations">
         <tr>
-          <th><span class="header">From</span></th>
-          <th><span class="header">To</span></th>
-          <th><span class="header">Date</span></th>
-          <th><span class="header">Time</span></th>
+          <th class="header">From</th>
+          <th class="header">To</th>
         </tr>
         <tr>
-          <td><input id="from" size="30"></input></td>
-          <td><input id="to" size="30"></input></td>
-          <td><input type="date" id="date"></input></td>
-          <td><input type="time" id="time"></input></td>
+          <td><input class="box" id="from" size="40"></input></td>
+          <td><input class="box" id="to" size="40"></input></td>
         </tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
@@ -32,6 +28,24 @@
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
         <tr><td class="fromOption"></td><td class="toOption"></td></tr>
       </table>
+      <table class="parameter">
+        <tr>
+          <th class="header">Date</th>
+          <th class="header">Time</th>
+          <td class="header">Transportations</td>
+        </tr>
+        <tr>
+          <td><input class="box" type="date" id="date"></input></td>
+          <td><input class="box" type="time" id="time"></input></td>
+          <td>
+            <input type="checkbox" value="train" checked><span class="transportation">Train</span></input>
+            <input type="checkbox" value="tram" checked><span class="transportation">Tram</span></input>
+            <input type="checkbox" value="ship" checked><span class="transportation">Ship</span></input>
+            <input type="checkbox" value="bus" checked><span class="transportation">Bus</span></input>
+            <input type="checkbox" value="cableway" checked><span class="transportation">Cableway</span></input>
+          </td>
+        </tr>
+      </table>
     </form>
   </body>
   <script>
@@ -41,19 +55,26 @@
     var to = document.querySelector('#to');
     var fromOptionList = document.querySelectorAll('td.fromOption');
     var toOptionList = document.querySelectorAll('td.toOption');
+    var date = document.querySelector('#date');
+    var time = document.querySelector('#time');
+    var parameter = document.querySelector('table.parameter');
     var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train"];
-    var date = document.querySelector('#date')
-    var time = document.querySelector('#time')
     
     var currentTime = new Date();
     date.valueAsDate = currentTime;
-    time.value = currentTime.getHours() + ":" + currentTime.getMinutes();
+    hours = currentTime.getHours();
+    minutes = currentTime.getMinutes();
+    hoursString = (hours > 9) ? String(hours) : "0" + hours;
+    minutesString = (minutes > 9) ? String(minutes) : "0" + minutes;
+    time.value = hoursString + ":" + minutesString;
     
     from.addEventListener('input', function() {
+      parameter.style.display = "none";
       fromCount++;
       httpGet('https://timetable.search.ch/api/completion.json?term=' + from.value, 'from', locationsCallback, fromCount);
     });
     to.addEventListener('input', function() {
+      parameter.style.display = "none";
       toCount++;
       httpGet('https://timetable.search.ch/api/completion.json?term=' + to.value, 'to', locationsCallback, toCount);
     });
@@ -64,10 +85,6 @@
           return;
         }
         from.value = fromOption.value;
-        for (option of fromOptionList) {
-          option.style.backgroundColor = "white";
-        }
-        fromOption.style.backgroundColor = "#eee";
       });
     });
     toOptionList.forEach(function(toOption) {
@@ -76,12 +93,23 @@
           return;
         }
         to.value = toOption.value;
-        for (option of toOptionList) {
-          option.style.backgroundColor = "white";
-        }
-        toOption.style.backgroundColor = "#eee";
       });
     });
+    
+    document.addEventListener('click', function() {
+      hideOptions(fromOptionList);
+      hideOptions(toOptionList);
+      parameter.style.display = "table";
+    });
+    
+    function hideOptions(optionList) {
+      for (option of optionList) {
+        option.value = "";
+        option.innerHTML = "";
+        option.style.backgroundColor = "white";
+        option.style.padding = "0pt";
+      }
+    }
     
     function locationsCallback(json, type, callCount) {
       var stationList = []
@@ -98,10 +126,12 @@
           fromOption.value = "";
           fromOption.innerHTML = "";
           fromOption.style.backgroundColor = "white";
+          fromOption.style.padding = "0pt";
         }
         for (var i = 0; i < stationList.length; i++) {
           fromOptionList[i].value = stationList[i].label;
           fromOptionList[i].innerHTML = stationList[i].html ? stationList[i].html : stationList[i].label;
+          fromOptionList[i].style.padding = "5pt 5pt 5pt 20pt";
         }
       } else {
         if (toCount != callCount) {
@@ -111,10 +141,12 @@
           toOption.value = "";
           toOption.innerHTML = "";
           toOption.style.backgroundColor = "white";
+          toOption.style.padding = "0pt";
         }
         for (var i = 0; i < stationList.length; i++) {
           toOptionList[i].value = stationList[i].label;
           toOptionList[i].innerHTML = stationList[i].html ? stationList[i].html : stationList[i].label;
+          toOptionList[i].style.padding = "5pt 5pt 5pt 20pt";
         }
       }
     }
