@@ -1,12 +1,12 @@
 body {
   font-size: 16pt;
   font-family: -apple-system, "Open Sans", sans-serif;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 h1 {
   font-size: 24pt;
-  font-weight: 100;
+  font-weight: 200;
   text-align: center;
 }
 
@@ -45,7 +45,7 @@ td.fromOption, td.toOption {
 
 td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
   font-size: 16pt;
-  font-weight: 700;
+  font-weight: 500;
   font-family: -apple-system, "Open Sans", sans-serif;
 }
 
@@ -66,14 +66,14 @@ span.transportation {
 
 input {
   font-size: 16pt;
-  font-weight: 100;
+  font-weight: 200;
   font-family: -apple-system, "Open Sans", sans-serif;
 }
 
 input.box {
   margin: 0pt 10pt 5pt 10pt;
   font-size: 16pt;
-  font-weight: 100;
+  font-weight: 200;
   font-family: -apple-system, "Open Sans", sans-serif;
   padding: 10pt;
 }
