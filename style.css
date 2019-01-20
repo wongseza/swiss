@@ -70,11 +70,6 @@ span.transportation {
   font-weight: 300;
 }
 
-input {
-  font-size: 16pt;
-  font-weight: 200;
-}
-
 input.location {
   margin: 0pt 10pt 5pt 10pt;
   font-size: 18pt;
@@ -84,9 +79,9 @@ input.location {
 
 input.datetime {
   margin: 0pt 10pt 5pt 10pt;
-  font-size: 16pt;
+  font-size: 15pt;
   padding: 10pt;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 #transportations {
