@@ -7,7 +7,7 @@ var toOptionList = document.querySelectorAll('td.toOption');
 var date = document.querySelector('#date');
 var time = document.querySelector('#time');
 var parameter = document.querySelector('table.parameter');
-var button = document.querySelector('button');
+var search = document.querySelector('button.search');
 var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train"];
 
 var currentTime = new Date();
@@ -48,7 +48,7 @@ document.addEventListener('click', function() {
   hideOptions(fromOptionList);
   hideOptions(toOptionList);
   parameter.style.display = "table";
-  button.style.display = "block";
+  search.style.display = "block";
 });
 
 function hideOptions(optionList) {
@@ -99,7 +99,7 @@ function locationsCallback(json, type, callCount) {
     }
   }
   parameter.style.display = "none";
-  button.style.display = "none";
+  search.style.display = "none";
 }
 
 function httpGet(url, type, callback, callCount) {

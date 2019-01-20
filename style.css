@@ -2,7 +2,7 @@
   font-family: -apple-system, "Open Sans", sans-serif;
 }
 
-button {
+button.search {
   cursor: pointer;
   background-color: #e00;
   border: 2pt solid #e00;
