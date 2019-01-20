@@ -1,8 +1,20 @@
-h1 {
-  font-size: 20pt;
-  text-align: center;
-  font-weight: 400;
+* {
   font-family: -apple-system, "Open Sans", sans-serif;
+}
+
+button {
+  cursor: pointer;
+  background-color: #e00;
+  border: 2pt solid #e00;
+  border-radius: 15pt;
+  color: white;
+  padding: 14pt 24pt;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 18pt;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 table, th, td {
@@ -16,13 +28,11 @@ table.locations {
   border-spacing: 0pt;
   border-width: 1pt;
   border-color: black;
-  font-family: -apple-system, "Open Sans", sans-serif;
 }
 
 th.header, td.header {
   font-size: 14pt;
   text-align: left;
-  font-family: -apple-system, "Open Sans", sans-serif;
   padding-top: 10pt;
   padding-left: 13pt;
   padding-bottom: 3pt;
@@ -35,13 +45,11 @@ td.isArrivalTime {
 
 td.fromOption, td.toOption {
   font-size: 17pt;
-  font-family: -apple-system, "Open Sans", sans-serif;
 }
 
 td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
   font-size: 17pt;
   font-weight: 600;
-  font-family: -apple-system, "Open Sans", sans-serif;
 }
 
 td.checkbox {
@@ -57,21 +65,18 @@ span.transportation {
   padding-top: 10pt;
   padding-left: 55pt;
   padding-right: 20pt;
-  font-family: -apple-system, "Open Sans", sans-serif;
   font-size: 18pt;
   font-weight: 300;
 }
 
 input {
   font-size: 16pt;
-  font-family: -apple-system, "Open Sans", sans-serif;
   font-weight: 200;
 }
 
 input.location {
   margin: 0pt 10pt 5pt 10pt;
   font-size: 18pt;
-  font-family: -apple-system, "Open Sans", sans-serif;
   padding: 10pt;
   font-weight: 300;
 }
@@ -79,7 +84,6 @@ input.location {
 input.datetime {
   margin: 0pt 10pt 5pt 10pt;
   font-size: 16pt;
-  font-family: -apple-system, "Open Sans", sans-serif;
   padding: 10pt;
   font-weight: 300;
 }
