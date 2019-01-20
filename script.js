@@ -118,17 +118,15 @@ document.addEventListener('click', function() {
 });
 
 function connectionsCallback(json, type, callCount) {
-  var resultFromList      = document.querySelectorAll('td.resultFrom');
-  var resultToList        = document.querySelectorAll('td.resultTo');
+  var resultFromToList = document.querySelectorAll('td.resultFromTo');
   var resultDepartureList = document.querySelectorAll('td.resultDeparture');
-  var resultArrivalList   = document.querySelectorAll('td.resultArrival');
-  var resultDurationList  = document.querySelectorAll('td.resultDuration');
-  var resultTransfersList  = document.querySelectorAll('td.resultTransfers');
-  var resultProductsList  = document.querySelectorAll('td.resultProducts');
+  var resultArrivalList = document.querySelectorAll('td.resultArrival');
+  var resultDurationList = document.querySelectorAll('td.resultDuration');
+  var resultTransfersList = document.querySelectorAll('td.resultTransfers');
+  var resultProductsList = document.querySelectorAll('td.resultProducts');
   
-  for (i = 0; i < resultFromList.length; i++) {
-    resultFromList[i].innerHTML = "";
-    resultToList[i].innerHTML = "";
+  for (i = 0; i < resultFromToList.length; i++) {
+    resultFromToList[i].innerHTML = "";
     resultDepartureList[i].innerHTML = "";
     resultArrivalList[i].innerHTML = "";
     resultDurationList[i].innerHTML = "";
@@ -138,8 +136,7 @@ function connectionsCallback(json, type, callCount) {
   
   var connections = json.connections;
   for (i = 0; i < connections.length; i++) {
-    resultFromList[i].innerHTML = connections[i].from.station.name;
-    resultToList[i].innerHTML = connections[i].to.station.name;
+    resultFromToList[i].innerHTML = connections[i].from.station.name + "<br/>" + connections[i].to.station.name;
     resultDepartureList[i].innerHTML = connections[i].from.departure.substring(11, 16);
     resultArrivalList[i].innerHTML = connections[i].to.arrival.substring(11, 16);
     resultDurationList[i].innerHTML = connections[i].duration.substring(3, 8);

@@ -36,22 +36,18 @@ th.result {
   height: 30pt;
 }
 
-td.resultFrom, td.resultTo, td.resultDeparture, td.resultArrival, td.resultDuration, td.resultTransfers, td.resultProducts {
-  padding: 5pt;
+td.resultFromTo, td.resultDeparture, td.resultArrival, td.resultDuration, td.resultTransfers, td.resultProducts {
+  padding: 5pt 30pt;
   text-align: center;
-  font-size: 16pt;
+  font-size: 14pt;
   height: 60pt;
   background-color: #eee;
   border-top: 3pt solid white;
   border-bottom: 3pt solid white;
 }
 
-td.resultFrom, td.resultTo, td.resultProducts {
-  width: 200pt;
-}
-
-td.resultDeparture, td.resultArrival, td.resultDuration, td.resultTransfers {
-  width: 60pt;
+td.resultFromTo, td.resultDeparture, td.resultProducts {
+  text-align: left;
 }
 
 table.result {
