@@ -51,7 +51,7 @@ td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
 
 td.checkbox {
   padding: 5pt 10pt;
-  width: 120pt;
+  width: 110pt;
 }
 
 td {
@@ -86,8 +86,8 @@ input.box {
 .switch {
   position: relative;
   display: block;
-  width: 45pt;
-  height: 25pt;
+  width: 46pt;
+  height: 26pt;
   margin: 0pt 10pt 5pt 10pt;
 }
 
@@ -106,7 +106,7 @@ input.box {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ffaaaa;
+  background-color: #ff8888;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -127,19 +127,15 @@ input:checked + .slider {
   background-color: #eb0000;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1pt #2196F3;
-}
-
 input:checked + .slider:before {
-  -webkit-transform: translateX(19pt);
-  -ms-transform: translateX(19pt);
-  transform: translateX(19pt);
+  -webkit-transform: translateX(20pt);
+  -ms-transform: translateX(20pt);
+  transform: translateX(20pt);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 25pt;
+  border-radius: 26pt;
 }
 
 .slider.round:before {
