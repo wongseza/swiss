@@ -7,6 +7,7 @@ var toOptionList = document.querySelectorAll('td.toOption');
 var date = document.querySelector('#date');
 var time = document.querySelector('#time');
 var parameter = document.querySelector('table.parameter');
+var button = document.querySelector('button');
 var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train"];
 
 var currentTime = new Date();
@@ -18,12 +19,10 @@ minutesString = (minutes > 9) ? String(minutes) : "0" + minutes;
 time.value = hoursString + ":" + minutesString;
 
 from.addEventListener('input', function() {
-  parameter.style.display = "none";
   fromCount++;
   httpGet('https://timetable.search.ch/api/completion.json?term=' + from.value, 'from', locationsCallback, fromCount);
 });
 to.addEventListener('input', function() {
-  parameter.style.display = "none";
   toCount++;
   httpGet('https://timetable.search.ch/api/completion.json?term=' + to.value, 'to', locationsCallback, toCount);
 });
@@ -49,6 +48,7 @@ document.addEventListener('click', function() {
   hideOptions(fromOptionList);
   hideOptions(toOptionList);
   parameter.style.display = "table";
+  button.style.display = "block";
 });
 
 function hideOptions(optionList) {
@@ -98,6 +98,8 @@ function locationsCallback(json, type, callCount) {
       toOptionList[i].style.padding = "5pt 5pt 5pt 20pt";
     }
   }
+  parameter.style.display = "none";
+  button.style.display = "none";
 }
 
 function httpGet(url, type, callback, callCount) {
