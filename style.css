@@ -124,7 +124,7 @@ input.box {
 }
 
 input:checked + .slider {
-  background-color: #eb0000;
+  background-color: #eb4444;
 }
 
 input:checked + .slider:before {
