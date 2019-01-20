@@ -59,7 +59,7 @@ td {
 }
 
 span.transportation {
-  padding-top: 5pt;
+  padding-top: 10pt;
   padding-left: 55pt;
   padding-right: 20pt;
   font-family: -apple-system, "Open Sans", sans-serif;
@@ -68,6 +68,7 @@ span.transportation {
 input {
   font-size: 16pt;
   font-family: -apple-system, "Open Sans", sans-serif;
+  font-weight: 300;
 }
 
 input.box {
@@ -75,6 +76,7 @@ input.box {
   font-size: 16pt;
   font-family: -apple-system, "Open Sans", sans-serif;
   padding: 10pt;
+  font-weight: 300;
 }
 
 #transportations {
