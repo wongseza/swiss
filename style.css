@@ -8,7 +8,8 @@ button {
   border: 2pt solid #e00;
   border-radius: 15pt;
   color: white;
-  padding: 14pt 24pt;
+  margin: 14pt;
+  padding: 14pt 200pt;
   text-align: center;
   text-decoration: none;
   display: block;
