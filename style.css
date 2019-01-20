@@ -1,11 +1,11 @@
 body {
-  font-size: 16pt;
+  font-size: 17pt;
   font-family: -apple-system, "Open Sans", sans-serif;
   font-weight: 300;
 }
 
 h1 {
-  font-size: 24pt;
+  font-size: 20pt;
   text-align: center;
   font-weight: 300;
 }
@@ -39,12 +39,12 @@ td.isArrivalTime {
 }
 
 td.fromOption, td.toOption {
-  font-size: 16pt;
+  font-size: 17pt;
   font-family: -apple-system, "Open Sans", sans-serif;
 }
 
 td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
-  font-size: 16pt;
+  font-size: 17pt;
   font-weight: 600;
   font-family: -apple-system, "Open Sans", sans-serif;
 }
@@ -71,7 +71,15 @@ input {
   font-weight: 200;
 }
 
-input.box {
+input.location {
+  margin: 0pt 10pt 5pt 10pt;
+  font-size: 18pt;
+  font-family: -apple-system, "Open Sans", sans-serif;
+  padding: 10pt;
+  font-weight: 300;
+}
+
+input.datetime {
   margin: 0pt 10pt 5pt 10pt;
   font-size: 16pt;
   font-family: -apple-system, "Open Sans", sans-serif;
