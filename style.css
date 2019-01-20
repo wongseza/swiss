@@ -2,6 +2,10 @@
   font-family: -apple-system, "Open Sans", sans-serif;
 }
 
+button:focus {
+  outline: 0;
+}
+
 button.search {
   cursor: pointer;
   background-color: #e00;
@@ -22,13 +26,36 @@ table, th, td {
   margin-left: auto;
   margin-right: auto;
   border-spacing: 0pt;
+  border-collapse: collapse;
   #border: 1pt solid black;
 }
 
-table.locations {
-  border-spacing: 0pt;
-  border-width: 1pt;
-  border-color: black;
+th.result {
+  font-size: 14pt;
+  font-weight: 300;
+  height: 30pt;
+}
+
+td.resultFrom, td.resultTo, td.resultDeparture, td.resultArrival, td.resultDuration, td.resultTransfers, td.resultProducts {
+  padding: 5pt;
+  text-align: center;
+  font-size: 16pt;
+  height: 60pt;
+  background-color: #eee;
+  border-top: 3pt solid white;
+  border-bottom: 3pt solid white;
+}
+
+td.resultFrom, td.resultTo, td.resultProducts {
+  width: 200pt;
+}
+
+td.resultDeparture, td.resultArrival, td.resultDuration, td.resultTransfers {
+  width: 60pt;
+}
+
+table.result {
+  display: none;
 }
 
 th.header, td.header {
@@ -44,11 +71,11 @@ td.isArrivalTime {
   padding-left: 13pt;
 }
 
-td.fromOption, td.toOption {
+td.optionFrom, td.optionTo {
   font-size: 17pt;
 }
 
-td.fromOption > span.sl-keyword, td.toOption > span.sl-keyword {
+td.optionFrom > span.sl-keyword, td.optionTo > span.sl-keyword {
   font-size: 17pt;
   font-weight: 600;
 }

@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body>
-    <form autocomplete="off">
+    <form autocomplete="off" onsubmit="return false">
       <table class="locations">
         <tr>
           <th class="header">From</th>
@@ -18,16 +18,16 @@
           <td><input class="location" id="from" size="28"></input></td>
           <td><input class="location" id="to" size="28"></input></td>
         </tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
-        <tr><td class="fromOption"></td><td class="toOption"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
+        <tr><td class="optionFrom"></td><td class="optionTo"></td></tr>
       </table>
       <table class="parameter">
         <tr>
@@ -41,13 +41,13 @@
           <td valign="top" rowspan="3"><input class="datetime" type="time" id="time"></input></td>
           <td class="isArrivalTime" align="center">
             <label class="switch">
-              <input type="checkbox">
+              <input type="checkbox" id="isArrivalTime">
               <span class="slider round"></span>
             </label>
           </td>
           <td class="checkbox">
             <label class="switch">
-              <input type="checkbox" value="train" checked>
+              <input type="checkbox" id="train" checked>
               <span class="slider round">
                 <span class="transportation">Train</span>
               </span>
@@ -55,7 +55,7 @@
           </td>
           <td class="checkbox">
             <label class="switch">
-              <input type="checkbox" value="bus" checked>
+              <input type="checkbox" id="bus" checked>
               <span class="slider round">
                 <span class="transportation">Bus</span>
               </span>
@@ -66,7 +66,7 @@
           <td></td>
           <td class="checkbox">
             <label class="switch">
-              <input type="checkbox" value="tram" checked>
+              <input type="checkbox" id="tram" checked>
               <span class="slider round">
                 <span class="transportation">Tram</span>
               </span>
@@ -74,7 +74,7 @@
           </td>
           <td class="checkbox">
             <label class="switch">
-              <input type="checkbox" value="ship" checked>
+              <input type="checkbox" id="ship" checked>
               <span class="slider round">
                 <span class="transportation">Ship</span>
               </span>
@@ -85,7 +85,7 @@
           <td></td>
           <td class="checkbox">
             <label class="switch">
-              <input type="checkbox" value="cableway" checked>
+              <input type="checkbox" id="cableway" checked>
               <span class="slider round">
                 <span class="transportation">Cableway</span>
               </span>
@@ -95,6 +95,62 @@
       </table>
       <button class="search">Search</button>
     </form>
+    <table class="result">
+      <tr>
+        <th class="result"></th>
+        <th class="result"></th>
+        <th class="result">Departure</th>
+        <th class="result">Arrival</th>
+        <th class="result">Duration</th>
+        <th class="result">Transfers</th>
+        <th class="result"></th>
+      </tr>
+      <tr>
+        <td class="resultFrom"></td>
+        <td class="resultTo"></td>
+        <td class="resultDeparture"></td>
+        <td class="resultArrival"></td>
+        <td class="resultDuration"></td>
+        <td class="resultTransfers"></td>
+        <td class="resultProducts"></td>
+      </tr>
+      <tr>
+        <td class="resultFrom"></td>
+        <td class="resultTo"></td>
+        <td class="resultDeparture"></td>
+        <td class="resultArrival"></td>
+        <td class="resultDuration"></td>
+        <td class="resultTransfers"></td>
+        <td class="resultProducts"></td>
+      </tr>
+      <tr>
+        <td class="resultFrom"></td>
+        <td class="resultTo"></td>
+        <td class="resultDeparture"></td>
+        <td class="resultArrival"></td>
+        <td class="resultDuration"></td>
+        <td class="resultTransfers"></td>
+        <td class="resultProducts"></td>
+      </tr>
+      <tr>
+        <td class="resultFrom"></td>
+        <td class="resultTo"></td>
+        <td class="resultDeparture"></td>
+        <td class="resultArrival"></td>
+        <td class="resultDuration"></td>
+        <td class="resultTransfers"></td>
+        <td class="resultProducts"></td>
+      </tr>
+      <tr>
+        <td class="resultFrom"></td>
+        <td class="resultTo"></td>
+        <td class="resultDeparture"></td>
+        <td class="resultArrival"></td>
+        <td class="resultDuration"></td>
+        <td class="resultTransfers"></td>
+        <td class="resultProducts"></td>
+      </tr>
+    </table>
   </body>
   <script src="script.js"></script>
 </html>
