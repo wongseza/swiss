@@ -79,7 +79,7 @@ search.addEventListener('click', function() {
     return;
   }
   
-  var url = "http://transport.opendata.ch/v1/connections?limit=5";
+  var url = "https://transport.opendata.ch/v1/connections?limit=5";
   url += "&from=" + fromValue;
   url += "&to=" + toValue;
   url += "&date=" + dateValue;
