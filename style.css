@@ -116,7 +116,7 @@ input.box {
   content: "";
   height: 20pt;
   width: 20pt;
-  left: 3pt;
+  left: 4pt;
   bottom: 3pt;
   background-color: white;
   -webkit-transition: .4s;
@@ -128,9 +128,9 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(20pt);
-  -ms-transform: translateX(20pt);
-  transform: translateX(20pt);
+  -webkit-transform: translateX(18pt);
+  -ms-transform: translateX(18pt);
+  transform: translateX(18pt);
 }
 
 /* Rounded sliders */
