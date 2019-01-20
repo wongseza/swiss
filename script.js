@@ -21,6 +21,7 @@ var optionToList = document.querySelectorAll('td.optionTo');
 var parameter = document.querySelector('table.parameter');
 var result = document.querySelector('table.result');
 var search = document.querySelector('button.search');
+var loader = document.querySelector('div.loader');
 var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train"];
 var searchAlready = false;
 
@@ -104,6 +105,9 @@ search.addEventListener('click', function() {
       url += "&transportations[]=cableway";
     }
   }
+  searchAlready = false;
+  result.style.display = "none";
+  loader.style.display = "block";
   httpGet(url, connectionsCallback, connectionsCount);
 });
 
@@ -141,8 +145,14 @@ function connectionsCallback(json, type, callCount) {
     resultArrivalList[i].innerHTML = connections[i].to.arrival.substring(11, 16);
     resultDurationList[i].innerHTML = connections[i].duration.substring(3, 8);
     resultTransfersList[i].innerHTML = connections[i].transfers;
-    resultProductsList[i].innerHTML = connections[i].products.join(", ");
+    var listSize = connections[i].products.length;
+    if (listSize > 5) {
+      resultProductsList[i].innerHTML = connections[i].products.slice(0, listSize / 2).join(", ") + ",<br/>" + connections[i].products.slice(listSize / 2, listSize).join(", ");
+    } else {
+      resultProductsList[i].innerHTML = connections[i].products.join(", ");
+    }
   }
+  loader.style.display = "none";
   result.style.display = "table";
   searchAlready = true;
 }

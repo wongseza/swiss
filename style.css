@@ -37,7 +37,7 @@ th.result {
 }
 
 td.resultFromTo, td.resultDeparture, td.resultArrival, td.resultDuration, td.resultTransfers, td.resultProducts {
-  padding: 5pt 30pt;
+  padding: 5pt 20pt;
   text-align: center;
   font-size: 14pt;
   height: 60pt;
@@ -169,4 +169,20 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.loader {
+  border: 16pt solid #eee;
+  border-top: 16pt solid #e00;
+  border-radius: 50%;
+  width: 120pt;
+  height: 120pt;
+  animation: spin 2s linear infinite;
+  margin: 30pt auto;
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
