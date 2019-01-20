@@ -4,6 +4,13 @@ body {
   font-weight: 100;
 }
 
+h1 {
+  font-size: 24pt;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  text-align: center;
+}
+
 table, th, td {
   margin-left: auto;
   margin-right: auto;
@@ -99,7 +106,7 @@ input.box {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #ffaaaa;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -117,7 +124,7 @@ input.box {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #eb0000;
 }
 
 input:focus + .slider {
