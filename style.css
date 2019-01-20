@@ -1,13 +1,8 @@
-body {
-  font-size: 17pt;
-  font-family: -apple-system, "Open Sans", sans-serif;
-  font-weight: 300;
-}
-
 h1 {
   font-size: 20pt;
   text-align: center;
-  font-weight: 300;
+  font-weight: 400;
+  font-family: -apple-system, "Open Sans", sans-serif;
 }
 
 table, th, td {
@@ -63,6 +58,8 @@ span.transportation {
   padding-left: 55pt;
   padding-right: 20pt;
   font-family: -apple-system, "Open Sans", sans-serif;
+  font-size: 18pt;
+  font-weight: 300;
 }
 
 input {
