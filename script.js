@@ -129,16 +129,22 @@ function connectionsCallback(json, type, callCount) {
   var resultTransfersList = document.querySelectorAll('td.resultTransfers');
   var resultProductsList = document.querySelectorAll('td.resultProducts');
   
+  result.style.display = "none";
   for (i = 0; i < resultFromToList.length; i++) {
-    resultFromToList[i].innerHTML = "";
-    resultDepartureList[i].innerHTML = "";
-    resultArrivalList[i].innerHTML = "";
-    resultDurationList[i].innerHTML = "";
-    resultTransfersList[i].innerHTML = "";
-    resultProductsList[i].innerHTML = "";
+    resultFromToList[i].style.display = "none";
+    resultDepartureList[i].style.display = "none";
+    resultArrivalList[i].style.display = "none";
+    resultDurationList[i].style.display = "none";
+    resultTransfersList[i].style.display = "none";
+    resultProductsList[i].style.display = "none";
   }
   
   var connections = json.connections;
+  if (connections.length == 0) {
+    loader.style.display = "none";
+    alert("There is no connection between these 2 stations.")
+    return;
+  }
   for (i = 0; i < connections.length; i++) {
     resultFromToList[i].innerHTML = connections[i].from.station.name + "<br/>" + connections[i].to.station.name;
     resultDepartureList[i].innerHTML = connections[i].from.departure.substring(11, 16);
@@ -151,6 +157,12 @@ function connectionsCallback(json, type, callCount) {
     } else {
       resultProductsList[i].innerHTML = connections[i].products.join(", ");
     }
+    resultFromToList[i].style.display = "table-cell";
+    resultDepartureList[i].style.display = "table-cell";
+    resultArrivalList[i].style.display = "table-cell";
+    resultDurationList[i].style.display = "table-cell";
+    resultTransfersList[i].style.display = "table-cell";
+    resultProductsList[i].style.display = "table-cell";
   }
   loader.style.display = "none";
   result.style.display = "table";
