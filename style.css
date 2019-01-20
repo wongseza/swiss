@@ -1,13 +1,12 @@
 body {
   font-size: 16pt;
   font-family: -apple-system, "Open Sans", sans-serif;
-  font-weight: 200;
 }
 
 h1 {
   font-size: 24pt;
-  font-weight: 200;
   text-align: center;
+  font-weight: 400;
 }
 
 table, th, td {
@@ -26,12 +25,12 @@ table.locations {
 
 th.header, td.header {
   font-size: 14pt;
-  font-weight: 100;
   text-align: left;
   font-family: -apple-system, "Open Sans", sans-serif;
   padding-top: 10pt;
   padding-left: 13pt;
   padding-bottom: 3pt;
+  font-weight: 400;
 }
 
 td.isArrivalTime {
@@ -66,14 +65,12 @@ span.transportation {
 
 input {
   font-size: 16pt;
-  font-weight: 200;
   font-family: -apple-system, "Open Sans", sans-serif;
 }
 
 input.box {
   margin: 0pt 10pt 5pt 10pt;
   font-size: 16pt;
-  font-weight: 200;
   font-family: -apple-system, "Open Sans", sans-serif;
   padding: 10pt;
 }
@@ -106,7 +103,7 @@ input.box {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ff8888;
+  background-color: #f99;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -124,7 +121,7 @@ input.box {
 }
 
 input:checked + .slider {
-  background-color: #eb4444;
+  background-color: #e00;
 }
 
 input:checked + .slider:before {
