@@ -18,12 +18,15 @@ var cableway = document.querySelector('#cableway');
 // Others
 var optionFromList = document.querySelectorAll('td.optionFrom');
 var optionToList = document.querySelectorAll('td.optionTo');
+var connectionList = document.querySelectorAll('tr.connection');
 var parameter = document.querySelector('table.parameter');
-var result = document.querySelector('table.result');
+var connectionTable = document.querySelector('table.connection');
 var search = document.querySelector('button.search');
 var loader = document.querySelector('div.loader');
 var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train"];
-var searchAlready = false;
+var showConnectionsAlready = false;
+var showSectionsIdx = -1;
+var sectionsList = [];
 
 var currentTime = new Date();
 date.valueAsDate = currentTime;
@@ -55,6 +58,105 @@ optionToList.forEach(function(optionTo) {
   });
 });
 
+connectionList.forEach(function(connection) {
+  connection.addEventListener('click', function() {
+    var addIdx;
+    switch (connection.id) {
+      case "connection1":
+        addIdx = 0;
+        break;
+      case "connection2":
+        addIdx = 1;
+        break;
+      case "connection3":
+        addIdx = 2;
+        break;
+      case "connection4":
+        addIdx = 3;
+        break;
+      case "connection5":
+        addIdx = 4;
+        break;
+    }
+    
+    if (showSectionsIdx !== -1) {
+      var sectionRowList = document.querySelectorAll('tr.section');
+      sectionRowList.forEach(function(sectionRow) {
+        sectionRow.outerHTML = "";
+      });
+      if (showSectionsIdx === addIdx) {
+        showSectionsIdx = -1;
+        return;
+      }
+    }
+    showSectionsIdx = addIdx;
+    
+    var plusRow = 0;
+    var prevType = null;
+    for (i = 0; i < sectionsList[addIdx].length; i++) {
+      var walk = sectionsList[addIdx][i].walk;
+      if (walk != null && walk.duration === 0) {
+        plusRow--;
+        continue;
+      }
+      var journey = sectionsList[addIdx][i].journey;
+      var departure = sectionsList[addIdx][i].departure;
+      var arrival = sectionsList[addIdx][i].arrival;
+      var section = connectionTable.insertRow(addIdx + 2 + i + plusRow);
+      
+      if (prevType === "journey" && journey !== null) {
+        section.setAttribute("class", "section");
+        section.innerHTML += "<td class=\"sectionJourney walk\" colspan=\"7\">Change</td>";
+        plusRow++;
+        section = connectionTable.insertRow(addIdx + 2 + i + plusRow);
+      }
+      
+      if (walk !== null && walk.duration !== null) {
+        prevType = "walk";
+        var walk = walk.duration / 60;
+        var walkHours = Math.floor(walk / 60);
+        var walkMinutes = walk % 60;
+        var walkTime = "";
+        if (walkHours > 1) {
+          walkTime += walkHours + " hrs";
+        } else if (walkHours === 1) {
+          walkTime += "1 hr";
+        }
+        if (walkMinutes > 1) {
+          if (walkHours > 0) {
+            walkTime += " ";
+          }
+          walkTime += walkMinutes + " mins";
+        } else if (walkMinutes === 1) {
+          if (walkHours > 0) {
+            walkTime += " ";
+          }
+          walkTime += "1 min";
+        }
+        section.setAttribute("class", "section");
+        section.innerHTML += "<td class=\"sectionJourney walk\" colspan=\"7\">Walk (" + walkTime + ")</td>";
+      } else {
+        prevType = "journey";
+        section.setAttribute("class", "section");
+        var departurePlatform = departure.platform === null ? "" : ", Platform " + departure.platform;
+        var arrivalPlatform = arrival.platform === null ? "" : ", Platform " + arrival.platform;
+        section.innerHTML += "<td class=\"sectionJourney left\" colspan=\"2\">" + departure.station.name + departurePlatform + "<br/>" + arrival.station.name + arrivalPlatform + "</td>";
+        section.innerHTML += "<td class=\"sectionJourney\">" + departure.departure.substring(11, 16) + "</td>";
+        section.innerHTML += "<td class=\"sectionJourney\">" + arrival.arrival.substring(11, 16) + "</td>";
+        section.innerHTML += "<td class=\"sectionJourney\"></td>";
+        if (journey === null) {
+          section.innerHTML += "<td class=\"sectionJourney left\" colspan=\"2\">Walk</td>";
+        } else if (journey.name === journey.number) {
+          section.innerHTML += "<td class=\"sectionJourney left\" colspan=\"2\">" + journey.name + "<br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
+        } else {
+          section.innerHTML += "<td class=\"sectionJourney left\" colspan=\"2\">" + journey.name + " - " + journey.number + " <br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
+        }
+      }
+    }
+    showSectionsAlready = true;
+  });
+});
+
 search.addEventListener('click', function() {
   var fromValue = from.value;
   var toValue = to.value;
@@ -80,7 +182,7 @@ search.addEventListener('click', function() {
     return;
   }
   
-  var url = "https://transport.opendata.ch/v1/connections?limit=5";
+  var url = "https://transport.opendata.ch/v1/connections?limit=6";
   url += "&from=" + fromValue;
   url += "&to=" + toValue;
   url += "&date=" + dateValue;
@@ -105,8 +207,15 @@ search.addEventListener('click', function() {
       url += "&transportations[]=cableway";
     }
   }
-  searchAlready = false;
-  result.style.display = "none";
+  showConnectionsAlready = false;
+  connectionTable.style.display = "none";
+  if (showSectionsIdx !== -1) {
+    var sectionRowList = document.querySelectorAll('tr.section');
+    sectionRowList.forEach(function(sectionRow) {
+      sectionRow.outerHTML = "";
+    });
+    showSectionsIdx = -1;
+  }
   loader.style.display = "block";
   httpGet(url, connectionsCallback, connectionsCount);
 });
@@ -116,27 +225,23 @@ document.addEventListener('click', function() {
   hideOptions(optionToList);
   parameter.style.display = "table";
   search.style.display = "block";
-  if (searchAlready) {
-    result.style.display = "table";
+  if (showConnectionsAlready) {
+    connectionTable.style.display = "table";
   }
 });
 
 function connectionsCallback(json, type, callCount) {
-  var resultFromToList = document.querySelectorAll('td.resultFromTo');
-  var resultDepartureList = document.querySelectorAll('td.resultDeparture');
-  var resultArrivalList = document.querySelectorAll('td.resultArrival');
-  var resultDurationList = document.querySelectorAll('td.resultDuration');
-  var resultTransfersList = document.querySelectorAll('td.resultTransfers');
-  var resultProductsList = document.querySelectorAll('td.resultProducts');
+  var connectionFromToList = document.querySelectorAll('td.connectionFromTo');
+  var connectionPlatformList = document.querySelectorAll('td.connectionPlatform');
+  var connectionDepartureList = document.querySelectorAll('td.connectionDeparture');
+  var connectionArrivalList = document.querySelectorAll('td.connectionArrival');
+  var connectionDurationList = document.querySelectorAll('td.connectionDuration');
+  var connectionTransfersList = document.querySelectorAll('td.connectionTransfers');
+  var connectionProductsList = document.querySelectorAll('td.connectionProducts');
   
-  result.style.display = "none";
-  for (i = 0; i < resultFromToList.length; i++) {
-    resultFromToList[i].style.display = "none";
-    resultDepartureList[i].style.display = "none";
-    resultArrivalList[i].style.display = "none";
-    resultDurationList[i].style.display = "none";
-    resultTransfersList[i].style.display = "none";
-    resultProductsList[i].style.display = "none";
+  connectionTable.style.display = "none";
+  for (i = 0; i < connectionFromToList.length; i++) {
+    connectionList[i].style.display = "none";
   }
   
   var connections = json.connections;
@@ -145,28 +250,30 @@ function connectionsCallback(json, type, callCount) {
     alert("There is no connection between these 2 stations.")
     return;
   }
+  
+  connections = connections.slice(1, connections.length);
+  sectionsList = []
+  
   for (i = 0; i < connections.length; i++) {
-    resultFromToList[i].innerHTML = connections[i].from.station.name + "<br/>" + connections[i].to.station.name;
-    resultDepartureList[i].innerHTML = connections[i].from.departure.substring(11, 16);
-    resultArrivalList[i].innerHTML = connections[i].to.arrival.substring(11, 16);
-    resultDurationList[i].innerHTML = connections[i].duration.substring(3, 8);
-    resultTransfersList[i].innerHTML = connections[i].transfers;
+    connectionFromToList[i].innerHTML = connections[i].from.station.name + "<br/>" + connections[i].to.station.name;
+    connectionPlatformList[i].innerHTML = connections[i].from.platform;
+    connectionDepartureList[i].innerHTML = connections[i].from.departure.substring(11, 16);
+    connectionArrivalList[i].innerHTML = connections[i].to.arrival.substring(11, 16);
+    connectionDurationList[i].innerHTML = connections[i].duration.substring(3, 8);
+    connectionTransfersList[i].innerHTML = connections[i].transfers;
     var listSize = connections[i].products.length;
     if (listSize > 5) {
-      resultProductsList[i].innerHTML = connections[i].products.slice(0, listSize / 2).join(", ") + ",<br/>" + connections[i].products.slice(listSize / 2, listSize).join(", ");
+      connectionProductsList[i].innerHTML = connections[i].products.slice(0, listSize / 2).join(", ") + ",<br/>" + connections[i].products.slice(listSize / 2, listSize).join(", ");
     } else {
-      resultProductsList[i].innerHTML = connections[i].products.join(", ");
+      connectionProductsList[i].innerHTML = connections[i].products.join(", ");
     }
-    resultFromToList[i].style.display = "table-cell";
-    resultDepartureList[i].style.display = "table-cell";
-    resultArrivalList[i].style.display = "table-cell";
-    resultDurationList[i].style.display = "table-cell";
-    resultTransfersList[i].style.display = "table-cell";
-    resultProductsList[i].style.display = "table-cell";
+    connectionList[i].style.display = "table-row";
+    sectionsList.push(connections[i].sections);
   }
+  
   loader.style.display = "none";
-  result.style.display = "table";
-  searchAlready = true;
+  connectionTable.style.display = "table";
+  showConnectionsAlready = true;
 }
 
 function locationsCallback(json, type, callCount) {
@@ -210,12 +317,12 @@ function locationsCallback(json, type, callCount) {
   if (stationList.length > 0) {
     parameter.style.display = "none";
     search.style.display = "none";
-    result.style.display = "none";
+    connectionTable.style.display = "none";
   } else {
     parameter.style.display = "table";
     search.style.display = "block";
-    if (searchAlready) {
-      result.style.display = "table";
+    if (showConnectionsAlready) {
+      connectionTable.style.display = "table";
     }
   }
 }

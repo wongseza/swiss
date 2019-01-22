@@ -30,13 +30,14 @@ table, th, td {
   #border: 1pt solid black;
 }
 
-th.result {
+th.connection {
   font-size: 14pt;
   font-weight: 300;
   height: 30pt;
+  padding: 0pt 10pt;
 }
 
-td.resultFromTo, td.resultDeparture, td.resultArrival, td.resultDuration, td.resultTransfers, td.resultProducts {
+td.connectionFromTo, td.connectionPlatform, td.connectionDeparture, td.connectionArrival, td.connectionDuration, td.connectionTransfers, td.connectionProducts {
   padding: 5pt 20pt;
   text-align: center;
   font-size: 14pt;
@@ -46,11 +47,38 @@ td.resultFromTo, td.resultDeparture, td.resultArrival, td.resultDuration, td.res
   border-bottom: 3pt solid white;
 }
 
-td.resultFromTo, td.resultDeparture, td.resultProducts {
+td.connectionFromTo, td.connectionProducts {
   text-align: left;
 }
 
-table.result {
+td.sectionJourney {
+  padding: 5pt 20pt;
+  font-size: 14pt;
+  height: 60pt;
+  background-color: #fff;
+  border-bottom: 1pt solid #ddd;
+  text-align: center;
+}
+
+td.sectionJourney.walk {
+  padding: 5pt 20pt;
+  font-size: 12pt;
+  height: 30pt;
+  background-color: #f6f6f6;
+  border-bottom: 0pt;
+  text-align: left;
+}
+
+td.sectionJourney.left {
+  padding: 5pt 20pt;
+  font-size: 14pt;
+  height: 60pt;
+  background-color: #fff;
+  border-bottom: 1pt solid #ddd;
+  text-align: left;
+}
+
+table.connection {
   display: none;
 }
 
@@ -83,6 +111,10 @@ td.checkbox {
 
 td {
   padding: 0pt;
+}
+
+span.direction {
+  font-size: 12pt;
 }
 
 span.transportation {
