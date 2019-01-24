@@ -23,6 +23,7 @@ var parameter = document.querySelector('table.parameter');
 var connectionTable = document.querySelector('table.connection');
 var search = document.querySelector('button.search');
 var loader = document.querySelector('div.loader');
+var iconList = ["sl-icon-type-bus", "sl-icon-type-fun", "sl-icon-type-sb", "sl-icon-type-ship", "sl-icon-type-tram", "sl-icon-type-zug", "sl-icon-type-gondola", "sl-icon-type-chairlift", "sl-icon-type-train", "sl-icon-type-post", "sl-icon-type-night-bus", "sl-icon-type-strain", "sl-icon-type-night-strain", "sl-icon-type-express-train", "sl-icon-type-cablecar", "sl-icon-type-funicular"];
 var showConnectionsAlready = false;
 var showSectionsIdx = -1;
 var sectionsList = [];
@@ -278,7 +279,7 @@ function connectionsCallback(json, type, callCount) {
 function locationsCallback(json, type, callCount) {
   var stationList = []
   for (station of json) {
-    if (station.iconclass !== "sl-icon-type-adr") {
+    if (iconList.includes(station.iconclass)) {
       stationList.push(station);
     }
   }
