@@ -14,6 +14,7 @@ var tram = document.querySelector('#tram');
 var ship = document.querySelector('#ship');
 var bus = document.querySelector('#bus');
 var cableway = document.querySelector('#cableway');
+var reverse = document.querySelector('#reverse');
 
 // Others
 var optionFromList = document.querySelectorAll('td.optionFrom');
@@ -41,6 +42,13 @@ from.addEventListener('input', function() {
 to.addEventListener('input', function() {
   toCount++;
   httpGet('https://timetable.search.ch/api/completion.json?term=' + to.value, locationsCallback, toCount, 'to');
+});
+
+reverse.addEventListener('click', function() {
+  var fromValue = from.value;
+  var toValue = to.value;
+  from.value = toValue;
+  to.value = fromValue;
 });
 
 optionFromList.forEach(function(optionFrom) {

@@ -139,7 +139,7 @@ span.transportation {
 
 input.location {
   margin: 0pt 10pt 5pt 10pt;
-  font-size: 18pt;
+  font-size: 16pt;
   padding: 10pt;
   font-weight: 300;
 }
@@ -149,6 +149,17 @@ input.datetime {
   font-size: 15pt;
   padding: 10pt;
   font-weight: 400;
+}
+
+#reverse {
+  padding: 0pt 10pt;
+  width: 20pt;
+  height: 30pt;
+  transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
 }
 
 #transportations {
