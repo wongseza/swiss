@@ -37,7 +37,7 @@ th.connection {
   padding: 0pt 10pt;
 }
 
-td.connectionFromTo, td.connectionPlatform, td.connectionDeparture, td.connectionArrival, td.connectionDuration, td.connectionTransfers, td.connectionProducts {
+td.connectionFromTo, td.connectionDeparture, td.connectionArrival, td.connectionDuration, td.connectionTransfers, td.connectionProducts {
   padding: 5pt 20pt;
   text-align: center;
   font-size: 14pt;
@@ -51,7 +51,19 @@ td.connectionFromTo, td.connectionProducts {
   text-align: left;
 }
 
-td.sectionJourney {
+td.connectionFromTo {
+  min-width: 200pt;
+}
+
+td.connectionDeparture, td.connectionArrival, td.connectionDuration, td.connectionTransfers {
+  width: 40pt;
+}
+
+td.connectionProducts {
+  width: 120pt;
+}
+
+td.section {
   padding: 5pt 20pt;
   font-size: 14pt;
   height: 60pt;
@@ -60,7 +72,7 @@ td.sectionJourney {
   text-align: center;
 }
 
-td.sectionJourney.walk {
+td.section.walk {
   padding: 5pt 20pt;
   font-size: 12pt;
   height: 30pt;
@@ -69,7 +81,7 @@ td.sectionJourney.walk {
   text-align: left;
 }
 
-td.sectionJourney.left {
+td.section.left {
   padding: 5pt 20pt;
   font-size: 14pt;
   height: 60pt;

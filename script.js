@@ -30,7 +30,9 @@ var sectionsList = [];
 
 var currentTime = new Date();
 date.valueAsDate = currentTime;
-time.value = currentTime.toTimeString().substring(0, 5);
+//time.value = currentTime.toTimeString().substring(0, 5);
+time.value = "07:00";
+from.value = "Wilderswil";
 
 from.addEventListener('input', function() {
   fromCount++;
@@ -106,7 +108,7 @@ connectionList.forEach(function(connection) {
       
       if (prevType === "journey" && journey !== null) {
         section.setAttribute("class", "section");
-        section.innerHTML += "<td class=\"sectionJourney walk\" colspan=\"7\">Change</td>";
+        section.innerHTML += "<td class=\"section walk\" colspan=\"7\">Change</td>";
         plusRow++;
         section = connectionTable.insertRow(addIdx + 2 + i + plusRow);
       }
@@ -117,39 +119,32 @@ connectionList.forEach(function(connection) {
         var walkHours = Math.floor(walk / 60);
         var walkMinutes = walk % 60;
         var walkTime = "";
-        if (walkHours > 1) {
-          walkTime += walkHours + " hrs";
-        } else if (walkHours === 1) {
-          walkTime += "1 hr";
+        if (walkHours > 0) {
+          walkTime += walkHours + " h";
         }
-        if (walkMinutes > 1) {
+        if (walkMinutes > 0) {
           if (walkHours > 0) {
             walkTime += " ";
           }
-          walkTime += walkMinutes + " mins";
-        } else if (walkMinutes === 1) {
-          if (walkHours > 0) {
-            walkTime += " ";
-          }
-          walkTime += "1 min";
+          walkTime += walkMinutes + " min";
         }
         section.setAttribute("class", "section");
-        section.innerHTML += "<td class=\"sectionJourney walk\" colspan=\"7\">Walk (" + walkTime + ")</td>";
+        section.innerHTML += "<td class=\"section walk\" colspan=\"7\">Walk (" + walkTime + ")</td>";
       } else {
         prevType = "journey";
         section.setAttribute("class", "section");
         var departurePlatform = departure.platform === null ? "" : ", Platform " + departure.platform;
         var arrivalPlatform = arrival.platform === null ? "" : ", Platform " + arrival.platform;
-        section.innerHTML += "<td class=\"sectionJourney left\" colspan=\"2\">" + departure.station.name + departurePlatform + "<br/>" + arrival.station.name + arrivalPlatform + "</td>";
-        section.innerHTML += "<td class=\"sectionJourney\">" + departure.departure.substring(11, 16) + "</td>";
-        section.innerHTML += "<td class=\"sectionJourney\">" + arrival.arrival.substring(11, 16) + "</td>";
-        section.innerHTML += "<td class=\"sectionJourney\"></td>";
+        section.innerHTML += "<td class=\"section left\">" + departure.station.name + departurePlatform + "<br/>" + arrival.station.name + arrivalPlatform + "</td>";
+        section.innerHTML += "<td class=\"section\">" + departure.departure.substring(11, 16) + "</td>";
+        section.innerHTML += "<td class=\"section\">" + arrival.arrival.substring(11, 16) + "</td>";
+        section.innerHTML += "<td class=\"section\"></td>";
         if (journey === null) {
-          section.innerHTML += "<td class=\"sectionJourney left\" colspan=\"2\">Walk</td>";
+          section.innerHTML += "<td class=\"section left\" colspan=\"2\">Walk</td>";
         } else if (journey.name === journey.number) {
-          section.innerHTML += "<td class=\"sectionJourney left\" colspan=\"2\">" + journey.name + "<br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
+          section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.name + "<br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
         } else {
-          section.innerHTML += "<td class=\"sectionJourney left\" colspan=\"2\">" + journey.name + " - " + journey.number + " <br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
+          section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.name + " - " + journey.number + " <br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
         }
       }
     }
@@ -256,17 +251,11 @@ function connectionsCallback(json, type, callCount) {
   
   for (i = 0; i < connections.length; i++) {
     connectionFromToList[i].innerHTML = connections[i].from.station.name + "<br/>" + connections[i].to.station.name;
-    connectionPlatformList[i].innerHTML = connections[i].from.platform;
     connectionDepartureList[i].innerHTML = connections[i].from.departure.substring(11, 16);
     connectionArrivalList[i].innerHTML = connections[i].to.arrival.substring(11, 16);
     connectionDurationList[i].innerHTML = connections[i].duration.substring(3, 8);
     connectionTransfersList[i].innerHTML = connections[i].transfers;
-    var listSize = connections[i].products.length;
-    if (listSize > 5) {
-      connectionProductsList[i].innerHTML = connections[i].products.slice(0, listSize / 2).join(", ") + ",<br/>" + connections[i].products.slice(listSize / 2, listSize).join(", ");
-    } else {
-      connectionProductsList[i].innerHTML = connections[i].products.join(", ");
-    }
+    connectionProductsList[i].innerHTML = connections[i].products.join(", ");
     connectionList[i].style.display = "table-row";
     sectionsList.push(connections[i].sections);
   }
