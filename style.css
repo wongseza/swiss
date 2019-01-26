@@ -107,11 +107,11 @@ td.isArrivalTime {
   padding-left: 13pt;
 }
 
-td.optionFrom, td.optionTo {
+td.optionFrom, td.optionTo, td.optionVia1, td.optionVia2 {
   font-size: 17pt;
 }
 
-td.optionFrom > span.sl-keyword, td.optionTo > span.sl-keyword {
+td.optionFrom > span.sl-keyword, td.optionTo > span.sl-keyword, td.optionVia1 > span.sl-keyword, td.optionVia2 > span.sl-keyword {
   font-size: 17pt;
   font-weight: 600;
 }

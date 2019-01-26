@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Swiss Planner</title>
     <link rel="stylesheet" href="style.css?version=9">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
           <td><input type="search" class="location" id="from" size="28"></input></td>
-          <td><img src="reverse.png" id="reverse"></img></td>
+          <td><img src="resources/reverse.png" id="reverse"></img></td>
           <td><input type="search" class="location" id="to" size="28"></input></td>
         </tr>
         <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
@@ -30,6 +30,26 @@
         <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
         <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
         <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
+        <tr class="via">
+          <th class="header">Via 1</th>
+          <th class="header"></th>
+          <th class="header">Via 2</th>
+        </tr>
+        <tr class="via">
+          <td><input type="search" class="location" id="via1" size="28"></input></td>
+          <td></td>
+          <td><input type="search" class="location" id="via2" size="28"></input></td>
+        </tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
+        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
       </table>
       <table class="parameter">
         <tr>
@@ -57,7 +77,7 @@
           </td>
           <td class="checkbox">
             <label class="switch">
-              <input type="checkbox" id="bus" checked>
+              <input type="checkbox" id="bus">
               <span class="slider round">
                 <span class="transportation">Bus</span>
               </span>

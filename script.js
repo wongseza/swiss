@@ -1,11 +1,15 @@
 // Counter
 var fromCount = 0;
 var toCount = 0;
+var via1Count = 0;
+var via2Count = 0;
 var connectionsCount = 0;
 
 // Input parameter
 var from = document.querySelector('#from');
 var to = document.querySelector('#to');
+var via1 = document.querySelector('#via1');
+var via2 = document.querySelector('#via2');
 var date = document.querySelector('#date');
 var time = document.querySelector('#time');
 var isArrivalTime = document.querySelector('#isArrivalTime');
@@ -19,6 +23,9 @@ var reverse = document.querySelector('#reverse');
 // Others
 var optionFromList = document.querySelectorAll('td.optionFrom');
 var optionToList = document.querySelectorAll('td.optionTo');
+var optionVia1List = document.querySelectorAll('td.optionVia1');
+var optionVia2List = document.querySelectorAll('td.optionVia2');
+var viaRowList = document.querySelectorAll('tr.via');
 var connectionList = document.querySelectorAll('tr.connection');
 var parameter = document.querySelector('table.parameter');
 var connectionTable = document.querySelector('table.connection');
@@ -36,19 +43,45 @@ time.value = "07:00";
 from.value = "Wilderswil";
 
 from.addEventListener('input', function() {
+  if (from.value === "") {
+    return;
+  }
   fromCount++;
   httpGet('https://timetable.search.ch/api/completion.json?term=' + from.value, locationsCallback, fromCount, 'from');
 });
 to.addEventListener('input', function() {
+  if (to.value === "") {
+    return;
+  }
   toCount++;
   httpGet('https://timetable.search.ch/api/completion.json?term=' + to.value, locationsCallback, toCount, 'to');
+});
+via1.addEventListener('input', function() {
+  if (via1.value === "") {
+    return;
+  }
+  via1Count++;
+  httpGet('https://timetable.search.ch/api/completion.json?term=' + via1.value, locationsCallback, via1Count, 'via1');
+});
+via2.addEventListener('input', function() {
+  if (via2.value === "") {
+    return;
+  }
+  via2Count++;
+  httpGet('https://timetable.search.ch/api/completion.json?term=' + via2.value, locationsCallback, via2Count, 'via2');
 });
 
 reverse.addEventListener('click', function() {
   var fromValue = from.value;
   var toValue = to.value;
+  var via1Value = via1.value;
+  var via2Value = via2.value;
   from.value = toValue;
   to.value = fromValue;
+  if (via2Value !== "") {
+    via1.value = via2Value;
+    via2.value = via1Value;
+  }
 });
 
 optionFromList.forEach(function(optionFrom) {
@@ -65,6 +98,22 @@ optionToList.forEach(function(optionTo) {
       return;
     }
     to.value = optionTo.value;
+  });
+});
+optionVia1List.forEach(function(optionVia1) {
+  optionVia1.addEventListener('click', function() {
+    if (optionVia1.innerHTML === "") {
+      return;
+    }
+    via1.value = optionVia1.value;
+  });
+});
+optionVia2List.forEach(function(optionVia2) {
+  optionVia2.addEventListener('click', function() {
+    if (optionVia2.innerHTML === "") {
+      return;
+    }
+    via2.value = optionVia2.value;
   });
 });
 
@@ -105,24 +154,25 @@ connectionList.forEach(function(connection) {
     var prevType = null;
     for (i = 0; i < sectionsList[addIdx].length; i++) {
       var walk = sectionsList[addIdx][i].walk;
-      if (walk != null && walk.duration === 0) {
-        plusRow--;
-        continue;
-      }
       var journey = sectionsList[addIdx][i].journey;
       var departure = sectionsList[addIdx][i].departure;
       var arrival = sectionsList[addIdx][i].arrival;
       var section = connectionTable.insertRow(addIdx + 2 + i + plusRow);
+      section.setAttribute("class", "section");
       
       if (prevType === "journey" && journey !== null) {
-        section.setAttribute("class", "section");
         section.innerHTML += "<td class=\"section walk\" colspan=\"7\">Change</td>";
         plusRow++;
         section = connectionTable.insertRow(addIdx + 2 + i + plusRow);
+        section.setAttribute("class", "section");
       }
       
-      if (walk !== null && walk.duration !== null) {
+      if (walk !== null) {
         prevType = "walk";
+        if (walk.duration === 0) {
+          section.innerHTML += "<td class=\"section walk\" colspan=\"7\">Walk</td>";
+          continue;
+        }
         var walk = walk.duration / 60;
         var walkHours = Math.floor(walk / 60);
         var walkMinutes = walk % 60;
@@ -136,20 +186,16 @@ connectionList.forEach(function(connection) {
           }
           walkTime += walkMinutes + " min";
         }
-        section.setAttribute("class", "section");
         section.innerHTML += "<td class=\"section walk\" colspan=\"7\">Walk (" + walkTime + ")</td>";
       } else {
         prevType = "journey";
-        section.setAttribute("class", "section");
         var departurePlatform = departure.platform === null ? "" : ", Platform " + departure.platform;
         var arrivalPlatform = arrival.platform === null ? "" : ", Platform " + arrival.platform;
         section.innerHTML += "<td class=\"section left\">" + departure.station.name + departurePlatform + "<br/>" + arrival.station.name + arrivalPlatform + "</td>";
         section.innerHTML += "<td class=\"section\">" + departure.departure.substring(11, 16) + "</td>";
         section.innerHTML += "<td class=\"section\">" + arrival.arrival.substring(11, 16) + "</td>";
         section.innerHTML += "<td class=\"section\"></td>";
-        if (journey === null) {
-          section.innerHTML += "<td class=\"section left\" colspan=\"2\">Walk</td>";
-        } else if (journey.name === journey.number) {
+        if (journey.name === journey.number) {
           section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.name + "<br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
         } else {
           section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.name + " - " + journey.number + " <br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
@@ -163,6 +209,8 @@ connectionList.forEach(function(connection) {
 search.addEventListener('click', function() {
   var fromValue = from.value;
   var toValue = to.value;
+  var via1Value = via1.value;
+  var via2Value = via2.value;
   var dateValue = date.value;
   var timeValue = time.value;
   var isArrivalTimeValue = isArrivalTime.checked;
@@ -180,6 +228,10 @@ search.addEventListener('click', function() {
     alert("Please specify to.");
     return;
   }
+  if (!via1Value && via2Value) {
+    alert("Please specify via 1.");
+    return;
+  }
   if (!trainValue && !tramValue && !shipValue && !busValue && !cablewayValue) {
     alert("Please select at least one transportation mode.");
     return;
@@ -188,6 +240,12 @@ search.addEventListener('click', function() {
   var url = "https://transport.opendata.ch/v1/connections?limit=6";
   url += "&from=" + fromValue;
   url += "&to=" + toValue;
+  if (via1Value) {
+    url += "&via[]=" + via1Value;
+  }
+  if (via2Value) {
+    url += "&via[]=" + via2Value;
+  }
   url += "&date=" + dateValue;
   url += "&time=" + timeValue;
   if (isArrivalTimeValue) {
@@ -220,14 +278,20 @@ search.addEventListener('click', function() {
     showSectionsIdx = -1;
   }
   loader.style.display = "block";
+  console.log(url);
   httpGet(url, connectionsCallback, connectionsCount);
 });
 
 document.addEventListener('click', function() {
   hideOptions(optionFromList);
   hideOptions(optionToList);
+  hideOptions(optionVia1List);
+  hideOptions(optionVia2List);
   parameter.style.display = "table";
   search.style.display = "block";
+  for (viaRow of viaRowList) {
+    viaRow.style.display = "table-row";
+  }
   if (showConnectionsAlready) {
     connectionTable.style.display = "table";
   }
@@ -295,7 +359,7 @@ function locationsCallback(json, type, callCount) {
       optionFromList[i].innerHTML = stationList[i].html ? stationList[i].html : stationList[i].label;
       optionFromList[i].style.padding = "5pt 5pt 5pt 20pt";
     }
-  } else {
+  } else if (type === 'to') {
     if (toCount != callCount) {
       return;
     }
@@ -310,11 +374,46 @@ function locationsCallback(json, type, callCount) {
       optionToList[i].innerHTML = stationList[i].html ? stationList[i].html : stationList[i].label;
       optionToList[i].style.padding = "5pt 5pt 5pt 20pt";
     }
+  } else if (type === 'via1') {
+    if (via1Count != callCount) {
+      return;
+    }
+    for (optionVia1 of optionVia1List) {
+      optionVia1.value = "";
+      optionVia1.innerHTML = "";
+      optionVia1.style.backgroundColor = "white";
+      optionVia1.style.padding = "0pt";
+    }
+    for (var i = 0; i < stationList.length; i++) {
+      optionVia1List[i].value = stationList[i].label;
+      optionVia1List[i].innerHTML = stationList[i].html ? stationList[i].html : stationList[i].label;
+      optionVia1List[i].style.padding = "5pt 5pt 5pt 20pt";
+    }
+  } else if (type === 'via2') {
+    if (via2Count != callCount) {
+      return;
+    }
+    for (optionVia2 of optionVia2List) {
+      optionVia2.value = "";
+      optionVia2.innerHTML = "";
+      optionVia2.style.backgroundColor = "white";
+      optionVia2.style.padding = "0pt";
+    }
+    for (var i = 0; i < stationList.length; i++) {
+      optionVia2List[i].value = stationList[i].label;
+      optionVia2List[i].innerHTML = stationList[i].html ? stationList[i].html : stationList[i].label;
+      optionVia2List[i].style.padding = "5pt 5pt 5pt 20pt";
+    }
   }
   if (stationList.length > 0) {
     parameter.style.display = "none";
     search.style.display = "none";
     connectionTable.style.display = "none";
+    if (type === "from" || type === "to") {
+      for (viaRow of viaRowList) {
+        viaRow.style.display = "none";
+      }
+    }
   } else {
     parameter.style.display = "table";
     search.style.display = "block";
