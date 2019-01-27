@@ -43,31 +43,35 @@ time.value = "07:00";
 from.value = "Wilderswil";
 
 from.addEventListener('input', function() {
+  fromCount++;
   if (from.value === "") {
+    resetState();
     return;
   }
-  fromCount++;
   httpGet('https://timetable.search.ch/api/completion.json?term=' + from.value, locationsCallback, fromCount, 'from');
 });
 to.addEventListener('input', function() {
+  toCount++;
   if (to.value === "") {
+    resetState();
     return;
   }
-  toCount++;
   httpGet('https://timetable.search.ch/api/completion.json?term=' + to.value, locationsCallback, toCount, 'to');
 });
 via1.addEventListener('input', function() {
+  via1Count++;
   if (via1.value === "") {
+    resetState();
     return;
   }
-  via1Count++;
   httpGet('https://timetable.search.ch/api/completion.json?term=' + via1.value, locationsCallback, via1Count, 'via1');
 });
 via2.addEventListener('input', function() {
+  via2Count++;
   if (via2.value === "") {
+    resetState();
     return;
   }
-  via2Count++;
   httpGet('https://timetable.search.ch/api/completion.json?term=' + via2.value, locationsCallback, via2Count, 'via2');
 });
 
@@ -283,6 +287,10 @@ search.addEventListener('click', function() {
 });
 
 document.addEventListener('click', function() {
+  resetState();
+});
+
+function resetState() {
   hideOptions(optionFromList);
   hideOptions(optionToList);
   hideOptions(optionVia1List);
@@ -295,7 +303,7 @@ document.addEventListener('click', function() {
   if (showConnectionsAlready) {
     connectionTable.style.display = "table";
   }
-});
+}
 
 function connectionsCallback(json, type, callCount) {
   var connectionFromToList = document.querySelectorAll('td.connectionFromTo');
