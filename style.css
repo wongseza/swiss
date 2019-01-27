@@ -2,6 +2,10 @@
   font-family: -apple-system, "Open Sans", sans-serif;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 button:focus {
   outline: 0;
 }
