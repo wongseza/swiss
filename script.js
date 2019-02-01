@@ -170,14 +170,9 @@ connectionList.forEach(function(connection) {
         section = connectionTable.insertRow(addIdx + 2 + i + plusRow);
         section.setAttribute("class", "section");
       }
-      
       if (walk !== null) {
         prevType = "walk";
-        if (walk.duration === 0) {
-          section.innerHTML += "<td class=\"section walk\" colspan=\"7\">Walk</td>";
-          continue;
-        }
-        var walk = walk.duration / 60;
+        var walk = (walk.duration === null || walk.duration === 0) ? (arrival.arrivalTimestamp - departure.departureTimestamp) / 60 : walk.duration / 60;
         var walkHours = Math.floor(walk / 60);
         var walkMinutes = walk % 60;
         var walkTime = "";
@@ -282,7 +277,6 @@ search.addEventListener('click', function() {
     showSectionsIdx = -1;
   }
   loader.style.display = "block";
-  console.log(url);
   httpGet(url, connectionsCallback, connectionsCount);
 });
 
