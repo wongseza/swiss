@@ -1,3 +1,19 @@
+postData(123)
+
+function postData(input) {
+    console.log("call");
+    $.ajax({
+        type: "POST",
+        url: "/test.py",
+        data: { param: input },
+        success: callbackFunc
+    });
+}
+
+function callbackFunc(response) {
+    alert(response);
+}
+
 // Counter
 var fromCount = 0;
 var toCount = 0;
