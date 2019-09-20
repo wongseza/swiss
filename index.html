@@ -2,173 +2,26 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Swiss Planner</title>
-    <link rel="stylesheet" href="style.css?version=11">
-    <link rel="shortcut icon" type="image/x-icon" href="resources/favicon.ico">
+    <title>Korea Nov 2019</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css?version=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
-    <form autocomplete="off">
-      <table class="locations">
-        <tr>
-          <th class="header">From</th>
-          <th class="header"></th>
-          <th class="header">To</th>
-        </tr>
-        <tr>
-          <td><input type="search" class="location" id="from" size="28"></input></td>
-          <td><img src="resources/reverse.png" id="reverse"></img></td>
-          <td><input type="search" class="location" id="to" size="28"></input></td>
-        </tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr><td class="optionFrom"></td><td></td><td class="optionTo"></td></tr>
-        <tr class="via">
-          <th class="header">Via 1</th>
-          <th class="header"></th>
-          <th class="header">Via 2</th>
-        </tr>
-        <tr class="via">
-          <td><input type="search" class="location" id="via1" size="28"></input></td>
-          <td></td>
-          <td><input type="search" class="location" id="via2" size="28"></input></td>
-        </tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-        <tr><td class="optionVia1"></td><td></td><td class="optionVia2"></td></tr>
-      </table>
-      <table class="parameter">
-        <tr>
-          <th class="header">Date</th>
-          <th class="header">Time</th>
-          <th class="header">Departure/Arrival</th>
-          <th class="header" id="transportations" colspan="3">Transportations</td>
-        </tr>
-        <tr>
-          <td valign="top" rowspan="3"><input class="datetime" type="date" id="date"></input></td>
-          <td valign="top" rowspan="3"><input class="datetime" type="time" id="time"></input></td>
-          <td class="isArrivalTime" align="center">
-            <label class="switch">
-              <input type="checkbox" id="isArrivalTime">
-              <span class="slider round"></span>
-            </label>
-          </td>
-          <td class="checkbox">
-            <label class="switch">
-              <input type="checkbox" id="train" checked>
-              <span class="slider round">
-                <span class="transportation">Train</span>
-              </span>
-            </label>
-          </td>
-          <td class="checkbox">
-            <label class="switch">
-              <input type="checkbox" id="bus">
-              <span class="slider round">
-                <span class="transportation">Bus</span>
-              </span>
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td class="checkbox">
-            <label class="switch">
-              <input type="checkbox" id="tram" checked>
-              <span class="slider round">
-                <span class="transportation">Tram</span>
-              </span>
-            </label>
-          </td>
-          <td class="checkbox">
-            <label class="switch">
-              <input type="checkbox" id="ship" checked>
-              <span class="slider round">
-                <span class="transportation">Ship</span>
-              </span>
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td class="checkbox">
-            <label class="switch">
-              <input type="checkbox" id="cableway" checked>
-              <span class="slider round">
-                <span class="transportation">Cableway</span>
-              </span>
-            </label>
-          </td>
-        </tr>
-      </table>
-      <button class="search" type="button">Search</button>
-    </form>
-    <table class="connection">
-      <tr>
-        <th class="connection"></th>
-        <th class="connection">Departure</th>
-        <th class="connection">Arrival</th>
-        <th class="connection">Duration</th>
-        <th class="connection">Transfers</th>
-        <th class="connection"></th>
-      </tr>
-      <tr class="connection" id="connection1">
-        <td class="connectionFromTo"></td>
-        <td class="connectionDeparture"></td>
-        <td class="connectionArrival"></td>
-        <td class="connectionDuration"></td>
-        <td class="connectionTransfers"></td>
-        <td class="connectionProducts"></td>
-      </tr>
-      <tr class="connection" id="connection2">
-        <td class="connectionFromTo"></td>
-        <td class="connectionDeparture"></td>
-        <td class="connectionArrival"></td>
-        <td class="connectionDuration"></td>
-        <td class="connectionTransfers"></td>
-        <td class="connectionProducts"></td>
-      </tr>
-      <tr class="connection" id="connection3">
-        <td class="connectionFromTo"></td>
-        <td class="connectionDeparture"></td>
-        <td class="connectionArrival"></td>
-        <td class="connectionDuration"></td>
-        <td class="connectionTransfers"></td>
-        <td class="connectionProducts"></td>
-      </tr>
-      <tr class="connection" id="connection4">
-        <td class="connectionFromTo"></td>
-        <td class="connectionDeparture"></td>
-        <td class="connectionArrival"></td>
-        <td class="connectionDuration"></td>
-        <td class="connectionTransfers"></td>
-        <td class="connectionProducts"></td>
-      </tr>
-      <tr class="connection" id="connection5">
-        <td class="connectionFromTo"></td>
-        <td class="connectionDeparture"></td>
-        <td class="connectionArrival"></td>
-        <td class="connectionDuration"></td>
-        <td class="connectionTransfers"></td>
-        <td class="connectionProducts"></td>
-      </tr>
-    </table>
-    <div class="loader"></div>
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-center">
+        <div class="col align-self-center">1</div>
+        <div class="col align-self-center">2</div>
+        <div class="col align-self-center">3</div>
+        <div class="w-100"></div>
+        <div class="col align-self-center">4</div>
+        <div class="col align-self-center">5</div>
+        <div class="col align-self-center">6</div>
+        <div class="w-100"></div>
+        <div class="col align-self-center">7</div>
+        <div class="col align-self-center">8</div>
+        <div class="col align-self-center">9</div>
+      </div>
+    </div>
   </body>
-  <script src="script.js?version=1"></script>
 </html>
