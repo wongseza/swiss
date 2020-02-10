@@ -1,5 +1,3 @@
-postData(123)
-
 function postData(input) {
     console.log("call");
     $.ajax({
