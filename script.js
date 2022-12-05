@@ -250,7 +250,7 @@ search.addEventListener('click', function() {
     return;
   }
   
-  var url = "https://transport.opendata.ch/v1/connections?limit=6";
+  var url = "https://transport.opendata.ch/v1/connections?limit=5";
   url += "&from=" + fromValue;
   url += "&to=" + toValue;
   if (via1Value) {
