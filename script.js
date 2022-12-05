@@ -211,7 +211,7 @@ connectionList.forEach(function(connection) {
         if (journey.name === journey.number) {
           section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.name + "<br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
         } else {
-          section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.name + " - " + journey.number + " <br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
+          section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.category + " - " + journey.number + " <br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
         }
       }
     }
