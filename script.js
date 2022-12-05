@@ -208,8 +208,8 @@ connectionList.forEach(function(connection) {
         section.innerHTML += "<td class=\"section\">" + departure.departure.substring(11, 16) + "</td>";
         section.innerHTML += "<td class=\"section\">" + arrival.arrival.substring(11, 16) + "</td>";
         section.innerHTML += "<td class=\"section\"></td>";
-        if (journey.name === journey.number) {
-          section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.name + "<br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
+        if (journey.category === journey.number) {
+          section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.category + "<br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
         } else {
           section.innerHTML += "<td class=\"section left\" colspan=\"2\">" + journey.category + " - " + journey.number + " <br/><span class=\"direction\">Direction " + journey.to + "</span></td>";
         }
