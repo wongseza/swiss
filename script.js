@@ -334,7 +334,7 @@ function connectionsCallback(json, type, callCount) {
     return;
   }
   
-  connections = connections.slice(1, connections.length);
+  //connections = connections.slice(1, connections.length);
   sectionsList = []
   
   for (i = 0; i < connections.length; i++) {
