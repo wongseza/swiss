@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-theme="eye-care">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>คู่มือเตรียมสัมภาษณ์ Senior Product Manager @ Agoda (กรุงเทพฯ) - Mobile & Desktop Edition</title>
+    <title>คู่มือเตรียมสัมภาษณ์ Senior Product Manager @ Agoda - Eye-Care Edition</title>
     <style>
+        /* 🎨 Theme CSS Variables */
         :root {
+            /* Default: Eye-Care Warm Sepia */
+            --primary: #1E3A8A;
+            --secondary: #2563EB;
+            --accent-bg: #EBF3FE;
+            --text-main: #2C323B;
+            --text-muted: #64748B;
+            --bg-body: #F4F1EA;
+            --bg-card: #FAF8F5;
+            --border-color: #E2DCD2;
+            --script-bg: #EAF7ED;
+            --script-border: #10B981;
+            --alert-bg: #FDF2F2;
+            --alert-border: #EF4444;
+            --code-bg: #1E293B;
+            --code-text: #38BDF8;
+            --example-bg: #FCF8EC;
+            --example-border: #F59E0B;
+            --toc-bg: #EBF3FE;
+            --table-header-bg: #1E3A8A;
+            --table-header-text: #FFFFFF;
+            --table-stripe: #F0EAE1;
+        }
+
+        [data-theme="light"] {
             --primary: #1A2B4C;
             --secondary: #0073E6;
             --accent-bg: #E6F2FF;
@@ -20,11 +45,38 @@
             --alert-border: #EF4444;
             --code-bg: #0F172A;
             --code-text: #38BDF8;
+            --example-bg: #FFFBEB;
+            --example-border: #F59E0B;
+            --toc-bg: #E6F2FF;
+            --table-header-bg: #1A2B4C;
+            --table-header-text: #FFFFFF;
+            --table-stripe: #F8FAFC;
         }
 
-        * {
-            box-sizing: border-box;
+        [data-theme="dark"] {
+            --primary: #60A5FA;
+            --secondary: #3B82F6;
+            --accent-bg: #1E293B;
+            --text-main: #E2E8F0;
+            --text-muted: #94A3B8;
+            --bg-body: #0F172A;
+            --bg-card: #1E293B;
+            --border-color: #334155;
+            --script-bg: #064E3B;
+            --script-border: #10B981;
+            --alert-bg: #7F1D1D;
+            --alert-border: #EF4444;
+            --code-bg: #020617;
+            --code-text: #38BDF8;
+            --example-bg: #451A03;
+            --example-border: #F59E0B;
+            --toc-bg: #1E293B;
+            --table-header-bg: #1E3A8A;
+            --table-header-text: #FFFFFF;
+            --table-stripe: #0F172A;
         }
+
+        * { box-sizing: border-box; transition: background-color 0.25s ease, color 0.25s ease; }
 
         body {
             font-family: 'Sarabun', 'Thonburi', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -36,18 +88,54 @@
             -webkit-text-size-adjust: 100%;
         }
 
+        /* 🔘 Floating Theme Toggle Switcher */
+        .theme-toggle-container {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 9999;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 4px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 4px;
+        }
+
+        .theme-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .theme-btn.active {
+            background: var(--secondary);
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
         .container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 0 auto;
             background: var(--bg-card);
-            padding: 35px 30px;
+            padding: 40px 35px;
             border-radius: 14px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            margin-top: 25px;
         }
 
         h1 {
             color: var(--primary);
-            font-size: 26px;
+            font-size: 27px;
             border-bottom: 4px solid var(--secondary);
             padding-bottom: 12px;
             margin-top: 0;
@@ -59,7 +147,7 @@
             color: var(--text-muted);
             margin-top: -6px;
             margin-bottom: 25px;
-            background: #F8FAFC;
+            background: var(--accent-bg);
             padding: 12px 16px;
             border-radius: 6px;
             border-left: 4px solid var(--secondary);
@@ -67,87 +155,51 @@
 
         h2 {
             color: var(--primary);
-            font-size: 20px;
-            margin-top: 35px;
+            font-size: 20.5px;
+            margin-top: 38px;
             border-left: 5px solid var(--secondary);
             padding-left: 12px;
-            background: #F8FAFC;
+            background: var(--accent-bg);
             padding-top: 8px;
             padding-bottom: 8px;
             border-radius: 0 6px 6px 0;
         }
 
-        h3 {
-            color: var(--secondary);
-            font-size: 17px;
-            margin-top: 22px;
-            margin-bottom: 10px;
-        }
-
-        h4 {
-            color: var(--primary);
-            font-size: 15px;
-            margin-top: 16px;
-            margin-bottom: 8px;
-        }
+        h3 { color: var(--secondary); font-size: 17.5px; margin-top: 24px; margin-bottom: 10px; }
+        h4 { color: var(--primary); font-size: 15.5px; margin-top: 18px; margin-bottom: 8px; }
 
         .toc {
-            background: var(--accent-bg);
-            border: 1px solid #BFDBFE;
+            background: var(--toc-bg);
+            border: 1px solid var(--border-color);
             border-left: 5px solid var(--secondary);
-            padding: 20px 24px;
+            padding: 22px 26px;
             border-radius: 8px;
             margin-bottom: 30px;
         }
 
-        .toc h3 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 17.5px;
-        }
-
-        .toc ul {
-            margin: 0;
-            padding-left: 18px;
-        }
-
-        .toc li {
-            margin-bottom: 8px;
-        }
-
-        .toc a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .toc a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
+        .toc h3 { margin-top: 0; color: var(--primary); font-size: 18px; }
+        .toc ul { margin: 0; padding-left: 18px; }
+        .toc li { margin-bottom: 8px; }
+        .toc a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .toc a:hover { color: var(--secondary); text-decoration: underline; }
 
         .star-card {
-            background: #F8FAFC;
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 22px;
+            padding: 22px;
+            margin-bottom: 24px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
-        .star-card h3 {
-            margin-top: 0;
-            border-bottom: 2px solid #E2E8F0;
-            padding-bottom: 8px;
-        }
+        .star-card h3 { margin-top: 0; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
 
         .example-box {
-            background: #FFFBEB;
-            border-left: 5px solid #F59E0B;
-            padding: 15px 18px;
+            background: var(--example-bg);
+            border-left: 5px solid var(--example-border);
+            padding: 16px 20px;
             border-radius: 6px;
-            margin: 15px 0;
+            margin: 16px 0;
             font-size: 14px;
         }
 
@@ -168,38 +220,37 @@
         .script-box {
             background: var(--script-bg);
             border-left: 5px solid var(--script-border);
-            padding: 15px 18px;
+            padding: 16px 20px;
             border-radius: 6px;
-            margin: 14px 0;
+            margin: 15px 0;
             font-size: 14px;
         }
 
         .script-box-en {
-            background: #EFF6FF;
-            border-left: 5px solid #3B82F6;
-            padding: 15px 18px;
+            background: var(--accent-bg);
+            border-left: 5px solid var(--secondary);
+            padding: 16px 20px;
             border-radius: 6px;
-            margin: 14px 0;
+            margin: 15px 0;
             font-size: 14px;
         }
 
         .alert-box {
             background: var(--alert-bg);
             border-left: 5px solid var(--alert-border);
-            padding: 15px 18px;
+            padding: 16px 20px;
             border-radius: 6px;
-            margin: 14px 0;
+            margin: 15px 0;
         }
 
         .glossary-box {
-            background: #F3F4F6;
-            border: 1px solid #D1D5DB;
+            background: var(--accent-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 18px;
-            margin: 18px 0;
+            padding: 20px;
+            margin: 20px 0;
         }
 
-        /* Responsive Table Container */
         .table-responsive {
             width: 100%;
             overflow-x: auto;
@@ -213,36 +264,21 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 13.5px;
-            min-width: 600px; /* Ensures table remains readable on mobile via scrolling */
+            min-width: 620px;
         }
 
         th, td {
             border: 1px solid var(--border-color);
-            padding: 10px 12px;
+            padding: 11px 13px;
             text-align: left;
             vertical-align: top;
         }
 
-        th {
-            background-color: var(--primary);
-            color: #ffffff;
-            font-weight: 600;
-            white-space: nowrap;
-        }
+        th { background-color: var(--table-header-bg); color: var(--table-header-text); font-weight: 600; white-space: nowrap; }
+        tr:nth-child(even) { background-color: var(--table-stripe); }
 
-        tr:nth-child(even) {
-            background-color: #F8FAFC;
-        }
-
-        ul, ol {
-            padding-left: 20px;
-            margin-top: 6px;
-            margin-bottom: 14px;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
+        ul, ol { padding-left: 20px; margin-top: 6px; margin-bottom: 14px; }
+        li { margin-bottom: 5px; }
 
         .badge {
             display: inline-block;
@@ -255,65 +291,47 @@
             margin-right: 4px;
             white-space: nowrap;
         }
-
         .badge-red { background: #EF4444; }
         .badge-orange { background: #F97316; }
         .badge-green { background: #10B981; }
         .badge-purple { background: #8B5CF6; }
 
         .footer-note {
-            margin-top: 40px;
-            padding-top: 18px;
+            margin-top: 45px;
+            padding-top: 20px;
             border-top: 2px solid var(--border-color);
             text-align: center;
             color: var(--text-muted);
-            font-size: 12.5px;
+            font-size: 13px;
         }
 
-        /* Mobile Responsive Adjustments */
         @media (max-width: 768px) {
-            body {
-                padding: 8px 4px;
-            }
-            .container {
-                padding: 18px 14px;
-                border-radius: 8px;
-            }
-            h1 {
-                font-size: 21px;
-            }
-            h2 {
-                font-size: 17.5px;
-                padding-left: 10px;
-            }
-            h3 {
-                font-size: 15.5px;
-            }
-            .subtitle {
-                font-size: 13px;
-                padding: 10px 12px;
-            }
-            .toc {
-                padding: 14px 16px;
-            }
-            .star-card {
-                padding: 14px;
-            }
-            .code-block {
-                font-size: 12px;
-                padding: 12px;
-            }
-            .example-box, .script-box, .script-box-en, .alert-box, .glossary-box {
-                padding: 12px 14px;
-                font-size: 13px;
-            }
+            body { padding: 8px 4px; }
+            .container { padding: 18px 14px; border-radius: 8px; margin-top: 35px; }
+            h1 { font-size: 21px; }
+            h2 { font-size: 17.5px; padding-left: 10px; }
+            h3 { font-size: 15.5px; }
+            .theme-toggle-container { top: 8px; right: 8px; padding: 2px; }
+            .theme-btn { padding: 5px 9px; font-size: 11px; }
+            .subtitle { font-size: 13px; padding: 10px 12px; }
+            .toc { padding: 14px 16px; }
+            .star-card { padding: 14px; }
+            .code-block { font-size: 12px; padding: 12px; }
+            .example-box, .script-box, .script-box-en, .alert-box, .glossary-box { padding: 12px 14px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
 
+<!-- 🎛️ Theme Switcher Bar -->
+<div class="theme-toggle-container">
+    <button class="theme-btn active" id="btn-eye-care" onclick="setTheme('eye-care')">📜 ถนอมสายตา</button>
+    <button class="theme-btn" id="btn-light" onclick="setTheme('light')">☀️ กลางวัน</button>
+    <button class="theme-btn" id="btn-dark" onclick="setTheme('dark')">🌙 กลางคืน</button>
+</div>
+
 <div class="container">
-    <h1>📚 คู่มือเตรียมสัมภาษณ์ Senior Product Manager @ Agoda (กรุงเทพฯ) - Mobile & Desktop Edition</h1>
+    <h1>📚 คู่มือเตรียมสัมภาษณ์ Senior Product Manager @ Agoda - Ultimate Master Guide</h1>
     <div class="subtitle">
         <b>สำหรับผู้สมัครที่มี Background:</b> 10-Year Software Engineer, Lead Developer (6 YOE), Product Owner (PO), Scrum Master (SM)
     </div>
@@ -328,737 +346,346 @@
             <li><a href="#sec4">4. วัฒนธรรมองค์กร, ข้อควรระวัง และคลังคำถามสัมภาษณ์ 20 ข้อ (20 Interview Questions)</a></li>
             <li><a href="#sec5">5. การตอบคำถามเชิงโครงสร้างองค์กรและการเปลี่ยนสายงาน (Organizational & Career Transition)</a></li>
             <li><a href="#sec6">6. กลยุทธ์การเจรจาตัวเลขและสวัสดิการ (Compensation, Negotiation & HR Strategy)</a></li>
-            <li><a href="#sec7">7. รายละเอียดการทำงานจริง, ตารางงาน และกลยุทธ์บริหารหลายทีม (Multi-Pod Strategy)</a></li>
-            <li><a href="#sec8">8. คลังความรู้เชิงลึก (Knowledge Stack), A/B Testing Mechanics และ Product Landscape</a></li>
-            <li><a href="#sec9">9. กระบวนการสมัคร, Referral, LinkedIn, Resume & AI Questions Expansion</a></li>
+            <li><a href="#sec7">7. รายละเอียดการทำงานจริง, ตารางงาน, Multi-Pod Strategy และแผน 30-60-90 วัน</a></li>
+            <li><a href="#sec8">8. คลังความรู้เชิงลึก, A/B Testing Mechanics, Competitive Matrix & Advanced Architecture</a></li>
+            <li><a href="#sec9">9. Full Case Walkthrough Scripts, Objection Handling & Bar Raiser Decoding</a></li>
         </ul>
     </div>
 
     <!-- SECTION 1 -->
     <h2 id="sec1">1. 🎯 ภาพรวมโปรไฟล์และจุดขายหลัก (Candidate Profile & Value Proposition)</h2>
-    
     <h3>1.1 โครงสร้างประสบการณ์แบบ Full-Lifecycle Senior PM</h3>
     <ul>
-        <li><b>Executive & Stakeholder Alignment:</b> นำเสนอผลงานต่อผู้บริหารระดับ Directors (Product, Project, Engineering) สื่อสารด้วยกรอบความคิด <b>BLUF (Bottom Line Up Front)</b> นำสรุปและผลลัพธ์สำคัญขึ้นมาก่อนเสมอ</li>
-        <li><b>Customer Discovery & Insight:</b> รวบรวม Customer Use Cases และวิเคราะห์ Behavioral Edge Cases ของ Personas ต่างๆ อย่างละเอียดก่อนเริ่มพัฒนา</li>
-        <li><b>Strategic & Product Sense:</b> ยึดหลัก <b>Problem-First</b> และทำ Prioritization ด้วย <b>RICE Framework (Reach, Impact, Confidence, Effort)</b> เพื่อคำนวณ ROI</li>
-        <li><b>Technical Depth & Sizing:</b> สวมหมวก Ex-SWE 10 ปี ทำ Solution Design และ High-Level Sizing ประเมิน Technical Risks, Dependencies และ Capacity</li>
-        <li><b>Execution & Quality Guardrails:</b> สวมหมวก PO/SM เขียน Jira AC (<b>Given-When-Then BDD Format</b>), วาง Test Coverage Target (&gt;= 90%) และบริหาร Delivery Lifecycle</li>
-        <li><b>Leadership & Personal Discipline:</b> ทำ 1-on-1 Coaching, บริหาร External Vendors, จัดระเบียบเวลาด้วย <b>Outlook Timeboxing</b> และสร้าง Successors กำจัด Single Points of Failure (SPOF)</li>
+        <li><b>Executive Alignment:</b> นำเสนอผู้บริหารด้วยกรอบความคิด <b>BLUF (Bottom Line Up Front)</b> นำสรุปผลลัพธ์เชิงธุรกิจขึ้นก่อนเสมอ</li>
+        <li><b>Customer Discovery & Edge Cases:</b> รวบรวม Customer Use Cases และวิเคราะห์ Behavioral Edge Cases ของ Personas ต่างๆ อย่างถี่ถ้วน</li>
+        <li><b>Strategic & Product Sense:</b> ยึดหลัก <b>Problem-First</b> และทำ Prioritization ด้วย <b>RICE Framework</b> คำนวณ ROI สอดรับเป้าหมายธุรกิจ</li>
+        <li><b>Technical Depth & Sizing:</b> สวมหมวก Ex-SWE 10 ปี ทำ Solution Design, High-Level Sizing และประเมิน System Architecture Risks</li>
+        <li><b>Execution Rigor:</b> สวมหมวก PO/SM เขียน Jira AC (<b>BDD Given-When-Then</b>), กำหนด Test Coverage Guardrail (&gt;= 90%) และบริหาร Delivery</li>
+        <li><b>Leadership & Discipline:</b> บริหารเวลาด้วย <b>Outlook Timeboxing</b>, ทำ 1-on-1 Coaching และสร้าง Successors กำจัด SPOF</li>
     </ul>
 
-    <h3>1.2 จุดขายสำคัญที่ตอบโจทย์ Agoda (Why this profile fits Agoda)</h3>
-    <ol>
-        <li><b>Problem-First & Data-Driven:</b> เข้าใจทั้งการแก้ปัญหาของผู้ใช้และการวัดค่า Effort/Impact ออกมาเป็นตัวเลขเชิงปริมาณเพื่อประเมิน Business ROI ร่วมกับฝั่ง Business</li>
-        <li><b>Speed & Experimentation:</b> ชำนาญการทำ Sizing และหั่น Scope เพื่อสร้าง MVP ให้ปล่อย A/B Test ได้เร็วที่สุด ไม่ติดหล่ม Over-Engineering ตั้งแต่วันแรก</li>
-        <li><b>Execution Rigor & Quality Control:</b> เขียน AC ชัดเจน คุม Timeline เป็น วาง Test Coverage Guardrail และนำทีมส่งมอบงานจริงได้โดยไม่ทิ้ง Technical Debt สะสม</li>
-    </ol>
-
     <!-- SECTION 2 -->
-    <h2 id="sec2">2. 🚀 เคสประสบการณ์และบทพูดแบบ STAR Technique (STAR Experience Stories & Frameworks)</h2>
-
+    <h2 id="sec2">2. 🚀 เคสประสบการณ์และบทพูดแบบ STAR Technique (STAR Stories & Frameworks)</h2>
     <div class="star-card">
-        <h3>2.1 การทำ Solution Design & High-Level Sizing เพื่อการ Prioritize + ตัวอย่างการคำนวณ RICE Framework</h3>
-        <p><b>Key Concept:</b> ถือเป็น <i>"สะพานเชื่อมชิ้นสำคัญที่สุด"</i> (The Ultimate Bridge) ระหว่างสายงาน Engineering กับ Product Management เพราะ PM ต้องนำ Cost/Effort Score จาก RICE Framework ไปหารกับ Business Value เพื่อคำนวณหา ROI ในการตัดสินใจว่าฟีเจอร์นี้คุ้มค่าที่จะทำในสปรินต์นี้หรือไม่</p>
-        
-        <h4>Key Pitching Points:</h4>
-        <ul>
-            <li><b>Data-Backed & Risk-Adjusted Sizing:</b> ประเมินจาก Technical Complexity, Dependencies, Data Migration Risks, และ Testing Effort โดยไม่มโนตัวเลข</li>
-            <li><b>Good-Better-Best Options (Trade-off Matrix):</b> นำเสนอทางเลือกให้ PM เห็น Trade-off ชัดเจน เช่น <b>Option A (Quick Win / MVP):</b> ใช้เวลา 1 สัปดาห์ ปลดล็อก 80% ของ Value มี Tech Debt สั้นๆ vs <b>Option B (Full Scalable Architecture):</b> ใช้เวลา 4 สัปดาห์ รองรับ Multi-region & High Throughput</li>
-            <li><b>ช่วย PM คำนวณ ROI และ RICE Score:</b> ส่ง Sizing ที่ชัดเจนและแบ่งเป็น Phase ช่วยให้ PM วาง Roadmap เลือกทำสิ่งที่มี High Impact / Low Effort ก่อนเสมอ</li>
-        </ul>
-
-        <!-- RICE Expansion Box -->
+        <h3>2.1 Solution Design & Sizing + ตัวอย่างการคำนวณ RICE Framework</h3>
         <div class="example-box">
-            <h4>📊 ตัวอย่างคำนวณ RICE Score ในการประชุม Prioritization (RICE Worked Example):</h4>
-            <p><b>สูตรการคำนวณ:</b> <code>RICE Score = (Reach × Impact × Confidence) / Effort</code></p>
+            <h4>📊 ตัวอย่างการคำนวณ RICE Score (RICE Worked Example):</h4>
+            <p><b>สูตร:</b> <code>RICE Score = (Reach × Impact × Confidence) / Effort</code></p>
             <ul>
-                <li><b>Reach (จำนวนผู้ใช้/ทราฟฟิก):</b> วัดจากจำนวนคนหรือธุรกรรมที่จะได้รับผลกระทบในระยะเวลาที่กำหนด (เช่น ต่อเดือน)</li>
-                <li><b>Impact (ผลกระทบต่อเป้าหมาย):</b> ให้คะแนนเป็นระดับ: <code>3 = Massive</code>, <code>2 = High</code>, <code>1 = Medium</code>, <code>0.5 = Low</code>, <code>0.25 = Minimal</code></li>
-                <li><b>Confidence (ความมั่นใจ):</b> % ความมั่นใจในสมมติฐานและการประมาณการ: <code>100% = High Data Support</code>, <code>80% = Medium Data</code>, <code>50% = Low Data/Intuition</code></li>
-                <li><b>Effort (ทรัพยากร/เวลา):</b> คิดเป็น Person-Months หรือ Story Points ของทีม Dev/QA</li>
-            </ul>
-            <hr style="border:0; border-top: 1px solid #FCD34D; margin: 10px 0;"/>
-            <p><b>ตัวอย่างการเปรียบเทียบในสปรินต์:</b></p>
-            <ul>
-                <li><b>Feature A (Free Cancellation Badge บนหน้า Search):</b><br/>
-                Reach = 500,000 users/mo | Impact = 2 (High) | Confidence = 80% (0.8) | Effort = 0.5 Person-Month (1 สัปดาห์)<br/>
-                <code>RICE Score A = (500,000 × 2 × 0.8) / 0.5 = 1,600,000</code> 🏆 <b>(เลือกทำก่อน - ROI สูงมาก)</b></li>
-                <li><b>Feature B (Complex ML Personalization Engine):</b><br/>
-                Reach = 100,000 users/mo | Impact = 3 (Massive) | Confidence = 50% (0.5 - ยังไม่มี data พิสูจน์) | Effort = 2 Person-Months (8 สัปดาห์)<br/>
-                <code>RICE Score B = (100,000 × 3 × 0.5) / 2 = 75,000</code> (ชะลอไว้ทำ Phase 2)</li>
+                <li><b>Feature A (Free Cancellation Badge บนหน้า Search):</b> Reach = 500k | Impact = 2 | Confidence = 80% (0.8) | Effort = 0.5 Person-Month ➡️ <b>Score = 1,600,000</b> (เลือกทำก่อน)</li>
+                <li><b>Feature B (Complex ML Personalization Engine):</b> Reach = 100k | Impact = 3 | Confidence = 50% (0.5) | Effort = 2 Person-Months ➡️ <b>Score = 75,000</b> (ทำ Phase 2)</li>
             </ul>
         </div>
-
-        <h4>STAR Story:</h4>
-        <ul>
-            <li><b>S (Situation):</b> ช่วงทำโปรเจกต์ระบบ Personalization Recommender ฝั่ง PM อยากได้ระบบวิเคราะห์พฤติกรรมผู้ใช้แบบ Real-time เพื่อเพิ่ม Conversion Rate แต่ทีมมีทรัพยากรจำกัด และเวลาเหลือเพียง 1 เดือนก่อน Peak Season</li>
-            <li><b>T (Task):</b> บทบาทในฐานะ Lead SWE คือต้องทำ Solution Design และ High-Level Sizing เพื่อประเมินความเป็นไปได้เชิงเทคนิค และเสนอทางเลือกให้ PM นำไปตัดสินใจ Trade-off ระหว่าง Speed to Market vs System Complexity</li>
-            <li><b>A (Action):</b> ออกแบบ Solution ออกเป็น 2 ทางเลือกพร้อม Sizing ที่ชัดเจนส่งให้ PM:
-                <ol>
-                    <li><b>Option 1 (Heuristic-Based / Low Effort):</b> ใช้ Rule-based Logic ดึงข้อมูล Cache จาก Batch Processing ที่มีอยู่แล้ว (Sizing: 1 Developer / 4 วัน)</li>
-                    <li><b>Option 2 (Real-time ML Model / High Effort):</b> สร้าง Event Stream via Kafka + Real-time Scoring Service (Sizing: 3 Developers / 3 สัปดาห์)</li>
-                </ol>
-                กาง Trade-off Matrix ให้เห็นว่า Option 1 สามารถส่งมอบได้ในสปรินต์ถัดไป ให้ผลลัพธ์ Accuracy ราว 75% ของ Option 2 แต่ใช้ Effort เพียง 20% ทำให้ PM นำไปใส่ใน RICE Framework แล้วพบว่า Option 1 ให้ ROI สูงกว่ามากในแง่ Speed to Market</li>
-            <li><b>R (Result):</b> PM ตัดสินใจเลือก Option 1 เป็น Phase 1 เพื่อปล่อยออกไปทำ A/B Testing ภายใน 1 สัปดาห์ ผลปรากฏว่า Conversion Rate เพิ่มขึ้น 12% ทันที และข้อมูลจากการทำ Experiment ช่วยให้ออกแบบ Solution Phase 2 ได้ตรงจุดมากขึ้น โดยไม่เสียเวลาทำ Over-engineering ตั้งแต่แรก</li>
-        </ul>
+        <p><b>STAR Summary:</b> ออกแบบ Solution 2 ทางเลือก (Heuristic vs ML Real-time) กาง Trade-off ให้ PM เห็นภาพรวม ใช้ RICE เลือก Option 1 สปีดระบบออกสปรินต์ถัดไป ปล่อย A/B Test เพิ่ม Conversion Rate ได้ 12% ทันที</p>
     </div>
 
     <div class="star-card">
-        <h3>2.2 การบริหาร Trade-off ระหว่าง Bug Fix vs New Feature + ที่มาของ P0 / P1 / P2</h3>
-        
-        <!-- P0/P1/P2 Explanation -->
+        <h3>2.2 การบริหาร Bug Fix vs New Feature + ที่มาของ P0 / P1 / P2</h3>
         <div class="example-box">
-            <h4>💡 ที่มาและความหมายของ P0 / P1 / P2 (Priority Levels / Severity Matrix):</h4>
-            <p>ตัวอักษร <b>"P"</b> ย่อมาจาก <b>Priority / Priority Level</b> ในระบบการบริหารจัดการ Software Incidents และ Issue Triaging สากล โดยเรียงลำดับตามความรุนแรงและผลกระทบต่อธุรกิจ:</p>
+            <h4>💡 ที่มาและความหมายของ P0 / P1 / P2 (Severity Matrix):</h4>
             <ul>
-                <li><span class="badge badge-red">P0</span> <b>Priority Zero (Critical / Blocker / Stop the Line):</b> ปัญหาขั้นวิกฤตที่สุดที่ทำให้กระทบ Core Customer Journey หลัก เช่น Payment Gateway ล่ม, Checkout System Crash, หรือเกิด Data Leak ➡️ <b>SLA / Action:</b> ต้องเข้าแก้ทันที (Immediate Hotfix) 24/7 หยุดงานอื่นทั้งหมด</li>
-                <li><span class="badge badge-orange">P1</span> <b>Priority One (High Severity):</b> ฟังก์ชันสำคัญทำงานผิดพลาด แต่ระบบหลักยังไม่ล่ม หรือมีวิธีบรรเทาชั่วคราว (Workaround) เช่น คูปองส่วนลดไม่แสดงผลเฉพาะบางโรงแรม ➡️ <b>Action:</b> ต้องแก้ไขภายในสปรินต์ปัจจุบัน หรือจัดใส่ Hotfix ถัดไป</li>
-                <li><span class="badge badge-green">P2</span> <b>Priority Two (Medium/Low Severity / Cosmetic):</b> ข้อผิดพลาดเล็กน้อย เช่น UI Alignment เบี้ยว, ข้อความสะกดผิด, หรือกระทบผู้ใช้งานกลุ่มน้อยมาก (&lt; 1%) ➡️ <b>Action:</b> นำเข้า Backlog เพื่อประเมิน RICE Score แข่งกับ New Features ในสปรินต์ถัดไป</li>
+                <li><span class="badge badge-red">P0</span> <b>Priority Zero (Blocker / Stop the Line):</b> ปัญหาวิกฤตกระทบ Core Flow (Payment ล้ม, Checkout Crash) ➡️ Fix ทันที 24/7</li>
+                <li><span class="badge badge-orange">P1</span> <b>Priority One (High Severity):</b> ฟังก์ชันสำคัญพลาดแต่มี Workaround ➡️ Fix ภายในสปรินต์ปัจจุบัน/Hotfix</li>
+                <li><span class="badge badge-green">P2</span> <b>Priority Two (Medium/Low Severity):</b> Cosmetic Glitches กระทบผู้ใช้น้อย (&lt; 1%) ➡️ เข้า Backlog ประเมิน RICE</li>
             </ul>
         </div>
+        <p><b>STAR Summary:</b> จำแนก 15 Bugs ค้างปี พบ P1 เพียง 2 ตัว เจรจาจัดสรร Capacity (80% Feature, 10% Bug Fix, 10% Buffer) ส่ง Checkout ใหม่ทันแคมเปญ คุม Conversion +8% และไม่มี Critical Incidents</p>
+    </div>
 
-        <h4>Sprint Capacity Allocation (โควต้าใน Sprint):</h4>
+    <div class="star-card">
+        <h3>2.3 - 2.9 สรุปเคสประสบการณ์สำคัญอื่น ๆ</h3>
         <ul>
-            <li><span class="badge">70%</span> <b>Feature Development:</b> เพื่อขับเคลื่อน Business Goals / OKRs</li>
-            <li><span class="badge">20%</span> <b>Bug Fixes & Technical Debt:</b> เพื่อรักษาคุณภาพของ Product / Team & System Health</li>
-            <li><span class="badge">10%</span> <b>Buffer / Unplanned Tasks:</b> สำหรับ P0 Hotfixes หรือ Production Monitoring</li>
+            <li><b>2.3 External Vendor Integration:</b> ตกลง API Contract ล่วงหน้าด้วย Postman + Mock Server ลดเวลา E2E Testing ลง 2 สัปดาห์</li>
+            <li><b>2.4 Outlook Timeboxing:</b> บล็อกเวลา Deep Work 90 นาทีช่วงเช้า และจัดสรร Buffer Slot ช่วงบ่าย ลด OT คืน Productivity</li>
+            <li><b>2.5 Use Cases & Test Coverage:</b> รวบรวม B2B Checkout Use Cases และเขียน Jira AC แบบ BDD (Given-When-Then) ตั้ง Target Test Coverage 90%+ ลด Production Bugs ลง 60%</li>
+            <li><b>2.6 Executive BLUF Presentation:</b> เปิดการนำเสนอสปรินต์ต่อ Directors ด้วย BLUF Impact & User Demo ภายใน 8 นาที ได้รับ Sign-off ทันที</li>
+            <li><b>2.7 Dynamic Self-Serve Config:</b> สร้าง Self-serve Portal ให้ฝั่ง Business ปรับเปลี่ยนค่า Promo rules ได้เองใน &lt;5 นาที คืน Dev Bandwidth 40%</li>
+            <li><b>2.8 Knowledge Sharing & Successors:</b> จัด Component-Owner Matrix กำจัด SPOF เพิ่ม Bus Factor จาก 1 เป็น 3+ ในทุก Microservice</li>
+            <li><b>2.9 Retrospective & 5-Whys RCA:</b> ทำ Data-Backed Retro ลด Velocity Variance 25% และทำ Blameless 5 Whys ลด Post-release Defects ลง 40%</li>
         </ul>
-
-        <h4>STAR Story:</h4>
-        <ul>
-            <li><b>S (Situation):</b> ช่วงรันสปรินต์ก่อนเปิดตัวแคมเปญใหญ่ ทีมย่อยของเรามีคิวต้องส่งมอบ New Checkout Feature เพื่อเพิ่ม Conversion Rate แต่ในขณะเดียวกัน เรามีคิว Bugs ค้างอยู่ใน Backlog กว่า 15 รายการ รวมถึง Bug ด้าน UI Glitch บนมือถือบางรุ่นที่มี Traffic ประมาณ 3%</li>
-            <li><b>T (Task):</b> ฝั่ง Business ต้องการให้ดัน Feature ใหม่ให้เสร็จ 100% แต่ฝั่ง Dev และ QA กังวลเรื่องการสะสม Technical Debt และอยากเคลียร์ Bugs ทั้งหมดก่อน บทบาทคือต้องหา Trade-off ที่เหมาะสมที่สุดโดยไม่กระทบเป้าหมายธุรกิจและไม่ทำให้คุณภาพระบบพัง</li>
-            <li><b>A (Action):</b> 
-                <ol>
-                    <li><i>Bug Severity & Impact Triaging:</i> จับมือกับ QA และ Dev เพื่อทำ Bug Classification โดยดูจาก Affected Users (%) และ Revenue Impact พบว่าจาก 15 Bugs มีเพียง 2 รายการที่เป็น P1 Bug ที่มีผลต่อ Drop-off Rate จริงๆ ส่วนอีก 13 รายการเป็น P2 Minor Cosmetic Glitches</li>
-                    <li><i>RICE Score Comparison:</i> นำ Feature ใหม่ และ Bugs 2 รายการสำคัญนั้นมาเข้าตารางประเมิน ROI ร่วมกัน เพื่อให้ทุกคนเห็นตัวเลขตรงกันว่า Feature ใหม่สร้าง Reach/Impact ต่อภาพรวมสูงกว่าอย่างเห็นได้ชัด</li>
-                    <li><i>Negotiated Capacity Allocation:</i> เสนอทางเลือกให้ทีมว่า สปรินต์นี้เราจะ Fix เฉพาะ 2 High-Impact Bugs (ใช้ Effort 10%) เพื่อรักษา Quality ของ Core Flow แล้วทุ่ม Effort 80% ไปที่ New Feature ส่วน 13 Bugs ที่เหลือถูกจัดหมวดหมู่เข้า 'Bug Bash Day' หรือจัดสรรไว้ 15% ในสปรินต์ถัดไป</li>
-                </ol>
-            </li>
-            <li><b>R (Result):</b> ทีมสามารถส่งมอบ New Checkout Feature ได้ทันวันเปิดแคมเปญ ดัน Conversion Rate ขึ้นมาได้ 8% ในขณะที่ Core Flow ปราศจาก Critical Bugs ช่วยลดตั๋ว Support จากลูกค้าลงได้ 15% และทีม Dev รู้สึกว่าคำตัดสินใจนั้นมีตรรกะรองรับ</li>
-        </ul>
-    </div>
-
-    <div class="star-card">
-        <h3>2.3 การจัด Sync-up Meeting และบริหาร External Team</h3>
-        <h4>STAR Story:</h4>
-        <ul>
-            <li><b>S (Situation):</b> ช่วงทำโปรเจกต์ Integration ระบบ Payment Gateway ใหม่กับทีม Vendor ต่างประเทศ เพื่อรองรับวิธีการชำระเงินท้องถิ่นแบบใหม่ในภูมิภาค มีเวลาเพียง 8 สัปดาห์ในการทำ Integration & E2E Testing แต่ทีม External มีกระบวนการทำงานที่ค่อนข้างช้า ตอบอีเมลล่าช้า และยังไม่มี API Documentation ที่สมบูรณ์</li>
-            <li><b>T (Task):</b> บริหารจัดการและ Sync งานกับ External Team ให้ทันตามแผนโดยไม่กระทบวัน Launch</li>
-            <li><b>A (Action):</b> 
-                <ol>
-                    <li><i>Establish Single Communication Hub:</i> เปิด Slack Connect Channel ร่วมกัน และเปลี่ยนการคุยผ่านอีเมลสัปดาห์ละครั้ง มาเป็น Bi-weekly 30-min Sync-up Meeting ที่เน้นคุยเรื่อง Blockers เท่านั้น</li>
-                    <li><i>Technical Alignment & Contract First:</i> ใช้ความรู้ฝั่ง Dev ดึงทีม Tech ทั้งสองฝั่งมาตกลง API Specification & Data Mapping ตั้งแต่วันแรกผ่าน Postman Collection</li>
-                    <li><i>Proactive Dependency Tracking & Mocking:</i> สร้าง Joint Dependency Board (Jira/Trello) และสั่งให้ทีมภายในสร้าง Mock API Server ขึ้นมาก่อน เพื่อให้ทีมเราทำ Frontend & Business Logic ล่วงหน้าได้โดยไม่ต้องนั่งรอ</li>
-                </ol>
-            </li>
-            <li><b>R (Result):</b> ทีมทำ Integration Test ได้ทันทีที่ External API Sandbox พร้อม ลดเวลาการทำ E2E Testing ลงได้ 2 สัปดาห์ โปรเจกต์เปิดใช้งานได้ตรงตามเป้าหมาย 100% โดยไม่มี Downtime</li>
-        </ul>
-    </div>
-
-    <div class="star-card">
-        <h3>2.4 การบริหารเวลาส่วนบุคคลด้วย Outlook Timeboxing</h3>
-        <h4>STAR Story:</h4>
-        <ul>
-            <li><b>S (Situation):</b> ช่วงต้องควบทั้งบทบาท Lead/PO และคุมโปรเจกต์ใหญ่ วันๆ มีทั้งประชุมด่วน, แชตถามทางเทคนิคจากทีม Dev, งานเอกสาร Jira และการวาง Timeline ทำให้ช่วงแรกต้องทำงานล่วงเวลาบ่อยเพราะเวลากลางวันหมดไปกับ meetings</li>
-            <li><b>T (Task):</b> คุมปฏิทินเพื่อเรียกคืนเวลา Deep Work กลับมาสร้าง High-Value Output</li>
-            <li><b>A (Action):</b> 
-                <ol>
-                    <li><i>Block Non-Negotiable Focus Blocks:</i> บล็อกเวลาวันละ 90 นาทีช่วงเช้า (ช่วงที่สมองปลอดโปร่งที่สุด) เป็น Deep Work บน Outlook สำหรับงานวิเคราะห์ Data, เขียน AC และวาง Solution Architecture โดยเปิดโหมด Do Not Disturb</li>
-                    <li><i>Color-Coded Task Category:</i> ใช้สีแบ่ง Category ใน Outlook เพื่อมอนิเตอร์ว่าสัปดาห์นี้ใช้เวลากับ Meeting มากเกินไปหรือไม่ (ถ้าสีแดงเกิน 60% ทำ Meeting Pruning)</li>
-                    <li><i>Timeboxed Buffer for Unplanned Issues:</i> บล็อกเวลา 30-45 นาทีช่วงบ่ายไว้เป็น Flex/Buffer Slot เพื่อรองรับ Ad-hoc Questions หรือ Hotfixes โดยเฉพาะ</li>
-                </ol>
-            </li>
-            <li><b>R (Result):</b> Productivity และคุณภาพงานวางแผนเพิ่มขึ้นอย่างเห็นได้ชัด ส่งมอบ PRD และ Jira Tickets ที่มีคุณภาพสูงขึ้นได้ตรงตามกำหนด 100% โดยไม่ต้องทำ OT ปริมาณแชตติดตามงานลดลง และมีพลังงานเต็มที่ในการ Coaching ทีม</li>
-        </ul>
-    </div>
-
-    <div class="star-card">
-        <h3>2.5 การเก็บ Customer Use Case และวาง Test Coverage Strategy + ตัวอย่างการเขียน Jira AC (Given-When-Then)</h3>
-
-        <!-- BDD Acceptance Criteria Example -->
-        <div class="example-box">
-            <h4>📝 ตัวอย่างการเขียน Jira Acceptance Criteria (BDD Given-When-Then Format):</h4>
-            <p><b>User Story:</b> <i>As an Agoda user at Checkout, I want to apply a promotional discount code so that I can receive a reduced booking rate.</i></p>
-            
-            <div class="code-block">
-<b style="color: #F59E0B;">Scenario 1: Happy Path - Valid Promo Code Applied Successfully</b>
-<b>GIVEN</b> the user is on the Checkout Page with a booking total of $100
-<b>AND</b> the promo code "AGODA10" (10% off) is active and valid
-<b>WHEN</b> the user enters "AGODA10" into the Promo Code input field and clicks "Apply"
-<b>THEN</b> the system should calculate a discount of $10
-<b>AND</b> update the Total Payable Amount to $90
-<b>AND</b> display a green confirmation badge: "Promo code AGODA10 applied successfully!"
-<b>AND</b> fire the analytics event: `checkout_promo_applied` with parameters `{code: "AGODA10", discount_value: 10}`.
-
-<b style="color: #F59E0B;">Scenario 2: Edge Case - Expired Promo Code Handling</b>
-<b>GIVEN</b> the user enters the promo code "EXPIRED20"
-<b>WHEN</b> the user clicks "Apply"
-<b>THEN</b> the system should NOT recalculate the total amount
-<b>AND</b> display an inline error message: "This promo code has expired. Please try another code."
-<b>AND</b> keep the "Apply" button enabled for re-entry.
-
-<b style="color: #F59E0B;">Scenario 3: System SLA & Latency Guardrail</b>
-<b>GIVEN</b> the Payment/Discount Verification Service API takes > 2000ms to respond
-<b>WHEN</b> the user submits the promo code
-<b>THEN</b> the system should display a loading spinner for a maximum of 3000ms
-<b>AND</b> fallback gracefully to displaying: "Verification taking longer than usual. Please retry."
-            </div>
-        </div>
-
-        <h4>STAR Story:</h4>
-        <ul>
-            <li><b>S (Situation):</b> ช่วงปรับปรุงระบบ Checkout สำหรับลูกค้าระดับองค์กร (B2B/Enterprise Clients) ซึ่งมีความซับซ้อนของ Use Case สูงมาก และมักเจอปัญหาระบบล้มเหลวเฉพาะกรณี (Edge Cases) ทำให้ลูกค้าหลุดออกจาก Funnel</li>
-            <li><b>T (Task):</b> สำรวจพฤติกรรมและเงื่อนไขการใช้งานจริงของลูกค้า (Customer Use Cases) เพื่อนำมาทำ Re-architecture Requirement และวางเกณฑ์ Test Coverage ร่วมกับทีมให้ครอบคลุม 100% ของ Critical Journey</li>
-            <li><b>A (Action):</b> 
-                <ol>
-                    <li><i>Customer Use Case Mapping:</i> จัด Workshop สัมภาษณ์และวิเคราะห์ Log การใช้งานเพื่อจัดกลุ่มเป็น Use Case Matrix (เงื่อนไขการชำระเงินข้ามประเทศ, การแบ่งจ่ายหลายงวด, การจัดการภาษี) ทำให้พบ 5 Edge Cases สำคัญที่เดิมระบบไม่เคยรองรับ</li>
-                    <li><i>Scenario-Based Test Coverage Strategy:</i> นำ Use Cases ทั้งหมดมาแปลงเป็น Acceptance Criteria (Given-When-Then) ดังตัวอย่างข้างต้น และตกลงกับทีม QA/Dev เพื่อกำหนด E2E Test Coverage Targets โดยเน้นว่า Core Payment Flow ต้องมี Test Coverage อย่างน้อย 90% และต้องทำ Automated Regression Suite เพิ่มเติมก่อนปล่อย Production</li>
-                </ol>
-            </li>
-            <li><b>R (Result):</b> ส่งมอบระบบ Checkout ใหม่ที่รองรับ Use Cases ครอบคลุมพฤติกรรมลูกค้าได้ทั้งหมด ยอด Production Incidents / Bugs ลดลงกว่า 60% ในขณะที่ Conversion Rate ของกลุ่มลูกค้ารายใหญ่เพิ่มขึ้น 18%</li>
-        </ul>
-    </div>
-
-    <div class="star-card">
-        <h3>2.6 การนำเสนอแผนงาน/ผลงานแก่ผู้บริหารระดับ Director (BLUF Concept)</h3>
-        
-        <!-- BLUF Explanation Correction -->
-        <div class="example-box">
-            <h4>💡 นิยามและที่มาของ BLUF (Bottom Line Up Front):</h4>
-            <p>คำว่า <b>BLUF</b> ย่อมาจาก <b><u>B</u>ottom <u>L</u>ine <u>U</u>p <u>F</u>ront</b> (อักษร <b>"U"</b> มาจากคำว่า <b>Up Front</b> หมายถึง *"เอาผลสรุป/คำตอบสำคัญมาวางไว้ข้างหน้าสุดทันที"*)</p>
-            <p><b>หลักการใช้งาน:</b> Executives ระดับ Director/VP ไม่มีเวลาฟังอารัมภบทหรือ Technical Details 10 นาทีแรก การพูดแบบ BLUF คือเปิดประโยคแรกด้วย <b>คำตอบ, ผลลัพธ์เชิงธุรกิจ (Impact) หรือคำตัดสินใจที่ต้องการ</b> ทันที แล้วตามด้วยเหตุผลสนับสนุน 2-3 ข้อ</p>
-        </div>
-
-        <h4>STAR Story:</h4>
-        <ul>
-            <li><b>S (Situation):</b> ในสปรินต์สำคัญช่วงเตรียมระบบรับมือ Peak Season ต้องนำเสนอผลงาน Sprint Review และแผนงานสปรินต์ถัดไปให้แก่ Product Director (โฟกัส Growth/KPIs), Project Management Director (โฟกัส Timeline/Scope), และ Engineering Director (โฟกัส Stability/Code Quality)</li>
-            <li><b>T (Task):</b> บริหารความคาดหวังของผู้บริหารทุกฝ่ายที่มี Priority ขัดแย้งกัน</li>
-            <li><b>A (Action):</b> 
-                <ol>
-                    <li><i>Data-Driven Impact for Product:</i> เปิดด้วย BLUF Demo ฟีเจอร์ใหม่ผ่าน Real Customer Use Cases พร้อมแสดงข้อมูล A/B Test Simulation ว่าส่งผลต่อ Conversion Funnel อย่างไร</li>
-                    <li><i>Milestone & Risk Matrix for Project Mgmt:</i> กาง Sprint Burndown & Velocity Chart พร้อมแสดง Dependency & Test Coverage Matrix เพื่อยืนยันว่าโปรเจกต์อยู่ใน On-Track Timeline โดยไม่มี Scope Creep</li>
-                    <li><i>Architectural & Quality Assurance for Dev Director:</i> นำเสนอตัวเลข Automated Test Coverage (90%+ บน Core Flows) และ Latency Benchmark เพื่อพิสูจน์ว่าการส่งมอบงานด่วนครั้งนี้ไม่สร้าง Technical Debt สะสม</li>
-                </ol>
-            </li>
-            <li><b>R (Result):</b> บอร์ดผู้บริหารทุกฝ่ายให้ความเห็นชอบ (Sign-off) แผนงานสปรินต์อย่างเป็นเอกฉันท์โดยไม่มีข้อโต้แย้ง Engineering Director ชื่นชมการคุม Quality Guardrails ส่วน Product Director มั่นใจนำฟีเจอร์ไปปล่อย Experiment ต่อ</li>
-        </ul>
-    </div>
-
-    <div class="star-card">
-        <h3>2.7 Dynamic Self-Serve Configuration System (Initiate Config Workflow)</h3>
-        <p><b>STAR Summary:</b> Decouple การจัดการ Config ออกจาก Code Deployment เปลี่ยนค่า Promo rules / Fee thresholds ได้ทันทีจากระดับวันเหลือ &lt; 5 นาทีผ่าน Self-serve Admin Portal ลด Dev Bandwidth ได้ 40%</p>
-    </div>
-
-    <div class="star-card">
-        <h3>2.8 Knowledge Sharing & Successor Building (SPOF Elimination)</h3>
-        <p><b>STAR Summary:</b> จัด Component-Owner Matrix และ Bi-weekly Tech Talks กำจัด Single Point of Knowledge เพิ่ม Bus Factor จาก 1 เป็น 3+ คนในทุก Microservice สำคัญ</p>
-    </div>
-
-    <div class="star-card">
-        <h3>2.9 Retrospective Sessions & Post-Release Defect Analysis (RCA / 5 Whys)</h3>
-        <p><b>STAR Summary:</b> ทำ Data-Backed Retrospective ลด Commitment Variance -25% และทำ Blameless 5 Whys Post-Mortem ดัน Test Automation ลด Post-release P1/P2 Defects ลง 40%</p>
     </div>
 
     <!-- SECTION 3 -->
     <h2 id="sec3">3. 🔍 การวิเคราะห์ Gap Analysis, กลยุทธ์การปิด Gap 9 มิติ และคลังคำศัพท์เฉพาะ (Glossary)</h2>
-    
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
-                    <th style="width: 25%;">มิติ Gap</th>
-                    <th style="width: 35%;">สิ่งที่จะโดนถาม/ลองเชิงในห้องสัมภาษณ์</th>
-                    <th style="width: 40%;">แนวทาง / เทคนิคการตอบเพื่อปิด Gap</th>
+                    <th>มิติ Gap</th>
+                    <th>สิ่งที่จะโดนถาม/ลองเชิงในห้องสัมภาษณ์</th>
+                    <th>แนวทาง / เทคนิคการตอบเพื่อปิด Gap</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><b>1. Data Analytics & Experimentation</b></td>
-                    <td>North Star, Primary/Guardrail Metrics, p-value, Sample Size, SRM</td>
-                    <td>เน้นว่าคุ้นเคยกับ Data แม้เดิมเน้น System Data แต่ศึกษากรอบ A/B Testing & Funnel มาอย่างดี</td>
-                </tr>
-                <tr>
-                    <td><b>2. Strategic Thinking & Market Acumen</b></td>
-                    <td>0-to-1 Ambiguity, Unit Economics, CAC vs LTV, Take Rate, P&L</td>
-                    <td>ถอยกลับมาเริ่มที่ User Problem + Business Impact เสมอ ห้ามกระโดดไปคิด Architecture ทันที</td>
-                </tr>
-                <tr>
-                    <td><b>3. Customer Empathy & User Research</b></td>
-                    <td>Unmet Needs ก่อนมี Data, User Interview, Usability Testing</td>
-                    <td>โชว์การนำ User Feedback มาผสมกับ Data Analytics เพื่อตั้งสมมติฐานก่อนทำ PRD/Sizing</td>
-                </tr>
-                <tr>
-                    <td><b>4. Executive Alignment</b></td>
-                    <td>ขายไอเดียกับ Executives, การปฏิเสธเมื่อ Data บอกไม่คุ้มทำ</td>
-                    <td>ดึงทักษะ Data-backed Communication ใช้ Data และ Business ROI เป็นตัวเชื่อมโยง</td>
-                </tr>
-                <tr>
-                    <td><b>5. Monetization & Unit Economics</b></td>
-                    <td>Bottom-line Trade-off (Conversion vs Support Cost)</td>
-                    <td>เชื่อมโยงผ่าน Top-line Growth (Conversion) และ Bottom-line Savings (Cloud Cost)</td>
-                </tr>
-                <tr>
-                    <td><b>6. Post-Launch Evaluation</b></td>
-                    <td>มอนิเตอร์ผลหลัง Release 2-4 สัปดาห์, ผล A/B Inconclusive</td>
-                    <td>อธิบายขั้นตอน Post-Launch Observability Phase ผ่าน DataDog & CloudWatch Monitoring</td>
-                </tr>
-                <tr>
-                    <td><b>7. Failing Fast & Product Deprecation</b></td>
-                    <td>การใช้ Data พิสูจน์แล้วเด็ดขาดในการถอด/ฆ่าฟีเจอร์ที่ไม่สร้าง Value</td>
-                    <td>ใช้เคส Decommission Legacy Servers/Services ที่ไม่มี Traffic เพื่อลด Tech Debt & Cloud Cost</td>
-                </tr>
-                <tr>
-                    <td><b>8. High Ambiguity (0 to 1)</b></td>
-                    <td>โจทย์กว้างมาก เช่น 'ถ้า Agoda จะเปิดจองตั๋วรถไฟใน SEA'</td>
-                    <td>ใช้ Problem Decomposition Framework และ Hypothesis-Driven Approach แตกโจทย์</td>
-                </tr>
-                <tr>
-                    <td><b>9. Global Scale & Localization</b></td>
-                    <td>บาลานซ์ระหว่าง Global Scalability กับ Local Relevance</td>
-                    <td>ชู Modular Design: Core Engine เดียวกันหลังบ้าน แต่เปิด Flex Layer ปรับเปลี่ยนหน้าบ้าน</td>
-                </tr>
+                <tr><td><b>1. Data Analytics</b></td><td>North Star, Primary/Guardrail Metrics, p-value, SRM</td><td>ชูความคุ้นเคย Data และโชว์กรอบ A/B Testing อย่างแม่นยำ</td></tr>
+                <tr><td><b>2. Strategic Thinking</b></td><td>0-to-1 Ambiguity, Unit Economics, CAC vs LTV, Take Rate</td><td>ถอยมาเริ่มที่ User Problem + Business ROI เสมอ</td></tr>
+                <tr><td><b>3. Customer Empathy</b></td><td>Unmet Needs ก่อนมี Data, User Interview</td><td>ใช้ Mixed Methods: User Feedback + Analytics Data</td></tr>
+                <tr><td><b>4. Executive Alignment</b></td><td>การปฏิเสธเมื่อ Data บอกไม่คุ้มทำ</td><td>ใช้ Data-backed ROI Communication เป็นสะพานเชื่อม</td></tr>
+                <tr><td><b>5. Monetization</b></td><td>Bottom-line Trade-off (Conversion vs Cloud Cost)</td><td>เชื่อมโยง Top-line Growth กับ Infrastructure Efficiency</td></tr>
+                <tr><td><b>6. Post-Launch</b></td><td>มอนิเตอร์ผลหลัง Release 2-4 สัปดาห์</td><td>อธิบาย Observability Phase ผ่าน DataDog & CloudWatch APM</td></tr>
+                <tr><td><b>7. Failing Fast</b></td><td>เด็ดขาดในการถอด/ฆ่าฟีเจอร์ที่ไม่สร้าง Value</td><td>ยกเคส Decommission Legacy Servers ช่วยลด Cloud Cost</td></tr>
+                <tr><td><b>8. High Ambiguity</b></td><td>โจทย์กว้างมาก เช่น 'เปิดจองตั๋วรถไฟใน SEA'</td><td>ใช้ Problem Decomposition Framework แตกโจทย์ย่อย</td></tr>
+                <tr><td><b>9. Global Scale</b></td><td>Global Scalability vs Local Relevance</td><td>ชู Modular Architecture: Core Engine เดียวกัน เปิด Flex Layer หน้าบ้าน</td></tr>
             </tbody>
         </table>
     </div>
 
-    <!-- Gap Glossary Box -->
-    <div class="glossary-box">
-        <h3>📖 คลังคำศัพท์เฉพาะในหัวข้อ Gap Analysis (Technical & Business Glossary):</h3>
-        <ul>
-            <li><b>North Star Metric:</b> ตัววัดหลักตัวเดียวที่สะท้อนคุณค่าสูงสุดที่ลูกค้าได้รับและขับเคลื่อนการเติบโตระยะยาวของบริษัท (เช่น Search-to-Book Successful Transactions)</li>
-            <li><b>Primary Metric vs Guardrail Metric:</b> <i>Primary Metric</i> คือตัวเลขเป้าหมายหลักที่อยากดันขึ้น (เช่น Conversion Rate +2%) ส่วน <i>Guardrail Metric</i> คือตัวเลขการทำงานของระบบหรือธุรกิจที่ห้ามพังเด็ดขาดขณะรัน Experiment (เช่น Page Latency p95 ห้ามช้าลง, Cancellation Rate ห้ามพุ่ง)</li>
-            <li><b>p-value (Statistical Significance):</b> ค่าความน่าจะเป็นทางสถิติเพื่อพิสูจน์ว่าผลลัพธ์ที่ B ชนะ A ไม่ได้เกิดจากความบังเอิญ โดยปกติที่ Agoda ต้องมีค่า <code>p-value &lt; 0.05</code> (ระดับความเชื่อมั่น 95%)</li>
-            <li><b>SRM (Sample Ratio Mismatch):</b> ข้อผิดพลาดทางสถิติเมื่ออัตราส่วนผู้ใช้ที่สุ่มเข้า Control vs Treatment ไม่ตรงตามสเปกที่ตั้งไว้ (เช่น ตั้งไว้ 50/50 แต่ผลจริงออกมา 60/40) สัญญาณบอกว่าระบบสุ่มทราฟฟิกมีบัก</li>
-            <li><b>MDE (Minimum Detectable Effect):</b> ขนาดการเปลี่ยนแปลงเล็กที่สุดของ Metric ที่การทดลอง A/B Testing จะสามารถตรวจจับได้ทางสถิติอย่างแม่นยำ</li>
-            <li><b>0-to-1 Ambiguity vs 1-to-N Optimization:</b> <i>0-to-1</i> คือการสร้างสิ่งใหม่จากศูนย์ท่ามกลางความกว้างและความไม่แน่นอนสูง ส่วน <i>1-to-N</i> คือการปรับปรุงหรือต่อยอดฟีเจอร์เดิมที่มีข้อมูลอยู่แล้ว</li>
-            <li><b>Unit Economics:</b> การวิเคราะห์รายรับและต้นทุนตรงต่อหน่วยการขาย 1 Transaction (เช่น Gross Profit ต่อ 1 Booking หลังหัก Payment Fee และ Marketing Cost)</li>
-            <li><b>CAC (Customer Acquisition Cost) & LTV (Lifetime Value):</b> CAC คือต้นทุนการได้มาซึ่งลูกค้าใหม่ 1 คน ส่วน LTV คือมูลค่ารวมตลอดช่วงชีวิตที่ลูกค้าคนนั้นจะสร้างรายได้ให้บริษัท (สูตรสุขภาพดี: <code>LTV &gt; 3 × CAC</code>)</li>
-            <li><b>Take Rate / Commission Margin:</b> สัดส่วน % คอมมิชชั่นที่ Agoda เรียกเก็บจากโรงแรม/คู่ค้าต่อ 1 ยอดจอง (เช่น 15-20%)</li>
-            <li><b>DataDog / CloudWatch APM (Application Performance Monitoring):</b> เครื่องมือมอนิเตอร์สุขภาพระบบแบบ Real-time ดักจับ Latency p95/p99 และ HTTP Error Status Codes (4xx/5xx)</li>
-        </ul>
-    </div>
-
     <!-- SECTION 4 -->
     <h2 id="sec4">4. 🏢 วัฒนธรรมองค์กร, ข้อควรระวัง และคลังคำถามสัมภาษณ์ 20 ข้อ (20 Interview Questions)</h2>
-    
-    <h3>4.1 วัฒนธรรมองค์กร Agoda (Core Culture)</h3>
-    <ol>
-        <li><b>"Data Trumps Opinion" (ข้อมูลชนะทุกความคิดเห็น):</b> Agoda ไม่เชื่อ Seniority หรือ Intuition ของใครหากไม่มี Data สนับสนุน เปลี่ยนคำว่า "ผมคิดว่า..." เป็น <i>"จากข้อมูลที่เราเห็น..."</i></li>
-        <li><b>Speed & Execution Over Perfection ("Moving Fast"):</b> เชื่อเรื่องการปล่อย MVP ออกไปเรียนรู้กับผู้ใช้จริง รู้วิธี Trade-off ระหว่าง Technical Perfection กับ Time-to-Market</li>
-    </ol>
-
-    <h3>4.2 ข้อควรระวัง (Red Flags) ในห้องสัมภาษณ์</h3>
+    <h3>4.1 วัฒนธรรม Agoda: "Data Trumps Opinion" & "Speed Over Perfection"</h3>
     <div class="alert-box">
-        <ul>
-            <li>🚩 <b>พูดถึง Feature โดยไม่พูดถึง Problem/Metric:</b> ❌ 'จะสร้าง Chatbot AI' ➡️ ✅ 'ปัญหาคือ Contact Rate +15% Goal คือลด Contact Rate โดยทดลองใช้ Automated Self-Service Tool'</li>
-            <li>🚩 <b>ตอบไม่ตรงเป้าหรือเยิ่นเย้อ:</b> ใช้กลยุทธ์ <b>BLUF (Bottom Line Up Front)</b> ตอบคำตอบหลักก่อนแล้วอธิบายเหตุผลตามหลัง</li>
-        </ul>
+        <b>Red Flags ที่ต้องเลี่ยง:</b> พูดถึง Feature โดยไม่พูดถึง Problem/Metric, ตอบเยิ่นเย้อไม่ใช้ BLUF, และการโยนความผิดให้ทีมอื่น
     </div>
 
-    <h3>4.3 คำถามเด็ดสำหรับถามผู้สัมภาษณ์ช่วงท้าย (Ask the Interviewer) - แยกตามรอบสัมภาษณ์</h3>
-    <ul>
-        <li><b>Round 1 (HR Call):</b> <i>"Which specific Product Domain/Vertical is this Senior PM role being recruited for?"</i></li>
-        <li><b>Round 2 (Product Case Study):</b> <i>"How does the team balance short-term A/B test conversion optimizations against long-term architectural overhauls?"</i></li>
-        <li><b>Round 3 (Execution & Tech):</b> <i>"How closely do Senior PMs collaborate with Engineering Leads when evaluating technical debt versus new feature roadmaps?"</i></li>
-        <li><b>Round 4 (Behavioral/Leadership):</b> <i>"What is the biggest operational or product bottleneck that this domain is currently facing right now?"</i></li>
-        <li><b>Round 5 (Bar Raiser):</b> <i>"What does 'Success' look like for this Senior PM role in the first 90 days?"</i></li>
-    </ul>
-
-    <!-- NEW SECTION 4.4: 20 INTERVIEW QUESTIONS TABLE -->
-    <h3>4.4 คลังคำถามสัมภาษณ์ยอดฮิต 20 ข้อ (20 Most Frequent Interview Questions)</h3>
-    <p>รวบรวมโจทย์คำถามที่เจอบ่อยที่สุดในการสัมภาษณ์ Senior PM @ Agoda พร้อมโอกาสถูกถาม (%) รอบสัมภาษณ์ และกลยุทธ์การตอบที่ควรใช้:</p>
-
+    <h3>4.2 คลังคำถามสัมภาษณ์ยอดฮิต 20 ข้อ (20 Most Frequent Interview Questions Table)</h3>
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
-                    <th style="width: 5%;">#</th>
-                    <th style="width: 30%;">คำถามสัมภาษณ์ (Interview Question)</th>
-                    <th style="width: 15%;">รอบสัมภาษณ์ (Round)</th>
-                    <th style="width: 12%;">โอกาสเจอบ่อย (%)</th>
-                    <th style="width: 38%;">แนวทาง/กลยุทธ์การตอบ (Response Strategy & Framework)</th>
+                    <th>#</th>
+                    <th>คำถามสัมภาษณ์ (Interview Question)</th>
+                    <th>รอบ</th>
+                    <th>โอกาสเจอ (%)</th>
+                    <th>แนวทาง/กลยุทธ์การตอบ (Response Strategy)</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Design a new feature for Agoda to increase booking frequency for business travelers.</td>
-                    <td><span class="badge">Round 2</span> Product Case</td>
-                    <td><b>90%</b></td>
-                    <td>ใช้ <b>CIRCLES Method</b>: กำหนด Goal ➡️ เลือก Persona (Frequent Corporate Traveler) ➡️ วิเคราะห์ Pain Point (Expense Receipts, Flexible Cancellation) ➡️ ออกแบบ Solutions ➡️ Prioritize ด้วย RICE</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Conversion rate on Agoda's Mobile App dropped by 7% yesterday. How would you investigate?</td>
-                    <td><span class="badge">Round 2/3</span> Analytics</td>
-                    <td><b>85%</b></td>
-                    <td>ใช้ <b>4-Step RCA Drill-Down</b>: 1) Check External Events ➡️ 2) Segment by OS/Geo ➡️ 3) Funnel Stage Drop-off ➡️ 4) Tech Issues (DataDog Latency/5xx errors)</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Engineering wants 2 sprints to refactor a legacy service, but Business wants a promo feature for Songkran. How do you decide?</td>
-                    <td><span class="badge">Round 3</span> Tech & Exec</td>
-                    <td><b>90%</b></td>
-                    <td>ใช้ <b>Trade-off Matrix & RICE Score</b>: เสนอทางเลือก Phased Compromise (ทำ MVP Promo โค้ดสั้นๆ สปรินต์แรก แล้วแบ่ง 30% Capacity เริ่ม Refactor ควบคู่กัน)</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>You have 5 feature requests from 5 country managers across SEA with equal revenue impact. How do you prioritize?</td>
-                    <td><span class="badge">Round 2/4</span> Prioritization</td>
-                    <td><b>80%</b></td>
-                    <td>ใช้ <b>RICE Framework + Platform Scalability</b>: ประเมิน Confidence & Effort มองหา Common Core Feature ที่เขียนรอบเดียวแล้วรองรับ Config ทั้ง 5 ประเทศได้</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Your A/B test shows +3% conversion, but +5% customer support tickets due to confusion. Would you ship it?</td>
-                    <td><span class="badge">Round 2/3</span> Experimentation</td>
-                    <td><b>85%</b></td>
-                    <td>คำนวณ <b>Net Monetization Impact</b>: นำ Revenue +3% มาหักลบกับ Support Ticket Cost เพิ่มเติม หาก Net Profit ยังเป็นบวก และไม่กระทบ Brand NPS ให้ปรับปรุง UX ก่อน Rollout 100%</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Estimate the daily booking volume for hotels in Bangkok during Peak Season.</td>
-                    <td><span class="badge">Round 2</span> Fermi Estimation</td>
-                    <td><b>60%</b></td>
-                    <td>ใช้ <b>Top-Down Breakdown</b>: Population/Tourist Inflow ➡️ Hotel Rooms in BKK (~150,000) ➡️ Occupancy Rate (85%) ➡️ Agoda Market Share (~30%) ➡️ Daily Bookings</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Should Agoda build its own Buy Now Pay Later (BNPL) engine or integrate third-party providers?</td>
-                    <td><span class="badge">Round 2/3</span> Build vs Buy</td>
-                    <td><b>75%</b></td>
-                    <td>ทำ <b>Build vs Buy Framework</b>: Integrate Third-Party (Atome/Klarna) ก่อนเป็น MVP เพื่อทดสอบ Demand หาก Transaction Volume พุ่ง ค่อยวางแผน Build In-house เพื่อลด Fee</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Tell me about a time you strongly disagreed with a Tech Lead on an architectural decision.</td>
-                    <td><span class="badge">Round 4</span> Behavioral</td>
-                    <td><b>85%</b></td>
-                    <td>ใช้ <b>STAR Technique</b>: แสดงให้เห็น Data-backed Discussion, Respect Technical Expertise, และการมุ่งเน้นไปที่ Customer Impact & Business Value ร่วมกัน</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Tell me about a product feature you shipped that failed completely. What did you do?</td>
-                    <td><span class="badge">Round 4</span> Leadership</td>
-                    <td><b>90%</b></td>
-                    <td>แสดง <b>Intellectual Humility & Blameless RCA</b>: อธิบายสิ่งที่เรียนรู้ การตัดงบประมาณ/Rollback ทันทีด้วย Data และการปรับปรุง Hypothesis Framework ในครั้งถัดไป</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>How does system latency impact conversion at Agoda, and how do you set SLA targets with Devs?</td>
-                    <td><span class="badge">Round 3</span> Technical Depth</td>
-                    <td><b>80%</b></td>
-                    <td>อธิบาย <b>Latency vs Conversion Drop Curve</b> (ทุกๆ 100ms ช้าลง Conversion Drop ~1%): ตั้ง Guardrail Metric p95 Latency &lt; 800ms ใน PRD ร่วมกับ Dev Lead</td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>A Senior VP pushes a pet feature without data. How do you push back gracefully?</td>
-                    <td><span class="badge">Round 4/5</span> Stakeholder</td>
-                    <td><b>85%</b></td>
-                    <td>เสนอ <b>Low-Cost Experimentation / Spikes</b>: <i>"ชอบไอเดียนี้ครับ เพื่อยืนยันความมั่นใจ ขออนุญาตปล่อย A/B Test สเกลเล็ก 5% เพื่อเก็บ Data มาพิสูจน์ ROI ก่อนลง Resource ใหญ่ครับ"</i></td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>Agoda wants to expand into long-term apartment rentals. How would you approach the first 30 days?</td>
-                    <td><span class="badge">Round 2/5</span> 0-to-1 Strategy</td>
-                    <td><b>70%</b></td>
-                    <td>ใช้ <b>Discovery 30-Day Plan</b>: Week 1 Customer/Host Interviews ➡️ Week 2 Competitor/Market Analysis ➡️ Week 3 Unit Economics ➡️ Week 4 MVP Hypothesis Formulation</td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td>How would you leverage Generative AI to improve Agoda's hotel review summary experience?</td>
-                    <td><span class="badge">Round 2/3</span> AI Product Design</td>
-                    <td><b>80%</b></td>
-                    <td>ระบุ <b>User Problem & RAG Architecture</b>: ย่อรีวิว 500+ ข้อความให้เหลือ 3 Key Bullet Points แยกตาม Persona (Family vs Solo) พร้อมมอนิเตอร์ Latency & Hallucination Guardrails</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>How do you handle a scenario where QA discovers a non-blocking P1 bug 2 hours before a major release?</td>
-                    <td><span class="badge">Round 3</span> Release Mgmt</td>
-                    <td><b>75%</b></td>
-                    <td>ทำ <b>Risk Assessment</b>: หากเป็น Non-blocking P1 ให้เปิดตัวภายใต้ Feature Flag คุม Traffic 10% หรือเตรียม Rollback Switch และเปิด Hotfix Branch แก้ไขขนานกันไป</td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td>If you oversee 3 distinct pods (20+ engineers), how do you structure your daily rituals without meeting fatigue?</td>
-                    <td><span class="badge">Round 3/4</span> Multi-Pod Mgmt</td>
-                    <td><b>85%</b></td>
-                    <td>ใช้ <b>Async Standups & Delegation</b>: สลับเข้าเข้า Standup เฉพาะ Primary Pod ส่วนทีมอื่นใช้ Slack Async Standup + ให้ Tech Lead ช่วยดูแล Day-to-Day (อ่านรายละเอียดที่ 7.3)</td>
-                </tr>
-                <tr>
-                    <td>16</td>
-                    <td>What is Sample Ratio Mismatch (SRM) in A/B testing, and what actions do you take if detected?</td>
-                    <td><span class="badge">Round 3</span> Analytics</td>
-                    <td><b>70%</b></td>
-                    <td>นิยาม <b>SRM & Action</b>: ข้อผิดพลาดสุ่มทราฟฟิกไม่ตรง 50/50 หากเจอ SRM ให้สั่ง Pause Test ทันที ตรวจสอบ Event Tracking Tag และ Bot Filtering ห้ามนำ Data มาสรุปผลเด็ดขาด</td>
-                </tr>
-                <tr>
-                    <td>17</td>
-                    <td>How does Agoda handle rate-parity issues when hotel partners offer lower prices on competitor sites?</td>
-                    <td><span class="badge">Round 2/3</span> Domain Strategy</td>
-                    <td><b>65%</b></td>
-                    <td>ใช้อัลกอริทึม <b>Dynamic Pricing & Price Match Guarantee</b>: มอนิเตอร์ Competitor Scraping Feeds และใช้วิธี Top-up Coupon / Agoda Cash เพื่อดึงราคากลับมาดึงดูดที่สุด</td>
-                </tr>
-                <tr>
-                    <td>18</td>
-                    <td>Why Agoda over Booking.com or Airbnb, and what is our biggest structural vulnerability?</td>
-                    <td><span class="badge">Round 5</span> Bar Raiser</td>
-                    <td><b>80%</b></td>
-                    <td>วิเคราะห์ <b>APAC Dominance vs Single Vertical Risk</b>: Agoda แข็งแกร่งสุดใน APAC Supply & Dynamic Discounting แต่ต้องเร่งขยาย Non-Hotel (Flights/Packages) เพื่อสู้กับ Super Apps</td>
-                </tr>
-                <tr>
-                    <td>19</td>
-                    <td>How do you mentor a junior engineer/PM who is struggling with meeting delivery timelines?</td>
-                    <td><span class="badge">Round 4</span> Leadership/Coaching</td>
-                    <td><b>75%</b></td>
-                    <td>ใช้ <b>Task Decomposition & Root Cause Coaching</b>: ช่วยแตกงานเป็น Micro-tasks ไม่เกิน 1-2 วัน, ตรวจสอบ Sizing Bias, และทำ Weekly Shadowing 1-on-1s</td>
-                </tr>
-                <tr>
-                    <td>20</td>
-                    <td>How do you decide when to deprecate/sunset a feature that has low usage but high maintenance overhead?</td>
-                    <td><span class="badge">Round 3/4</span> Product Deprecation</td>
-                    <td><b>70%</b></td>
-                    <td>ทำ <b>Cost-Benefit Analysis</b>: มอนิเตอร์ Active Users บน DataDog หาก &lt; 0.5% แต่กิน Maintenance 15% ให้ทำ Sunsetting Plan (Migration Notice 30 วัน -> Soft Deprecate -> Decommission)</td>
-                </tr>
+                <tr><td>1</td><td>Design a new feature for business travelers.</td><td>Round 2</td><td><b>90%</b></td><td>ใช้ <b>CIRCLES Method</b> ตั้งเป้า เลือก Persona และ RICE Prioritization</td></tr>
+                <tr><td>2</td><td>App Conversion dropped 7% yesterday. How to investigate?</td><td>Round 2/3</td><td><b>85%</b></td><td>ใช้ <b>4-Step RCA</b>: External ➡️ Dimensions ➡️ Funnel ➡️ Tech Logs</td></tr>
+                <tr><td>3</td><td>Eng wants Refactoring vs Business wants Songkran Promo.</td><td>Round 3</td><td><b>90%</b></td><td>เสนอ Phased Compromise (ทำ MVP Promo + แบ่ง 30% Capacity Refactor)</td></tr>
+                <tr><td>4</td><td>Prioritize 5 feature requests from 5 country managers.</td><td>Round 2/4</td><td><b>80%</b></td><td>ใช้ <b>RICE Score + Platform Scalability</b> สร้าง Common Config Engine</td></tr>
+                <tr><td>5</td><td>A/B Test shows +3% conversion, but +5% support tickets. Ship it?</td><td>Round 2/3</td><td><b>85%</b></td><td>คำนวณ <b>Net Monetization Impact</b> หักลบ Support Cost ก่อนตัดสินใจ</td></tr>
+                <tr><td>6</td><td>Estimate daily hotel bookings in Bangkok in Peak Season.</td><td>Round 2</td><td><b>60%</b></td><td>ใช้ <b>Top-Down Fermi</b>: Hotel Rooms x Occupancy Rate x Agoda Share</td></tr>
+                <tr><td>7</td><td>Build BNPL engine in-house or integrate third-parties?</td><td>Round 2/3</td><td><b>75%</b></td><td>ใช้ <b>Build vs Buy Framework</b>: Integrate ก่อนเพื่อทดสอบ Demand แล้วค่อย Build</td></tr>
+                <tr><td>8</td><td>Tell me about a disagreement with a Tech Lead on Architecture.</td><td>Round 4</td><td><b>85%</b></td><td>เน้น Data-backed Discussion และมุ่งเน้นที่ Customer Impact เป็นหลัก</td></tr>
+                <tr><td>9</td><td>Tell me about a feature you shipped that failed completely.</td><td>Round 4</td><td><b>90%</b></td><td>โชว์ <b>Intellectual Humility & Blameless RCA</b> สั่ง Rollback ทันทีด้วย Data</td></tr>
+                <tr><td>10</td><td>How does latency impact conversion? How to set SLA with Devs?</td><td>Round 3</td><td><b>80%</b></td><td>อธิบาย Latency Curve (ช้าลง 100ms Conversion Drop ~1%) ตั้ง p95 Guardrail</td></tr>
+                <tr><td>11</td><td>A Senior VP pushes a pet feature without data. How to handle?</td><td>Round 4/5</td><td><b>85%</b></td><td>เสนอ Low-cost A/B Test สเกลเล็ก 5% เพื่อเก็บ Data มาพิสูจน์ ROI ร่วมกัน</td></tr>
+                <tr><td>12</td><td>Agoda wants to expand into long-term rentals. First 30 days?</td><td>Round 2/5</td><td><b>70%</b></td><td>ใช้ <b>30-Day Discovery Plan</b>: Customer Interviews ➡️ Market ➡️ Unit Economics</td></tr>
+                <tr><td>13</td><td>How to leverage GenAI for hotel review summarization?</td><td>Round 2/3</td><td><b>80%</b></td><td>ใช้ <b>RAG Architecture</b> สรุป 3 Key Bullets + มอนิเตอร์ Latency & Hallucination</td></tr>
+                <tr><td>14</td><td>QA discovers a non-blocking P1 bug 2 hours before release.</td><td>Round 3</td><td><b>75%</b></td><td>คุม Risk เปิดตัวใต้ Feature Flag 10% Traffic พร้อมเตรียม Hotfix Branch</td></tr>
+                <tr><td>15</td><td>How to manage 3 distinct pods without meeting fatigue?</td><td>Round 3/4</td><td><b>85%</b></td><td>ใช้ Async Standups via Slack + มอบหมาย Tech Lead ดูแล Day-to-Day</td></tr>
+                <tr><td>16</td><td>What is Sample Ratio Mismatch (SRM) and how to handle?</td><td>Round 3</td><td><b>70%</b></td><td>สุ่มทราฟฟิกผิดปกติ ให้สั่ง Pause Test ทันที ตรวจสอบ Bot/Event Tagging</td></tr>
+                <tr><td>17</td><td>How to handle hotel rate-parity issues against competitors?</td><td>Round 2/3</td><td><b>65%</b></td><td>ใช้ Dynamic Pricing Engine + Top-up Coupons/Agoda Cash ดึงราคากลับมา</td></tr>
+                <tr><td>18</td><td>Why Agoda over Booking.com? What is our structural vulnerability?</td><td>Round 5</td><td><b>80%</b></td><td>วิเคราะห์ APAC Dominance vs ความจำเป็นในการเร่งขยาย Non-Accommodation</td></tr>
+                <tr><td>19</td><td>How to mentor a junior engineer/PM missing timelines?</td><td>Round 4</td><td><b>75%</b></td><td>ใช้ Task Decomposition แตกงานเป็น Micro-tasks 1-2 วัน + 1-on-1 Coaching</td></tr>
+                <tr><td>20</td><td>When to deprecate a feature with low usage but high maintenance?</td><td>Round 3/4</td><td><b>70%</b></td><td>ทำ Cost-Benefit Analysis สั่ง Soft Deprecate -> Notice 30 วัน -> Decommission</td></tr>
             </tbody>
         </table>
     </div>
 
     <!-- SECTION 5 -->
     <h2 id="sec5">5. 🏛️ การตอบคำถามเชิงโครงสร้างองค์กรและการเปลี่ยนสายงาน (Organizational & Career Transition)</h2>
-
-    <h3>5.1 ผลกระทบต่อบริษัทเดิมหากเราลาออก & Handover Strategy</h3>
     <div class="script-box">
-        <p><b>Thai Script:</b><br/>
-        <i>"ถ้ามองอย่างตรงไปตรงมา ผลกระทบในระดับ Operations และ Day-to-Day Delivery จะไม่มีทางสะดุดครับ เพราะผมทำ Documentation, Jira AC, และกระจาย Single Point of Knowledge ออกไปในทีมหมดแล้ว แต่สิ่งที่จะกระทบชั่วคราวอย่างหลีกเลี่ยงไม่ได้ คือ การขาดคนที่เข้าใจ Context เชิงลึกและมองเห็นภาพรวมรอบด้าน (360-degree Context) ในคนเดียว ซึ่งในช่วง Notice Period ผมจึงวางแผนถ่ายทอดแบบ Context Transfer ทั้งการสรุป WHYs & Trade-offs และทำ Shadowing Sessions กับน้องที่เป็น Potential Lead ครับ"</i></p>
+        <p><b>Handover Strategy Script:</b> <i>"ในระดับ Operations จะไม่มีทางสะดุดเพราะทำ Documentation และกระจาย Knowledge หมดแล้ว สิ่งที่จะกระทบชั่วคราวคือ Context Depth ซึ่งผมวางแผนทำ Context Transfer และ Shadowing Sessions ตลอด Notice Period ครับ"</i></p>
     </div>
-
-    <h3>5.2 Product Manager vs Project Manager vs People Manager & Preference</h3>
-    <div class="script-box">
-        <p><b>Preference Script:</b><br/>
-        <i>"Preference ของผมชัดเจนที่สุดคือ Product Manager ครับ เหตุผลคือผมมีความสุขและหลงใหลในการค้นหา WHY และ WHAT อย่างไรก็ตามจุดเด่นของผมคือการเป็น PM ที่มี Delivery & Technical Mindset ทำให้คุม Risk, Sizing และ Timeline ได้สมจริง และในมุม People Management ผมเน้น Coaching และสร้าง Psychological Safety เพราะเชื่อว่า Great Products are built by Empowered Teams ครับ"</i></p>
+    <div class="script-box-en">
+        <p><b>Pros & Cons English Script:</b> <i>"What I appreciate most is high technical autonomy. The main limitation is the scale of live experimentation. I’m looking for Agoda to drive high-velocity, data-driven decisions at scale."</i></p>
     </div>
 
     <!-- SECTION 6 -->
     <h2 id="sec6">6. 💰 กลยุทธ์การเจรจาตัวเลขและสวัสดิการ (Compensation, Negotiation & HR Strategy)</h2>
-
-    <h3>6.1 โครงสร้างเงินเดือน Senior PM @ Agoda & สูตรคำนวณเป้าหมาย (180k-200k+ THB)</h3>
     <ul>
-        <li><b>Benchmark Senior PM Agoda:</b> Base 160,000 - 230,000 THB/mo, Performance Bonus 15-20%, RSUs (BKNG), Total Comp 2.3M - 3.2M THB/yr</li>
-        <li><b>การคำนวณจากฐานเดิม (100k + โบนัส 3.5 เดือน = ~1.55M/yr):</b> เป้าหมาย Total Comp (+25% ถึง +30%) = 1.95M - 2.05M+ THB/yr</li>
+        <li><b>Benchmark Senior PM Agoda:</b> Base 160k - 230k THB/mo, Performance Bonus 15-20%, Total Comp 2.3M - 3.2M THB/yr</li>
+        <li><b>Target Salary Anchoring:</b> เรียก Base 180,000 - 200,000 THB/mo (Total Comp 2.4M - 2.6M+ THB/yr) ชูความโดดเด่นของ Hybrid Ex-SWE Profile</li>
     </ul>
 
-    <div class="script-box">
-        <p><b>Salary Anchoring Script:</b><br/>
-        <i>"ปัจจุบันรายได้รวมต่อปีของผมอยู่ที่ประมาณ 1.55M บาท/ปี (รวม Base Salary 100k และ Performance Bonus 2 งวดช่วง Dec และ Mar) เมื่อพิจารณาจากบทบาท Senior PM ที่ Agoda ด้วย background Software Engineering 10 ปี และประสบการณ์นำทีม Tech ผมตั้งเป้าหมาย Expected Base Salary ไว้ที่ช่วง 180,000 – 200,000 บาท/เดือน (หรือ Total Compensation ประมาณ 2.4M – 2.6M บาท/ปี) ครับ ทั้งนี้ ตัวเลขยังยืดหยุ่นได้ ขึ้นอยู่กับภาพรวมของ Compensation Package ทั้งหมดครับ"</i></p>
+    <!-- SECTION 7 -->
+    <h2 id="sec7">7. 🛠️ รายละเอียดการทำงานจริง, ตารางงาน, Multi-Pod Strategy และแผน 30-60-90 วัน</h2>
+    <h3>7.1 Multi-Pod Meeting Strategy (การบริหารหลายทีม)</h3>
+    <div class="example-box">
+        <p><b>หลักการ:</b> PM ไม่จำเป็นต้องเข้า Daily Standup ของทุกทีม! สลับเข้าแบบ Synchronous เฉพาะ <b>Primary Active Pod</b> ส่วนทีมอื่นให้ใช้ <b>Async Slack Standup</b> และให้ Tech Lead ช่วยกลั่นกรองเฉพาะ P0/P1 Blockers</p>
     </div>
 
-    <!-- SECTION 7 -->
-    <h2 id="sec7">7. 🛠️ รายละเอียดการทำงานจริง, ตารางงาน และกลยุทธ์บริหารหลายทีม (Multi-Pod Strategy)</h2>
-
-    <h3>7.1 ทำไม Agoda เน้นเปิดรับเฉพาะระดับ Senior / Director</h3>
-    <p>1) Global Scale & High Leverage (Cost of Error สูง 0.1% Drop เสียหายหลักล้าน), 2) Autonomy สูง (No Hand-holding รับโจทย์กว้างรันเองตั้งแต่ Discovery ➡️ Delivery ➡ Optimization), 3) Influence Without Authority กับทีม Dev/Data ระดับ Top-tier</p>
-
-    <h3>7.2 ตารางงานประจำวันและรายสัปดาห์ (Daily & 2-Week Sprint Schedule)</h3>
-    
+    <h3>7.2 Senior PM 30-60-90 Day Onboarding Plan</h3>
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
-                    <th style="width: 20%;">ช่วงเวลา</th>
-                    <th style="width: 30%;">กิจกรรมหลัก (Core Activity)</th>
-                    <th style="width: 25%;">ผู้เกี่ยวข้อง (Stakeholders)</th>
-                    <th style="width: 25%;">เป้าหมาย / ผลลัพธ์ (Target Outcome)</th>
+                    <th>ช่วงเวลา</th>
+                    <th>เป้าหมายหลัก (Focus)</th>
+                    <th>กิจกรรมและผลลัพธ์สำคัญ (Key Milestones & Deliverables)</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><b>09:30 - 10:00</b></td>
-                    <td>Data & Metric Health Check</td>
-                    <td>Data Analyst / คนเดียว</td>
-                    <td>เฝ้าระวัง Guardrail Metrics (Latency, Error) บน A/B Dashboard</td>
+                    <td><b>First 30 Days<br/>(Learn & Build Trust)</b></td>
+                    <td>Domain Immersion & Technical Trust</td>
+                    <td>
+                        <ul>
+                            <li>ทบทวน Domain Metrics, Conversion Funnel, และ A/B Testing Platform</li>
+                            <li>ทำ 1-on-1กับ Dev Leads, Data Analysts, และ Cross-pod PM Stakeholders</li>
+                            <li>เข้า Shadowing User Research Sessions และมอนิเตอร์ Customer Contact Logs</li>
+                        </ul>
+                    </td>
                 </tr>
                 <tr>
-                    <td><b>10:00 - 10:30</b></td>
-                    <td>Daily Standup Meeting</td>
-                    <td>Dev Lead, Devs, QA</td>
-                    <td>เคลียร์ Blockers ประจำวัน และปรับแผนสปรินต์ด่วน</td>
+                    <td><b>First 60 Days<br/>(Ship First Win)</b></td>
+                    <td>High-Velocity Execution</td>
+                    <td>
+                        <ul>
+                            <li>ออกแบบ สมมติฐาน และปล่อย <b>First A/B Test Experiment</b> ออก Production</li>
+                            <li>ทบทวน Backlog ใน Pod และทำ RICE Prioritization เพื่อกำจัด Bottlenecks</li>
+                            <li>ปรับปรุง Jira AC และเกณฑ์ Test Coverage Guardrails ร่วมกับทีม QA/Dev</li>
+                        </ul>
+                    </td>
                 </tr>
                 <tr>
-                    <td><b>10:30 - 12:00</b></td>
-                    <td>Deep Work / PRD & AC Writing</td>
-                    <td>คนเดียว (Focus Time)</td>
-                    <td>เขียน PRD, Jira AC และเตรียม Experiment Specs สำหรับสปรินต์ถัดไป</td>
-                </tr>
-                <tr>
-                    <td><b>13:30 - 15:30</b></td>
-                    <td>Cross-team Alignment & Problem Solving</td>
-                    <td>Tech Lead, External PMs, EM</td>
-                    <td>เคลียร์ Cross-pod Dependencies และตกลง Trade-off เชิงเทคนิค</td>
-                </tr>
-                <tr>
-                    <td><b>15:30 - 17:30</b></td>
-                    <td>Triage, Bug Reviews & Staging Testing</td>
-                    <td>QA Lead, Ops/Support</td>
-                    <td>จัดอันดับ P0/P1 Bugs และทำ Exploratory Testing บน Staging</td>
+                    <td><b>First 90 Days<br/>(Drive Strategy)</b></td>
+                    <td>Strategic Ownership & Roadmap</td>
+                    <td>
+                        <ul>
+                            <li>เป็นเจ้าของ Domain Product Roadmap ประจำไตรมาสอย่างเต็มตัว</li>
+                            <li>นำเสนอแผนงานทดลองแบบ Long-term A/B Experimentation Strategy ต่อ Director</li>
+                            <li>ตั้งระบบ Async Communications ลด Meeting Overhead ระหว่าง Pods</li>
+                        </ul>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <!-- NEW SECTION 7.3: MULTI-POD MEETING STRATEGY -->
-    <h3>7.3 กลยุทธ์การบริหารเวลาเมื่อต้องดูแลหลายทีม (Multi-Pod Meeting & Ceremonies Strategy)</h3>
-    
-    <div class="example-box">
-        <h4>❓ ถาม: ถ้าเป็น Senior PM ที่ต้องดูแล 2-3 Pods (ทีม Dev 15-25+ คน) PM ต้องเข้ามีตติ้ง Daily Standup กับทุกทีมทุกวันไหม?</h4>
-        <p><b>คำตอบคือ: ❌ ไม่จำเป็น และไม่ควรเข้าครบทุก Daily Standup แบบ Synchronous ครับ!</b> การเข้า Standup 3 ทีมทุกเช้า (รวม 45-60 นาที) จะทำให้เกิด Context Switching และทำลายช่วงเวลา Focus Time ของ PM</p>
-        
-        <h4>💡 แนวทางการจัดระเบียบประชุมสำหรับ Multi-Pod Senior PM:</h4>
-        <ol>
-            <li><b>Primary Pod (High-Focus / Active Release Pod):</b> เข้าประชุม Standup แบบ Synchronous สดๆ ทุกวัน (10-15 นาที) เพราะเป็นทีมที่กำลังปล่อย Experiment หรือมี Critical Dependency หลัก</li>
-            <li><b>Secondary Pods (Stable / Execution Pods):</b> ปรับใช้ <b>Async Standups via Slack/Teams Bot</b> โดยให้ทีม Dev พิมพ์ 3 หัวข้อ (<i>1. เมื่อวานทำอะไร 2. วันนี้ทำอะไร 3. มี Blocker อะไรไหม</i>) ก่อน 10:00 น. PM ใช้เวลาอ่านสแกนเพียง 3 นาทีช่วง Data Check</li>
-            <li><b>Delegation to Tech Leads / Scrum Masters:</b> มอบหมายให้ Tech Lead หรือ Senior Engineer เป็นผู้รัน Daily Standup ใน Secondary Pods และให้แท็กหา PM ใน Slack Channel เฉพาะเมื่อเจอ <b>P0/P1 Blocker</b> หรือต้องการคำตัดสินใจด้าน Requirement Scope</li>
-            <li><b>Consolidated Refinement & Review:</b> ไม่แยกประชุมย่อยหลายรอบ แต่จัด <b>Grooming / Refinement Session รวม</b> หรือจัดติดกันเป็น Block ในช่วงบ่ายวันอังคาร/พุธ เพื่อประหยัดเวลา</li>
-        </ol>
-    </div>
-
     <!-- SECTION 8 -->
-    <h2 id="sec8">8. 🧠 คลังความรู้เชิงลึก (Knowledge Stack), A/B Testing Mechanics และ Product Landscape</h2>
-
-    <h3>8.1 คลังความรู้ 4 ด้านหลัก & Framework Expansion</h3>
-    
-    <!-- CIRCLES METHOD EXPANSION -->
-    <div class="star-card">
-        <h3>🔍 เจาะลึก CIRCLES Method (Product Design Framework)</h3>
-        <p>กรอบความคิดสากลสำหรับใช้ตอบโจทย์ประเภท Product Design / Feature Creation ในสัมภาษณ์รอบ Case Study:</p>
-        <ul>
-            <li><b>C - Comprehend Context:</b> ทำความเข้าใจบริบท ปัญหา เป้าหมายธุรกิจ (Goal) และข้อจำกัด (Constraints) เช่น <i>"เป้าหมายคือเพิ่ม Booking Frequency หรือเพิ่ม New User Acquisition?"</i></li>
-            <li><b>I - Identify Personas:</b> ระบุกลุ่มผู้ใช้งาน แบ่งประเภทตามพฤติกรรม (User Segmentation) เช่น Corporate Traveler, Budget Backpacker, Family Vacationer</li>
-            <li><b>R - Report User Needs:</b> เลือก 1 Persona หลักแล้วแจกแจง Pain Points, User Journeys และ Unmet Needs ของคนกลุ่มนั้น</li>
-            <li><b>C - Cut through Prioritization:</b> เลือกแก้ Pain Point ที่สร้าง Impact สูงสุดก่อนด้วย RICE Score หรือ Impact vs Effort Matrix</li>
-            <li><b>L - List Solutions:</b> นำเสนอไอเดียแก้ปัญหาอย่างน้อย 3 รูปแบบ (ผสมผสานระหว่าง Quick Win, Innovative Solution, และ Long-term Architecture)</li>
-            <li><b>E - Evaluate Trade-offs:</b> วิเคราะห์ข้อดี-ข้อเสีย ความเสี่ยง และความเป็นไปได้เชิงเทคนิค (Technical Feasibility) ของแต่ละ Solution</li>
-            <li><b>S - Summarize Recommendation:</b> สรุปคำแนะนำแบบ BLUF เลือก Solution ที่ดีที่สุด ระบุ Metrics ที่ใช้วัดผล และ Next Steps</li>
-        </ul>
-    </div>
-
-    <!-- MOSCOW FRAMEWORK EXPANSION -->
-    <div class="star-card">
-        <h3>📊 เจาะลึก MoSCoW Prioritization Framework</h3>
-        <p>กรอบการจัดลำดับความสำคัญของ Requirements ในสปรินต์เมื่อทรัพยากรและเวลามีจำกัด:</p>
-        <ul>
-            <li><b>M - Must Have (ขาดไม่ได้):</b> ฟังก์ชันสำคัญระดับ Core Journey ที่ถ้าไม่มีแล้วจะไม่สามารถ Launch ระบบได้ เช่น Payment Gateway Integration, Core Search Engine, Security/PCI-DSS Compliance</li>
-            <li><b>S - Should Have (ควรต้องมี):</b> ฟังก์ชันสำคัญที่มีผลต่อ User Experience สูง แต่ระบบยังคงทำงานได้หากขาดไปชั่วคราว เช่น Filter/Sorting ตาม Review Score, Free Cancellation Badge</li>
-            <li><b>C - Could Have (ถ้ามีก็ดี):</b> ฟังก์ชัน Quick Wins เล็กๆ ที่เพิ่มความพึงพอใจ แต่ทำเมื่อมี Capacity เหลือเท่านั้น เช่น Wishlist Sharing via WhatsApp, Dark Mode Display</li>
-            <li><b>W - Won't Have (this time) (ตัดออกในรอบนี้):</b> Scope ที่ตกลงชัดเจนว่าจะยังไม่ทำใน Release ปัจจุบันเพื่อรักษาวัน Launch เช่น Crypto Payment Support, Multi-room Custom Price Splitting</li>
-        </ul>
-    </div>
-
-    <!-- RCA 4-STEP DRILL-DOWN EXPANSION -->
-    <div class="star-card">
-        <h3>🚨 Root Cause Analysis สำหรับ Metric Drop (4-Step Drill-Down with Agoda Example)</h3>
-        <p><b>สถานการณ์ตัวอย่าง:</b> Conversion Rate บน Agoda Checkout Page ลดลง 5% เมื่อเทียบกับสัปดาห์ก่อน วิธีวิเคราะห์เชิงโครงสร้าง 4 ขั้นตอน:</p>
-        <ol>
-            <li><b>Step 1: External & Macro Factors Verification (ตรวจสอบปัจจัยภายนอก)</b><br/>
-            ตรวจสอบว่าเกิดจากปัจจัยภายนอกหรือไม่ เช่น วันหยุดยาวสิ้นสุดลง, คู่แข่งจัดแคมเปญใหญ่ดึงทราฟฟิก, เกิดภัยธรรมชาติในสถานที่ท่องเที่ยวหลัก หรือมีการเปลี่ยนแปลงอัลกอริทึมของ Google Search</li>
-            <li><b>Step 2: User Segment & Dimension Breakdown (ซอยย่อยมิติผู้ใช้)</b><br/>
-            กรองข้อมูลตาม Dimensions เพื่อดูว่า Drop เกิดขึ้นเฉพาะกลุ่มหรือไม่:
-                <ul>
-                    <li><i>Platform/OS:</i> Drop เฉพาะบน iOS, Android หรือ Desktop Web?</li>
-                    <li><i>Geography/Market:</i> Drop เฉพาะทราฟฟิกจาก ประเทศไทย, ญี่ปุ่น หรือ ยุโรป?</li>
-                    <li><i>User Type:</i> Drop เฉพาะ New Users หรือ Returning Members?</li>
-                </ul>
-            </li>
-            <li><b>Step 3: Conversion Funnel Stage Analysis (เจาะลึกขั้นตอนใน Funnel)</b><br/>
-            ตรวจสอบ Drop-off Rate แต่ละหน้าเพื่อหาจุดรั่วไหล: <code>Search (Home) ➡️ SRP (Search Result) ➡️ PDP (Property Detail) ➡️ Checkout ➡️ Confirmation</code> (พบว่า Drop-off พุ่งสูงขึ้นผิดปกติเฉพาะหน้า Checkout จากขั้นตอนใส่ promo code ไปยังการชำระเงิน)</li>
-            <li><b>Step 4: Technical & Operational Deep-Dive (เจาะลึกเทคนิคและระบบ)</b><br/>
-            ประสานงานกับทีม Eng ตรวจสอบ Log บน DataDog/CloudWatch: พบว่า API ของ Third-party Payment Gateway ฝั่งหนึ่งเกิด Latency Spike p95 พุ่งเกิน 3,000ms และตอบกลับด้วย HTTP Error Status 502 ทำให้ระบบ Timeout</li>
-        </ol>
-    </div>
-
-    <h3>8.2 A/B Testing Mechanics & Experimentation Deep-Dive</h3>
-    
-    <div class="example-box">
-        <h4>🔬 คลังความรู้ A/B Testing Mechanics (Technical Definitions & Pitfalls):</h4>
-        <ul>
-            <li><b>MDE (Minimum Detectable Effect):</b> ขนาดการเปลี่ยนแปลงเล็กที่สุดของ Metric ที่การทดลองจะสามารถวัดผลได้ทางสถิติ MDE ยิ่งเล็ก ยิ่งต้องใช้ Sample Size และเวลาในการรันนานขึ้น</li>
-            <li><b>Statistical Power (80% Standard):</b> ค่าความน่าจะเป็นที่ A/B Test จะสามารถตรวจจับผลลัพธ์ที่เป็นจริงได้ถูกต้อง (ป้องกัน Type II Error / False Negative) มาตรฐานที่ Agoda กำหนดไว้ที่ 80%</li>
-            <li><b>p-value (&lt; 0.05 Standard):</b> ระดับนัยสำคัญทางสถิติ พิสูจน์ว่า Variant B ชนะ Control ไม่ได้เกิดจากความบังเอิญ โดยต้องมีค่า <code>p &lt; 0.05</code> (ระดับความเชื่อมั่น 95%)</li>
-            <li><b>SRM (Sample Ratio Mismatch):</b> เกิดขึ้นเมื่อสัดส่วนผู้ใช้ที่สุ่มข้ามไป Control vs Treatment ไม่ตรงตามสเปก 50/50 (เช่น สุ่มออกมาเป็น 53/47 โดยมี p-value ของ Chi-Square test &lt; 0.001) สัญญาณบอกว่ามี Bot หรือบักในการทำ Traffic Assignment ➡️️ <b>Action:</b> ต้องสั่ง Pause Test ทันที ห้ามนำผลมาสรุป</li>
-            <li><b>Novelty Effect vs Primacy Effect:</b> <i>Novelty Effect</i> คือผู้ใช้เห่อคลิกฟีเจอร์ใหม่เพราะความแปลกตา ทำให้ Metric พุ่งสูงชั่วคราวแล้วดรอปภายหลัง ส่วน <i>Primacy Effect</i> คือผู้ใช้ชินกับ UI เดิมและต่อต้าน UI ใหม่ชั่วคราว ➡️ <b>Solution:</b> ต้องรัน Test อย่างน้อย 2 full business cycles (14 วัน) เพื่อตัด Bias นี้</li>
-            <li><b>Peeking Problem:</b> การเข้าไปแอบดู p-value ทุกวันแล้วรีบสั่งจบ Test ก่อนครบเวลา ทำให้เกิด False Positive (Type I Error) พุ่งสูง ➡️ <b>Solution:</b> กำหนด Sample Size ล่วงหน้า หรือใช้ Sequential Testing Framework</li>
-        </ul>
-    </div>
-
-    <h3>8.3 Metrics Taxonomy (โครงสร้างตัววัดของ Agoda)</h3>
+    <h2 id="sec8">8. 🧠 คลังความรู้เชิงลึก, A/B Testing Mechanics, Competitive Matrix & Advanced Architecture</h2>
+    <h3>8.1 CIRCLES & MoSCoW Framework Refinements</h3>
     <ul>
-        <li><b>Primary Metric (North Star):</b> Metric หลักตัวเดียวที่กำหนดเป็นเป้าหมายความสำเร็จของ Experiment เช่น Net Completed Bookings หรือ Conversion Rate</li>
-        <li><b>Secondary Metrics:</b> Metric สนับสนุนเพื่ออธิบายพฤติกรรมผู้ใช้ เช่น CTR บนปุ่ม Book Now, Search-to-Click Ratio, Average Order Value (AOV)</li>
-        <li><b>Guardrail Metrics:</b> Metric ข้อบังคับที่ห้ามแย่ลงเด็ดขาด เช่น Page Load Latency p95, HTTP Error Rate, Cancellation Rate, Customer Support Contact Rate</li>
+        <li><b>CIRCLES:</b> <code>C</code>omprehend Context ➡️ <code>I</code>dentify Personas ➡️ <code>R</code>eport Needs ➡️ <code>C</code>ut Prioritization ➡️ <code>L</code>ist Solutions ➡️ <code>E</code>valuate Trade-offs ➡️ <code>S</code>ummarize</li>
+        <li><b>MoSCoW:</b> <code>Must have</code> (Core payment), <code>Should have</code> (Filter/Sort), <code>Could have</code> (Wishlist share), <code>Won't have</code> (Crypto payment)</li>
     </ul>
 
-    <h3>8.4 Technical Architecture & Agoda Domain Knowledge</h3>
-    
-    <div class="glossary-box">
-        <h4>⚙️ Technical Architecture for Senior PMs:</h4>
+    <h3>8.2 Agoda's Moat & Competitive Landscape Matrix</h3>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>ผู้เล่น (Competitor)</th>
+                    <th>โมเดลหลัก (Primary Model)</th>
+                    <th>จุดแข็งสำคัญ (Key Strengths)</th>
+                    <th>ข้อเสียเปรียบเมื่อเทียบกับ Agoda</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>Agoda</b> 🏆</td>
+                    <td>Merchant-First (APAC Focus)</td>
+                    <td>Price Leadership, Dynamic Discounting/Coupons, Deep APAC Supply</td>
+                    <td>กำลังเร่งขยายสัดส่วน Non-Accommodation (Flights/Packages)</td>
+                </tr>
+                <tr>
+                    <td><b>Booking.com</b></td>
+                    <td>Agency-First (Global)</td>
+                    <td>Massive Global Hotel Supply, Strong European Presence, Simple UI</td>
+                    <td>ความยืดหยุ่นในการทำ Dynamic Margin & Localized Discounting ต่ำกว่า</td>
+                </tr>
+                <tr>
+                    <td><b>Expedia Group</b></td>
+                    <td>Hybrid (US/Global Focus)</td>
+                    <td>Strong Flight+Hotel Packages, Large US Corporate Travel Market</td>
+                    <td>ราคาห้องพักเดี่ยวในภูมิภาค APAC สูงกว่า และระบบ UX มีความซับซ้อน</td>
+                </tr>
+                <tr>
+                    <td><b>Trip.com Group</b></td>
+                    <td>Super-App (China/Global)</td>
+                    <td>Comprehensive Travel Ecosystem (Train, Flight, Hotel, Tours)</td>
+                    <td>Brand Penetration ในกลุ่ม Western Travelers ยังไม่สูงเท่า Agoda</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>8.3 Advanced Technical Architecture Deep-Dive</h3>
+    <div class="star-card">
+        <h3>⚡ 1. Search Engine & Inventory Caching Architecture</h3>
+        <p>Agoda มี Search Traffic หลายล้านโควตต่อนาที การค้นหาราคาตรงไปยัง Database หลักจะทำให้ระบบพังทันที จึงต้องใช้นวัตกรรมสถาปัตยกรรมแบบหลายชั้น:</p>
         <ul>
-            <li><b>Microservices Architecture:</b> การแยก Application ขนาดใหญ่ออกเป็นบริการย่อยๆ (เช่น Search Service, Pricing Service, Booking Service) ที่ทำงานอิสระต่อกันผ่าน API</li>
-            <li><b>RESTful APIs vs gRPC vs GraphQL:</b> REST ใช้สื่อสารทั่วไปผ่าน JSON; gRPC ใช้โปรโตคอล HTTP/2 สื่อสารระหว่าง Microservices หลังบ้านด้วยความเร็วสูงมาก (Ultra-low latency); GraphQL ใช้ดึงข้อมูลหน้าบ้านแบบกำหนด Fields ได้ตามต้องการ</li>
-            <li><b>Caching Layer (Redis / CDN):</b> <code>Redis</code> ใช้เก็บ In-memory Data ที่ถูกเรียกบ่อยๆ เช่น Hotel Static Metadata/Room Rates เพื่อลด Load ของ Database; <code>CDN (Cloudflare/Akamai)</code> ใช้กระจายรูปภาพโรงแรมและไฟล์ JS/CSS ไปยัง Edge Servers ทั่วโลก</li>
-            <li><b>Data Pipelines (Kafka / BigQuery):</b> <code>Kafka</code> เป็น Event Streaming Pipeline ดักจับทุก Clickstream/Search Action ของผู้ใช้แบบ Real-time; <code>BigQuery</code> ใช้ทำ Data Warehousing Analytics ขนาดใหญ่</li>
-            <li><b>Observability (DataDog / CloudWatch):</b> <code>p95/p99 Latency</code> คือค่า Latency ของกลุ่มผู้ใช้ที่เจอความช้าที่สุด 5% และ 1% ตามลำดับ (สำคัญกว่าค่า Average); <code>HTTP Status Codes</code>: 4xx = Client Errors (เช่น 404 Not Found, 400 Bad Request), 5xx = Server Errors (เช่น 500 Internal Error, 502 Bad Gateway, 504 Gateway Timeout)</li>
+            <li><b>Multi-Layer Caching (Redis + Edge CDN):</b> เก็บข้อมูลราคาและประเภทห้องพักไว้บน In-Memory Cache (Redis Cluster) ใกล้ตัวผู้ใช้มากที่สุด ลด Latency เหลือ &lt; 100ms</li>
+            <li><b>Cache Invalidation Strategy:</b> เมื่อโรงแรมเปลี่ยนราคาหรือห้องเต็ม ระบบจะส่ง Event ผ่าน <code>Kafka</code> ไปอัปเดต Cache เฉพาะ Key นั้นๆ (Event-driven Cache Invalidation)</li>
+            <li><b>Price Staleness vs Search Latency Trade-off:</b> หากยอมให้ข้อมูลราคาเก่าไปเพียง 30 วินาที ระบบจะประหยัด Compute Cost ได้ 80% แต่ต้องมี Verification Guardrail ในหน้า Checkout เพื่อเช็กราคาสุดท้ายกับโรงแรมเสมอก่อนตัดเงิน</li>
         </ul>
     </div>
 
-    <div class="glossary-box">
-        <h4>🏨 Agoda OTA Domain & Revenue Models:</h4>
+    <div class="star-card">
+        <h3>🛡️ 2. Fraud Detection & Risk Management Engine</h3>
+        <p>ในฝั่ง Payment & FinTech PM ต้องดูแลระบบดักจับการทุจริตแบบ Real-time:</p>
         <ul>
-            <li><b>Merchant Model vs Agency Model:</b>
-                <ul>
-                    <li><i>Merchant Model (Agoda Dominant):</i> Agoda เป็นผู้เก็บเงินจากผู้ใช้ล่วงหน้า ยอดเงินเข้าบัญชี Agoda ก่อน แล้ว Agoda ค่อยจ่ายให้โรงแรมหลังลูกค้า Check-out ➡️ <b>ข้อดี:</b> Agoda คุม Cash Flow, สามารถทำ Dynamic Discounting / Top-up Coupon และคุม Margin ได้เอง</li>
-                    <li><i>Agency Model:</i> ลูกค้าเลือกไปจ่ายเงินตรงที่โรงแรมเมื่อเข้าพัก แล้วโรงแรมค่อยจ่ายค่าคอมมิชชั่น (Take Rate) คืนให้ Agoda ทีหลัง</li>
-                </ul>
-            </li>
-            <li><b>Dynamic Pricing Engine:</b> ระบบคำนวณราคาห้องพัก Real-time โดยปรับเปลี่ยนตาม Demand, Seasonality, User Tier (VIP Discounts), Channel (App-Only Price) และ Competitor Price Scraping</li>
-            <li><b>Room & Rate Mapping:</b> ระบบกลางในการ Map ประเภทห้องพักและแพ็กเกจราคาจากพันธมิตรหลายร้อย Channel Managers/PMS ให้กลายเป็น Schema เดียวกันบน Agoda</li>
-            <li><b>Agoda Conversion Funnel (5 Stages):</b> <code>Search (Home/Search Bar) ➡️ SRP (Search Results Page) ➡️ PDP (Property Detail Page) ➡️ Checkout (Guest Details & Payment) ➡️ Confirmation (Booking Voucher)</code></li>
+            <li><b>Real-time Risk Scoring API:</b> ทุกการกดชำระเงินจะถูกส่งไปประเมิน Risk Score ผ่าน ML Model ภายใน &lt; 200ms โดยวิเคราะห์จาก Device Fingerprint, IP Geo-location, Card Velocity, และ Historical Behavioral Pattern</li>
+            <li><b>Step-up Authentication (3D Secure Flex):</b> หาก Risk Score อยู่ในเกณฑ์ปานกลาง ระบบจะเรียกใช้ 3DS (OTP) เฉพาะรายนั้น แต่หาก Low Risk จะผ่านสู่ Frictionless Checkout เพื่อรักษา Conversion Rate</li>
         </ul>
     </div>
 
     <!-- SECTION 9 -->
-    <h2 id="sec9">9. 📝 กระบวนการสมัคร, Referral, LinkedIn, Resume & AI Questions Expansion</h2>
+    <h2 id="sec9">9. Full Case Walkthrough Scripts, Objection Handling & Bar Raiser Decoding</h2>
 
-    <h3>9.1 Resume, Referral & Application Mechanics</h3>
-    <ul>
-        <li><b>Employee Referral:</b> ส่งตรงถึง Recruiter Inbox ('Top of the pile') ข้าม Queue ATS</li>
-        <li><b>Resume Bullet Formula:</b> <code>Action Verb + Technical Context + Quantifiable Business Impact</code> (เช่น <i>"Architected dynamic configuration system, reducing feature rollout time from 3 days to &lt;5 mins and saving 40% dev effort."</i>)</li>
-    </ul>
+    <h3>9.1 Full Case Walkthrough Script: "How would you improve Agoda Homes?"</h3>
+    <div class="script-box-en">
+        <p><b>1. C - Comprehend Context:</b><br/>
+        <i>"To align on the goal, are we focusing on increasing supply/listings, or improving the booking conversion rate for existing travelers on Agoda Homes? Let's assume our primary metric is to increase Booking Conversion Rate by 5% in APAC."</i></p>
 
-    <!-- AI QUESTIONS EXPANSION -->
-    <h3>9.2 เจาะลึกคำถามสาย AI / ML Products (AI Questions Expansion)</h3>
-    <div class="star-card">
-        <h3>🤖 แนวทางการตอบคำถาม AI/ML Product Design ในห้องสัมภาษณ์</h3>
-        <p>โจทย์ AI มักถูกถามในรอบ Case Study และ Technical Assessment เพื่อทดสอบว่า PM เข้าใจการนำ AI มาสร้าง Business Value หรือไม่:</p>
+        <p><b>2. I - Identify Personas:</b><br/>
+        <i>"I see 2 main user segments: Segment A: Family/Group Vacationers looking for multi-room stays. Segment B: Long-stay Digital Nomads needing dedicated workspaces. Let's focus on Segment A (Family Vacationers) as they have higher AOV and booking intent."</i></p>
+
+        <p><b>3. R - Report User Needs & Pain Points:</b><br/>
+        <i>"Family vacationers face 3 main pain points: 1) Uncertainty about amenities (e.g., parking, kitchen equipment), 2) Complex check-in instructions compared to traditional hotels, 3) Strict cancellation policies."</i></p>
+
+        <p><b>4. C - Cut through Prioritization (RICE):</b><br/>
+        <i>"Using RICE framework, Pain Point 1 (Amenity Uncertainty) has the highest Reach and Impact with low Effort. Solving amenity clarity will directly reduce Checkout Drop-off."</i></p>
+
+        <p><b>5. L - List Solutions:</b><br/>
+        <i>"Solution 1: 'Verified Amenity Badges' with host-uploaded photos. Solution 2: 'AI Review Highlights' summarizing family-friendly amenities. Solution 3: 'Instant Host Q&A Widget' on PDP."</i></p>
+
+        <p><b>6. E - Evaluate Trade-offs:</b><br/>
+        <i>"Solution 2 (AI Review Highlights) offers high scalability and low implementation effort via LLM prompt engineering without requiring host action, whereas Solution 1 requires manual host verification."</i></p>
+
+        <p><b>7. S - Summarize Recommendation:</b><br/>
+        <i>"I recommend launching an A/B test for Solution 2 (AI Review Highlights) on PDP. Primary Metric: PDP-to-Checkout Conversion Rate. Guardrail Metrics: Page Load Latency p95 (&lt;800ms) and Host Contact Rate."</i></p>
+    </div>
+
+    <h3>9.2 Objection Handling Scripts (การรับมือข้อโต้แย้งในห้องสัมภาษณ์)</h3>
+    <div class="script-box">
+        <p><b>Scenario A: เมื่อโดนท้าทายว่า "โซลูชันที่คุณเสนอซับซ้อนไปสำหรับ MVP สัปดาห์แรก?"</b><br/>
+        <i>"เป็น Point ที่ถูกต้องเลยครับ! ในเวอร์ชั่น MVP สัปดาห์แรก เราสามารถตัด Automation หลังบ้านออกทั้งหมด แล้วปรับใช้ 'Wizard of Oz' หรือ Rule-Based Static Logic ก่อน เพื่อทดสอบ CTR และ Conversion Intent ของผู้ใช้ หาก Data ยืนยันว่า Demand มีจริง เราค่อยลงทุนสร้าง Scalable Service ใน Phase 2 ครับ"</i></p>
+    </div>
+
+    <div class="script-box">
+        <p><b>Scenario B: เมื่อโดนถามว่า "ถ้า Data บอกว่าไอเดียของคุณล้มเหลว แต่คุณเชื่อว่าไอเดียนี้ถูกต้อง คุณจะทำอย่างไร?"</b><br/>
+        <i>"ที่ Agoda เรายึดหลัก 'Data Trumps Opinion' ครับ หาก A/B Test ปล่อยออกไปถึง Sample Size และรันจนได้ Statistical Significance (p &lt; 0.05) แล้วพบว่า Negative ผมจะยอมรับผลและทำการ Rollback ทันที จากนั้นจะทำ Root Cause Analysis ซอยย่อย Data ตาม Segments เพื่อดูว่าเราตั้งสมมติฐานผิดที่ตรงไหน มากกว่าการดันทุรังใช้ความรู้สึกครับ"</i></p>
+    </div>
+
+    <h3>9.3 Bar Raiser Decoding (จิตวิทยาการสัมภาษณ์รอบ Bar Raiser)</h3>
+    <div class="example-box">
+        <h4>🧠 Bar Raiser กำลังประเมินอะไรในตัวคุณ?</h4>
         <ul>
-            <li><b>1. Use Case Identification in OTA:</b> เน้นโจทย์ที่แก้ปัญหาจริง เช่น <b>AI Hotel Review Summarizer</b> (สรุปรีวิวหลายร้อยข้อความให้เหลือ 3 จุดเด่น) หรือ <b>Conversational Search Assistant</b> (ค้นหาโรงแรมด้วยภาษารายวัน)</li>
-            <li><b>2. RAG Architecture (Retrieval-Augmented Generation):</b> อธิบายวิธีป้องกัน AI มโน (Hallucination) โดยการดึงข้อมูลจริงจาก Agoda Hotel Database และ Real-time Inventory DB ผ่าน RAG ก่อนส่งให้ LLM ประมวลผล</li>
-            <li><b>3. AI Technical Trade-offs (Latency vs Accuracy vs Cost):</b> 
-                <ul>
-                    <li><i>Latency:</i> LLM ตอบช้า (2-5 วินาที) ต้องใช้ Streaming Output (SSE) หรือทำ Async Pre-computation/Caching สำหรับยอดนิยม</li>
-                    <li><i>Cost & Token Optimization:</i> ใช้ Model ขนาดเล็ก (เช่น Claude Haiku / GPT-4o-mini) สำหรับงานย่อย และใช้ Model ใหญ่เฉพาะงานซับซ้อน</li>
-                    <li><i>Guardrails & Safety:</i> ตั้งระบบ Validation Layer กรองข้อมูลที่ไม่เหมาะสม และมี Fallback UI เสมอหาก AI ตอบไม่ได้</li>
-                </ul>
-            </li>
-            <li><b>4. Internal AI Productivity Tools:</b> แสดงการใช้งาน AI เพิ่ม Productivity ของตนเอง เช่น ใช้ <b>Cursor/GitHub Copilot</b> ช่วยเขียน SQL/Python Data Analysis, ใช้ <b>Claude/ChatGPT</b> ช่วยร่าง PRD Edge Cases และเขียน BDD Jira Acceptance Criteria</li>
+            <li><b>Intellectual Humility (ความอ่อนน้อมถ่อมตนทางปัญญา):</b> กล้ายอมรับข้อผิดพลาดเมื่อ Data บอกว่าคิดผิด ไม่ยึดติดกับ Ego หรือ Solution ของตัวเอง</li>
+            <li><b>Ownership & Resilience:</b> พร้อมรับผิดชอบผลลัพธ์ของ Product เมื่อเกิด Incident และมีแนวทางในการเรียนรู้จากความล้มเหลวเพื่อปรับปรุง Process</li>
+            <li><b>Cultural Alignment with Agoda:</b> ขับเคลื่อนด้วย Data, ทำงานเร็ว, และสามารถสื่อสารตรงไปตรงมาด้วยความเคารพ (Direct & Respectful Communication)</li>
         </ul>
     </div>
 
     <div class="footer-note">
-        <p><b>✅ Mobile & Desktop Verified Complete:</b> รวบรวมและแก้ไขปรับปรุงเนื้อหาครบถ้วนทุกประเด็น 100%</p>
+        <p><b>✅ Eye-Care & Multi-Theme Edition Verified Complete:</b> รองรับโหมดอ่านหนังสือถนอมสายตาครบถ้วน 100%</p>
     </div>
 </div>
+
+<!-- 📜 Theme Switcher JavaScript -->
+<script>
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('agoda_guide_theme', theme);
+        
+        // Update active button UI
+        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+        var activeBtn = document.getElementById('btn-' + theme);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        }
+    }
+
+    // Auto load saved theme preference or default to 'eye-care'
+    (function() {
+        var savedTheme = localStorage.getItem('agoda_guide_theme') || 'eye-care';
+        setTheme(savedTheme);
+    })();
+</script>
 
 </body>
 </html>
