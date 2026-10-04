@@ -323,6 +323,255 @@
             font-size: 13px;
         }
 
+        /* 📋 Floating Scroll-to-TOC Button */
+        .floating-toc-btn {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            z-index: 9999;
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: #ffffff !important;
+            padding: 11px 20px;
+            border-radius: 50px;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-decoration: none !important;
+            box-shadow: 0 4px 18px rgba(13, 110, 253, 0.45), 0 2px 8px rgba(0,0,0,0.18);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2px solid rgba(255,255,255,0.35);
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+        }
+        .floating-toc-btn:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(13, 110, 253, 0.6), 0 4px 12px rgba(0,0,0,0.22);
+            background: linear-gradient(135deg, #0b5ed7 0%, #084298 100%);
+            color: #ffffff !important;
+        }
+        .floating-toc-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* 🏛️ Agoda Organization Chart Styles */
+        .org-chart-wrapper {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 22px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .org-level-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            margin: 14px 0 8px;
+        }
+        .org-box {
+            border-radius: 10px;
+            padding: 14px 18px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .org-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+        .org-box-parent {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: #ffffff;
+            border: 1px solid #0f172a;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .org-box-parent h4 { color: #ffffff; margin: 4px 0; font-size: 17px; }
+        .org-box-ceo {
+            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+            color: #ffffff;
+            border: 1px solid #0a58ca;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+        .org-box-ceo h4 { color: #ffffff; margin: 4px 0; font-size: 17px; }
+        .org-role {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            color: #ffffff;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .org-meta {
+            font-size: 12px;
+            color: rgba(255,255,255,0.85);
+            margin: 2px 0 0;
+            line-height: 1.4;
+        }
+        .org-connector-down {
+            width: 2px;
+            height: 18px;
+            background: var(--border-color);
+            margin: 6px auto;
+        }
+        .org-grid-csuite {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin: 12px 0;
+        }
+        .org-box-product {
+            background: #eff6ff;
+            border: 1.5px solid #93c5fd;
+            text-align: left;
+        }
+        .org-box-product .org-role { background: #1d4ed8; color: #fff; }
+        .org-box-product h4 { color: #1e3a8a; margin: 4px 0; font-size: 15px; }
+        .org-box-tech {
+            background: #f0fdf4;
+            border: 1.5px solid #86efac;
+            text-align: left;
+        }
+        .org-box-tech .org-role { background: #15803d; color: #fff; }
+        .org-box-tech h4 { color: #14532d; margin: 4px 0; font-size: 15px; }
+        .org-box-comm {
+            background: #fefce8;
+            border: 1.5px solid #fde047;
+            text-align: left;
+        }
+        .org-box-comm .org-role { background: #a16207; color: #fff; }
+        .org-box-comm h4 { color: #713f12; margin: 4px 0; font-size: 15px; }
+        .org-box-ops {
+            background: #faf5ff;
+            border: 1.5px solid #d8b4fe;
+            text-align: left;
+        }
+        .org-box-ops .org-role { background: #7e22ce; color: #fff; }
+        .org-box-ops h4 { color: #581c87; margin: 4px 0; font-size: 15px; }
+        .org-desc {
+            font-size: 12px;
+            color: var(--text-color);
+            margin: 4px 0 0;
+            line-height: 1.45;
+        }
+
+        .org-grid-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin: 12px 0;
+        }
+        .org-pillar-card {
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-top: 4px solid var(--primary);
+        }
+        .pillar-b2c { border-top-color: #0d6efd; }
+        .pillar-fintech { border-top-color: #10b981; }
+        .pillar-supply { border-top-color: #f59e0b; }
+        .pillar-core { border-top-color: #8b5cf6; }
+        .pillar-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .org-pillar-card h4 {
+            font-size: 15px;
+            margin: 4px 0 6px;
+            color: var(--heading-color);
+        }
+        .pillar-lead {
+            font-size: 12px;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .org-pillar-card ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 12px;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        .org-pod-detail {
+            background: linear-gradient(180deg, #f0fdf4 0%, var(--bg-card) 100%);
+            border: 2px solid #86efac;
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+        .pod-header-banner {
+            background: #16a34a;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 14px;
+        }
+        .pod-roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .pod-role-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .role-badge {
+            display: inline-block;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+        }
+        .role-pm { border-left: 4px solid #0d6efd; }
+        .role-pm .role-badge { background: #dbeafe; color: #1e40af; }
+        .role-techlead { border-left: 4px solid #16a34a; }
+        .role-techlead .role-badge { background: #dcfce7; color: #166534; }
+        .role-dev { border-left: 4px solid #6366f1; }
+        .role-dev .role-badge { background: #e0e7ff; color: #3730a3; }
+        .role-qa { border-left: 4px solid #f59e0b; }
+        .role-qa .role-badge { background: #fef3c7; color: #92400e; }
+        .role-ux { border-left: 4px solid #ec4899; }
+        .role-ux .role-badge { background: #fce7f3; color: #9d174d; }
+        .role-data { border-left: 4px solid #06b6d4; }
+        .role-data .role-badge { background: #cffafe; color: #155e75; }
+        .pod-role-card h5 {
+            font-size: 14px;
+            margin: 2px 0 4px;
+            color: var(--heading-color);
+        }
+        .pod-role-card p {
+            font-size: 11.5px;
+            margin: 0;
+            line-height: 1.45;
+            color: var(--text-color);
+        }
+
         @media (max-width: 768px) {
             body { padding: 8px 4px; }
             .container { padding: 18px 14px; border-radius: 8px; margin-top: 35px; }
@@ -336,6 +585,7 @@
             .star-card { padding: 14px; }
             .code-block { font-size: 12px; padding: 12px; }
             .example-box, .script-box, .script-box-en, .alert-box, .glossary-box { padding: 12px 14px; font-size: 13px; }
+            .floating-toc-btn { bottom: 18px; right: 18px; padding: 9px 16px; font-size: 12px; }
         }
     </style>
 </head>
@@ -354,12 +604,12 @@
     </div>
 
     <!-- Table of Contents -->
-    <div class="toc">
+    <div class="toc" id="toc">
         <h3>📌 สารบัญลำดับหัวข้อ (Interview Readiness Priority Flow)</h3>
         <ul>
             <li><a href="#sec1">1. ภาพรวมโปรไฟล์และจุดขายหลัก (Candidate Profile & Value Proposition)</a></li>
             <li><a href="#sec2">2. เจาะลึกกระบวนการสัมภาษณ์ Agoda Senior PM แต่ละรอบ (Round 1 - Round 5 Deep-Dive)</a></li>
-            <li><a href="#sec3">3. 🚀 เคสประสบการณ์และบทพูดแบบ STAR Technique (STAR Stories 3.1 - 3.14 ฉบับเต็มตรงตาม PDF)</a>
+            <li><a href="#sec3">3. 🚀 เคสประสบการณ์และบทพูดแบบ STAR Technique (STAR Stories 3.1 - 3.14 ฉบับเต็ม)</a>
                 <ul>
                     <li><a href="#rice-example">3.1 RICE Framework & Solution Design Sizing (Heuristic vs ML Option)</a></li>
                     <li><a href="#severity-matrix">3.2 Bug Fix vs New Feature (P0/P1/P2 Severity & Capacity Allocation)</a></li>
@@ -377,13 +627,13 @@
                     <li><a href="#star-quality-improvement">3.14 การเขียนสรุป Quality Improvement หลังเกิดปัญหา ส่งให้ Director (Incident Action & Progress Tracking)</a></li>
                 </ul>
             </li>
-            <li><a href="#sec4">4. Full Case Walkthrough Scripts, Objection Handling, Bar Raiser & PDF Source Deep-Dive Questions</a>
+            <li><a href="#sec4">4. Full Case Walkthrough Scripts, Objection Handling, Bar Raiser & Strategic Deep-Dive Questions</a>
                 <ul>
                     <li><a href="#circles-script">4.1 Full Case Walkthrough Script: Agoda Homes Improvement</a></li>
                     <li><a href="#objection-handling">4.2 Objection Handling Scripts (เมื่อโดนท้าทายในห้องสัมภาษณ์)</a></li>
                     <li><a href="#bar-raiser-def">4.3 Bar Raiser Decoding (จิตวิทยาการสัมภาษณ์รอบ Bar Raiser)</a></li>
                     <li><a href="#ai-rag-def">4.4 AI Questions Expansion (RAG, Streaming & Cost Trade-offs)</a></li>
-                    <li><a href="#pdf-source-questions">4.5 รวมคำถามสัมภาษณ์เชิงลึกเพิ่มเติมจาก PDF Source (Counter Offer, Lead SWE 6 yrs, English/Captions, A/B Test Pivot)</a></li>
+                    <li><a href="#pdf-source-questions">4.5 รวมคำถามสัมภาษณ์เชิงลึกเพิ่มเติมเชิงลึก (Counter Offer, Lead SWE 6 yrs, English/Captions, A/B Test Pivot)</a></li>
                     <li><a href="#english-interview-mastery">4.6 ภาษาอังกฤษสำหรับการสัมภาษณ์ Agoda และการใช้ Live Captions</a></li>
                     <li><a href="#ask-the-interviewer">4.7 คำถามเด็ดที่คุณควรถามกลับตอนจบการสัมภาษณ์ (Ask the Interviewer)</a></li>
                 </ul>
@@ -399,7 +649,7 @@
             <li><a href="#sec8">8. การวิเคราะห์ Gap Analysis, กลยุทธ์การปิด Gap 9 มิติ และคลังคำศัพท์เฉพาะ (Glossary)</a></li>
             <li><a href="#sec9">9. โครงสร้างองค์กร Agoda สำหรับ Senior PM และการเปลี่ยนสายงาน (Org Structure & Transition)</a>
                 <ul>
-                    <li><a href="#agoda-org-structure">9.1 โครงสร้างองค์กรและ 4 เสาหลักของผลิตภัณฑ์ Agoda</a></li>
+                    <li><a href="#agoda-org-structure">9.1 โครงสร้างองค์กรและ 4 เสาหลักของผลิตภัณฑ์ Agoda (Agoda Organization Chart)</a></li>
                     <li><a href="#agoda-pod-structure">9.2 โครงสร้างพอดในกรุงเทพฯ และ Stakeholder Ecosystem</a></li>
                     <li><a href="#agoda-pm-scope">9.3 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM</a></li>
                     <li><a href="#agoda-hiring-funnel">9.4 สถิติ Headcount Seasonality & Funnel การคัดออก</a></li>
@@ -553,12 +803,12 @@
     </div>
 
         <!-- SECTION 3 (STAR Stories) -->
-    <h2 id="sec3">3. 🚀 เคสประสบการณ์และบทพูดแบบ STAR Technique (STAR Stories 3.1 - 3.14 ฉบับเต็มตรงตาม PDF)</h2>
+    <h2 id="sec3">3. 🚀 เคสประสบการณ์และบทพูดแบบ STAR Technique (STAR Stories 3.1 - 3.14 ฉบับเต็ม)</h2>
     
     <!-- 3.1 -->
     <div class="star-card" id="rice-example">
-        <h3>3.1 การทำ Solution Design & High-Level Sizing เพื่อการ Prioritize + ตัวอย่างการคำนวณ RICE Framework (PDF หน้า 1-2)</h3>
-        <p><b>Key Concept (PDF หน้า 1):</b> สะพานเชื่อมชิ้นสำคัญที่สุด (The Ultimate Bridge) ระหว่างสายงาน Engineering กับ Product Management โดยนำ Cost/Effort Score (จาก RICE Framework) ที่ได้มาจาก Solution Design และ Sizing ของฝั่ง Tech ไปหารกับ Business Value (Reach × Impact × Confidence) เพื่อคำนวณหา ROI ในการตัดสินใจว่า <i>"ฟีเจอร์นี้คุ้มค่าที่จะทำในสปรินต์นี้หรือไม่"</i></p>
+        <h3>3.1 การทำ Solution Design & High-Level Sizing เพื่อการ Prioritize + ตัวอย่างการคำนวณ RICE Framework</h3>
+        <p><b>Key Concept:</b> สะพานเชื่อมชิ้นสำคัญที่สุด (The Ultimate Bridge) ระหว่างสายงาน Engineering กับ Product Management โดยนำ Cost/Effort Score (จาก RICE Framework) ที่ได้มาจาก Solution Design และ Sizing ของฝั่ง Tech ไปหารกับ Business Value (Reach × Impact × Confidence) เพื่อคำนวณหา ROI ในการตัดสินใจว่า <i>"ฟีเจอร์นี้คุ้มค่าที่จะทำในสปรินต์นี้หรือไม่"</i></p>
         
         <div class="example-box">
             <h4>💡 วิธีดึงจุดเด่นเรื่อง Solution Design & Sizing มาสร้างเป็นจุดขาย (Key Pitching Points):</h4>
@@ -581,9 +831,9 @@
             </ul>
         </div>
 
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 2):</b> <i>"เล่าประสบการณ์ที่คุณต้องประเมิน Technical Feasibility หรือทำ Sizing เพื่อช่วยให้ Stakeholders/PM สามารถตัดสินใจ Prioritize งานได้อย่างคุ้มค่าที่สุดให้ฟังหน่อย"</i></p>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"เล่าประสบการณ์ที่คุณต้องประเมิน Technical Feasibility หรือทำ Sizing เพื่อช่วยให้ Stakeholders/PM สามารถตัดสินใจ Prioritize งานได้อย่างคุ้มค่าที่สุดให้ฟังหน่อย"</i></p>
 
-        <h4>STAR Story (ฉบับเต็มตรงตาม PDF หน้า 2):</h4>
+        <h4>STAR Story (ฉบับเต็มตรงตาม):</h4>
         <ul>
             <li><b>S (Situation):</b> "ช่วงทำโปรเจกต์ระบบ Personalization Recommender ให้กับแอปพลิเคชันเดิม ฝั่ง PM อยากได้ระบบวิเคราะห์พฤติกรรมผู้ใช้แบบ Real-time เพื่อเพิ่ม Conversion Rate แต่ทีมมีทรัพยากรจำกัด และเวลาเหลือเพียง 1 เดือนก่อน Peak Season"</li>
             <li><b>T (Task):</b> "บทบาทของผมในฐานะ Lead SWE คือต้องทำ Solution Design และ High-Level Sizing เพื่อประเมินความเป็นไปได้เชิงเทคนิค และเสนอทางเลือกให้ PM นำไปตัดสินใจ Trade-off ระหว่าง Speed to Market vs System Complexity"</li>
@@ -599,9 +849,9 @@
 
     <!-- 3.2 -->
     <div class="star-card" id="severity-matrix">
-        <h3>3.2 การบริหาร Trade-off ระหว่าง Bug Fix vs New Feature + ที่มาของ P0 / P1 / P2 (PDF หน้า 3-4)</h3>
+        <h3>3.2 การบริหาร Trade-off ระหว่าง Bug Fix vs New Feature + ที่มาของ P0 / P1 / P2</h3>
         <div class="example-box">
-            <h4>💡 กรอบความคิดในการจัด Prioritization (The PM Framework - PDF หน้า 3-4):</h4>
+            <h4>💡 กรอบความคิดในการจัด Prioritization (The PM Framework):</h4>
             <ul>
                 <li><span class="badge badge-red">P0</span> <b>Critical / P0 Bugs (Stop the Line):</b> บั๊กกระทบ Core User Journey เช่น Payment Fail, Checkout Crash, Data Breach หรือ Security Issue ➡ <b>Action:</b> ต้องแทรกคิวแก้ไขทันที (Immediate Hotfix) 24/7 โดยไม่ต้องรอวาง Prioritization ในสปรินต์</li>
                 <li><span class="badge badge-orange">P1</span> <b>Non-Critical / P1 Bugs (High Severity):</b> บั๊กกระทบฟังก์ชันสำคัญแต่มี Workaround ➡ <b>Action:</b> นำเข้ากระบวนการ Refinement เพื่อเทียบ ROI กับ New Features</li>
@@ -615,9 +865,9 @@
             </ul>
         </div>
 
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 4):</b> <i>"เล่าประสบการณ์ที่คุณต้องตัดสินใจเลือกระหว่างการแก้ Bug กับการส่งมอบ Feature ใหม่ภายใต้เวลาและ Resource ที่จำกัดให้ฟังหน่อย"</i></p>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"เล่าประสบการณ์ที่คุณต้องตัดสินใจเลือกระหว่างการแก้ Bug กับการส่งมอบ Feature ใหม่ภายใต้เวลาและ Resource ที่จำกัดให้ฟังหน่อย"</i></p>
 
-        <h4>STAR Story (ฉบับเต็มตรงตาม PDF หน้า 4):</h4>
+        <h4>STAR Story (ฉบับเต็มตรงตาม):</h4>
         <ul>
             <li><b>S (Situation):</b> "ช่วงรันสปรินต์ก่อนเปิดตัวแคมเปญใหญ่ ทีมย่อยของเรามีคิวต้องส่งมอบ New Checkout Feature เพื่อเพิ่ม Conversion Rate แต่ในขณะเดียวกัน เรามีคิว Bugs ค้างอยู่ใน Backlog กว่า 15 รายการ รวมถึง Bug ด้าน UI Glitch บนมือถือบางรุ่นที่มี Traffic ประมาณ 3%"</li>
             <li><b>T (Task):</b> "ฝั่ง Business ต้องการให้ดัน Feature ใหม่ให้เสร็จ 100% แต่ฝั่ง Dev และ QA กังวลเรื่องการสะสม Technical Debt และอยากเคลียร์ Bugs ทั้งหมดก่อน บทบาทของผมคือต้องหา Trade-off ที่เหมาะสมที่สุด โดยไม่กระทบเป้าหมายธุรกิจและไม่ทำให้คุณภาพระบบพัง"</li>
@@ -634,9 +884,9 @@
 
     <!-- 3.3 -->
     <div class="star-card" id="vendor-integration">
-        <h3>3.3 การจัด Sync-up Meeting และบริหาร External Team (Vendor Management) (PDF หน้า 5-6)</h3>
+        <h3>3.3 การจัด Sync-up Meeting และบริหาร External Team (Vendor Management)</h3>
         <div class="example-box">
-            <h4>💡 กรอบการนำเสนอทักษะการ Sync-up กับ External Team (PDF หน้า 5):</h4>
+            <h4>💡 กรอบการนำเสนอทักษะการ Sync-up กับ External Team:</h4>
             <ul>
                 <li><b>1. Alignment & SLA Definition (ตั้งกติกาตั้งแต่ต้น):</b> กำหนด Objective, Single Point of Contact (SPOC), Cadence (ความถี่ประชุม), และ Communication Channel (เช่น Dedicated Slack Connect Channel + Weekly Sync)</li>
                 <li><b>2. Technical API & Dependency Mapping:</b> ดึงความเป็น SWE 10 ปีมาใช้—เข้าใจ API Contracts, Data Schema Alignment, Environment Sandbox/Staging, และ Error Handling Specifications ร่วมกับทีมภายนอกตั้งแต่วันแรก</li>
@@ -644,9 +894,9 @@
             </ul>
         </div>
 
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 5):</b> <i>"เล่าประสบการณ์ที่คุณต้องบริหารจัดการและ Sync งานกับ External Team / Third-party Vendor ที่มี Timeline หรือเป้าหมายไม่ตรงกัน ให้ฟังหน่อย"</i></p>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"เล่าประสบการณ์ที่คุณต้องบริหารจัดการและ Sync งานกับ External Team / Third-party Vendor ที่มี Timeline หรือเป้าหมายไม่ตรงกัน ให้ฟังหน่อย"</i></p>
 
-        <h4>STAR Story (ฉบับเต็มตรงตาม PDF หน้า 6):</h4>
+        <h4>STAR Story (ฉบับเต็มตรงตาม):</h4>
         <ul>
             <li><b>S (Situation):</b> "ช่วงทำโปรเจกต์ Integration ระบบ Payment Gateway ใหม่กับทีม Vendor ต่างประเทศ เพื่อรองรับวิธีการชำระเงินท้องถิ่นแบบใหม่ในภูมิภาค"</li>
             <li><b>T (Task):</b> "เรามีเวลาเพียง 8 สัปดาห์ในการทำ Integration & E2E Testing แต่ทีม External มีกระบวนการทำงานที่ค่อนข้างช้า ตอบอีเมลล่าช้า และยังไม่มี API Documentation ที่สมบูรณ์ ทำให้เสี่ยงกระทบวัน Launch ของเรา"</li>
@@ -663,9 +913,9 @@
 
     <!-- 3.4 -->
     <div class="star-card" id="timeboxing-def">
-        <h3>3.4 การบริหารเวลาส่วนบุคคลด้วย Outlook Timeboxing (Personal Time Management) (PDF หน้า 7-8)</h3>
+        <h3>3.4 การบริหารเวลาส่วนบุคคลด้วย Outlook Timeboxing (Personal Time Management)</h3>
         <div class="example-box">
-            <h4>💡 โครงสร้างการอธิบายเทคนิค Timeboxing ที่คุณใช้จริง (PDF หน้า 7):</h4>
+            <h4>💡 โครงสร้างการอธิบายเทคนิค Timeboxing ที่คุณใช้จริง:</h4>
             <ul>
                 <li><b>1. เปลี่ยนจาก To-Do List เป็น Timeboxed Calendar:</b> บล็อกเวลาบน Outlook คือการให้สัญญาเรื่อง Fixed Capacity กับตัวเอง และบังคับให้ทำ Prioritization ตามเวลาที่มีจริง</li>
                 <li><b>2. ปกป้องเวลาสำหรับ Deep Work (Focus Time):</b> ลงสล็อตเวลาล่วงหน้า 1.5–2 ชั่วโมงบน Outlook ป้องกันไม่ให้คนอื่นกดนัดประชุมแทรกเข้ามาในช่วงเวลาที่ต้องใช้สมาธิวิเคราะห์งาน</li>
@@ -680,9 +930,9 @@
             </ul>
         </div>
 
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 7):</b> <i>"ในสภาพแวดล้อมที่งานโตไวและมีความขัดข้องทางเวลาสูง (Fast-paced Environment) อย่าง Agoda คุณมีวิธีบริหารเวลาและ Prioritize งานส่วนตัวของคุณอย่างไรไม่ให้ไฟลนลาน?"</i></p>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"ในสภาพแวดล้อมที่งานโตไวและมีความขัดข้องทางเวลาสูง (Fast-paced Environment) อย่าง Agoda คุณมีวิธีบริหารเวลาและ Prioritize งานส่วนตัวของคุณอย่างไรไม่ให้ไฟลนลาน?"</i></p>
 
-        <h4>STAR Story (ฉบับเต็มตรงตาม PDF หน้า 7-8):</h4>
+        <h4>STAR Story (ฉบับเต็มตรงตาม):</h4>
         <ul>
             <li><b>S (Situation):</b> "ช่วงที่ผมต้องควบทั้งบทบาท Lead/PO และคุมโปรเจกต์ใหญ่ วันๆ หนึ่งจะมีทั้งประชุมด่วน, แชตถามทางเทคนิคจากทีม Dev, งานเอกสาร Jira และการวาง Timeline ทำให้ช่วงแรกผมต้องทำงานล่วงเวลาบ่อยเพราะเวลากลางวันหมดไปกับ meetings"</li>
             <li><b>T (Task):</b> "ผมตระหนักว่าหากไม่เปลี่ยนวิธีบริหารจัดการเวลา ผมจะไม่สามารถสร้าง High-Value Output หรือคิดงานเชิงกลยุทธ์ได้เต็มที่ ผมจึงต้องหาวิธีคุมปฏิทินเพื่อเรียกคืนเวลา Deep Work กลับมา"</li>
@@ -699,7 +949,7 @@
 
     <!-- 3.5 -->
     <div class="star-card" id="bdd-example">
-        <h3>3.5 Customer Discovery & BDD Acceptance Criteria (Test Coverage Strategy) (PDF หน้า 10-11)</h3>
+        <h3>3.5 Customer Discovery & BDD Acceptance Criteria (Test Coverage Strategy)</h3>
         <div class="example-box">
             <h4>📝 ตัวอย่างการเขียน Jira Acceptance Criteria (BDD Given-When-Then Format):</h4>
             <div class="code-block"><b style="color: #F59E0B;">Scenario 1: Happy Path - Valid Promo Code Applied Successfully</b>
@@ -720,9 +970,9 @@
             </div>
         </div>
 
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 11):</b> <i>"เล่าประสบการณ์ที่คุณต้องค้นหาความต้องการของผู้ใช้ (Customer Discovery) และรับประกันว่าคุณภาพของระบบจะรองรับการใช้งานจริงได้โดยไม่มีปัญหาให้ฟังหน่อย"</i></p>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"เล่าประสบการณ์ที่คุณต้องค้นหาความต้องการของผู้ใช้ (Customer Discovery) และรับประกันว่าคุณภาพของระบบจะรองรับการใช้งานจริงได้โดยไม่มีปัญหาให้ฟังหน่อย"</i></p>
 
-        <h4>STAR Story (ฉบับเต็มตรงตาม PDF หน้า 11):</h4>
+        <h4>STAR Story (ฉบับเต็มตรงตาม):</h4>
         <ul>
             <li><b>S (Situation):</b> "ช่วงปรับปรุงระบบ Checkout สำหรับลูกค้าระดับองค์กร (B2B/Enterprise Clients) ซึ่งมีความซับซ้อนของ Use Case สูงมาก และมักเจอปัญหาระบบล้มเหลวเฉพาะกรณี (Edge Cases) ทำให้ลูกค้าหลุดออกจาก Funnel"</li>
             <li><b>T (Task):</b> "บทบาทของผมคือต้องเข้าไปสำรวจพฤติกรรมและเงื่อนไขการใช้งานจริงของลูกค้า (Customer Use Cases) เพื่อนำมาทำ Re-architecture Requirement และวางเกณฑ์ Test Coverage ร่วมกับทีมให้ครอบคลุม 100% ของ Critical Journey"</li>
@@ -738,9 +988,9 @@
 
     <!-- 3.6 -->
     <div class="star-card" id="bluf-def">
-        <h3>3.6 การนำเสนอแผนงาน/ผลงานแก่ผู้บริหารระดับ Director (BLUF Concept) (PDF หน้า 12-13)</h3>
+        <h3>3.6 การนำเสนอแผนงาน/ผลงานแก่ผู้บริหารระดับ Director (BLUF Concept)</h3>
         <div class="example-box">
-            <h4>💡 โครงสร้างการนำเสนอระดับ Executive 4 ส่วน (The Executive Presentation Framework - PDF หน้า 13):</h4>
+            <h4>💡 โครงสร้างการนำเสนอระดับ Executive 4 ส่วน (The Executive Presentation Framework):</h4>
             <ul>
                 <li><b>1. Executive Summary & Impact (1 นาที):</b> สรุปเป้าหมายสปรินต์และ Business Metric / User Value ที่ส่งมอบได้ในสปรินต์นี้</li>
                 <li><b>2. User Journey Demo (3 นาที):</b> สาธิตการทำงานผ่าน Core Customer Use Cases จริง เพื่อให้ฝั่ง Product & Directors เห็น Experience ที่ผู้ใช้ได้รับ</li>
@@ -749,9 +999,9 @@
             </ul>
         </div>
 
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 13):</b> <i>"เล่าประสบการณ์ที่คุณต้องนำเสนอแผนงานหรือผลงานในสปรินต์ให้ Stakeholders ระดับสูงที่มีความคาดหวังต่างกัน (เช่น ฝั่ง Product, Project, และ Engineering Leadership) ให้ฟังหน่อย"</i></p>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"เล่าประสบการณ์ที่คุณต้องนำเสนอแผนงานหรือผลงานในสปรินต์ให้ Stakeholders ระดับสูงที่มีความคาดหวังต่างกัน (เช่น ฝั่ง Product, Project, และ Engineering Leadership) ให้ฟังหน่อย"</i></p>
 
-        <h4>STAR Story (ฉบับเต็มตรงตาม PDF หน้า 13):</h4>
+        <h4>STAR Story (ฉบับเต็มตรงตาม):</h4>
         <ul>
             <li><b>S (Situation):</b> "ในสปรินต์สำคัญช่วงเตรียมระบบรับมือ Peak Season ผมต้องนำเสนอผลงาน Sprint Review และแผนงานสปรินต์ถัดไปให้กับ Product Director (โฟกัส Growth/KPIs), Project Management Director (โฟกัส Timeline/Scope), และ Engineering Director (โฟกัส Stability/Code Quality)"</li>
             <li><b>T (Task):</b> "ความท้าทายคือ Each Director มี Priority ที่ขัดแย้งกัน—ฝั่ง Product อยากเห็น Feature ใหม่, ฝั่ง Project กังวลเรื่อง Timeline Delay, ส่วนฝั่ง Engineering กังวลเรื่อง Test Coverage และ Technical Debt"</li>
@@ -768,11 +1018,11 @@
 
     <!-- 3.7 -->
     <div class="star-card" id="selfserve-config">
-        <h3>3.7 Dynamic Self-Serve Configuration System (Initiate Config Workflow) (PDF หน้า 75-77)</h3>
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 76):</b> <i>"Tell me about a time you improved a process/system" หรือ "Describe a project where you drove high technical impact"</i></p>
+        <h3>3.7 Dynamic Self-Serve Configuration System (Initiate Config Workflow)</h3>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"Tell me about a time you improved a process/system" หรือ "Describe a project where you drove high technical impact"</i></p>
 
         <div class="script-box-en">
-            <h4>STAR Story (Original English Script from PDF หน้า 76-77):</h4>
+            <h4>STAR Story (Original English Script from):</h4>
             <p><b>Situation:</b> "In my previous role, I identified a major operational bottleneck: every time business stakeholders wanted to update a simple configuration parameter (like promo rules, fee thresholds, or feature toggles), it required an engineering ticket, PR review, and a full software release cycle."</p>
             <p><b>Task:</b> "I realized this was hurting our business agility and wasting valuable engineering capacity on trivial tasks. I took the initiative to decouple configuration management from the application deployment lifecycle by building a self-serve configuration system."</p>
             <p><b>Action:</b> "I drove the project end-to-end:
@@ -783,7 +1033,7 @@
         </div>
 
         <div class="script-box">
-            <h4>STAR Story (ฉบับแปลไทยตามบริบท PDF):</h4>
+            <h4>STAR Story (ฉบับแปลไทย):</h4>
             <ul>
                 <li><b>S (Situation):</b> ทีมการตลาดและฝั่ง Business ต้องส่งตั๋ว Request มาให้ทีม Dev ปรับเปลี่ยนเงื่อนไขส่วนลด (Promo Rules) และเกณฑ์ค่าธรรมเนียมบ่อยครั้ง ทำให้ทีม Dev เสียเวลาทำ Code Deployment ทุกครั้งที่เปลี่ยน Config</li>
                 <li><b>T (Task):</b> ตัดการพึ่งพาตัวบุคคล (Decouple Config from Code Deployment) และสร้างระบบที่เปิดให้ฝั่ง Business บริหารจัดการ Config ได้ด้วยตนเองอย่างปลอดภัย เพื่อเพิ่มความเร็วของธุรกิจ (Speed to Market) และลดภาระทีม Engineering</li>
@@ -795,11 +1045,11 @@
 
     <!-- 3.8 -->
     <div class="star-card" id="spof-def">
-        <h3>3.8 Knowledge Sharing & Successor Building (SPOF Elimination & Bus Factor) (PDF หน้า 94-95)</h3>
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 94):</b> <i>"Tell me about a time you improved team capabilities or built a sustainable team culture" หรือ "How do you handle dependencies on specific key individuals in your team?"</i></p>
+        <h3>3.8 Knowledge Sharing & Successor Building (SPOF Elimination & Bus Factor)</h3>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"Tell me about a time you improved team capabilities or built a sustainable team culture" หรือ "How do you handle dependencies on specific key individuals in your team?"</i></p>
 
         <div class="script-box-en">
-            <h4>STAR Story (Original English Script from PDF หน้า 95):</h4>
+            <h4>STAR Story (Original English Script from):</h4>
             <p><b>Situation:</b> "In my team, I identified a high risk regarding system sustainability: we had critical components (e.g., core configuration engine, payment routing logic) that were known thoroughly by only 1 senior engineer. This created a severe Single Point of Failure (SPOF) and a bottleneck for both feature releases and incident resolution."</p>
             <p><b>Task:</b> "As a Technical Execution Leader, my goal was to eliminate this SPOF risk, build domain successors for every critical component, and foster a continuous learning culture to increase team autonomy and velocity."</p>
             <p><b>Action:</b> "I implemented a two-pillar strategy:
@@ -814,11 +1064,11 @@
 
     <!-- 3.9 -->
     <div class="star-card" id="rca-def">
-        <h3>3.9 Retrospective Sessions & Post-Release Defect Analysis (Blameless RCA / 5 Whys) (PDF หน้า 74-75)</h3>
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 74):</b> <i>"เวลาเจอบั๊กบน Production คุณจัดการอย่างไร?" หรือ "มีวิธีพัฒนาคุณภาพงานส่งมอบของทีมอย่างไร?"</i></p>
+        <h3>3.9 Retrospective Sessions & Post-Release Defect Analysis (Blameless RCA / 5 Whys)</h3>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"เวลาเจอบั๊กบน Production คุณจัดการอย่างไร?" หรือ "มีวิธีพัฒนาคุณภาพงานส่งมอบของทีมอย่างไร?"</i></p>
 
         <div class="example-box">
-            <h4>โครงสร้างคำตอบสำหรับสัมภาษณ์ 2 ด้านหลัก (PDF หน้า 75):</h4>
+            <h4>โครงสร้างคำตอบสำหรับสัมภาษณ์ 2 ด้านหลัก:</h4>
             
             <p><b>🅰 ด้าน Retrospective Session (Focus: Continuous Improvement):</b></p>
             <ul>
@@ -844,11 +1094,11 @@
 
     <!-- 3.10 -->
     <div class="star-card" id="star-observability">
-        <h3>3.10 Post-Launch Observability & Datadog / CloudWatch Monitoring (Guardrail Metrics) (PDF หน้า 16-17)</h3>
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 16):</b> <i>"หลังปล่อย Feature / MVP ออกไปแล้ว คุณติดตามผลและประเมิน Post-Launch อย่างไร?"</i></p>
+        <h3>3.10 Post-Launch Observability & Datadog / CloudWatch Monitoring (Guardrail Metrics)</h3>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"หลังปล่อย Feature / MVP ออกไปแล้ว คุณติดตามผลและประเมิน Post-Launch อย่างไร?"</i></p>
         
         <div class="example-box">
-            <h4>💡 วิธีตอบเทียบเคียง (Angle & Framing - PDF หน้า 16):</h4>
+            <h4>💡 วิธีตอบเทียบเคียง (Angle & Framing):</h4>
             <p>สื่อสารว่า Definition of Done ของเราไม่ได้จบแค่ตอน Deploy ขึ้น Production แต่รวมถึง <b>Post-Launch Observability Phase (2-4 สัปดาห์แรก)</b> โดยตั้งค่า Dashboards บน DataDog / CloudWatch เพื่อเฝ้าดู Metrics 3 กลุ่ม:</p>
             <ul>
                 <li><b>1. Operational/System Health:</b> Error Rate (4xx/5xx), APM Performance, CPU/Memory Utilization</li>
@@ -857,7 +1107,7 @@
             </ul>
         </div>
 
-        <h4>STAR Story (ฉบับเต็มตรงตาม PDF หน้า 16-17):</h4>
+        <h4>STAR Story (ฉบับเต็มตรงตาม):</h4>
         <ul>
             <li><b>S (Situation):</b> "หลัง Release งานขึ้น Production ผมไม่ได้จบแค่การ Demo ให้ Director ฟังครับ แต่หัวใจสำคัญคือต้องเฝ้าระวัง System Stability และ User Adoption ในช่วง 2-4 สัปดาห์แรก (Post-Launch Observability Phase)"</li>
             <li><b>T (Task):</b> "บริหารจัดการ Post-Launch Monitoring ป้องกันไม่ให้ Regression กระทบต่อ Core Conversion Funnel และเฝ้าดู Guardrail Metrics อย่างเป็นระบบ"</li>
@@ -868,15 +1118,15 @@
 
     <!-- 3.11 -->
     <div class="star-card" id="star-decommission">
-        <h3>3.11 การ Decommission Server ที่ไม่ใช้แล้วเพื่อลด Cost (Failing Fast / Product Deprecation & Cloud Cost Optimization) (PDF หน้า 17)</h3>
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 17):</b> <i>"เล่าเหตุการณ์ที่คุณสร้างฟีเจอร์ขึ้นมาแต่ผลลัพธ์ Data ไม่เป็นไปตามคาด หรือพิสูจน์แล้วว่าเป็นไอเดียที่แย่/หมดความจำเป็น คุณจัดการกับมันอย่างไร?" (Failing Fast / Sunset Legacy Service & Cost Impact)</i></p>
+        <h3>3.11 การ Decommission Server ที่ไม่ใช้แล้วเพื่อลด Cost (Failing Fast / Product Deprecation & Cloud Cost Optimization)</h3>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"เล่าเหตุการณ์ที่คุณสร้างฟีเจอร์ขึ้นมาแต่ผลลัพธ์ Data ไม่เป็นไปตามคาด หรือพิสูจน์แล้วว่าเป็นไอเดียที่แย่/หมดความจำเป็น คุณจัดการกับมันอย่างไร?" (Failing Fast / Sunset Legacy Service & Cost Impact)</i></p>
 
         <div class="example-box">
-            <h4>💡 วิธีตอบเทียบเคียง (Angle & Framing - PDF หน้า 17):</h4>
+            <h4>💡 วิธีตอบเทียบเคียง (Angle & Framing):</h4>
             <p>การ Decommission Server ที่ไม่ใช้แล้ว หรือการ Sunset Legacy Services ถือเป็นตัวอย่างชั้นยอดของ <b>"Tech Debt Cleanup & Product/System Sunset"</b> มันโชว์ทั้ง Data Analysis (พิสูจน์ว่าไม่มี Traffic/Dependencies แล้ว), Risk Management (มั่นใจว่าปิดแล้วไม่มีอะไรพัง), และ Direct Financial Impact (ประหยัดค่า Cloud Infrastructure)</p>
         </div>
 
-        <h4>STAR Story (ฉบับเต็มตรงตาม PDF หน้า 17):</h4>
+        <h4>STAR Story (ฉบับเต็มตรงตาม):</h4>
         <ul>
             <li><b>S (Situation):</b> "ระบบมี Legacy Service / Server เก่าที่กินทรัพยากร Cloud Infrastructure โดยไม่สร้าง Business Value และมีค่าใช้จ่ายสะสมต่อเนื่อง"</li>
             <li><b>T (Task):</b> "พิสูจน์ความคุ้มค่า วางแผนกำจัด Tech Debt และลดต้นทุน Cloud Infrastructure (Bottom-line Savings) โดยไม่ส่งผลกระทบต่อระบบข้างเคียงและผู้ใช้งาน"</li>
@@ -905,11 +1155,11 @@
 
     <!-- 3.13 -->
     <div class="star-card" id="star-handover">
-        <h3>3.13 Handover Strategy & Context Depth Transfer (การรับมือเมื่อลาออกจากบริษัทเดิม / No Single Point of Failure) (PDF หน้า 21-23)</h3>
-        <p><b>โจทย์คำถามสัมภาษณ์ (PDF หน้า 21):</b> <i>"ถ้าคุณก้าวออกไป จะส่งผลกระทบต่อบริษัทเดิมอย่างไร และเตรียมการส่งมอบงานอย่างไร?"</i></p>
+        <h3>3.13 Handover Strategy & Context Depth Transfer (การรับมือเมื่อลาออกจากบริษัทเดิม / No Single Point of Failure)</h3>
+        <p><b>โจทย์คำถามสัมภาษณ์:</b> <i>"ถ้าคุณก้าวออกไป จะส่งผลกระทบต่อบริษัทเดิมอย่างไร และเตรียมการส่งมอบงานอย่างไร?"</i></p>
 
         <div class="example-box">
-            <h4>💡 โครงสร้างการตอบให้ทรงพลัง (The Balanced Realist - PDF หน้า 22):</h4>
+            <h4>💡 โครงสร้างการตอบให้ทรงพลัง (The Balanced Realist):</h4>
             <ul>
                 <li><b>1. มิติกระบวนการ (Process & Operations):</b> ไม่กระทบ เพราะทำ Documentation และกระจาย Single Point of Knowledge ไว้แล้ว ทีมรัน Sprint และส่งมอบงานต่อได้แน่นอน</li>
                 <li><b>2. มิติเชิงลึก (Context Depth & Strategic Vision):</b> ยอมรับตรงๆ ว่าสิ่งที่ขาดไปชั่วคราวคือ <i>"คนที่มี 360-degree Context เชื่อมโยงภาพรวม Tech, Business, Team Dynamics ครบทุกมิติในคนเดียว"</i> แต่เราได้เตรียมแผน Context Transfer ถ่ายทอดตรรกะไว้ล่วงหน้า</li>
@@ -917,7 +1167,7 @@
         </div>
 
         <div class="script-box">
-            <p><b>💬 สคริปต์คำตอบตัวอย่าง (ภาษาไทย - PDF หน้า 23):</b><br/>
+            <p><b>💬 สคริปต์คำตอบตัวอย่าง (ภาษาไทย):</b><br/>
             <i>"ถ้ามองอย่างตรงไปตรงมา ผลกระทบในระดับ Operations และ Day-to-Day Delivery จะไม่มีทางสะดุดครับ เพราะผมทำ Documentation, Jira AC, และกระจาย Single Point of Knowledge ออกไปในทีมหมดแล้ว ทีมสามารถรัน Sprint และส่งมอบงานต่อได้ทันที<br/><br/>
             แต่สิ่งที่จะกระทบชั่วคราวอย่างหลีกเลี่ยงไม่ได้คือ <b>'การขาดคนที่เข้าใจ Context เชิงลึกและมองเห็นภาพรวมรอบด้าน (360-degree Context) ในคนเดียว'</b> เพราะประสบการณ์ 10 ปีบวกกับความเข้าใจทั้งฝั่ง Tech, Business, และ Team Dynamics มันเป็นสิ่งที่ต้องใช้เวลาสะสม<br/><br/>
             เพื่อรับมือกับจุดนี้ในช่วง Notice Period ผมจึงวางแผนถ่ายทอดแบบ <b>Context Transfer ไม่ใช่แค่ Task Handover</b>:<br/>
@@ -927,7 +1177,7 @@
         </div>
 
         <div class="script-box-en">
-            <p><b>💬 English Script for International Rounds (PDF หน้า 23):</b><br/>
+            <p><b>💬 English Script for International Rounds:</b><br/>
             <i>"To be completely transparent, from an operational and delivery standpoint, there will be no disruption. I’ve eliminated single points of failure by enforcing proper documentation, clear acceptance criteria, and cross-skilling within the team.<br/><br/>
             However, the real gap will be the temporary loss of <b>'holistic context depth'</b>. Having served as the bridge between 10 years of tech stack history, business priorities, and team dynamics, connecting those dots seamlessly isn't something that can be replaced overnight.<br/><br/>
             To mitigate this, my handover strategy focuses heavily on <b>Context Transfer, not just Task Delegation</b>:<br/>
@@ -997,7 +1247,7 @@
         </div>
     </div>
 <!-- SECTION 4 (Full Case Scripts & PDF Source Deep-Dive) -->
-    <h2 id="sec4">4. 💬 Full Case Walkthrough Scripts, Objection Handling, Bar Raiser & PDF Source Deep-Dive Questions</h2>
+    <h2 id="sec4">4. 💬 Full Case Walkthrough Scripts, Objection Handling, Bar Raiser & Strategic Deep-Dive Questions</h2>
 
     <h3 id="circles-script">4.1 Full Case Walkthrough Script: "How would you improve Agoda Homes?"</h3>
     <div class="script-box-en">
@@ -1057,7 +1307,7 @@
 
     <!-- 4.5 -->
     <div class="star-card" id="pdf-source-questions">
-        <h3>4.5 รวมคำถามสัมภาษณ์เชิงลึกเพิ่มเติมจาก PDF Source (PDF Deep-Dive Questions)</h3>
+        <h3>4.5 รวมคำถามสัมภาษณ์เชิงลึกเพิ่มเติมเชิงลึก</h3>
 
         <h4>Q1: "ทำไมถึงเป็น Lead Software Engineer มานานถึง 6 ปี โดยไม่ได้โปรโมทเป็น Manager?"</h4>
         <div class="script-box">
@@ -1108,13 +1358,13 @@
     
     <!-- 4.6 -->
     <div class="star-card" id="english-interview-mastery">
-        <h3>4.6 ภาษาอังกฤษสำหรับการสัมภาษณ์ Agoda และการใช้ Live Captions (PDF หน้า 63-66)</h3>
-        <p><b>ระดับภาษาอังกฤษที่ Agoda คาดหวังจาก Senior PM (PDF หน้า 63):</b> ไม่จำเป็นต้องสำเนียงเป๊ะเหมือน Native Speaker แต่จำเป็นต้อง <i>"สื่อสารเชิงธุรกิจได้อย่างชัดเจน ไม่อ้อมค้อม และไม่เกร็ง (Clear, Direct, and Confident)"</i> โดยขอแค่ <b>Level 3/5 (Functional & Clear)</b><br/>
+        <h3>4.6 ภาษาอังกฤษสำหรับการสัมภาษณ์ Agoda และการใช้ Live Captions</h3>
+        <p><b>ระดับภาษาอังกฤษที่ Agoda คาดหวังจาก Senior PM:</b> ไม่จำเป็นต้องสำเนียงเป๊ะเหมือน Native Speaker แต่จำเป็นต้อง <i>"สื่อสารเชิงธุรกิจได้อย่างชัดเจน ไม่อ้อมค้อม และไม่เกร็ง (Clear, Direct, and Confident)"</i> โดยขอแค่ <b>Level 3/5 (Functional & Clear)</b><br/>
         ❌ สำเนียงเป๊ะ + Grammar เป๊ะ + แต่พูดอ้อมค้อม ไม่มี Data ➡ Agoda ไม่เลือก<br/>
         ✅ สำเนียงไทย/เอเชีย + พูดสั้น กระชับ + มี Structure (BLUF/STAR) + โชว์ Logic & Data ➡ Agoda ชอบมาก</p>
 
         <div class="example-box">
-            <h4>💡 วิธีแก้ปัญหาและเตรียมตัวฉบับเร่งด่วนสำหรับสาย Tech (PDF หน้า 63-64):</h4>
+            <h4>💡 วิธีแก้ปัญหาและเตรียมตัวฉบับเร่งด่วนสำหรับสาย Tech:</h4>
             <ul>
                 <li><b>1. ใช้ Structure บังคับการพูด (ลดอาการตะกุกตะกัก):</b> เปิดด้วยคำตอบทันทีตามกรอบ BLUF: <i>"My recommendation is [X], because of [Y] and [Z]."</i> แล้วไล่เหตุผลเป็นข้อๆ: <i>"First,... Second,... Finally,..."</i> ซึ่งช่วยถ่วงเวลาให้สมองคิดประโยคถัดไปได้โดยไม่ต้องพูด เอ่อ... อ่า...</li>
                 <li><b>2. เปลี่ยน Pause คำว่า "เอ่อ/อ่า" เป็น "Fillers ทางการ":</b> เมื่อคิดคำศัพท์ไม่ออก ให้ใช้ประโยคซื้อเวลาเหล่านี้แทน:
@@ -1135,7 +1385,7 @@
         </div>
 
         <div class="script-box-en">
-            <h4>💬 สคริปต์ภาษาอังกฤษเอาตัวรอดในห้องสัมภาษณ์จริง (PDF หน้า 65):</h4>
+            <h4>💬 สคริปต์ภาษาอังกฤษเอาตัวรอดในห้องสัมภาษณ์จริง:</h4>
             <p><b>1. ขอให้พูดช้าลงนิดนึง (เมื่อผู้สัมภาษณ์พูดเร็วเกินไป):</b><br/>
             • <i>"Sorry, would you mind speaking a bit slower? I want to make sure I catch every detail."</i><br/>
             • <i>"Could you slow down a little bit, please? I’d like to make sure I fully understand the context."</i></p>
@@ -1151,7 +1401,7 @@
         </div>
 
         <div class="example-box">
-            <h4>🎧 การใช้ Live Captions ช่วยตอนสัมภาษณ์ออนไลน์ (PDF หน้า 64-65):</h4>
+            <h4>🎧 การใช้ Live Captions ช่วยตอนสัมภาษณ์ออนไลน์:</h4>
             <ul>
                 <li><b>สถานการณ์ที่เปิดได้ 100%:</b> การสัมภาษณ์ออนไลน์ผ่าน Google Meet / Zoom บนคอมพิวเตอร์ของคุณเอง โดยกดปุ่ม CC หรือใช้ Live Captions ของ OS/Chrome (ผู้สัมภาษณ์จะไม่ทราบเพราะเป็นการแสดงผลบนหน้าจอฝั่งเราเท่านั้น)</li>
                 <li><b>ข้อดี:</b> ช่วยจับ Keyword และ Context ได้ 100% เมื่อเจอผู้สัมภาษณ์สำเนียงฟังยาก (อินเดีย, ยุโรปตะวันออก, อิสราเอล) และช่วยลดความตื่นเต้น</li>
@@ -1168,26 +1418,26 @@
 
     <!-- 4.7 -->
     <div class="star-card" id="ask-the-interviewer">
-        <h3>4.7 คำถามเด็ดที่คุณควรถามกลับตอนจบการสัมภาษณ์ (Ask the Interviewer - PDF หน้า 20, 61-63, 80-81)</h3>
+        <h3>4.7 คำถามเด็ดที่คุณควรถามกลับตอนจบการสัมภาษณ์ (Ask the Interviewer)</h3>
         <p>เมื่อผู้สัมภาษณ์เปิดโอกาสให้ถามคำถาม (ช่วง 5 นาทีสุดท้าย) อย่าถามคำถามทั่วไป แต่ให้ถามคำถามที่แสดงถึง <b>Senior Leadership Mindset</b> ที่มองเรื่อง Business Impact, Scope และ Architecture:</p>
 
         <div class="example-box">
-            <h4>🎯 1. สคริปต์ถาม Recruiter (รอบ HR Screen Call - PDF หน้า 62):</h4>
+            <h4>🎯 1. สคริปต์ถาม Recruiter (รอบ HR Screen Call):</h4>
             <p><i>"อยากทราบว่าตำแหน่ง Senior PM ที่เปิดรับในรอบนี้ กำลังโฟกัสการขยายทีมใน Domain ไหนเป็นหลักครับ (เช่น Core Booking Funnel, Payments/FinTech หรือ Partner/Supply Systems)? เพื่อที่ผมจะได้เน้นเตรียมตัวและแชร์ประสบการณ์ที่สอดคล้องกับความต้องการของทีมให้ตรงจุดที่สุดครับ"</i></p>
         </div>
 
         <div class="example-box">
-            <h4>🎯 2. สคริปต์ถาม Peer Senior PM (รอบ Functional / Case - PDF หน้า 62):</h4>
+            <h4>🎯 2. สคริปต์ถาม Peer Senior PM (รอบ Functional / Case):</h4>
             <p><i>"อยากทราบ Scope ความรับผิดชอบของพอดที่คุณดูแลอยู่ และความถี่ในการทำ Cross-Pod Alignment กับทีมอื่นๆ เป็นอย่างไรบ้างครับ?"</i></p>
         </div>
 
         <div class="example-box">
-            <h4>🎯 3. สคริปต์ถาม Director / Hiring Manager (รอบ Final Cases & Bar Raiser - PDF หน้า 20, 62, 80):</h4>
+            <h4>🎯 3. สคริปต์ถาม Director / Hiring Manager (รอบ Final Cases & Bar Raiser):</h4>
             <ul>
                 <li><b>คำถามที่ 1 (Pain Point เชิงรุก):</b> <i>"What is the biggest operational or product bottleneck that this team is currently facing right now?"</i> (ช่วยให้เห็น Pain point จริง และแสดงว่าเราพร้อมเข้ามาแก้ปัญหา)</li>
                 <li><b>คำถามที่ 2 (ความเข้าใจบริบท Agoda ขั้นสูง):</b> <i>"How does the team balance between short-term A/B test optimizations and long-term strategic/architectural investments?"</i> (แสดงความเข้าใจในการบริหาร Tech Debt ควบคู่กับ High Velocity)</li>
                 <li><b>คำถามที่ 3 (Result-Oriented):</b> <i>"What does 'Success' look like for this Senior PM role in the first 90 days?"</i></li>
-                <li><b>คำถามที่ 4 (Career Growth & Meritocracy - PDF หน้า 80):</b> <i>"สำหรับตำแหน่ง Senior PM ที่ Agoda องค์กรประเมินความสำเร็จของคนในตำแหน่งนี้อย่างไรในระยะยาว และ Candidate ที่สามารถเติบโตขึ้นไปสู่ระดับ Staff PM หรือ Lead PM ได้อย่างรวดเร็ว มักจะมี Pattern หรือการสร้าง Impact ในรูปแบบไหนเป็นพิเศษครับ?"</i></li>
+                <li><b>คำถามที่ 4 (Career Growth & Meritocracy):</b> <i>"สำหรับตำแหน่ง Senior PM ที่ Agoda องค์กรประเมินความสำเร็จของคนในตำแหน่งนี้อย่างไรในระยะยาว และ Candidate ที่สามารถเติบโตขึ้นไปสู่ระดับ Staff PM หรือ Lead PM ได้อย่างรวดเร็ว มักจะมี Pattern หรือการสร้าง Impact ในรูปแบบไหนเป็นพิเศษครับ?"</i></li>
             </ul>
         </div>
     </div>
@@ -1452,12 +1702,12 @@ Net Incremental Profit = (Incremental Revenue from Conversion Gain) - (Increment
     
     <!-- 6.3 -->
     <div class="star-card" id="prototype-strategy">
-        <h3>6.3 การทำ Prototype: Low-Fi vs Hi-Fi & Agoda Design System (ADS) (PDF หน้า 88-90)</h3>
+        <h3>6.3 การทำ Prototype: Low-Fi vs Hi-Fi & Agoda Design System (ADS)</h3>
         <p><b>โจทย์คำถาม:</b> <i>"Agoda PM ต้องทำ Prototype เองไหม?"</i><br/>
         <b>คำตอบ:</b> <b>"ไม่จำเป็นต้องทำ Prototype ละเอียดเองครับ แต่ต้องสร้าง Wireframe / Low-Fidelity Mockup เพื่อสื่อสาร Concept ได้"</b></p>
         
         <div class="example-box">
-            <h4>3 ระดับในกระบวนการ Prototype ที่ Agoda (PDF หน้า 89):</h4>
+            <h4>3 ระดับในกระบวนการ Prototype ที่ Agoda:</h4>
             <ol>
                 <li><b>ระดับที่ PM ต้องทำเอง (Low-Fidelity & Concept Phase):</b> ทำ Rough Outline หรือ Low-Fi Mockup บน Figma, Whimsical, Miro หรือ Excalidraw เพื่อถ่ายทอดไอเดียจาก PRD ให้เป็นรูปธรรมก่อนส่งต่อให้ทีมดีไซน์ โดยระบุ:
                     <ul>
@@ -1481,10 +1731,10 @@ Net Incremental Profit = (Incremental Revenue from Conversion Gain) - (Increment
 
     <!-- 6.4 -->
     <div class="star-card" id="signoff-pm-vs-devmanager">
-        <h3>6.4 บทบาทการ Sign-Off และ Acceptance Criteria: Senior PM vs Dev Manager (PDF หน้า 47-48, 73-74, 77-78)</h3>
+        <h3>6.4 บทบาทการ Sign-Off และ Acceptance Criteria: Senior PM vs Dev Manager</h3>
         
         <div class="example-box">
-            <h4>1. ใครเขียน Acceptance Criteria (AC)? Dev Lead หรือ PM? (PDF หน้า 73-74)</h4>
+            <h4>1. ใครเขียน Acceptance Criteria (AC)? Dev Lead หรือ PM?</h4>
             <p><b>คำตอบ:</b> <b>"PM เป็นคนเขียนดราฟต์หลัก (Initial Owner) แล้วนำมารีวิวและปรับแต่งร่วมกับ Dev Lead และ QA"</b> โดยใช้กฎ 3Cs (Card, Conversation, Confirmation):</p>
             <ul>
                 <li><b>Business & User Flow AC (PM รับผิดชอบหลัก):</b> User Behavior, Business Logic & Rules, UX/UI Edge Cases, Analytics Event Tracking Name & Parameters</li>
@@ -1494,7 +1744,7 @@ Net Incremental Profit = (Incremental Revenue from Conversion Gain) - (Increment
         </div>
 
         <div class="example-box">
-            <h4>2. ความต่างในการ Sign-off ระหว่าง Senior PM กับ Dev Manager (Engineering Manager) (PDF หน้า 47-48):</h4>
+            <h4>2. ความต่างในการ Sign-off ระหว่าง Senior PM กับ Dev Manager (Engineering Manager):</h4>
             <p>ถ้าเปรียบเทียบการสร้าง Product เป็นการสร้างรถยนต์:</p>
             <ul>
                 <li><b>Dev Manager Sign-off:</b> <i>"เครื่องยนต์ประกอบถูกต้องไหม น็อตยึดแน่นหรือเปล่า โครงสร้างปลอดภัย ไม่พังกลางทางแน่นอน"</i> <b>(Is it built right?)</b></li>
@@ -1547,7 +1797,7 @@ Net Incremental Profit = (Incremental Revenue from Conversion Gain) - (Increment
         </div>
 
         <div class="script-box">
-            <p><b>สถานการณ์ตัวอย่างจริง: การปล่อย Feature "Quick Checkout Button" (PDF หน้า 48):</b><br/>
+            <p><b>สถานการณ์ตัวอย่างจริง: การปล่อย Feature "Quick Checkout Button":</b><br/>
             • <b>Dev Manager เข้ามา Sign-off เช็ก:</b> Logic การตัดเงินผ่าน API ไม่เกิด Race Condition หรือ Double Charge, Database Query ไม่ติด Bottleneck, ถ้า Payment Gateway ล่ม มี Fallback Logic รองรับ<br/>
             • <b>Senior PM เข้ามา Sign-off เช็ก:</b> ราคาสุดท้ายรวมภาษี/ส่วนลดถูกต้องตรงตาม Currency, Event `click_quick_checkout` ยิงเข้า Data Analytics ถูกต้องครบถ้วน, ถ้า User ยังไม่ได้ Login ระบบเด้ง Modal ขอ Login ด้วย Wording ที่ถูกต้อง<br/>
             • <b>จุดแข็ง Ex-SWE 10 ปี:</b> สามารถทำ <b>Deep Sign-Off</b> เปิด Network Tab เช็ก API Payload และ Event Tracking JSON Schema ได้ด้วยตัวเอง ทำให้ Sign-off รวดเร็วและรัดกุมมาก</p>
@@ -1783,8 +2033,161 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
     <h2 id="sec9">9. 🏛️️ โครงสร้างองค์กร Agoda สำหรับ Senior PM และการเปลี่ยนสายงาน (Org Structure & Transition)</h2>
     
     <div class="star-card" id="agoda-org-structure">
-        <h3>🏛️️ 9.1 โครงสร้างองค์กรและ 4 เสาหลักของผลิตภัณฑ์ Agoda (4 Product Pillars - PDF หน้า 58-61)</h3>
-        <p>โครงสร้าง Product ของ Agoda ถูกแบ่งออกเป็น <b>4 เสาหลัก (Product Pillars)</b> ตามกลุ่มเป้าหมายผู้ใช้งาน:</p>
+        <h3>🏛️️ 9.1 โครงสร้างองค์กรและ 4 เสาหลักของผลิตภัณฑ์ Agoda (Agoda Organization Chart & 4 Product Pillars)</h3>
+        <p>แผนผังลำดับชั้นการบริหารของ Agoda ตั้งแต่บริษัทแม่ Booking Holdings, คณะผู้บริหารระดับ C-Suite, การแบ่งกลุ่ม 4 เสาหลักของผลิตภัณฑ์ (4 Pillars) ตลอดจนโครงสร้างภายใน 1 Agile Pod ที่กรุงเทพฯ:</p>
+
+        <!-- 📊 Agoda Organization Chart Component -->
+        <div class="org-chart-wrapper">
+            <div class="org-level-title">🏢 Booking Holdings Inc. (Parent Group - NASDAQ: BKNG)</div>
+            <div class="org-box org-box-parent">
+                <span class="org-role">Parent Company</span>
+                <h4>Booking Holdings Inc.</h4>
+                <p class="org-meta">CEO: Glenn Fogel | Market Cap: $130B+ | Global Sister Brands: Agoda, Booking.com, Priceline, Kayak, OpenTable</p>
+            </div>
+
+            <div class="org-connector-down"></div>
+
+            <div class="org-level-title">👑 Agoda Executive Leadership (Bangkok Global HQ - CentralWorld)</div>
+            <div class="org-box org-box-ceo">
+                <span class="org-role">Chief Executive Officer</span>
+                <h4>Omri Morgenshtern (CEO, Agoda)</h4>
+                <p class="org-meta">กำกับทิศทางกลยุทธ์ระดับโลก, วัฒนธรรม Data-Driven & Relentless Experimentation</p>
+            </div>
+
+            <div class="org-connector-down"></div>
+
+            <div class="org-level-title">💼 Agoda Executive Leadership (C-Suite & Global Functional Heads)</div>
+            <div class="org-grid-csuite">
+                <div class="org-box org-box-product">
+                    <span class="org-role">Product Leadership</span>
+                    <h4>Chief Product Officer (CPO) / VP Product</h4>
+                    <p class="org-desc">กำหนดทิศทาง Product Strategy, Roadmaps, North Star Metrics และดูแลวัฒนธรรมการทดลอง A/B Testing ทั่วโลก</p>
+                </div>
+                <div class="org-box org-box-tech">
+                    <span class="org-role">Engineering Leadership</span>
+                    <h4>Chief Technology Officer (CTO) / VP Engineering</h4>
+                    <p class="org-desc">กำกับดูแล Core Architecture, High-Volume Scalability, Engineering Excellence, Cloud Infra & Security</p>
+                </div>
+                <div class="org-box org-box-comm">
+                    <span class="org-role">Commercial Leadership</span>
+                    <h4>Chief Commercial Officer (CCO)</h4>
+                    <p class="org-desc">ดูแล Global Supply, Strategic Hotel Chains, Partner Services และทีม Market Managers ทั่วภูมิภาค</p>
+                </div>
+                <div class="org-box org-box-ops">
+                    <span class="org-role">Operations & People</span>
+                    <h4>COO / CFO / Chief People Officer</h4>
+                    <p class="org-desc">กำกับ Customer Experience (CE), Financial Compliance, Legal, Global HR และวัฒนธรรม Diversity (DEI)</p>
+                </div>
+            </div>
+
+            <div class="org-connector-down"></div>
+
+            <div class="org-level-title">🏛️ The 4 Core Product Pillars (กำกับโดย Product Directors & Engineering Directors Duo)</div>
+            <div class="org-grid-pillars">
+                <div class="org-pillar-card pillar-b2c">
+                    <div class="pillar-header">
+                        <span class="pillar-tag">Pillar 1: B2C Core Engine</span>
+                        <h4>Accommodations & Travel Funnel</h4>
+                    </div>
+                    <p class="pillar-lead"><b>เป้าหมายหลัก:</b> ขับเคลื่อนรายได้หลัก (>80%) และดัน Booking Conversion Rate</p>
+                    <ul>
+                        <li>Hotels & Resorts (ระบบจองหลัก)</li>
+                        <li>Agoda Homes (Non-Hotel / Villas)</li>
+                        <li>Flights, Airport Transfers & Bundles</li>
+                        <li>Search (SRP), Filters & Property Details (PDP)</li>
+                        <li>Cart, Checkout & Booking Funnel Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="org-pillar-card pillar-fintech">
+                    <div class="pillar-header">
+                        <span class="pillar-tag">Pillar 2: FinTech & Profit</span>
+                        <h4>FinTech, Payments & Pricing</h4>
+                    </div>
+                    <p class="pillar-lead"><b>เป้าหมายหลัก:</b> เสถียรภาพการเงิน, Idempotency, Dynamic Pricing & Margin</p>
+                    <ul>
+                        <li>Global & Local Payment Gateways (Cards, PromptPay)</li>
+                        <li>Multi-Currency Settlement & FX Conversion Engine</li>
+                        <li>Fraud Detection & Risk Management System</li>
+                        <li>BNPL Integration, Price Freeze & Agoda Cash</li>
+                        <li>Dynamic Pricing Algorithms & Margin Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="org-pillar-card pillar-supply">
+                    <div class="pillar-header">
+                        <span class="pillar-tag">Pillar 3: B2B Supply Solutions</span>
+                        <h4>Supply & Partner Products</h4>
+                    </div>
+                    <p class="pillar-lead"><b>เป้าหมายหลัก:</b> ขยาย Inventory ที่พักตรง และอำนวยความสะดวกให้คู่ค้า</p>
+                    <ul>
+                        <li>Agoda YCS (Yield Control System Extranet)</li>
+                        <li>Homes Host Portal & Automated Onboarding</li>
+                        <li>Channel Managers & Connectivity APIs (PMS/CMS)</li>
+                        <li>Sponsored Listings & AdTech (Growth Express)</li>
+                        <li>Partner Insights & Revenue Optimization Dashboards</li>
+                    </ul>
+                </div>
+
+                <div class="org-pillar-card pillar-core">
+                    <div class="pillar-header">
+                        <span class="pillar-tag">Pillar 4: Core Engine</span>
+                        <h4>Internal Platforms & Infrastructure</h4>
+                    </div>
+                    <p class="pillar-lead"><b>เป้าหมายหลัก:</b> ขับเคลื่อน Speed, Reliability, CI/CD & Analytics Scale</p>
+                    <ul>
+                        <li>Proprietary A/B Testing Platform (รัน 100+ tests/day)</li>
+                        <li>Data Science & AI Personalization Engine</li>
+                        <li>Observability, Telemetry & Cloud Compute Platform</li>
+                        <li>Developer Tooling, Quality Guardrails & CI/CD</li>
+                        <li>Customer Care CRM Platform & Support AI Automation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="org-connector-down"></div>
+
+            <div class="org-level-title">🎯 โครงสร้าง 1 Agile Pod ประจำกรุงเทพฯ (The Bangkok Cross-Functional Pod at CentralWorld)</div>
+            <div class="org-pod-detail">
+                <div class="pod-header-banner">
+                    <b>1 Dedicated Pod (Two-Pizza Team):</b> ทำงานแบบอิสระสูง (High Autonomy), ตั้งสมมติฐาน และรัน A/B Experiments เองในระดับสัปดาห์
+                </div>
+                <div class="pod-roles-grid">
+                    <div class="pod-role-card role-pm">
+                        <span class="role-badge">Lead Role (เป้าหมายของคุณ)</span>
+                        <h5>Senior Product Manager</h5>
+                        <p><b>Owns 'Why' & 'What':</b> วิเคราะห์ Customer Discovery, ตั้งสมมติฐาน, จัดการ Roadmap & Backlog (RICE), เขียน Jira BDD AC และวิเคราะห์ผลลัพธ์ A/B Testing</p>
+                    </div>
+                    <div class="pod-role-card role-techlead">
+                        <span class="role-badge">Engineering Partner</span>
+                        <h5>Tech Lead / Engineering Manager</h5>
+                        <p><b>Owns 'How':</b> วางสถาปัตยกรรมระบบ (Architecture), ทำ High-Level Sizing, ดูแล Code Review, คุม Tech Debt vs Velocity และบริหารทีมนักพัฒนา</p>
+                    </div>
+                    <div class="pod-role-card role-dev">
+                        <span class="role-badge">Builders (4-8 คน)</span>
+                        <h5>Software Engineers (SWEs)</h5>
+                        <p><b>Full-Stack / Frontend / Backend / Mobile:</b> เขียนโค้ด, พัฒนา Microservices, เชื่อมต่อ API, Unit Testing และนำโค้ดขึ้น Production</p>
+                    </div>
+                    <div class="pod-role-card role-qa">
+                        <span class="role-badge">Quality Guard (1-2 คน)</span>
+                        <h5>QA Automation Engineers</h5>
+                        <p><b>Quality Assurance:</b> ออกแบบ Automated Tests, ตรวจสอบ Negative Edge Cases และเฝ้าระวัง Guardrail Metrics ก่อน Sign-off</p>
+                    </div>
+                    <div class="pod-role-card role-ux">
+                        <span class="role-badge">User Experience (1 คน)</span>
+                        <h5>Product Designer (UX/UI)</h5>
+                        <p><b>Customer Journey:</b> ออกแบบ Flows, ทำ Low-Fi/Hi-Fi Prototypes ด้วย Agoda Design System (ADS) และทดสอบ Usability กับผู้ใช้จริง</p>
+                    </div>
+                    <div class="pod-role-card role-data">
+                        <span class="role-badge">Analytics Partner (1 คน)</span>
+                        <h5>Data Analyst / Data Scientist</h5>
+                        <p><b>Data Rigor:</b> วางแผน Event Telemetry, สร้าง Dashboard ติดตาม Metric และคำนวณความแม่นยำทางสถิติของ A/B Test (p-value, SRM)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p><b>รายละเอียด 4 เสาหลักของผลิตภัณฑ์ Agoda (Product Pillars Breakdown):</b></p>
         
         <div class="example-box">
             <h4>1. Consumer-Facing Products (B2C Products):</h4>
@@ -1818,7 +2221,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                 <li><b>Customer Care / Operations Tooling:</b> ระบบ CRM, Chatbot และ AI Support Platform สำหรับทีมบริการลูกค้าทั่วโลก</li>
             </ul>
 
-            <p>📊 <b>การจัดอันดับกลุ่ม Product ที่ต้องการ PM มากที่สุด & แมตช์กับโปรไฟล์ Ex-SWE 10 ปี (PDF หน้า 59-61):</b><br/>
+            <p>📊 <b>การจัดอันดับกลุ่ม Product ที่ต้องการ PM มากที่สุด & แมตช์กับโปรไฟล์ Ex-SWE 10 ปี:</b><br/>
             1. <b>Accommodations & Core Booking Funnel (ความต้องการสูงสุด 🥇):</b> Core Revenue Engine (>80% ของรายได้ทั้งหมด) การขยับ Conversion เพียง 0.1% หมายถึงเม็ดเงินมหาศาลระดับหลายสิบล้านบาท ต้องการ PM ที่เข้าใจระบบ Funnel Drop-off, Data Schema, และ High-Volume Experimentation เพื่อลดความหน่วง (Latency) และ Friction<br/>
             2. <b>FinTech, Payments & Fraud Platform (แมตช์เชิงเทคนิคสูงสุด 🥈):</b> ดูแล Payment Gateways, Multi-Currency, Settlement, Refund, Fraud Detection และ <a href="#bnpl-engine-def" class="term-link">BNPL Engine</a> เหมาะสมอย่างยิ่งกับ Ex-SWE เพราะระบบต้องการความแม่นยำระดับ 100% (Zero Fault Tolerance), Idempotency และ System Architecture ที่ซับซ้อน<br/>
             3. <b>Supply & Partner Products (YCS Extranet & Connectivity 🥉):</b> จัดการระบบ Inventory, Room Rates, Promotions และ API เชื่อมกับ Channel Manager / PMS ทั่วโลก โดดเด่นด้าน B2B Workflow และ API Integration<br/>
@@ -1828,7 +2231,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
     <!-- 9.2 -->
     <div class="star-card" id="agoda-pod-structure">
-        <h3>🏛️️ 9.2 โครงสร้างพอดในกรุงเทพฯ และ Stakeholder Ecosystem (Bangkok Pod Structure & Alignment - PDF หน้า 60-61)</h3>
+        <h3>🏛️️ 9.2 โครงสร้างพอดในกรุงเทพฯ และ Stakeholder Ecosystem (Bangkok Pod Structure & Alignment)</h3>
         <p>ที่สำนักงานใหญ่กรุงเทพฯ (CentralWorld) ทีมผลิตภัณฑ์ของ Agoda ทำงานในรูปแบบ <b>"Tight Pods" / Single-Threaded Autonomous Teams</b> เพื่อความคล่องตัวสูงสุด:</p>
         <div class="example-box">
             <h4>👥 โครงสร้างองค์ประกอบ 1 Pod (Single-Threaded Autonomous Feature Team):</h4>
@@ -1854,7 +2257,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
     <!-- 9.3 -->
     <div class="star-card" id="agoda-pm-scope">
-        <h3>🏛️️ 9.3 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM (5 Core Scope Pillars - PDF หน้า 80-83)</h3>
+        <h3>🏛️️ 9.3 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM (5 Core Scope Pillars)</h3>
         <p>Agoda คาดหวังให้ Senior PM ขับเคลื่อนผลิตภัณฑ์แบบครบวงจร (End-to-End Ownership) โดยไม่ต้องรอรับคำสั่ง:</p>
         <div class="table-responsive">
             <table>
@@ -1898,7 +2301,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
     <!-- 9.4 -->
     <div class="star-card" id="agoda-hiring-funnel">
-        <h3>🏛️️ 9.4 สถิติ Headcount Seasonality & Funnel การคัดออก (Hiring Funnel & Conversion Rates - PDF หน้า 55-57)</h3>
+        <h3>🏛️️ 9.4 สถิติ Headcount Seasonality & Funnel การคัดออก (Hiring Funnel & Conversion Rates)</h3>
         <p>กระบวนการคัดเลือกตำแหน่ง Senior Product Manager ของ Agoda เป็นหนึ่งในสนามที่เข้มงวดที่สุดในภูมิภาคเอเชีย:</p>
         <div class="table-responsive">
             <table>
@@ -1947,7 +2350,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
     <!-- 9.5 -->
     <div class="star-card" id="agoda-lead-swe-positioning">
-        <h3>🏛️️ 9.5 เป็น Lead SWE มานาน 6 ปี: 3 กลยุทธ์การตอบและวาง Positioning (PDF หน้า 87-88, 97-101)</h3>
+        <h3>🏛️️ 9.5 เป็น Lead SWE มานาน 6 ปี: 3 กลยุทธ์การตอบและวาง Positioning</h3>
         <p><b>ข้อกังวลที่ผู้สัมภาษณ์อาจตั้งคำถาม:</b> <i>"คุณเป็น Technical Lead / Lead Software Engineer มานานถึง 6 ปี (จากประสบการณ์วิศวกรรมรวม 10 ปี) คุณจะติดนิสัยอยากลงไปเขียนโค้ดเอง ไมโครเมเนจทีม Dev หรือมองข้ามภาพรวมธุรกิจและผู้ใช้หรือไม่?"</i></p>
         
         <div class="example-box">
@@ -1985,11 +2388,11 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
     <!-- 9.6 -->
     <div class="star-card" id="candidate-pros-cons">
-        <h3>🏛️️ 9.6 การตอบคำถามข้อดี-ข้อเสียส่วนตัว (Pros & Cons / Weakness Strategy) (PDF หน้า 28-29)</h3>
-        <p><b>โจทย์คำถามยอดฮิตในรอบสัมภาษณ์ Behavioral / Cultural Fit (PDF หน้า 28):</b> <i>"อะไรคือจุดแข็งและจุดอ่อนที่สุดของคุณ? และทำไมถึงตัดสินใจลาออกจากองค์กรเดิมที่ทำมานานถึง 10 ปี?"</i></p>
+        <h3>🏛️️ 9.6 การตอบคำถามข้อดี-ข้อเสียส่วนตัว (Pros & Cons / Weakness Strategy)</h3>
+        <p><b>โจทย์คำถามยอดฮิตในรอบสัมภาษณ์ Behavioral / Cultural Fit:</b> <i>"อะไรคือจุดแข็งและจุดอ่อนที่สุดของคุณ? และทำไมถึงตัดสินใจลาออกจากองค์กรเดิมที่ทำมานานถึง 10 ปี?"</i></p>
 
         <div class="example-box">
-            <h4>💡 กลยุทธ์การตอบจุดอ่อนเรื่อง "การไม่ค่อยชอบย้ายงาน / Change-Averse" (PDF หน้า 28):</h4>
+            <h4>💡 กลยุทธ์การตอบจุดอ่อนเรื่อง "การไม่ค่อยชอบย้ายงาน / Change-Averse":</h4>
             <ul>
                 <li><b>1. Acknowledge Loyalty & Deep Context (จุดแข็งซ่อนอยู่):</b> ยอมรับตรงๆ ว่าตนเองเป็นคนชอบ Stability และสร้าง Context เชิงลึกในองค์กร (ทำ SWE 10 ปี / Lead Dev 6 ปี) ทำให้ไม่ใช่นักย้ายงานบ่อย (Not a Job Hopper) ซึ่ง Agoda มองว่าเป็นสัญญาณด้าน High Retention Rate</li>
                 <li><b>2. Mindset Shift to Growth Mindset:</b> ตระหนักว่าหากต้องการเติบโตเป็น Senior PM ระดับ Top-Tier การอยู่ใน Comfort Zone เดิม 10 ปีจะเริ่มสร้าง Glass Ceiling จึงต้องก้าวข้ามความคุ้นเคยเดิมๆ</li>
@@ -1998,14 +2401,14 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
 
         <div class="script-box">
-            <p><b>💬 สคริปต์การตอบภาษาไทย (PDF หน้า 28):</b><br/>
+            <p><b>💬 สคริปต์การตอบภาษาไทย:</b><br/>
             <i>"ถ้าพูดอย่างตรงไปตรงมา จุดอ่อนของผมคือผมเป็นคนที่ค่อนข้าง Risk-Averse ต่อการเปลี่ยนแปลงสภาพแวดล้อมใหญ่ๆ อย่างการย้ายบริษัทครับ ด้วยความที่ผมเน้นสร้างความสัมพันธ์ลึกซึ้งกับทีม เข้าใจระบบและบริบทขององค์กรเดิมอย่างถ่องแท้ (10 ปีในสายงาน SWE/PO) ผมจึงค่อนข้างอยู่ใน Comfort Zone และไม่ได้เป็นคนที่ย้ายงานบ่อยๆ<br/><br/>
             แต่จุดเปลี่ยนคือ ผมเริ่มตระหนักว่าการเป็น Senior Product Manager ที่ดีและสร้าง High Impact ได้อย่างจริงจัง ผมไม่สามารถติดอยู่ในกรอบความคุ้นเคยเดิมๆ ได้ตลอดไป ผมจำเป็นต้องท้าทายตัวเองในสภาพแวดล้อมใหม่ที่มีสเกลงานกว้างขึ้น และมี Pace ที่เร็วขึ้น<br/><br/>
             การมาสัมภาษณ์ที่ Agoda วันนี้จึงถือเป็น Calculated Risk และการก้าวออกจาก Comfort Zone ครั้งสำคัญของผม เพราะผมมองว่า Agoda มี Data & Experimentation Culture ที่เข้มข้น และมีสเกลระดับ Global ซึ่งเป็นสนามที่คุ้มค่าที่สุดในการผลักดันให้ผมก้าวข้ามขีดจำกัดเดิม และนำเอา Technical & Execution Rigor ที่ผมมี มาสร้าง Value ใหม่ๆ ที่นี่ครับ"</i></p>
         </div>
 
         <div class="script-box-en">
-            <p><b>💬 English Script for International Rounds (PDF หน้า 29):</b><br/>
+            <p><b>💬 English Script for International Rounds:</b><br/>
             <i>"If I have to be completely honest, my weakness is that I naturally lean towards stability and can be somewhat hesitant when it comes to major environmental changes, like changing companies.<br/><br/>
             Having spent a long time building deep context, strong relationships, and domain mastery in my previous role (10 years in SWE/PO), staying in my comfort zone always felt natural. I’m definitely not a job-hopper.<br/><br/>
             However, I realized that to truly evolve as a Senior Product Manager, staying in a familiar space limits my growth. To build broader strategic muscle, I need to test myself in a high-velocity, fast-changing environment.<br/><br/>
@@ -2015,8 +2418,8 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
     <!-- 9.7 -->
     <div class="star-card" id="background-comparison">
-        <h3>🏛️️ 9.7 เปรียบเทียบข้อได้เปรียบ - ข้อเสียเปรียบ ของเราเทียบกับ Candidate Background อื่นๆ (PDF หน้า 87-88, 97-101)</h3>
-        <p><b>โจทย์คำถามลองเชิง (PDF หน้า 87):</b> <i>"ในบรรดาผู้สมัครที่มี Background หลากหลาย เช่น Business/MBA, UX/UI Design หรือ Management Consultant ทำไม Agoda ถึงควรเลือกคุณที่เป็น Ex-SWE 10 ปี (Lead SWE 6 ปี)?"</i></p>
+        <h3>🏛️️ 9.7 เปรียบเทียบข้อได้เปรียบ - ข้อเสียเปรียบ ของเราเทียบกับ Candidate Background อื่นๆ</h3>
+        <p><b>โจทย์คำถามลองเชิง:</b> <i>"ในบรรดาผู้สมัครที่มี Background หลากหลาย เช่น Business/MBA, UX/UI Design หรือ Management Consultant ทำไม Agoda ถึงควรเลือกคุณที่เป็น Ex-SWE 10 ปี (Lead SWE 6 ปี)?"</i></p>
 
         <div class="table-responsive">
             <table>
@@ -2093,14 +2496,14 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
 
         <div class="script-box">
-            <p><b>💬 สคริปต์สรุปจุดขายในห้องสัมภาษณ์ (PDF หน้า 87, 98):</b><br/>
+            <p><b>💬 สคริปต์สรุปจุดขายในห้องสัมภาษณ์:</b><br/>
             <i>"PM สาย Business หรือ Design อาจจะเก่งเรื่องภาพรวมตลาดหรือ Wireframe แต่ข้อได้เปรียบของผมในฐานะ Ex-SWE 10 ปี (Lead SWE 6 ปี) คือ <b>'Execution Speed & High Technical Trust'</b> ครับ ผมสามารถแปลข้อกำหนดทางธุรกิจให้กลายเป็น Jira AC ที่ปราศจากความก้ำกึ่ง ช่วยให้ทีม Dev เริ่มต้นโค้ดได้ทันที ลดเวลาในประชุม Refinement ลงได้กว่าครึ่ง และคุ้มครองระบบด้วย Quality Guardrails ทำให้ทุกการปล่อย A/B Test บน Agoda เป็นไปอย่างรวดเร็วและปลอดภัยครับ"</i></p>
         </div>
     </div>     <!-- SECTION 10 (Compensation & Negotiation) -->
-    <h2 id="sec10">10. 💰 กลยุทธ์การเจรจาตัวเลขและสวัสดิการ (Compensation, Negotiation & HR Strategy - PDF หน้า 29-43)</h2>
+    <h2 id="sec10">10. 💰 กลยุทธ์การเจรจาตัวเลขและสวัสดิการ (Compensation, Negotiation & HR Strategy)</h2>
     
     <div class="star-card" id="salary-negotiation-guide">
-        <h3>10.1 สูตรคำนวณตัวเลขเรียกเงินเดือน (The Calculation Model) และ Benchmark Agoda (PDF หน้า 35-37)</h3>
+        <h3>10.1 สูตรคำนวณตัวเลขเรียกเงินเดือน (The Calculation Model) และ Benchmark Agoda</h3>
         
         <div class="example-box">
             <h4>📊 1. Benchmark เงินเดือน Senior PM ที่ Agoda (ตลาด Tech กรุงเทพฯ):</h4>
@@ -2153,7 +2556,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
 
         <div class="example-box">
-            <h4>🧾 โครงสร้างภาษีและรายรับสุทธิโดยประมาณ (Tax Breakdown คิดที่ฐาน 160,000 บาท/เดือน - PDF หน้า 37):</h4>
+            <h4>🧾 โครงสร้างภาษีและรายรับสุทธิโดยประมาณ (Tax Breakdown คิดที่ฐาน 160,000 บาท/เดือน):</h4>
             <ul>
                 <li>เงินเดือนสุทธิก่อนภาษี (Gross Monthly): 160,000 บาท</li>
                 <li>หัก ประกันสังคม: 750 บาท/เดือน (สูงสุด)</li>
@@ -2162,7 +2565,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             </ul>
         </div>
 
-        <h3 id="salary-3-levers">10.2 3 คันงัดเชิงยุทธศาสตร์ในการดันตัวเลขไปแตะ 180,000 – 200,000+ บาท/เดือน (PDF หน้า 39-40)</h3>
+        <h3 id="salary-3-levers">10.2 3 คันงัดเชิงยุทธศาสตร์ในการดันตัวเลขไปแตะ 180,000 – 200,000+ บาท/เดือน</h3>
         <p>หากต้องการดันตัวเลขขึ้นไปแตะ <b>180k – 200k+ บาท/เดือน (Total Comp 2.4M – 2.6M+ บาท/ปี)</b> คุณต้องใช้กลยุทธ์ Leverage 3 ด้าน:</p>
                 <div class="example-box">
             <ol>
@@ -2173,14 +2576,14 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
 
         <div class="script-box">
-            <p><b>💬 สคริปต์การตั้ง Anchor ตัวเลขกับ HR Agoda เมื่อถูกถาม "Expected Salary" (PDF หน้า 40):</b><br/>
+            <p><b>💬 สคริปต์การตั้ง Anchor ตัวเลขกับ HR Agoda เมื่อถูกถาม "Expected Salary":</b><br/>
             <i>"เมื่อพิจารณาจาก Total Compensation เดิมของผมที่รวมโบนัส 3.5 เดือน บวกกับประสบการณ์ Technical & Engineering Leadership 10 ปีที่จะเข้ามาช่วยให้ทีมส่งมอบ Product ได้เร็วและมีคุณภาพสูงขึ้น<br/><br/>
             ผมตั้งเป้าหมาย Expected Base Salary ไว้ที่ช่วง <b>180,000 – 200,000 บาท/เดือน (หรือ Total Package ประมาณ 2.4M – 2.6M บาท/ปี)</b> ครับ ทั้งนี้ตัวเลขนี้เป็นตัวเลขที่ผมประเมินไว้สำหรับโอกาสในการก้าวเข้ามาสร้าง Impact ที่ Agoda แต่ผมยินดีรับฟังรายละเอียดโครงสร้างแพ็กเกจทั้งหมด ไม่ว่าจะเป็น Base, Performance Bonus, Sign-on Bonus หรือ Stocks ครับ"</i></p>
         </div>
 
-        <h3 id="counter-offer-strategy">10.3 ยุทธศาสตร์การรับมือ Counter Offer และสคริปต์การ Negotiate (PDF หน้า 29-33, 40-41)</h3>
+        <h3 id="counter-offer-strategy">10.3 ยุทธศาสตร์การรับมือ Counter Offer และสคริปต์การ Negotiate</h3>
                 <div class="example-box">
-            <h4>⏰ Timing คือทุกอย่าง (ต้องแจ้งตอนไหน? - PDF หน้า 32):</h4>
+            <h4>⏰ Timing คือทุกอย่าง (ต้องแจ้งตอนไหน?):</h4>
             <ul>
                 <li>❌ <b>ห้ามแจ้งตอนสัมภาษณ์:</b> ในห้องสัมภาษณ์กับ PM Director / HR รอบแรกๆ ให้ยืนยันเจตนารมณ์เดิมว่า <i>"ย้ายเพราะอยากได้ Growth/Challenge และไม่รับ Counter Offer"</i> เพื่อให้เขาประทับใจและออก Official Offer ตัวจริงออกมาก่อน (หากบอกว่าลังเลจะถูกมองเป็น High-Risk Candidate ทันที)</li>
                 <li>✅ <b>แจ้งตอน "ได้รับ Official Draft Offer จาก Agoda แล้ว" (HR Negotiation Phase):</b> เมื่อ HR ของ Agoda โทรมาแจ้งตัวเลขเบื้องต้น หรือส่ง Draft Offer มาให้พิจารณา นี่คือจังหวะเดียวที่คุณควรดึงเรื่อง Counter Offer ขึ้นมาบนโต๊ะเจรจา</li>
@@ -2188,7 +2591,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
 
         <div class="script-box">
-            <p><b>💬 สคริปต์การพูดแจ้งเพื่อ Negotiate (The Professional Framing - PDF หน้า 32-33):</b><br/>
+            <p><b>💬 สคริปต์การพูดแจ้งเพื่อ Negotiate (The Professional Framing):</b><br/>
             <i>"ขอบคุณสำหรับ Offer ครับ ผมตื่นเต้นมากที่จะได้ร่วมงานกับ Agoda เพราะบทบาทนี้ตอบโจทย์เป้าหมาย Career Growth ของผมจริงๆ<br/><br/>
             แต่ผมอยากเรียนแจ้งตรงๆ เพื่อความจริงใจครับ หลังจากที่ผมยื่นแจ้งความตั้งใจจะลาออก ทางบริษัทเดิมได้เสนอ Counter Offer ขึ้นมาเพื่อรั้งตัว โดยปรับทั้งฐานเงินเดือนขึ้นมาอยู่ที่ [ระบุตัวเลข/X%] พร้อมขยาย Scope งาน<br/><br/>
             ผมอยากยืนยันว่า <b>Agoda ยังคงเป็น First Choice ของผมเสมอ</b> และผมเห็น Value ของการย้ายมาที่นี่มากกว่า แต่ในเชิงการเงิน ปัจจัยเรื่อง Gap ของตัวเลขนี้ทำให้เกิด Trade-off ที่ต้องคิดหนักในครอบครัว<br/><br/>
@@ -2196,12 +2599,12 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
 
         <div class="example-box">
-            <h4>🏢 บริษัทเดิมที่มีรอบโปรโมทปีละครั้ง จะยอม Counter Offer ไหม? (PDF หน้า 40-41)</h4>
+            <h4>🏢 บริษัทเดิมที่มีรอบโปรโมทปีละครั้ง จะยอม Counter Offer ไหม?</h4>
             <p>โดยทั่วไป บริษัทที่มี Fixed Promotion Cycle มีแนวโน้มสูงที่จะ <b>"ปฏิเสธ Counter Offer"</b> เนื่องจากเกรงว่าจะกระทบความเท่าเทียม (Internal Equity) และติดระเบียบ Budget Lock<br/>
             <b>ข้อยกเว้นที่อาจยอม:</b> 1) คุณเป็น Key Person ที่หาคนแทนไม่ได้จริงๆ มีความรู้เฉพาะทาง, 2) มีช่องทางพิเศษ Off-cycle Review, หรือ 3) เสนอเป็นลายลักษณ์อักษรการันตีโปรโมทในรอบถัดไป</p>
         </div>
 
-        <h3 id="hiring-seasons">10.4 ช่วงเวลาทองในการยื่นสมัคร (Hiring Seasons / Golden Windows - PDF หน้า 33-35)</h3>
+        <h3 id="hiring-seasons">10.4 ช่วงเวลาทองในการยื่นสมัคร (Hiring Seasons / Golden Windows)</h3>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -2236,7 +2639,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             </table>
         </div>
 
-        <h3 id="bonus-cycle-strategy">10.5 ยุทธศาสตร์การย้ายงานคู่ขนานกับวงรอบโบนัส (The Max-Bonus Strategy - PDF หน้า 34-36)</h3>
+        <h3 id="bonus-cycle-strategy">10.5 ยุทธศาสตร์การย้ายงานคู่ขนานกับวงรอบโบนัส (The Max-Bonus Strategy)</h3>
         <p>เปรียบเทียบวงรอบ: <b>บริษัทเดิมจ่าย 2 รอบ (ธันวาคม และ มีนาคม)</b> vs <b>Agoda จ่าย 1 รอบ (ปลายมีนาคม – ต้นเมษายน)</b>:</p>
         <div class="example-box">
             <ul>
@@ -2248,7 +2651,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             </ul>
         </div>
 
-        <h3 id="agoda-benefits-culture">10.6 สวัสดิการและสภาพแวดล้อมการทำงานจริงที่ Agoda (PDF หน้า 41-43)</h3>
+        <h3 id="agoda-benefits-culture">10.6 สวัสดิการและสภาพแวดล้อมการทำงานจริงที่ Agoda</h3>
         <div class="example-box">
             <ul>
                 <li><b>ช่วงทดลองงาน (Probation Period):</b> 119 วัน (ประมาณ 4 เดือน) ตามกฎหมายแรงงานไทย มีการรีวิวผลงานช่วงเดือนที่ 3–4 สวัสดิการประกันสุขภาพกลุ่ม (IPD/OPD) คุ้มครองตั้งแต่วันแรกที่เริ่มงาน (Day 1)</li>
@@ -2340,11 +2743,11 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
     
     <!-- 11.3 -->
     <div class="star-card" id="sprint-cadence">
-        <h3>11.3 ตารางงานรายวันและไทม์ไลน์ตลอด 1 Sprint (Daily Recurring & Week 1 vs Week 2 - PDF หน้า 83-87)</h3>
+        <h3>11.3 ตารางงานรายวันและไทม์ไลน์ตลอด 1 Sprint (Daily Recurring & Week 1 vs Week 2)</h3>
         <p>ในรอบ 2 สัปดาห์ (1 Sprint) ของ Agoda PM การทำงานจะหมุนเวียนไปตามจังหวะ High-Velocity Agile Cadence:</p>
 
         <div class="table-responsive">
-            <h4>⏰ 1. ตารางงานประจำวันตลอด Sprint (Daily Recurring Cadence - PDF หน้า 84-85):</h4>
+            <h4>⏰ 1. ตารางงานประจำวันตลอด Sprint (Daily Recurring Cadence):</h4>
             <table>
                 <thead>
                     <tr>
@@ -2384,7 +2787,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
 
         <div class="example-box">
-            <h4>🗓️ 2. เจาะลึกหน้าที่เฉพาะตามช่วงเวลาของ Sprint (Week 1 vs Week 2 - PDF หน้า 85-86):</h4>
+            <h4>🗓️ 2. เจาะลึกหน้าที่เฉพาะตามช่วงเวลาของ Sprint (Week 1 vs Week 2):</h4>
             <p><b>[ Week 1: Planning, Alignment & Execution Focus ]</b></p>
             <ul>
                 <li><b>Day 1 (Monday) - Sprint Kickoff & Planning:</b> นำ Backlog Items เสนอทีม Dev พร้อมตอบคำถาม Business Context และ AC, ร่วมกับ Dev Lead ปรับ Scope ให้ตรงกับ Capacity</li>
@@ -2404,7 +2807,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
     <!-- 11.4 -->
     <div class="star-card" id="one-on-one-framework">
-        <h3>11.4 กรอบการทำ 1-on-1s สำหรับ Senior PM (PDF หน้า 67-68)</h3>
+        <h3>11.4 กรอบการทำ 1-on-1s สำหรับ Senior PM</h3>
         <p>เมื่อเข้าทำงานแล้ว โครงสร้างการทำงานของ Agoda จะเป็นรูปแบบ <b>"Tight Pods" / Single-Threaded Teams</b> ซึ่งคุณจะต้องจัดและเข้าร่วม 1-on-1 กับบทบาทต่างๆ เป็นประจำ:</p>
 
         <div class="table-responsive">
@@ -2448,14 +2851,14 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
     </div>
 
     <!-- SECTION 12 (Application, Resume, LinkedIn & Referral Blueprint) -->
-    <h2 id="sec12">12. 📄 คู่มือเอกสารการสมัครงาน: Resume, LinkedIn Profile & Employee Referral Blueprint (PDF หน้า 48-55, 95-97, 101-104)</h2>
+    <h2 id="sec12">12. 📄 คู่มือเอกสารการสมัครงาน: Resume, LinkedIn Profile & Employee Referral Blueprint</h2>
     
     <div class="star-card" id="employee-referral-guide">
-        <h3>12.1 Employee Referral Playbook (ตัวเบิกทางชั้นดี - PDF หน้า 48-51)</h3>
+        <h3>12.1 Employee Referral Playbook (ตัวเบิกทางชั้นดี)</h3>
         <p>การมีเพื่อนอยู่ Agoda ไม่ว่าจะอยู่ตำแหน่งไหน (แม้ไม่ใช่ PM) คือ <b>"ตั๋วเบิกทางชั้นดี (Door Opener)"</b> ที่ช่วยให้ Resume ของคุณส่งตรงถึงหน้า Recruiter ใน 1–3 วัน ข้ามคิว ATS Filter ปกติที่อาจใช้เวลา 2–4 สัปดาห์</p>
         
         <div class="example-box">
-            <h4>Checklist ข้อมูลที่ต้องส่งให้เพื่อนนำไปกรอกในระบบ Internal Referral Portal (PDF หน้า 51):</h4>
+            <h4>Checklist ข้อมูลที่ต้องส่งให้เพื่อนนำไปกรอกในระบบ Internal Referral Portal:</h4>
             <ol>
                 <li><b>ชื่อ - นามสกุล (ภาษาอังกฤษ):</b> ตรงตาม Passport / บัตรประชาชน</li>
                 <li><b>Email & เบอร์โทรศัพท์:</b> ที่ใช้งานปัจจุบัน</li>
@@ -2468,7 +2871,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             <p>📝 <b>Cover Letter จำเป็นไหม?</b> ➡ <b>"ไม่จำเป็นครับ"</b> สำหรับบริษัท Tech ยุคนี้อย่าง Agoda HR และ Hiring Manager แทบไม่ได้อ่าน Cover Letter แล้ว สิ่งสำคัญที่สุดคือ Resume ที่กระชับ 1–2 หน้าที่เน้นตัวเลขผลงาน (Metrics & Impact)</p>
         </div>
 
-        <h3 id="photo-rules-resume-linkedin">12.2 กฎเหล็กเรื่องรูปถ่าย: Resume vs LinkedIn (PDF หน้า 54)</h3>
+        <h3 id="photo-rules-resume-linkedin">12.2 กฎเหล็กเรื่องรูปถ่าย: Resume vs LinkedIn</h3>
         <div class="example-box">
             <ul>
                 <li>❌ <b>รูปถ่ายบน Resume: "ไม่ควรใส่เด็ดขาด"</b> สำหรับการสมัครตำแหน่ง Senior PM ที่ Agoda (รวมถึงบริษัท Tech ฝั่ง Western/International ทั้งหมด) เนื่องจากวัฒนธรรมองค์กรเน้นเรื่อง <b>Diversity, Equity, and Inclusion (DEI)</b> การไม่ใส่รูปช่วยลด Unconscious Bias และช่วยประหยัดพื้นที่สำคัญบน Resume (Resume Real Estate) เพื่อเน้นผลงานเชิงตัวเลข</li>
@@ -2476,7 +2879,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             </ul>
         </div>
 
-        <h3 id="linkedin-optimization">12.3 LinkedIn Profile Master Optimization สำหรับ Ex-SWE 10 ปี / Lead SWE 6 ปี (PDF หน้า 101-104)</h3>
+        <h3 id="linkedin-optimization">12.3 LinkedIn Profile Master Optimization สำหรับ Ex-SWE 10 ปี / Lead SWE 6 ปี</h3>
         <p>ปรับแต่งหน้า LinkedIn Profile เพื่อดึงดูดสายตาของ Recruiters และ Hiring Directors ผ่านระบบค้นหา (SEO):</p>
         
         <div class="example-box">
@@ -2530,6 +2933,12 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         setTheme(savedTheme);
     })();
 </script>
+
+<!-- 📋 Floating Scroll-to-TOC Button -->
+<a href="#toc" class="floating-toc-btn" id="floating-toc-btn" title="เลื่อนขึ้นไปที่สารบัญ">
+    <span>📋 สารบัญ</span>
+    <span style="font-size: 16px;">🔝</span>
+</a>
 
 </body>
 </html>
