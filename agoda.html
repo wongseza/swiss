@@ -628,9 +628,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Master Guide - Version 4.0 (Latest Release)">
+    <div class="version-badge" title="Agoda Senior PM Master Guide - Version 4.1 (Latest Release)">
         <span class="version-dot"></span>
-        <span>v4.0</span>
+        <span>v4.1</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -659,6 +659,7 @@
                 <ul>
                     <li><a href="#agoda-org-structure">3.1 โครงสร้างองค์กรและ 4 เสาหลักของผลิตภัณฑ์ Agoda (Agoda Organization Chart)</a></li>
                     <li><a href="#agoda-pod-structure">3.2 โครงสร้างพอดในกรุงเทพฯ: ทำไมคู่หูเป็น Tech Lead ไม่ใช่ Engineering Manager (EM)</a></li>
+                    <li><a href="#two-pizza-team-deepdive">🍕 เจาะลึกแนวคิด Two-Pizza Team: เหตุผลเบื้องหลังโครงสร้างทีมขนาดเล็กของ Agoda</a></li>
                     <li><a href="#agoda-pm-scope">3.3 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM</a></li>
                     <li><a href="#agoda-hiring-funnel">3.4 สถิติ Headcount Seasonality & Funnel การคัดออก</a></li>
                     <li><a href="#agoda-lead-swe-positioning">3.5 เป็น Lead SWE มานาน 6 ปี: 3 กลยุทธ์การตอบและวาง Positioning</a></li>
@@ -970,6 +971,30 @@
                         <p><b>Data Rigor:</b> วางแผน Event Telemetry, สร้าง Dashboard ติดตาม Metric และคำนวณความแม่นยำทางสถิติของ A/B Test (p-value, SRM)</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- 🍕 Two-Pizza Team Deep-Dive Box -->
+            <div class="example-box" id="two-pizza-team-deepdive" style="margin-top: 20px; border-left: 5px solid #ff7a00; background: var(--card-bg);">
+                <h4>🍕 เจาะลึกแนวคิด Two-Pizza Team: ทำไม Agoda จึงยึดโครงสร้างนี้เป็นกระดูกสันหลังการทำงาน?</h4>
+                <p>คำว่า <b>"Two-Pizza Team"</b> มีจุดกำเนิดมาจาก Jeff Bezos (ผู้ก่อตั้ง Amazon) โดยมีกฎเหล็กว่า <i>"ถ้าพิซซ่า 2 ถาดไม่พอเลี้ยงคนทั้งทีม แสดงว่าทีมนั้นใหญ่เกินไปแล้ว"</i> ซึ่งหมายถึงทีมที่มีสมาชิกประมาณ <b>6 – 8 คน (สูงสุดไม่เกิน 10 คน)</b> เพื่อคงความคล่องตัวระดับสูงสุด</p>
+                
+                <p><b>ทำไม Agoda ถึงออกแบบทุก Pod ให้เป็น Two-Pizza Team?</b></p>
+                <ol>
+                    <li><b>ลด Communication Overhead ตามสูตรคณิตศาสตร์:</b>
+                        เส้นทางการสื่อสารภายในทีมจะเพิ่มขึ้นแบบทวีคูณตามสูตร <code>C = n(n - 1) / 2</code> (เมื่อ n คือจำนวนสมาชิกในทีม)
+                        <ul>
+                            <li><b>ทีมขนาด 6 คน (Two-Pizza Team):</b> มีเส้นทางสื่อสารเพียง <b>15 เส้นทาง</b> — ทุกคนพูดคุย เข้าใจบริบทตรงกัน ตัดสินใจจบได้ทันทีใน Daily Standup</li>
+                            <li><b>ทีมขนาด 20 คน:</b> เส้นทางสื่อสารจะพุ่งสูงถึง <b>190 เส้นทาง!</b> — ต้องมีประชุมเยอะ เกิดความล่าช้า (Bureaucracy) และเกิดการรอคอยระหว่างคนในทีม</li>
+                        </ul>
+                    </li>
+                    <li><b>High Autonomy & True Ownership (ความเป็นเจ้าของอย่างแท้จริง):</b>
+                        แต่ละ Pod ของ Agoda (เช่น Search Pod, Booking Funnel Pod, YCS Inventory Pod) มีอำนาจตัดสินใจบน Product Domain ของตนเองเต็มรูปแบบ มี Roadmap และ Backlog เป็นของตนเอง โดย Senior PM ไม่ต้องผ่านคณะกรรมการอนุมัติซับซ้อน</li>
+                    <li><b>ความเร็วในการรัน A/B Experimentation:</b>
+                        วัฒนธรรมของ Agoda คือ <i>"Data Trumps Opinion"</i> และ <i>"Speed Over Perfection"</i> ทีมขนาดเล็กทำให้วงรอบการตั้งสมมติฐาน ออกแบบโค้ด และ Deploy รัน A/B Testing เกิดขึ้นได้ในระดับสัปดาห์ (Weekly Cadence)</li>
+                    <li><b>สอดคล้องกับ Conway's Law & Microservices Architecture:</b>
+                        โครงสร้างสถาปัตยกรรม Microservices ของ Agoda ถูกแบ่งตามขอบเขตงานของแต่ละ Pod ทำให้แต่ละทีมสามารถแก้ไข ทดสอบ และ Deploy บริการของตนเองได้โดยไม่บล็อกหรือกระทบ Pod อื่น (Decoupled Releases)</li>
+                </ol>
+                <p>💡 <b>มุมมองสำหรับ Senior PM ในห้องสัมภาษณ์:</b> ในฐานะ PM ของ Two-Pizza Team คุณเปรียบเสมือน <b>"Mini-CEO"</b> ประจำ Domain นั้นๆ คุณต้องรับผิดชอบทั้ง Business Metric (Why & What) และประสานงานกับ Tech Lead (How) อย่างใกล้ชิดเพื่อผลักดันการเติบโตของธุรกิจ</p>
             </div>
         </div>
 
@@ -2028,6 +2053,10 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
         <div class="glossary-item" id="glossary-takerate">
             <b>📈 Take Rate:</b> สัดส่วน % คอมมิชชั่นที่ Agoda เรียกเก็บจากโรงแรม/คู่ค้าต่อ 1 ยอดจอง (ประมาณ 15-20%)
+        </div>
+
+        <div class="glossary-item" id="glossary-two-pizza">
+            <b>🍕 Two-Pizza Team (กฎทีมพิซซ่าสองถาด):</b> ปรัชญาการออกแบบโครงสร้างทีมของ Tech Giants (ริเริ่มโดย Jeff Bezos / Amazon และนำมาปรับใช้เป็นหัวใจของ Agoda Pods) โดยจำกัดขนาดทีมให้ไม่เกิน 6–8 คน (คนจำนวนเท่าที่พิซซ่า 2 ถาดสามารถเลี้ยงอิ่ม) เพื่อควบคุมเส้นทางการสื่อสาร <code>C = n(n-1)/2</code> ให้อยู่ในระดับต่ำ (~15 เส้นทาง เทียบกับ 190 เส้นทางในทีม 20 คน) ส่งผลให้เกิด <b>High Autonomy, Rapid Alignment</b> และสามารถตั้งสมมติฐานรัน A/B Experiments ได้สัปดาห์ต่อสัปดาห์อย่างคล่องตัวสูงสุด
         </div>
     </div>
 
