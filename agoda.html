@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="th" data-theme="eye-care">
 <head>
@@ -12,54 +13,29 @@
 
         /* 🎨 Theme CSS Variables */
         :root {
-            /* Default: Eye-Care Warm Sepia */
-            --primary: #1E3A8A;
-            --secondary: #2563EB;
-            --accent-bg: #EBF3FE;
-            --text-main: #2C323B;
-            --text-muted: #64748B;
-            --bg-body: #F4F1EA;
-            --bg-card: #FAF8F5;
-            --border-color: #E2DCD2;
-            --script-bg: #EAF7ED;
-            --script-border: #10B981;
-            --alert-bg: #FDF2F2;
-            --alert-border: #EF4444;
-            --code-bg: #1E293B;
+            /* 📜 Ultra Soft Warm Eye-Care Sepia (ปรับถนอมสายตาขั้นสุด) */
+            --primary: #1C335A;
+            --secondary: #2B529A;
+            --accent-bg: #E6EEF8;
+            --text-main: #2D2A26; /* Soft Dark Brown-Gray for ultra-low eye strain */
+            --text-muted: #5C626C;
+            --bg-body: #EFEBE4;   /* Softer Warm Sepia */
+            --bg-card: #F9F6F0;   /* Cream Card Background */
+            --border-color: #DDD6CC;
+            --script-bg: #E4F2E7;
+            --script-border: #0D9488;
+            --alert-bg: #FAECEC;
+            --alert-border: #DC2626;
+            --code-bg: #1B2432;
             --code-text: #38BDF8;
-            --example-bg: #FCF8EC;
-            --example-border: #F59E0B;
-            --toc-bg: #EBF3FE;
-            --table-header-bg: #1E3A8A;
+            --example-bg: #FAF3E3;
+            --example-border: #D97706;
+            --toc-bg: #E6EEF8;
+            --table-header-bg: #1C335A;
             --table-header-text: #FFFFFF;
-            --table-stripe: #F0EAE1;
+            --table-stripe: #EBE5DB;
             --link-color: #2563EB;
             --link-hover-bg: #DCEBFE;
-        }
-
-        [data-theme="light"] {
-            --primary: #1A2B4C;
-            --secondary: #0073E6;
-            --accent-bg: #E6F2FF;
-            --text-main: #1E293B;
-            --text-muted: #64748B;
-            --bg-body: #F1F5F9;
-            --bg-card: #FFFFFF;
-            --border-color: #CBD5E1;
-            --script-bg: #F0FDF4;
-            --script-border: #10B981;
-            --alert-bg: #FEF2F2;
-            --alert-border: #EF4444;
-            --code-bg: #0F172A;
-            --code-text: #38BDF8;
-            --example-bg: #FFFBEB;
-            --example-border: #F59E0B;
-            --toc-bg: #E6F2FF;
-            --table-header-bg: #1A2B4C;
-            --table-header-text: #FFFFFF;
-            --table-stripe: #F8FAFC;
-            --link-color: #0073E6;
-            --link-hover-bg: #CCE5FF;
         }
 
         [data-theme="dark"] {
@@ -117,7 +93,7 @@
             text-decoration-style: solid;
         }
 
-        /* 🔘 Floating Theme Toggle Switcher */
+        /* 🔘 Floating Theme Toggle Switcher (เฉพาะ ถนอมสายตา & กลางคืน) */
         .theme-toggle-container {
             position: fixed;
             top: 15px;
@@ -127,7 +103,7 @@
             border: 1px solid var(--border-color);
             padding: 4px;
             border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
             display: flex;
             gap: 4px;
         }
@@ -136,7 +112,7 @@
             border: none;
             background: transparent;
             color: var(--text-main);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 12.5px;
             font-weight: 600;
@@ -149,7 +125,7 @@
         .theme-btn.active {
             background: var(--secondary);
             color: #ffffff;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.18);
         }
 
         .container {
@@ -158,7 +134,7 @@
             background: var(--bg-card);
             padding: 40px 35px;
             border-radius: 14px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
             margin-top: 25px;
         }
 
@@ -353,7 +329,7 @@
             h2 { font-size: 17.5px; padding-left: 10px; }
             h3 { font-size: 15.5px; }
             .theme-toggle-container { top: 8px; right: 8px; padding: 2px; }
-            .theme-btn { padding: 5px 9px; font-size: 11px; }
+            .theme-btn { padding: 5px 10px; font-size: 11.5px; }
             .subtitle { font-size: 13px; padding: 10px 12px; }
             .toc { padding: 14px 16px; }
             .star-card { padding: 14px; }
@@ -364,10 +340,9 @@
 </head>
 <body>
 
-<!-- 🎛️ Theme Switcher Bar -->
+<!-- 🎛️ Floating Theme Switcher Bar (ถนอมสายตา & กลางคืน) -->
 <div class="theme-toggle-container">
     <button class="theme-btn active" id="btn-eye-care" onclick="setTheme('eye-care')">📜 ถนอมสายตา</button>
-    <button class="theme-btn" id="btn-light" onclick="setTheme('light')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" onclick="setTheme('dark')">🌙 กลางคืน</button>
 </div>
 
@@ -388,9 +363,10 @@
             <li><a href="#sec5">5. การตอบคำถามเชิงโครงสร้างองค์กรและการเปลี่ยนสายงาน (Organizational & Career Transition)</a></li>
             <li><a href="#sec6">6. กลยุทธ์การเจรจาตัวเลขและสวัสดิการ (Compensation, Negotiation & HR Strategy)</a></li>
             <li><a href="#sec7">7. รายละเอียดการทำงานจริง, ตารางงาน, Multi-Pod Strategy และแผน 30-60-90 วัน</a></li>
-            <li><a href="#sec8">8. คลังความรู้เชิงลึก, A/B Testing Mechanics, Competitive Matrix & Advanced Architecture</a></li>
+            <li><a href="#sec8">8. คลังความรู้เชิงลึก, A/B Testing Mechanics, Competitive Matrix, Advanced Architecture & Business Moat</a></li>
             <li><a href="#sec9">9. Full Case Walkthrough Scripts, Objection Handling, Bar Raiser & AI Questions Expansion</a></li>
             <li><a href="#sec10">10. เจาะลึกกระบวนการสัมภาษณ์ Agoda Senior PM แต่ละรอบ (Round 1 - Round 5 Deep-Dive)</a></li>
+            <li><a href="#sec11">11. ขอบเขตความรู้ด้าน Marketing สำหรับ Product Manager (Marketing & Growth Depth for PMs)</a></li>
         </ul>
     </div>
 
@@ -588,7 +564,7 @@
             </thead>
             <tbody>
                 <tr><td><b>1. Data Analytics</b></td><td><a href="#glossary-northstar" class="term-link">North Star</a>, <a href="#glossary-primary" class="term-link">Primary Metric</a>, <a href="#glossary-guardrail" class="term-link">Guardrail Metric</a>, <a href="#glossary-pvalue" class="term-link">p-value</a>, <a href="#glossary-srm" class="term-link">SRM</a></td><td>ชูความคุ้นเคย Data และโชว์กรอบ A/B Testing อย่างแม่นยำ</td></tr>
-                <tr><td><b>2. Strategic Thinking</b></td><td><a href="#glossary-0to1" class="term-link">0-to-1 Ambiguity</a>, <a href="#glossary-unitecon" class="term-link">Unit Economics</a>, <a href="#glossary-cac-ltv" class="term-link">CAC vs LTV</a>, <a href="#glossary-takerate" class="term-link">Take Rate</a></td><td>ถอยมาเริ่มที่ User Problem + Business ROI เสมอ</td></tr>
+                <tr><td><b>2. Strategic Thinking</b></td><td><a href="#glossary-0to1" class="term-link">0-to-1 Ambiguity</a>, <a href="#glossary-unitecon" class="term-link">Unit Economics</a>, <a href="#glossary-cac-ltv" class="term-link">CAC vs LTV</a>, <a href="#glossary-moat" class="term-link">Business Moat</a></td><td>ถอยมาเริ่มที่ User Problem + Business ROI เสมอ</td></tr>
                 <tr><td><b>3. Customer Empathy</b></td><td>Unmet Needs ก่อนมี Data, User Interview</td><td>ใช้ Mixed Methods: User Feedback + Analytics Data</td></tr>
                 <tr><td><b>4. Executive Alignment</b></td><td>การปฏิเสธเมื่อ Data บอกไม่คุ้มทำ</td><td>ใช้ Data-backed ROI Communication และหลัก <a href="#agoda-culture-data" class="term-link">Data Trumps Opinion</a></td></tr>
                 <tr><td><b>5. Monetization</b></td><td>Bottom-line Trade-off (Conversion vs Cloud Cost)</td><td>เชื่อมโยง Top-line Growth กับ Infrastructure Efficiency</td></tr>
@@ -602,6 +578,9 @@
 
     <div class="glossary-box">
         <h3>📖 คลังคำศัพท์เฉพาะ (Technical & Business Glossary):</h3>
+        <div class="glossary-item" id="glossary-moat">
+            <b>🏰 Business Moat / Economic Moat (คูเมืองทางธุรกิจ):</b> ความได้เปรียบเชิงการแข่งขันอย่างยั่งยืน (Sustainable Competitive Advantage) ที่ป้องกันไม่ให้คู่แข่งเข้ามาแย่งส่วนแบ่งตลาดหรือลอกเลียนแบบได้ง่ายๆ ในบริบทของ Agoda คูเมืองหลักคือ <b>Deep Local APAC Supply</b> (สัญญาตรงกับโรงแรมในเอเชีย), <b>Dynamic Pricing Engine</b> (ระบบดันราคาสู้ดีที่สุด), และ <b>High-Velocity Experimentation Scale</b> (ดูรายละเอียดเพิ่มเติมที่ <a href="#comp-moat-detail" class="term-link">Section 8.2 Moat Deep-Dive</a>)
+        </div>
         <div class="glossary-item" id="glossary-northstar">
             <b>🌟 North Star Metric:</b> ตัววัดหลักระดับสูงสุดตัวเดียวที่สะท้อนคุณค่าหลักที่ลูกค้าได้รับและขับเคลื่อนการเติบโตระยะยาวของทั้งธุรกิจ (เช่น Net Completed Bookings)
         </div>
@@ -675,7 +654,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
     </div>
 
     <div class="alert-box">
-        <b>⚠️️ Red Flags ที่ต้องระวังในห้องสัมภาษณ์:</b> พูดถึงการทำ Feature โดยไม่เอ่ยถึง Problem หรือ Metric วัดผล, ตอบเยิ่นเย้อไม่ใช้หลัก <a href="#bluf-def" class="term-link">BLUF</a>, และการโยนความผิดให้ทีมอื่น
+        <b>⚠ Red Flags ที่ต้องระวังในห้องสัมภาษณ์:</b> พูดถึงการทำ Feature โดยไม่เอ่ยถึง Problem หรือ Metric วัดผล, ตอบเยิ่นเย้อไม่ใช้หลัก <a href="#bluf-def" class="term-link">BLUF</a>, และการโยนความผิดให้ทีมอื่น
     </div>
 
     <h3>4.2 คลังคำถามสัมภาษณ์ยอดฮิต 20 ข้อ (20 Most Frequent Interview Questions Table)</h3>
@@ -787,10 +766,10 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
     </div>
 
     <!-- SECTION 8 -->
-    <h2 id="sec8">8. 🧠 คลังความรู้เชิงลึก, A/B Testing Mechanics, Competitive Matrix & Advanced Architecture</h2>
+    <h2 id="sec8">8. 🧠 คลังความรู้เชิงลึก, A/B Testing Mechanics, Competitive Matrix, Advanced Architecture & Business Moat</h2>
     <h3>8.1 CIRCLES, MoSCoW & 4-Step RCA Refinements</h3>
     <ul>
-        <li id="circles-def"><b>CIRCLES Method:</b> <code>C</code>omprehend Context ➡️ <code>I</code>dentify Personas ➡️ <code>R</code>eport Needs ➡️ <code>C</code>ut Prioritization ➡️️ <code>L</code>ist Solutions ➡️ <code>E</code>valuate Trade-offs ➡️ <code>S</code>ummarize (ดูบทพูดตัวอย่างแบบเต็มที่ <a href="#circles-script" class="term-link">CIRCLES Case Script</a>)</li>
+        <li id="circles-def"><b>CIRCLES Method:</b> <code>C</code>omprehend Context ➡️ <code>I</code>dentify Personas ➡️ <code>R</code>eport Needs ➡️ <code>C</code>ut Prioritization ➡️ <code>L</code>ist Solutions ➡️ <code>E</code>valuate Trade-offs ➡️ <code>S</code>ummarize (ดูบทพูดตัวอย่างแบบเต็มที่ <a href="#circles-script" class="term-link">CIRCLES Case Script</a>)</li>
     </ul>
 
     <div class="star-card" id="moscow-def">
@@ -866,6 +845,27 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <!-- 🏰 EXPANDED MOAT DEEP-DIVE CARD -->
+    <div class="star-card" id="comp-moat-detail">
+        <h3>🏰 เจาะลึกแนวคิด Business Moat (คูเมืองทางธุรกิจของ Agoda) สำหรับ Senior PM</h3>
+        <p>ในห้องสัมภาษณ์ระดับ Executive หรือ Bar Raiser ผู้สัมภาษณ์มักลองเชิงด้วยคำถามว่า <i>"อะไรคือ คูเมือง (Moat) ทางธุรกิจที่แท้จริงของ Agoda ที่ป้องกันไม่ให้คู่แข่งยักษ์ใหญ่อย่าง Google Hotels หรือ Airbnb แย่งตลาดไปได้?"</i></p>
+
+        <div class="example-box">
+            <h4>💡 4 เสาหลัก คูเมืองทางธุรกิจ (Agoda's 4 Core Competitive Moats):</h4>
+            <ol>
+                <li><b>1. Deep Local APAC Supply Network (คูเมืองด้านห่วงโซ่อุปทานท้องถิ่น):</b> Agoda สะสมความสัมพันธ์และสัญญาตรงกับผู้ประกอบการโรงแรม ที่พัก B&amp;B และ Agoda Homes ในภูมิภาคเอเชียแปซิฟิกมายาวนานนับสิบปี มีทีม Partner Services ประจำท้องถิ่นดูแลเฉพาะจุด ซึ่งเป็นสินทรัพย์ที่ผู้เล่นหน้าใหม่ไม่สามารถใช้เงินซื้อได้ในเวลาอันสั้น</li>
+                <li><b>2. Dynamic Pricing & Yield Management Engine (คูเมืองด้านเทคโนโลยีราคา):</b> ระบบหลังบ้านอันทรงพลังที่คำนวณและปรับเปลี่ยนราคาส่วนลดซ้อนส่วนลด (Agoda Cash + Bank Coupons + VIP Tier Discounts + Wholesale Margin Adjustment) แบบ Real-time ทำให้ Agoda รักษาสถานะ **"Price Leader" (ผู้นำด้านราคาถูกที่สุดใน APAC)** ได้ตลอดเวลา</li>
+                <li><b>3. High-Velocity Experimentation & Data Infrastructure (คูเมืองด้านข้อมูล):</b> วัฒนธรรมการรัน A/B Test พร้อมกันหลายร้อยการทดลองบน Production Traffic หลายสิบล้านคนต่อวัน ทำให้ Agoda รู้จักพฤติกรรมผู้ใช้และสามารถปรับ UX/UI เพื่อดัน Conversion Rate ได้เร็วกว่าคู่แข่งหลายเท่า</li>
+                <li><b>4. Two-Sided Network Effects & Economies of Scale (คูเมืองด้านสเกลและเครือข่าย):</b> จำนวนผู้ใช้งานหลายสิบล้านคนดึงดูดให้โรงแรมยอมมอบ Exclusive Rates และ Inventory พิเศษให้ Agoda และเมื่อ Agoda ได้ราคาดีที่สุด ก็ยิ่งดึงดูดผู้ใช้งานใหม่ๆ เข้ามาจองเพิ่มขึ้น เกิดเป็น **Flywheel Effect** ที่หมุนเร่งการเติบโตอย่างต่อเนื่อง</li>
+            </ol>
+        </div>
+
+        <div class="script-box">
+            <p><b>💬 สคริปต์การตอบเรื่อง Moat ในห้องสัมภาษณ์ Senior PM:</b><br/>
+            <i>"ในฐานะ Senior PM ผมไม่ได้มองการพัฒนาฟีเจอร์แค่การดัน Conversion สั้นๆ แต่คือการ **ปกป้องและขยาย Moat (คูเมืองทางธุรกิจ)** ของ Agoda ครับ ตัวอย่างเช่น ในฝั่ง Pricing & Discounting การพัฒนา Self-Serve Promo Rules Engine จะช่วยเสริมคูเมืองด้าน Dynamic Pricing ให้ทีม Marketing ปรับส่วนลดสู้คู่แข่งได้ในระดับวินาที หรือการทำ Search Personalization จะช่วยเสริมคูเมืองด้าน Data Network Effect ให้ผู้ใช้รู้สึกว่า Agoda รู้ใจเขาที่สุดครับ"</i></p>
+        </div>
     </div>
 
     <h3>8.3 Advanced Technical Architecture Deep-Dive</h3>
@@ -947,7 +947,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </ul>
     </div>
 
-    <!-- SECTION 10 (NEW SECTION) -->
+    <!-- SECTION 10 -->
     <h2 id="sec10">10. 🎯 เจาะลึกกระบวนการสัมภาษณ์ Agoda Senior PM แต่ละรอบ (Round 1 - Round 5 Deep-Dive)</h2>
     
     <div class="star-card">
@@ -1051,12 +1051,79 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </ul>
     </div>
 
+    <!-- SECTION 11 -->
+    <h2 id="sec11">11. 📣 ขอบเขตความรู้ด้าน Marketing สำหรับ Product Manager (Marketing & Growth Depth for PMs)</h2>
+
+    <div class="star-card">
+        <h3>📢 11.1 PM จำเป็นต้องรู้ Marketing มากแค่ไหน? (Core Competency Boundary)</h3>
+        <p>PM ไม่จำเป็นต้องยิง Ads, เขียน Copywriting หรือทำแผน PR Branding ด้วยตัวเอง แต่ต้องมีความรู้ระดับ <b>Growth Marketing & Commercial Depth</b> เพื่อวางกลยุทธ์ร่วมกับทีม Performance Marketing และ Growth ได้อย่างแม่นยำ:</p>
+
+        <div class="example-box">
+            <h4>💡 ระดับความรู้ Marketing ที่ PM ต้องมี vs ไม่จำเป็นต้องมี:</h4>
+            <ul>
+                <li><b>✅ สิ่งที่ต้องรู้ลึก (Must Know):</b>
+                    <ul>
+                        <li><b>Go-To-Market (GTM) Alignment:</b> การวางแผนเปิดตัวฟีเจอร์ร่วมกับทีม Marketing, การกำหนด Target Segment และ Product Positioning</li>
+                        <li><b>Growth Funnel Metrics:</b> เข้าใจการไหลของผู้ใช้ตั้งแต่ Acquisition (SEO/SEM/Meta Ads) ➡️ Activation ➡️ Retention ➡️ Revenue</li>
+                        <li><b>CAC vs LTV Mechanics:</b> รู้ว่าต้นทุนการดึงลูกค้าใหม่ผ่านการตลาด (CAC) เชื่อมโยงกับ Lifetime Value (LTV) และ <a href="#glossary-unitecon" class="term-link">Unit Economics</a> อย่างไร</li>
+                        <li><b>Attribution & Marketing Tech:</b> เข้าใจวิธีที่ระบบติดตามย้อนกลับว่าลูกค้ามาจากช่องทางไหน (UTM, Deep Linking, SDKs เช่น Adjust/AppsFlyer)</li>
+                    </ul>
+                </li>
+                <li><b>❌ สิ่งที่ไม่ต้องทำเอง (Delegated to Marketers):</b> การตั้งค่า Campaign ใน Meta Ads Manager, การเขียน Ad Copy, การดีไซน์แบนเนอร์โฆษณา, และงาน PR สื่อมวลชน</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="star-card">
+        <h3>🚀 11.2 5 เสาหลักด้าน Growth & Marketing ที่ Senior PM Agoda ต้องเข้าใจ</h3>
+
+        <h4>1) Go-To-Market (GTM) Strategy & Phasing:</h4>
+        <p>การวางแผนการเปิดตัว Product/Feature ไม่ใช่แค่ส่ง Code ขึ้น Prod แต่คือการวางแผนแบบ end-to-end ร่วมกับ Marketing:</p>
+        <ul>
+            <li><b>Phased Rollout:</b> Alpha (Internal) ➡️ Beta (Segmented A/B Test 5-10%) ➡️ General Availability (GA 100%)</li>
+            <li><b>Cross-functional Readiness Check:</b> ตรวจสอบว่าทีม Customer Care มี FAQ พร้อมรับสาย, ทีม Marketing เตรียม Ad Campaign และทีม Operations พร้อมรับยอด Booking ที่จะเพิ่มขึ้น</li>
+        </ul>
+
+        <h4>2) Performance Marketing & Acquisition Channels:</h4>
+        <p>เข้าใจธรรมชาติของ Traffic Sources ที่วิ่งเข้าสู่ Agoda Funnel:</p>
+        <ul>
+            <li><b>Metasearch Engines (Google Hotels, TripAdvisor, Trivago):</b> เป็นช่องทางดึง High-Intent Users ที่มีการเปรียบเทียบราคาสูง PM ต้องเข้าใจเรื่อง Rate Parity และ API Data Feed Accuracy</li>
+            <li><b>Paid Search / SEM (Google Ads) & Paid Social (Meta, TikTok):</b> ดึง Traffic ผ่าน Ads ต้องวัด CTR, Cost Per Click (CPC) และ Conversion Rate</li>
+            <li><b>Direct / Organic Traffic (SEO & Brand Loyalty):</b> ช่องทางที่มี CAC ต่ำที่สุด PM หน้า PDP/Search ต้องเพิ่ม SEO Indexing และผลักดันให้เกิด App Installs/Direct Re-visits</li>
+        </ul>
+
+        <h4>3) Marketing Attribution Models & Deep Linking:</h4>
+        <p>เข้าใจกลไกหลังบ้านในการวัดผลว่าโฆษณาช่องทางไหนเป็นคนสร้าง ยอดจอง (Conversion Attribution):</p>
+        <ul>
+            <li><b>Last-Click Attribution:</b> ยกความดีความชอบให้ช่องทางสุดท้ายที่ผู้ใช้คลิกก่อนจอง (นิยมใช้ในการคำนวณ CAC)</li>
+            <li><b>Multi-Touch Attribution:</b> กระจายน้ำหนักตามทุก Touchpoint ตั้งแต่ Brand Awareness จนถึง Checkout</li>
+            <li><b>Deferred Deep Linking:</b> เทคโนโลยีที่พาผู้ใช้ที่คลิกโฆษณาโรงแรมบน Web/Social ให้วิ่งตรงไปยังหน้า PDP ของโรงแรมนั้นใน Mobile App หลังติดตั้งสำเร็จทันที โดยไม่หลุด Context</li>
+        </ul>
+
+        <h4>4) Dynamic Discounting & Growth Loops (Agoda Specifics):</h4>
+        <p>การสร้างแรงจูงใจทางการตลาดผ่าน Product Features โดยไม่ต้องพึ่งงบโฆษณาเพียวๆ (Product-Led Growth):</p>
+        <ul>
+            <li><b>Agoda Cash & Loyalty Tier (VIP Program):</b> สร้าง Gamification Loop กระตุ้นให้เกิด Repeat Bookings เพื่อดัน LTV</li>
+            <li><b>Stackable Coupons & Flash Sales Engine:</b> การออกแบบ Promo Validation Engine ให้รองรับส่วนลดทับซ้อน (เช่น Hotel Discount + Bank Coupon + Agoda Cash) โดยคุม Contribution Margin ไม่ให้ขาดทุน</li>
+        </ul>
+
+        <h4>5) LTV : CAC Ratio & Payback Period:</h4>
+        <p>การประเมินความคุ้มค่าของการลงทุนด้านการตลาดในเชิง Product:</p>
+
+        <div class="code-block">
+LTV : CAC Ratio Target &gt; 3.0
+- LTV (Lifetime Value) = Average Order Value × Booking Frequency × Margin % × Retention Lifetime
+- CAC (Customer Acquisition Cost) = Total Marketing Spend / Total New Customers Acquired
+- Payback Period = เวลาที่ใช้ในการดึงทุน CAC กลับคืนมาจากการจองของลูกค้า (ควรน้อยกว่า 6-12 เดือน)
+        </div>
+    </div>
+
     <div class="footer-note">
-        <p><b>✅ Uncut Master Edition Verified Complete:</b> ครบถ้วน 100% ทุกหัวข้อเดิม + เพิ่มเติม Primary Metric, p-value calculation, MoSCoW, 4-Step RCA, และ Section 10 สัมภาษณ์แยกตามรอบ โดยไม่มีการตัดทอนเนื้อหาออกแม้แต่บรรทัดเดียว</p>
+        <p><b>✅ Uncut Master Edition Verified Complete:</b> ปรับโหมดถนอมสายตาสุดละมุน + ตัดโหมดกลางวันออกคงเหลือ 2 โหมด + เพิ่มความหมายและกลยุทธ์ Business Moat ครบถ้วน 100% เรียบร้อยครับ</p>
     </div>
 </div>
 
-<!-- 📜 Theme Switcher JavaScript -->
+<!-- 📜 Theme Switcher JavaScript (เฉพาะ Eye-Care และ Dark) -->
 <script>
     function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
@@ -1073,10 +1140,10 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
     // Auto load saved theme preference or default to 'eye-care'
     (function() {
         var savedTheme = localStorage.getItem('agoda_guide_theme') || 'eye-care';
+        if (savedTheme === 'light') savedTheme = 'eye-care'; // Fallback for removed light mode
         setTheme(savedTheme);
     })();
 </script>
 
 </body>
 </html>
-```
