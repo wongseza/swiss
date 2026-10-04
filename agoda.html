@@ -106,7 +106,41 @@
             border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.12);
             display: flex;
-            gap: 4px;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 🏷️ Top-Right Corner Version Badge */
+        .version-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-body);
+            color: var(--primary);
+            border: 1px solid var(--border-color);
+            padding: 4px 11px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+            user-select: none;
+        }
+
+        .version-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 6px #10b981;
+            animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.15); }
         }
 
         .theme-btn {
@@ -579,7 +613,8 @@
             h2 { font-size: 17.5px; padding-left: 10px; }
             h3 { font-size: 15.5px; }
             .theme-toggle-container { top: 8px; right: 8px; padding: 2px; }
-            .theme-btn { padding: 5px 10px; font-size: 11.5px; }
+            .version-badge { padding: 3px 7px; font-size: 10px; }
+            .theme-btn { padding: 5px 9px; font-size: 11px; }
             .subtitle { font-size: 13px; padding: 10px 12px; }
             .toc { padding: 14px 16px; }
             .star-card { padding: 14px; }
@@ -591,8 +626,12 @@
 </head>
 <body>
 
-<!-- 🎛️ Floating Theme Switcher Bar -->
+<!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
+    <div class="version-badge" title="Agoda Senior PM Master Guide - Version 4.0 (Latest Release)">
+        <span class="version-dot"></span>
+        <span>v4.0</span>
+    </div>
     <button class="theme-btn active" id="btn-eye-care" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" onclick="setTheme('dark')">🌙 กลางคืน</button>
 </div>
