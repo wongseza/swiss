@@ -760,9 +760,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Master Guide - Version 6.3 (Latest Release)">
+    <div class="version-badge" title="Agoda Senior PM Master Guide - Version 6.4 (Latest Release)">
         <span class="version-dot"></span>
-        <span>v6.3</span>
+        <span>v6.4</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -913,7 +913,11 @@
                     <li><a href="#salary-negotiation-guide">11.1 สูตรคำนวณตัวเลขเรียกเงินเดือน (The Calculation Model) และ Benchmark</a></li>
                     <li><a href="#salary-3-levers">11.2 3 คันงัดเชิงยุทธศาสตร์ในการดันตัวเลขสู่ 180k - 200k+</a></li>
                     <li><a href="#counter-offer-strategy">11.3 ยุทธศาสตร์การรับมือ Counter Offer และสคริปต์การ Negotiate กับ HR</a></li>
-                    <li><a href="#hiring-seasons">11.4 ช่วงเวลาทองในการยื่นสมัคร (Hiring Seasons / Golden Windows)</a></li>
+                    <li><a href="#hiring-seasons">11.4 ช่วงเวลาทองในการยื่นสมัคร (Hiring Seasons / Golden Windows)</a>
+                        <ul>
+                            <li><a href="#pass-probability-and-dec-jan-gap-strategy">11.4.1 วิเคราะห์โอกาสผ่าน (Pass Probability) & กลยุทธ์ยื่นเดือน 12–1 พร้อม 5 จุดบอดและวิธีปิด Gap 15 ข้อ</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#bonus-cycle-strategy">11.5 วงรอบโบนัส Agoda vs บริษัทเดิม (The Max-Bonus Strategy)</a></li>
                     <li><a href="#agoda-benefits-culture">11.6 สวัสดิการและสภาพแวดล้อมการทำงานจริง (Probation, WFA, Timezone)</a></li>
                 </ul>
@@ -1019,7 +1023,8 @@
                     <tr><td>Tricky Interview Questions & Frameworks</td><td><span class="badge badge-green">Official public source</span></td><td><a href="https://careersatagoda.com/blog/tricky-interview-questions/" target="_blank" rel="noopener">Agoda Careers — Tackling Tricky Interview Questions</a> — เจาะลึก 3 คำถามหิน: Tell me about a time you failed, Disagree with colleague, และ What are your KPIs</td><td>5 ต.ค. 2026</td></tr>
                     <tr><td>5 Interview Tips from Agoda Top Interviewers</td><td><span class="badge badge-green">Official public source</span></td><td><a href="https://careersatagoda.com/blog/5-interview-tips-from-agoda-top-interviewers/" target="_blank" rel="noopener">Agoda Careers — 5 Interview Tips from Top Interviewers</a> — เคล็ดลับ 5 ข้อ: รู้ลึก Resume, ทำบทสัมภาษณ์เป็นการสนทนา, ศึกษา JD, คิดเชิงโครงสร้าง, และความถ่อมตนทางปัญญา</td><td>5 ต.ค. 2026</td></tr>
                     <tr><td>What to Ask Your Interviewer (Reverse-Interview)</td><td><span class="badge badge-green">Official public source</span></td><td><a href="https://careersatagoda.com/blog/what-to-ask-your-interviewer/" target="_blank" rel="noopener">Agoda Careers — What to Ask Your Interviewer</a> — 4 เสาหลักคำถามย้อนกลับ: Data & Tools, Measuring Success, Role Challenges, และ Culture Fit</td><td>5 ต.ค. 2026</td></tr>
-                                                            <tr><td>Synthetic Flight Simulator (7 Practical Drills)</td><td><span class="badge badge-purple">Executive Prep Playbook</span></td><td>7 กระบวนท่าซ้อมเสมือนจริงขั้นสูงสุดทดแทนการสัมภาษณ์ที่อื่น: 3 AI Voice Personas, 180s Video Drill, App Reverse-Engineering, Live Whiteboarding & Vocal Ritual</td><td>5 ต.ค. 2026</td></tr>
+                                                                                <tr><td>Pass Probability & Dec-Jan Gap Strategy</td><td><span class="badge badge-purple">Candidate Strategy Matrix</span></td><td>การประเมินโอกาสผ่าน (75–85%), เจาะลึกจังหวะยื่นเดือน 12–1, 5 จุดบอด (Gaps) สำคัญ และ 15 วิธีปิด Gap อย่างเป็นรูปธรรม</td><td>5 ต.ค. 2026</td></tr>
+                    <tr><td>Synthetic Flight Simulator (7 Practical Drills)</td><td><span class="badge badge-purple">Executive Prep Playbook</span></td><td>7 กระบวนท่าซ้อมเสมือนจริงขั้นสูงสุดทดแทนการสัมภาษณ์ที่อื่น: 3 AI Voice Personas, 180s Video Drill, App Reverse-Engineering, Live Whiteboarding & Vocal Ritual</td><td>5 ต.ค. 2026</td></tr>
                     <tr><td>Warm-up & Tiered Application Strategy</td><td><span class="badge badge-purple">Candidate Strategy Playbook</span></td><td>ยุทธศาสตร์บันได 3 ขั้น (Tiered Application Funnel), Cool-off Period Management (6–12 เดือน) และการสร้าง BATNA เพื่อต่อรอง Offer</td><td>5 ต.ค. 2026</td></tr>
                     <tr><td>Agoda Product Department & Featured Job Clusters</td><td><span class="badge badge-green">Official public source</span></td><td><a href="https://careersatagoda.com/department/product/#featured-jobs" target="_blank" rel="noopener">Agoda Careers — Product Department & Featured Jobs</a> — โครงสร้างสายงาน PM, วัฒนธรรม End-to-End Ownership, แผนที่ Tech Hubs (Bangkok/Gurugram/Chicago) และ Persona ที่ทีมมองหา</td><td>5 ต.ค. 2026</td></tr>
                     <tr><td>Agoda Product Culture & Leadership Insights</td><td><span class="badge badge-green">Official public source</span></td><td><a href="https://careersatagoda.com/blog/hello-i-am-simon-mizzi-product-agoda/" target="_blank" rel="noopener">Hello I am Simon Mizzi, Director of Product at Agoda (Careers Blog)</a> — ถอดรหัสแนวคิด "It's ok to mess up", เส้นทางเติบโต 8 ปี (Junior Analyst สู่ Director) และการสร้าง Agoda Flights 0-to-1</td><td>5 ต.ค. 2026</td></tr>
@@ -1409,7 +1414,7 @@
             </div>
 
             <div class="alert-box" style="margin-top: 14px; border-left: 4px solid #10b981; background: rgba(16, 185, 129, 0.1);">
-                <b>🎯 สรุปคำแนะนำ:</b> หากคุณตัดสินใจ All-in กับ Agoda ที่เดียว จงทำมันด้วย <b>"ความมั่นใจระดับสูงสุด (Unapologetic Confidence)"</b> — เพราะเนื้อหาในคู่มือ <b>Master Guide (v6.3)</b> เล่มนี้ ครอบคลุมลึกกว่าที่ Candidate ทั่วไปรู้ถึง 5 เท่า สิ่งที่คุณต้องทำคือ <b>"จำลองการพูดออกเสียงจริง"</b> ให้คล่องปาก แล้วเดินเข้าห้องสัมภาษณ์ด้วยความสง่างามครับ!
+                <b>🎯 สรุปคำแนะนำ:</b> หากคุณตัดสินใจ All-in กับ Agoda ที่เดียว จงทำมันด้วย <b>"ความมั่นใจระดับสูงสุด (Unapologetic Confidence)"</b> — เพราะเนื้อหาในคู่มือ <b>Master Guide (v6.4)</b> เล่มนี้ ครอบคลุมลึกกว่าที่ Candidate ทั่วไปรู้ถึง 5 เท่า สิ่งที่คุณต้องทำคือ <b>"จำลองการพูดออกเสียงจริง"</b> ให้คล่องปาก แล้วเดินเข้าห้องสัมภาษณ์ด้วยความสง่างามครับ!
             </div>
         </div>
 
@@ -4702,6 +4707,127 @@ p-value = Φ(z)
                     </tbody>
                 </table>
             </div>
+        
+        <!-- 11.4.1 Pass Probability & Dec-Jan Gap Strategy -->
+        <div class="example-box" id="pass-probability-and-dec-jan-gap-strategy" style="margin-top: 18px; border-left: 5px solid #10b981; background: var(--bg-card);">
+            <h4>🎯 11.4.1 วิเคราะห์โอกาสผ่านสัมภาษณ์ (Pass Probability) & ยุทธศาสตร์การยื่นสมัครช่วงเดือน 12–1 พร้อม 5 จุดบอด (Gaps) และ 15 วิธีปิด Gap</h4>
+            
+            <div class="alert-box" style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981;">
+                <b>📊 โอกาสที่จะผ่านสัมภาษณ์ Agoda Senior PM เป็นเท่าไรหากเตรียมตัวได้ทั้งหมดในคู่มือนี้?</b><br/>
+                หากเราวัดจากสถิติ Funnel ปกติของ Agoda (จากหมวด 3.6):
+                <ul>
+                    <li><b>ผู้สมัครทั่วไปที่สมัครผ่านหน้าเว็บ (Cold Apply):</b> อัตราได้ Offer อยู่ที่เพียง <b>~0.8% – 1.5%</b> (คัดออก 98.5%+)</li>
+                    <li><b>ผู้สมัครที่มีประสบการณ์ PM และยื่นผ่าน Referral ทั่วไป:</b> อัตราได้ Offer เฉลี่ยอยู่ที่ <b>~15% – 20%</b></li>
+                    <li><b>ผู้สมัคร Ex-SWE 11 ปี / Lead SWE 6 ปี ที่เตรียมตัวครบ 100% ตาม Master Guide เล่มนี้ + ยื่นผ่าน Internal Referral:</b><br/>
+                        <span style="font-size: 16px; color: #10b981; font-weight: bold;">🚀 โอกาสผ่านสัมภาษณ์พุ่งสูงถึง ~75% – 85%+ !</span><br/>
+                        <b>เหตุผล:</b> คุณจะกลายเป็น Candidate ในกลุ่ม <i>"Top 5% Tier"</i> ทันที เพราะคุณมีทั้งความลึกทางสถาปัตยกรรมระบบ (System Architecture) ซึ่งเป็นจุดตายที่ PM สายทั่วไปตอบไม่ได้ + มี Product Sense, Metric Tree, A/B Test Guardrails, และคำศัพท์ธุรกิจ Agoda (GBV, RN, Merchant Model) ครบถ้วนเทียบเท่า PM ในองค์กร
+                    </li>
+                </ul>
+            </div>
+
+            <div class="example-box" style="margin-top: 14px;">
+                <h4>🗓️ ยุทธศาสตร์ Timing: การยื่นสมัครช่วง "เดือน 12 (ธ.ค.) vs เดือน 1 (ม.ค.)" เจาะลึกข้อเท็จจริงใน One Bangkok</h4>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ช่วงเวลา</th>
+                                <th>สภาวะจริงใน Agoda Bangkok</th>
+                                <th>ข้อดี / ข้อควรระวัง</th>
+                                <th>คำแนะนำเชิงปฏิบัติ (Actionable Strategy)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>เดือน 12<br/>(ธันวาคม)</b></td>
+                                <td><b>Year-End Holiday & Long Vacation:</b><br/>ผู้บริหารระดับ Director, VP และ Expat ส่วนใหญ่จะเริ่มลาพักร้อนยาวตั้งแต่วันที่ 18-20 ธ.ค. จนถึงสัปดาห์แรกของ ม.ค.</td>
+                                <td>⚠️ หากเริ่มสัมภาษณ์ช่วงนี้ อาจผ่าน Round 1 แล้ว Process ชะงักค้างเติ่ง 2-3 สัปดาห์ ทำให้เสียโมเมนตัม อะดรีนาลีนตก และเครื่องเย็น</td>
+                                <td><b>ใช้เป็นเดือน "Rehearsal & Networking":</b><br/>ทุ่มเวลาซ้อม 7 กระบวนท่าในหมวด 2.6.2 ให้เข้าฝัก + ทำ Coffee Chat กับคนใน และส่ง Resume ให้เพื่อนเตรียมกด Refer ไว้ล่วงหน้า</td>
+                            </tr>
+                            <tr>
+                                <td><b>เดือน 1<br/>(มกราคม)</b></td>
+                                <td><b>Golden Hiring Window 🏆:</b><br/>งบประมาณปีใหม่ (Q1 Budget) ถูกปลดล็อค, โควต้า Headcount ใหม่เปิดเต็มอัตราศึก, Recruiter และ Hiring Committee กลับมาพร้อมเป้าหมายปิดดีลเร็ว</td>
+                                <td>🌟 ตำแหน่ง Senior PM เปิดรับเยอะที่สุด มีตัวเลือก Pod ให้ Match มากที่สุด และการตัดสินใจใน Loop สัมภาษณ์เกิดขึ้นเร็วมาก (Fast-Track)</td>
+                                <td><b>จังหวะยื่นที่ดีที่สุดในรอบปี:</b><br/>ให้เพื่อนกดส่ง Referral ใน <b>สัปดาห์ที่ 1 ของเดือนมกราคม</b> เพื่อให้ Recruiter โทรสัมภาษณ์ Round 1 ในสัปดาห์ที่ 2 และจบ Loop 5 รอบในเดือนกุมภาพันธ์</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 5 GAPS AND 15 PRACTICAL FIXES -->
+            <div class="example-box" style="margin-top: 14px;">
+                <h4>🛡️ 5 จุดบอดสำคัญ (Gaps) ที่ต้องระวัง และ 15 วิธีปิด Gap อย่างเป็นรูปธรรม (จับคู่ 3 ข้อต่อ Gap):</h4>
+                <p>แม้จะเตรียมตัวอย่างดี แต่สำหรับ Candidate สาย Ex-SWE 11 ปีที่ก้าวสู่ Senior PM และยื่นช่วงต้นปี จะมี 5 หลุมพรางที่ต้องปิดให้สนิท:</p>
+
+                <!-- GAP 1 -->
+                <div class="card" style="margin-top: 12px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                    <h5 style="color: #ef4444; font-size: 15px; margin-top: 0;">❌ Gap ที่ 1: The "SWE Imposter & Over-Engineering Trap" (เผลอลงลึกเทคนิคจนลืม User Empathy & Business Outcome)</h5>
+                    <p><b>ปัญหา:</b> เมื่อโดนถามคำถามปลายเปิด กรรมการสังเกตว่าคุณมักเผลอคิดจาก <i>"สถาปัตยกรรมระบบ/ฐานข้อมูล/แคช"</i> ก่อนคิดจาก <i>"ปัญหาของผู้ใช้งานและความคุ้มค่าทางธุรกิจ"</i></p>
+                    <b>🛠️ 3 วิธีปิด Gap ที่ 1:</b>
+                    <ol>
+                        <li><b>กฎเหล็ก 70/30 Business-to-Tech Ratio:</b> ในทุกคำตอบของรอบ Product Sense (Round 2) ให้บังคับตัวเองใช้เวลา 70% แรกพูดถึง User Segment, Pain Point, User Journey, และ North Star Metric ก่อนเสมอ และใช้เวลาเพียง 30% สุดท้ายพูดถึง Technical Feasibility</li>
+                        <li><b>แปลง Technical Trade-off เป็นตัวเลขการเงิน (Monetary Translation):</b> อย่ายกตัวอย่างแค่ "ลด Latency จาก 500ms เหลือ 200ms" แต่ให้พูดว่า <i>"การลด Latency 300ms ช่วยลด Drop-off ที่หน้า Search ได้ 1.2% ซึ่งส่งผลต่อ GBV เพิ่มขึ้นราว 2.5 ล้านดอลลาร์ต่อปี"</i></li>
+                        <li><b>สคริปต์ประกาศจุดยืน (Take off the Engineer Hat):</b> ใช้สคริปต์ใน <a href="#agoda-lead-swe-positioning" class="term-link">หมวด 5.7</a> พูดอย่างชัดเจนว่า <i>"In this role, I actively step back from coding and let the Tech Lead own the technical design, while I ensure the team is solving the highest-ROI problem for the business."</i></li>
+                    </ol>
+                </div>
+
+                <!-- GAP 2 -->
+                <div class="card" style="margin-top: 14px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                    <h5 style="color: #f59e0b; font-size: 15px; margin-top: 0;">❌ Gap ที่ 2: The "Holiday Process Drag & Momentum Loss" (กระบวนการสะดุดช่วงรอยต่อปีใหม่ ทำให้เครื่องเย็น)</h5>
+                    <p><b>ปัญหา:</b> หากส่งใบสมัครปลาย ธ.ค. หรือต้น ม.ค. แล้ว Recruiter ตอบช้าไป 1–2 สัปดาห์ อาจทำให้เกิดความกระวนกระวาย หรือทักษะการพูดภาษาอังกฤษที่เพิ่งซ้อมมาเริ่มแผ่วลง</p>
+                    <b>🛠️ 3 วิธีปิด Gap ที่ 2:</b>
+                    <ol>
+                        <li><b>รักษากล้ามเนื้อเสียงด้วย Daily 15-Minute Shadowing:</b> แม้จะอยู่ในช่วงวันหยุดยาวสิ้นปี ต้องอ่านออกเสียงสคริปต์ภาษาอังกฤษ (หมวด 0 และ หมวด 10.1) วันละ 15 นาทีทุกวัน ห้ามหยุด เพื่อรักษาความคล่องตัวของลิ้นและสมอง</li>
+                        <li><b>วางจังหวะยื่นแบบ "January Burst":</b> ให้เพื่อนกดส่ง Referral ในวันที่ 4–6 มกราคม (วันเปิดทำงานสัปดาห์แรก) Resume ของคุณจะลอยอยู่บนสุดของคิวงาน Recruiter ที่เพิ่งกลับมาเปิดแล็ปท็อป</li>
+                        <li><b>ส่ง Follow-up Note แบบ Value-Add:</b> หากผ่านไป 7 วันยังไม่มีการนัดหมาย ให้ส่งโน้ตสั้นๆ ทาง LinkedIn หรือ Email หา Recruiter โดยอัปเดตสั้นๆ ว่าพร้อมสัมภาษณ์และเพิ่งศึกษาทิศทาง Travel Tech ล่าสุดมา</li>
+                    </ol>
+                </div>
+
+                <!-- GAP 3 -->
+                <div class="card" style="margin-top: 14px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                    <h5 style="color: #8b5cf6; font-size: 15px; margin-top: 0;">❌ Gap ที่ 3: The "Unsubstantiated Travel Tech Intuition" (ขาดสัญชาตญาณเชิงลึกด้าน Travel Market Dynamics)</h5>
+                    <p><b>ปัญหา:</b> แม้จะเก่ง Tech สเกลใหญ่ แต่ถ้าไม่เข้าใจความต่างระหว่าง OTA (Agoda), Metasearch (Google Hotels), และ Direct Hotelier จะทำให้คำตอบดูกว้างเกินไป</p>
+                    <b>🛠️ 3 วิธีปิด Gap ที่ 3:</b>
+                    <ol>
+                        <li><b>ใช้งาน Business Model & Financial Lingo ให้คล่องปาก:</b> ทบทวน <a href="#business-model-lingo" class="term-link">หมวด 6.3</a> ให้แม่นยำ พูดคำว่า <i>Merchant Model vs Agency Model, Room Nights (RN), Take Rate (15–18%), และ Average Daily Rate (ADR)</i> อย่างเป็นธรรมชาติในทุกโจทย์ Business</li>
+                        <li><b>ทำ Competitive Teardown 3 แอปบนมือถือ:</b> เปิด Agoda, Booking.com, และ Trip.com พร้อมกัน เปรียบเทียบขั้นตอน Cancellation Policy และระบบ Dynamic Pricing ในการค้นหาโรงแรมเดียวกัน เพื่อนำไปใช้อ้างอิงเป็นตัวอย่างเปรียบเทียบในห้องสัมภาษณ์</li>
+                        <li><b>อ่าน Booking Holdings Q3/Q4 Earnings Transcript:</b> ใช้เวลา 30 นาทีอ่านบทสัมภาษณ์ CEO/CFO ของ Booking Holdings (บริษัทแม่ของ Agoda) เพื่อรู้ว่าไตรมาสล่าสุดตลาดเอเชียเติบโตอย่างไร และบริษัทกำลังโฟกัส Connected Trip มากแค่ไหน</li>
+                    </ol>
+                </div>
+
+                <!-- GAP 4 -->
+                <div class="card" style="margin-top: 14px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                    <h5 style="color: #06b6d4; font-size: 15px; margin-top: 0;">❌ Gap ที่ 4: The "Real-time Pushback Resistance in English" (อาการเกร็งหรือตั้งการ์ดเมื่อกรรมการท้าทายความคิด)</h5>
+                    <p><b>ปัญหา:</b> ในรอบ Bar Raiser หรือ Director Interview กรรมการจะลองพูดว่า <i>"I don't think this solution will work"</i> เพื่อดูว่าคุณจะลนลาน เถียงหัวชนฝา หรือยอมแพ้ง่ายๆ</p>
+                    <b>🛠️ 3 วิธีปิด Gap ที่ 4:</b>
+                    <ol>
+                        <li><b>ใช้ 3 วลี Diplomatic Pivot สไตล์ผู้บริหาร:</b> ซ้อมพูดให้ติดปาก:  
+                            <i>"That’s a very valid challenge. Let me unpack the trade-off..."</i> หรือ  
+                            <i>"I see why you'd be concerned about cannibalization. Here is how I’d de-risk that with an A/B test guardrail..."</i></li>
+                        <li><b>ตอบแบบ Hypothesis-Driven ไม่ใช่ Ego-Driven:</b> อย่ายืนยันว่าไอเดียเราถูก 100% แต่ให้เสนอวิธีรัน Experiment 5% Traffic เพื่อทดสอบสมมติฐานตามหลัก <i>Data Trumps Opinion</i> แสดงความนอบน้อมทางปัญญา (Intellectual Humility)</li>
+                        <li><b>ซ้อมรับแรงกระแทกกับ AI Voice Persona A:</b> เปิด Gemini Live / ChatGPT Voice สั่งให้แย้งทุกไอเดียที่เราเสนอ แล้วฝึกกลืนน้ำลาย หายใจลึกๆ 2 วินาที ยิ้ม แล้วตอบอย่างใจเย็น</li>
+                    </ol>
+                </div>
+
+                <!-- GAP 5 -->
+                <div class="card" style="margin-top: 14px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                    <h5 style="color: #10b981; font-size: 15px; margin-top: 0;">❌ Gap ที่ 5: The "Bonus Forfeiture & Notice Period Timing Dilemma" (ความลังเลเรื่องโบนัสที่เดิม vs วันเริ่มงาน Agoda)</h5>
+                    <p><b>ปัญหา:</b> หากผ่านสัมภาษณ์ช่วง ก.พ. แต่ที่ทำงานเดิมมีกำหนดจ่ายโบนัสรอบสองในเดือน มี.ค. หรือ เม.ย. ความกังวลเรื่องการเสียเงินก้อนนี้อาจส่งผลต่อความมั่นใจในการเจรจา Offer</p>
+                    <b>🛠️ 3 วิธีปิด Gap ที่ 5:</b>
+                    <ol>
+                        <li><b>ยึด The Max-Bonus Strategy (หมวด 11.5 ทางเลือกที่ 2):</b> สัมภาษณ์ ม.ค.–ก.พ. ได้ Offer ปลาย ก.พ. แจ้งเริ่มงาน 1 เมษายน โดยใช้สิทธิ์ Notice Period 30–45 วัน เพื่อรับโบนัสครบทั้งงวด ธ.ค. และ มี.ค. จากที่เดิม 100%</li>
+                        <li><b>เตรียมเอกสารตัวเลขโบนัสเพื่อทำ Sign-on Buyout:</b> หาก Agoda มีความจำเป็นเร่งด่วนต้องการให้คุณเริ่มงานต้นเดือน มี.ค. ให้เตรียมหลักฐานตัวเลขโบนัสที่ต้องสูญเสีย เพื่อขอ **Sign-on Bonus 150,000 – 300,000 บาท** มาชดเชยตาม <a href="#salary-3-levers" class="term-link">หมวด 11.2 (Lever ที่ 2)</a></li>
+                        <li><b>สื่อสาร Notice Period อย่างโปร่งใสตั้งแต่ Round 1:</b> เมื่อ HR ถามว่า <i>"What is your notice period and availability?"</i> ให้ตอบตัวเลขที่แท้จริงอย่างมั่นใจ (เช่น 30–60 วัน) เพื่อให้ HR วางแผน Onboarding Pod ล่วงหน้าโดยไม่มีปัญหาภายหลัง</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="alert-box" style="margin-top: 16px; border-left: 4px solid #10b981; background: rgba(16, 185, 129, 0.1);">
+                <b>🎯 ข้อสรุปและ Action Plan:</b> หากคุณเตรียมตัวตามเอกสารนี้ครบ 100% + อุด 5 Gap ข้างต้น โอกาสผ่านสัมภาษณ์ของคุณจะสูงกว่า <b>80%</b> อย่างแน่นอน! ให้ใช้เดือน 12 ในการขัดเกลาเรื่องเล่าและฝึก 7 กระบวนท่าเสมือนจริง แล้วยื่นใบสมัครผ่านเพื่อนในสัปดาห์แรกของเดือน 1 เพื่อคว้า Offer Senior PM ที่ One Bangkok ได้อย่างสง่างามครับ!
+            </div>
+        </div>
+
         </div>
 
         <h3 id="bonus-cycle-strategy">11.5 ยุทธศาสตร์การย้ายงานคู่ขนานกับวงรอบโบนัส (The Max-Bonus Strategy)</h3>
@@ -5015,7 +5141,7 @@ p-value = Φ(z)
 
 
 <div class="footer-note">
-        <p><b>✅ Interview-prep Master Guide (v6.3):</b> ครบถ้วนทุกหัวข้อ + Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI Search/Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
+        <p><b>✅ Interview-prep Master Guide (v6.4):</b> ครบถ้วนทุกหัวข้อ + Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI Search/Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
     </div>
 </div>
 
