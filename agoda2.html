@@ -235,6 +235,22 @@
 
         .star-card h3 { margin-top: 0; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
 
+        /* 🧭 Phase Banner - groups sections by interview round / real-work timeline (r31) */
+        .phase-banner {
+            background: var(--primary);
+            color: var(--bg-card);
+            padding: 10px 18px;
+            border-radius: 8px;
+            margin: 34px 0 16px 0;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            scroll-margin-top: 70px;
+        }
+        .phase-banner small { display: block; font-weight: 400; opacity: 0.85; font-size: 12.5px; margin-top: 3px; }
+        .toc .phase-label { display: block; margin: 14px 0 6px 0; font-weight: 700; color: var(--secondary); font-size: 13.5px; border-bottom: 1px dashed var(--border-color); padding-bottom: 4px; }
+        .toc .phase-label:first-child { margin-top: 0; }
+
         .example-box {
             background: var(--example-bg);
             border-left: 5px solid var(--example-border);
@@ -706,17 +722,37 @@
             body { padding: 8px 4px; }
             .container { padding: 18px 14px; border-radius: 8px; margin-top: 35px; }
             h1 { font-size: 21px; }
-            h2 { font-size: 17.5px; padding-left: 10px; }
-            h3 { font-size: 15.5px; }
+            h2 { font-size: 17.5px; padding-left: 10px; margin-top: 30px; }
+            h3 { font-size: 15.5px; margin-top: 20px; }
+            h4 { margin-top: 15px; }
             .theme-toggle-container { top: 8px; right: 8px; padding: 2px; }
             .version-badge { padding: 3px 7px; font-size: 10px; }
             .theme-btn { padding: 5px 9px; font-size: 11px; }
             .subtitle { font-size: 13px; padding: 10px 12px; }
             .toc { padding: 14px 16px; }
-            .star-card { padding: 14px; }
+            .star-card { padding: 14px; margin-bottom: 18px; }
             .code-block { font-size: 12px; padding: 12px; }
-            .example-box, .script-box, .script-box-en, .alert-box, .glossary-box { padding: 12px 14px; font-size: 13px; }
+            .example-box, .script-box, .script-box-en, .alert-box, .glossary-box { padding: 12px 14px; margin: 12px 0; font-size: 13px; }
             .floating-toc-btn { bottom: 18px; right: 18px; padding: 9px 16px; font-size: 12px; }
+            ul, ol { padding-left: 18px; margin-top: 5px; margin-bottom: 12px; }
+            li { margin-bottom: 4px; }
+            table th, table td { padding: 6px 8px !important; font-size: 12.5px; }
+            .org-box-parent, .org-box-ceo, .org-box-product, .org-box-tech, .org-box-comm, .org-box-ops { max-width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 6px 3px; }
+            .container { padding: 12px 10px; margin-top: 30px; border-radius: 6px; }
+            h1 { font-size: 18.5px; }
+            h2 { font-size: 16px; padding-left: 8px; margin-top: 26px; }
+            h3 { font-size: 14.5px; margin-top: 16px; }
+            h4 { font-size: 13.5px; }
+            p, li { font-size: 13.5px; }
+            .toc { padding: 12px 12px; }
+            .star-card { padding: 10px; }
+            .example-box, .script-box, .script-box-en, .alert-box, .glossary-box { padding: 10px 10px; }
+            ul, ol { padding-left: 14px; }
+            table th, table td { padding: 5px 6px !important; font-size: 11.5px; }
         }
     </style>
 </head>
@@ -724,9 +760,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Master Guide - Version 4.2 (Latest Release)">
+    <div class="version-badge" title="Agoda Senior PM Master Guide - Version 4.5 (Latest Release)">
         <span class="version-dot"></span>
-        <span>v4.2</span>
+        <span>v4.5</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -751,39 +787,57 @@
             <!-- Phase 0: Quick Reference -->
             <li><a href="#cheatsheet">⚡ 0. 15-Minute Pre-Interview Pocket Cheatsheet (หน้าสรุปทบทวนเร่งด่วน)</a></li>
 
-            <!-- Phase 1: ก่อนสมัครและเตรียมตัว -->
-            <li><a href="#sec1">1. 🎯 ภาพรวมโปรไฟล์และจุดขายหลัก (Candidate Profile & Value Proposition)</a></li>
+            <li class="phase-label">🅰️ ส่วนที่ 1: ก่อนสมัคร — เตรียมโปรไฟล์และเอกสาร (Before Applying)</li>
+            <li><a href="#sec1">1. 🎯 ภาพรวมโปรไฟล์และจุดขายหลัก (Candidate Profile & Value Proposition)</a>
+                <ul>
+                    <li><a href="#sec1-1">1.1 โครงสร้างประสบการณ์แบบ Full-Lifecycle Senior PM</a></li>
+                    <li><a href="#sec1-2">1.2 ประสบการณ์การเป็น Lead ด้าน Service Monitoring & Operational Excellence</a></li>
+                </ul>
+            </li>
             <li><a href="#sec2">2. 📄 คู่มือเอกสารการสมัครงาน: Resume, LinkedIn Profile & Employee Referral Blueprint</a>
                 <ul>
                     <li><a href="#employee-referral-guide">2.1 Employee Referral Playbook (ตัวเบิกทางชั้นดี)</a></li>
                     <li><a href="#photo-rules-resume-linkedin">2.2 กฎเหล็กเรื่องรูปถ่าย: Resume vs LinkedIn</a></li>
                     <li><a href="#linkedin-optimization">2.3 LinkedIn Profile Master Optimization สำหรับ Ex-SWE 11 ปี / Lead SWE 6 ปี</a></li>
+                    <li><a href="#resume-xyz-formula">2.4 Resume Bullet Points: XYZ Formula</a></li>
                 </ul>
             </li>
+            <li class="phase-label">🅱️ ส่วนที่ 2: ก่อนสัมภาษณ์ — ทำความเข้าใจองค์กรและวัฒนธรรม Agoda (Pre-Interview Research)</li>
             <li><a href="#sec3">3. 🏛️ โครงสร้างองค์กร Agoda สำหรับ Senior PM และการเปลี่ยนสายงาน (Agoda Org Structure & Transition)</a>
                 <ul>
-                    <li><a href="#agoda-org-structure">3.1 โครงสร้างองค์กรและ 4 เสาหลักของผลิตภัณฑ์ Agoda (Agoda Organization Chart)</a></li>
-                    <li><a href="#agoda-pod-structure">3.2 โครงสร้างพอดในกรุงเทพฯ: ทำไมคู่หูเป็น Tech Lead ไม่ใช่ Engineering Manager (EM)</a></li>
-                    <li><a href="#two-pizza-team-deepdive">🍕 เจาะลึกแนวคิด Two-Pizza Team: เหตุผลเบื้องหลังโครงสร้างทีมขนาดเล็กของ Agoda</a></li>
-                    <li><a href="#agoda-pm-scope">3.3 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM</a></li>
-                    <li><a href="#agoda-hiring-funnel">3.4 สถิติ Headcount Seasonality & Funnel การคัดออก</a></li>
-                    <li><a href="#agoda-lead-swe-positioning">3.5 เป็น Lead SWE มานาน 6 ปี: 3 กลยุทธ์การตอบและวาง Positioning</a></li>
-                    <li><a href="#candidate-pros-cons">3.6 การตอบคำถามข้อดี-ข้อเสียส่วนตัว (Pros & Cons / Weakness Strategy)</a></li>
-                    <li><a href="#background-comparison">3.7 เปรียบเทียบข้อได้เปรียบ-ข้อเสียเปรียบ กับ Candidate Background อื่นๆ</a></li>
+                    <li><a href="#agoda-org-structure">3.1 โครงสร้างองค์กรและ C-Suite ของ Agoda (Agoda Organization Chart)</a></li>
+                    <li><a href="#two-pizza-team-deepdive">3.2 🍕 เจาะลึกแนวคิด Two-Pizza Team: เหตุผลเบื้องหลังโครงสร้างทีมขนาดเล็กของ Agoda</a></li>
+                    <li><a href="#product-pillars-breakdown">3.3 รายละเอียด 4 เสาหลักของผลิตภัณฑ์ Agoda (Product Pillars Breakdown)</a></li>
+                    <li><a href="#agoda-pod-structure">3.4 โครงสร้างพอดในกรุงเทพฯ: ทำไมคู่หูเป็น Tech Lead ไม่ใช่ Engineering Manager (EM)</a></li>
+                    <li><a href="#agoda-pm-scope">3.5 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM</a></li>
+                    <li><a href="#agoda-hiring-funnel">3.6 สถิติ Headcount Seasonality & Funnel การคัดออก</a></li>
+                    <li><a href="#pm-level-hierarchy">3.7 PM แต่ละ Level: หน้าที่และสัดส่วนในองค์กร</a></li>
+                    <li><a href="#bangkok-team-distribution">3.8 Senior PM Based Bangkok คุยกับทีมไหนบ้าง? สัดส่วนคนนอก Bangkok</a></li>
                 </ul>
             </li>
             <li><a href="#sec4">4. 🏢 วัฒนธรรมองค์กร, ข้อควรระวัง, Pet Feature Management และคลังคำถามสัมภาษณ์ 20 ข้อ</a>
                 <ul>
                     <li><a href="#agoda-culture">4.1 เจาะลึกวัฒนธรรม Agoda: Data Trumps Opinion & Speed Over Perfection</a></li>
                     <li><a href="#pet-feature-def">4.2 Pet Feature & Managing Upwards Strategy</a></li>
-                    <li><a href="#interview-questions-bank">4.3 คลังคำถามสัมภาษณ์ยอดฮิต 20 ข้อ</a></li>
+                    <li><a href="#agoda-core-values">4.3 Agoda Core Values (ค่านิยมหลักขององค์กร)</a></li>
+                    <li><a href="#interview-questions-bank">4.4 คลังคำถามสัมภาษณ์ยอดฮิต 20 ข้อ</a></li>
                 </ul>
             </li>
+            <li class="phase-label">🅲️ ส่วนที่ 3: รอบสัมภาษณ์จริง Round 1-5 (The Interview Rounds)</li>
             <li><a href="#sec5">5. 🎯 เจาะลึกกระบวนการสัมภาษณ์ Agoda Senior PM แต่ละรอบ (Round 1 - Round 5 Deep-Dive)</a>
                 <ul>
-                    <li><a href="#sec5-round5-stress">5.5 Round 5 Stress Interview Psychology (Director / VP Pressure Test)</a></li>
+                    <li><a href="#sec5-round1">5.1 Round 1: Talent Acquisition / HR Screening Call</a></li>
+                    <li><a href="#sec5-round2">5.2 Round 2: Product Sense & Design Case Round</a></li>
+                    <li><a href="#sec5-round3">5.3 Round 3: Product Analytics & Technical Execution Round</a></li>
+                    <li><a href="#sec5-round4">5.4 Round 4: Cross-functional Leadership & Behavioral Round</a></li>
+                    <li><a href="#sec5-round5">5.5 Round 5: Director / VP / Bar Raiser Interview</a></li>
+                    <li><a href="#sec5-round5-stress">5.6 Round 5 Stress Interview Psychology (Director / VP Pressure Test)</a></li>
+                    <li><a href="#agoda-lead-swe-positioning">5.7 เป็น Lead SWE มานาน 6 ปี: 3 กลยุทธ์การตอบและวาง Positioning</a></li>
+                    <li><a href="#candidate-pros-cons">5.8 การตอบคำถามข้อดี-ข้อเสียส่วนตัว (Pros & Cons / Weakness Strategy)</a></li>
+                    <li><a href="#background-comparison">5.9 เปรียบเทียบข้อได้เปรียบ-ข้อเสียเปรียบ กับ Candidate Background อื่นๆ</a></li>
                 </ul>
             </li>
+            <li class="phase-label">🅳️ ส่วนที่ 4: ความรู้เชิงลึกที่ต้องใช้ตอบ Round 2-4 (Deep-Dive Knowledge for the Rounds)</li>
             <li><a href="#sec6">6. 🧠 คลังความรู้เชิงลึก: A/B Testing, Business Model, Architecture, Tech Stack & Bottom-line</a>
                 <ul>
                     <li><a href="#sec6">6.1 CIRCLES, MoSCoW & 4-Step RCA Refinements</a></li>
@@ -800,7 +854,7 @@
             <li><a href="#sec7">7. 📣 ขอบเขตความรู้ด้าน Marketing สำหรับ Product Manager (Marketing & Growth Depth for PMs)</a></li>
             <li><a href="#sec8">8. 🔍 การวิเคราะห์ Gap Analysis, กลยุทธ์การปิด Gap 9 มิติ และคลังคำศัพท์เฉพาะ (Glossary)</a></li>
 
-            <!-- Phase 3: สคริปต์สัมภาษณ์และเคสประสบการณ์จริง -->
+            <li class="phase-label">🅴️ ส่วนที่ 5: เคสประสบการณ์ STAR สำหรับรอบ Behavioral (Round 4)</li>
             <li><a href="#sec9">9. 🚀 เคสประสบการณ์และบทพูดแบบ STAR Technique (STAR Stories 9.1 - 9.14 ฉบับเต็ม)</a>
                 <ul>
                     <li><a href="#rice-example">9.1 RICE Framework & Solution Design Sizing</a></li>
@@ -817,8 +871,10 @@
                     <li><a href="#star-security">9.12 Cyber Security Remediation & Vulnerability Management</a></li>
                     <li><a href="#star-handover">9.13 Handover Strategy & Context Depth Transfer</a></li>
                     <li><a href="#star-quality-improvement">9.14 Quality Improvement หลังเกิดปัญหา ส่งให้ Director</a></li>
+                    <li><a href="#star-vision-gtm">9.15 Defining Product Vision & Go-To-Market Strategy</a></li>
                 </ul>
             </li>
+            <li class="phase-label">🅵️ ส่วนที่ 6: สคริปต์เต็มและซ้อมถาม-ตอบทุกรอบ (Full Scripts & Rehearsal)</li>
             <li><a href="#sec10">10. 💬 Full Case Walkthrough Scripts, Objection Handling, Bar Raiser & Strategic Deep-Dive</a>
                 <ul>
                     <li><a href="#circles-script">10.1 Full Case Walkthrough Script: Agoda Homes Improvement</a></li>
@@ -831,10 +887,11 @@
                     <li><a href="#case-metric-diagnostics">10.8 Case Simulation: Metric Diagnostics (Conversion Drop RCA)</a></li>
                     <li><a href="#case-tradeoff-dilemma">10.9 Case Simulation: Trade-off Dilemma (Guardrail vs North Star)</a></li>
                     <li><a href="#case-metasearch-marketing">10.10 Case Simulation: Meta-Search / Performance Marketing Alignment</a></li>
+                    <li><a href="#agoda-internal-faq">10.11 FAQ เจาะลึก: แนวทางปฏิบัติภายใน, สถิติ และ Benchmark ของ Agoda PM</a></li>
                 </ul>
             </li>
 
-            <!-- Phase 4: รับ Offer และเจรจาเงินเดือน -->
+            <li class="phase-label">🅶️ ส่วนที่ 7: หลังได้ Offer — เจรจาเงินเดือน (After the Offer)</li>
             <li><a href="#sec11">11. 💰 กลยุทธ์การเจรจาตัวเลขและสวัสดิการ (Compensation, Negotiation & HR Strategy)</a>
                 <ul>
                     <li><a href="#salary-negotiation-guide">11.1 สูตรคำนวณตัวเลขเรียกเงินเดือน (The Calculation Model) และ Benchmark</a></li>
@@ -846,7 +903,7 @@
                 </ul>
             </li>
 
-            <!-- Phase 5: เริ่มงานจริงในฐานะ Senior PM -->
+            <li class="phase-label">🅷️ ส่วนที่ 8: เริ่มงานจริงในฐานะ Senior PM (On the Job)</li>
             <li><a href="#sec12">12. 🛠️ รายละเอียดการทำงานจริง, Primary vs Secondary Pod Strategy, ตารางงาน และแผน 30-60-90 วัน</a>
                 <ul>
                     <li><a href="#primary-secondary-pods">12.1 Primary Active Pod vs. Secondary Pod Management Strategy</a></li>
@@ -878,18 +935,18 @@
                 <h4>💰 Unit Economics & Financial</h4>
                 <ul>
                     <li><b>Contribution Margin:</b> <code>(GBV × Take Rate) − Fees − CAC</code></li>
-                    <li><b>LTV : CAC</b> Target &gt; 3.0 | Payback &lt; 12 เดือน</li>
+                    <li><b>LTV : <a href="#glossary-cac-ltv" class="term-link">CAC</a></b> Target &gt; 3.0 | Payback &lt; 12 เดือน</li>
                     <li><b>Room Night (RN):</b> Rooms × Nights (ไม่ใช่ #Bookings)</li>
-                    <li><b>Merchant Model:</b> Agoda เก็บเงินก่อน → Cash Float + Dynamic Margin</li>
+                    <li><b>Merchant Model:</b> Agoda เก็บเงินก่อน → <a href="#glossary-financial-lingo" class="term-link">Cash Float</a> + Dynamic Margin</li>
                 </ul>
             </div>
             <div class="cheatsheet-card">
                 <h4>🎯 Funnel & Metrics</h4>
                 <ul>
-                    <li><b>North Star:</b> Room Nights Booked / Net Revenue</li>
+                    <li><b>North Star:</b> <a href="#glossary-roomnight" class="term-link">Room Nights</a> Booked / Net Revenue</li>
                     <li><b>Primary:</b> Conversion Rate (Search→Book)</li>
-                    <li><b>Guardrails:</b> Cancel Rate, CS Contact Rate, Latency p95, Take Rate</li>
-                    <li><b>Funnel:</b> Impression → Search → PDP → Checkout → Book → Stay</li>
+                    <li><b>Guardrails:</b> Cancel Rate, CS Contact Rate, Latency p95, <a href="#glossary-takerate" class="term-link">Take Rate</a></li>
+                    <li><b>Funnel:</b> Impression → Search → <a href="#glossary-sem" class="term-link">PDP</a> → Checkout → Book → Stay</li>
                 </ul>
             </div>
             <div class="cheatsheet-card">
@@ -903,7 +960,7 @@
             <div class="cheatsheet-card">
                 <h4>👑 Stress Interview One-Liners</h4>
                 <ul>
-                    <li><b>"So what? Bottom-line?"</b> → แปลงเป็น $ Impact / RN / Take Rate ทันที</li>
+                    <li><b>"So what? Bottom-line?"</b> → แปลงเป็น $ Impact / RN / <a href="#glossary-takerate" class="term-link">Take Rate</a> ทันที</li>
                     <li><b>"We tried this 2 yrs ago & failed"</b> → ถาม Context → เสนอ Low-cost re-validate</li>
                     <li>Non-defensive + Data-anchored + First-principles เสมอ</li>
                 </ul>
@@ -924,16 +981,42 @@
     </div>
 
 <!-- SECTION 1 -->
+    <div class="phase-banner" id="phase1">🅰️ ส่วนที่ 1: ก่อนสมัคร — เตรียมโปรไฟล์และเอกสาร <small>Before Applying: จัดโปรไฟล์ Resume/LinkedIn ให้พร้อมก่อนกดสมัคร</small></div>
     <h2 id="sec1">1. 🎯 ภาพรวมโปรไฟล์และจุดขายหลัก (Candidate Profile & Value Proposition)</h2>
-    <h3>1.1 โครงสร้างประสบการณ์แบบ Full-Lifecycle Senior PM</h3>
-    <ul>
-        <li><b>Executive Alignment:</b> นำเสนอผู้บริหารด้วยกรอบความคิด <a href="#bluf-def" class="term-link">BLUF (Bottom Line Up Front)</a> นำสรุปผลลัพธ์เชิงธุรกิจขึ้นก่อนเสมอ</li>
-        <li><b>Customer Discovery & Edge Cases:</b> รวบรวม Customer Use Cases และวิเคราะห์ Behavioral Edge Cases ของ Personas ต่างๆ อย่างถี่ถ้วน</li>
-        <li><b>Strategic & Product Sense:</b> ยึดหลัก <b>Problem-First</b> และทำ Prioritization ด้วย <a href="#rice-example" class="term-link">RICE Framework</a> คำนวณ ROI สอดรับเป้าหมายธุรกิจ และประเมิน <a href="#glossary-unitecon" class="term-link">Unit Economics</a></li>
-        <li><b>Technical Depth & Sizing:</b> สวมหมวก Ex-SWE 11 ปี ทำ Solution Design, High-Level Sizing และประเมิน System Architecture Risks</li>
-        <li><b>Execution Rigor:</b> สวมหมวก PO/SM เขียน Jira AC (<a href="#bdd-example" class="term-link">BDD Given-When-Then</a>), กำหนด Test Coverage <a href="#glossary-guardrail" class="term-link">Guardrail Metric</a> (&gt;= 90%) และเน้นย้ำความ <a href="#glossary-rigor" class="term-link">Rigor (ความรัดกุมระเบียบวินัย)</a></li>
-        <li><b>Leadership & Discipline:</b> บริหารเวลาด้วย Outlook Timeboxing, ทำ 1-on-1 Coaching และสร้าง Successors กำจัด <a href="#spof-def" class="term-link">SPOF</a></li>
-    </ul>
+    <div class="star-card" id="sec1-1">
+        <h3>1.1 โครงสร้างประสบการณ์แบบ Full-Lifecycle Senior PM</h3>
+        <ul>
+            <li><b>Executive Alignment:</b> นำเสนอผู้บริหารด้วยกรอบความคิด <a href="#bluf-def" class="term-link">BLUF (Bottom Line Up Front)</a> นำสรุปผลลัพธ์เชิงธุรกิจขึ้นก่อนเสมอ</li>
+            <li><b>Customer Discovery & Edge Cases:</b> รวบรวม Customer Use Cases และวิเคราะห์ Behavioral Edge Cases ของ Personas ต่างๆ อย่างถี่ถ้วน</li>
+            <li><b>Strategic & Product Sense:</b> ยึดหลัก <b>Problem-First</b> และทำ Prioritization ด้วย <a href="#rice-example" class="term-link">RICE Framework</a> คำนวณ ROI สอดรับเป้าหมายธุรกิจ และประเมิน <a href="#glossary-unitecon" class="term-link">Unit Economics</a></li>
+            <li><b>Technical Depth & Sizing:</b> สวมหมวก Ex-SWE 11 ปี ทำ Solution Design, High-Level Sizing และประเมิน System Architecture Risks</li>
+            <li><b>Execution Rigor:</b> สวมหมวก PO/SM เขียน Jira AC (<a href="#bdd-example" class="term-link">BDD Given-When-Then</a>), กำหนด Test Coverage <a href="#glossary-guardrail" class="term-link">Guardrail Metric</a> (&gt;= 90%) และเน้นย้ำความ <a href="#glossary-rigor" class="term-link">Rigor (ความรัดกุมระเบียบวินัย)</a></li>
+            <li><b>Leadership & Discipline:</b> บริหารเวลาด้วย Outlook Timeboxing, ทำ 1-on-1 Coaching และสร้าง Successors กำจัด <a href="#spof-def" class="term-link">SPOF</a></li>
+        </ul>
+        <div class="example-box">
+            <h4>💡 แปลภาษา JD จริงของ Agoda ให้ตรงกับ Background สาย Software Engineering</h4>
+            <ul>
+                <li><b>"Experience developing and launching products" นับ Product ที่ User เป็น Internal Team ได้ไหม?</b> ได้ 100% และตรงกับที่ Agoda ต้องการมากสำหรับสาย Internal/Platform PM — คำว่า "Product" ของ Agoda ไม่จำกัดแค่หน้าแอป/เว็บที่ลูกค้าภายนอกเห็น แต่รวมถึง Internal Platforms, Developer Tools, Experimentation Engines, YCS, Finance/Payment Automation วางเฟรมว่า Internal Users = Customers แล้วชูผลลัพธ์เชิง Business Impact</li>
+                <li><b>"Experience leading global product vision, go-to-market strategy and design discussions" ควรเป็นอย่างไร?</b> (A) <b>Global Product Vision</b> — กำหนด "Why/Where" ของ Product ตั้ง North Star ร่วมกับ Stakeholders ข้ามภูมิภาค (B) <b>GTM Strategy</b> — วาง Rollout/Adoption Plan ไม่ใช่แค่ Deploy Code (Beta Test, Phased Rollout, Feature Flag) (C) <b>Design Discussions</b> — นำถกเถียงหา Solution ร่วมกับทีม Cross-functional ทั้ง UX และ Architecture Trade-offs</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="star-card" id="sec1-2">
+        <h3>1.2 ประสบการณ์การเป็น Lead ด้าน Service Monitoring & Operational Excellence</h3>
+        <p>นอกเหนือจาก Product Delivery แล้ว อีกจุดขายสำคัญคือประสบการณ์ตรงในการเป็น <b>Lead</b> ขับเคลื่อนงาน Service Monitoring ระดับ Production ซึ่งเป็นสิ่งที่ Senior PM ที่ Agoda ต้องทำควบคู่กับการพัฒนาฟีเจอร์ใหม่เสมอ:</p>
+        <div class="example-box">
+            <h4>💡 ขอบเขตการ Monitor และ Action ร่วมกับทีม Service Intelligence:</h4>
+            <ul>
+                <li><b>Cloud Cost:</b> ติดตามค่าใช้จ่าย Cloud Infrastructure รายบริการ (Cost per Service/Feature) หา Anomaly การใช้ Resource เกินจำเป็น แล้วทำงานร่วมกับ Technical Specialist เพื่อ Right-size หรือ Decommission Service ที่ไม่คุ้มค่า</li>
+                <li><b>Response Time (Latency):</b> เฝ้าระวัง p50/p95/p99 Latency ของแต่ละ Service เทียบกับ SLA ที่ตกลงไว้ หากพบ Latency Spike ประสานทีม Technical Specialist วิเคราะห์ Bottleneck และวาง Action Plan แก้ไข</li>
+                <li><b>Rate Limit:</b> ติดตามอัตราการถูก Throttle/Rejected Request จาก Third-party API หรือ Internal Service เพื่อปรับ Quota หรือ Retry/Backoff Strategy ร่วมกับทีม Platform</li>
+                <li><b>Cache Hit Ratio:</b> ติดตามประสิทธิภาพ Caching Layer (Hit vs Miss Rate) เพื่อหาโอกาสลด Load บน Database และลด Latency ให้ผู้ใช้ปลายทาง</li>
+                <li><b>Capacity:</b> วางแผน Capacity Planning ล่วงหน้าตาม Seasonality (เช่น Songkran, High Season) ร่วมกับทีม Service Intelligence เพื่อป้องกัน Over-provisioning หรือ Under-provisioning</li>
+            </ul>
+            <p>💡 <b>บทบาทในฐานะ Lead:</b> ตั้ง Dashboard และ Alert Threshold ร่วมกับทีม Service Intelligence, จัด Weekly/Bi-weekly Review เพื่อแปลงสัญญาณผิดปกติให้กลายเป็น <b>Action Item ที่ชัดเจน</b> ร่วมกับ Technical Specialist ของแต่ละ Domain แล้ว Follow-up จนปิดจบ (Closed-loop Monitoring)</p>
+        </div>
+    </div>
 
     
 <!-- SECTION 2 (Application, Resume, LinkedIn & Referral Blueprint) -->
@@ -957,6 +1040,21 @@
             <p>📝 <b>Cover Letter จำเป็นไหม?</b> ➡ <b>"ไม่จำเป็นครับ"</b> สำหรับบริษัท Tech ยุคนี้อย่าง Agoda HR และ Hiring Manager แทบไม่ได้อ่าน Cover Letter แล้ว สิ่งสำคัญที่สุดคือ Resume ที่กระชับ 1–2 หน้าที่เน้นตัวเลขผลงาน (Metrics & Impact)</p>
         </div>
 
+        <h4>❓ ช่อง "End Date" ในฟอร์มสมัคร (Workday/Greenhouse/Lever) คืออะไร?</h4>
+        <div class="table-responsive">
+            <table>
+                <thead><tr><th>ส่วนในฟอร์ม</th><th>ความหมาย</th><th>วิธีจัดการ</th></tr></thead>
+                <tbody>
+                    <tr><td><b>Work Experience</b> (ประวัติการทำงาน)</td><td>วันสุดท้ายที่ทำงานในบริษัทนั้น (Resignation / Last Working Date)</td><td>งานปัจจุบัน: ติ๊ก "I currently work here" / "Present" — ระบบจะซ่อนช่อง End Date อัตโนมัติ ถ้าไม่มีช่องติ๊ก ให้เว้นว่างหรือใส่วันปัจจุบัน/วันในอนาคตที่คาดว่าจะเป็นวันทำงานวันสุดท้าย</td></tr>
+                    <tr><td><b>Education / Certifications</b></td><td>วันที่เรียนจบ หรือวันที่ใบรับรองหมดอายุ</td><td>ใส่เดือน/ปีตามใบ Transcript หรือปริญญาบัตร เช่น 05/2018</td></tr>
+                    <tr><td><b>Availability / Notice Period</b></td><td>วันสุดท้ายที่ติดภาระงานกับที่เดิม (Last Working Day)</td><td>คำนวณตาม Notice Period 30 วัน เช่น ตั้งเป้าเริ่มงาน เม.ย. 2027 → ใส่วันสุดท้ายของเดือน มี.ค. 2027 (เช่น 31/03/2027)</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="alert-box">
+            <b>⚠️ ข้อควรระวัง:</b> หากไม่ติ๊ก "I currently work here" แล้วเผลอใส่ End Date เป็นเดือนปัจจุบัน ระบบ ATS ของ Agoda จะเข้าใจผิดว่าคุณ "ลาออกจากงานเดิมแล้ว/กำลังว่างงาน" ทันที
+        </div>
+
         <h3 id="photo-rules-resume-linkedin">2.2 กฎเหล็กเรื่องรูปถ่าย: Resume vs LinkedIn</h3>
         <div class="example-box">
             <ul>
@@ -967,10 +1065,14 @@
 
         <h3 id="linkedin-optimization">2.3 LinkedIn Profile Master Optimization สำหรับ Ex-SWE 11 ปี / Lead SWE 6 ปี</h3>
         <p>ปรับแต่งหน้า LinkedIn Profile เพื่อดึงดูดสายตาของ Recruiters และ Hiring Directors ผ่านระบบค้นหา (SEO):</p>
-        
+
+        <div class="alert-box">
+            <b>⚠️ ข้อควรระวังเรื่องความซื่อตรง (Integrity Note):</b> อย่าใส่ตำแหน่ง <b>"Senior Product Manager"</b> เป็น Job Title ปัจจุบันของตัวเองบน LinkedIn หากยังไม่เคยได้ตำแหน่งนี้จริง เพราะถือเป็นการระบุข้อมูลเท็จ (Misrepresentation) ที่เสี่ยงกระทบความน่าเชื่อถือหากถูกตรวจสอบ (Background Check) เป้าหมายที่แท้จริงคือการ <b>ปรับ Headline/Summary ให้ตอบโจทย์การสมัคร Agoda</b> โดยยังคงสื่อสารตำแหน่งปัจจุบันตามจริง (เช่น Lead Software Engineer) แล้วใช้ Keyword "Product Manager / Product Leadership" ในเชิง <i>"สิ่งที่กำลังมุ่งสู่ (Aspiring towards)"</i> หรือ <i>"ทักษะที่ทำอยู่จริง (Functional Experience)"</i> แทน ไม่ใช่การอ้างตำแหน่งที่ยังไม่มี</p>
+        </div>
+
         <div class="example-box">
-            <h4>1. Headline ภาษาอังกฤษ (ดักจับระบบค้นหา):</h4>
-            <p><code>Senior Product Manager | Ex-Lead Software Engineer (11 Yrs) | Technical Execution & High-Velocity Product Delivery | Data-Driven & Systems Optimization</code></p>
+            <h4>1. Headline ภาษาอังกฤษ (ดักจับระบบค้นหา โดยไม่อ้างตำแหน่งเท็จ):</h4>
+            <p><code>Lead Software Engineer | Transitioning to Product Management | 11 Yrs Technical Execution & High-Velocity Product Delivery | Data-Driven & Systems Optimization</code></p>
 
             <h4>2. ส่วน About / Summary (เล่า Narrative ให้ทรงพลัง 3 ย่อหน้า):</h4>
             <div class="script-box-en">
@@ -994,7 +1096,42 @@
         </div>
     </div>
 
+    <div class="star-card" id="resume-xyz-formula">
+        <h3>2.4 Resume Bullet Points: XYZ Formula (เปลี่ยน Output → Outcome)</h3>
+        <p>หัวใจสำคัญคือ "การเปลี่ยนจากการเล่าสิ่งที่สร้าง (Outputs/Technologies) ไปสู่ผลกระทบทางธุรกิจและการนำผลิตภัณฑ์ (Outcomes & Product Ownership)" โดยใช้ <b>XYZ Formula (Google Standard):</b> <code>Accomplished [X] as measured by [Y], by doing [Z]</code></p>
+
+        <div class="example-box">
+            <h4>1. หมวด Product Vision, Strategy & Roadmap</h4>
+            <p>❌ <i>Managed product backlog, sprint planning, and system architecture for cloud-based backend services using Node.js and AWS.</i></p>
+            <p>✅ <i>Defined 2-year product vision and technical roadmap for core platform services, aligning 3 cross-functional pods to cut system delivery cycle time by 35% and boost feature launch frequency.</i></p>
+            <p>✅ <i>Pioneered data-driven prioritization framework (RICE) to manage backlog for internal developer tools, driving a 40% increase in developer velocity and reducing cross-team blockers.</i></p>
+
+            <h4>2. หมวด Analytics, Experimentation & Data Autonomy</h4>
+            <p>❌ <i>Wrote complex SQL queries to monitor system performance, database logs, and server execution metrics.</i></p>
+            <p>✅ <i>Leveraged SQL analytics and <a href="#glossary-funnel" class="term-link">funnel drop-off</a> analysis to identify critical user friction in checkout flow, leading to a targeted optimization that improved conversion rate by +1.8%.</i></p>
+            <p>✅ <i>Designed and executed A/B testing frameworks on core platform services, analyzing statistical significance (p ≤ 0.05) to validate feature hypotheses before full-scale deployment.</i></p>
+
+            <h4>3. หมวด Go-To-Market (GTM) & Cross-functional Execution</h4>
+            <p>❌ <i>Led Scrum meetings, daily standups, and code reviews while coordinating with QA and Product Managers.</i></p>
+            <p>✅ <i>Orchestrated end-to-end GTM strategy for a major transaction platform migration, using phased rollout (1% to 100%) and feature flags to achieve 100% adoption with zero downtime.</i></p>
+            <p>✅ <i>Partnered directly with UX, Business, and Senior Engineering Leadership to translate business goals into scalable product requirements, reducing time-to-market by 4 weeks.</i></p>
+        </div>
+
+        <h4>ชุด Bullet Points สำเร็จรูป แยกตาม Domain</h4>
+        <ul>
+            <li><b>Enterprise / Internal Platform:</b> <i>Pioneered next-generation Internal Developer Platform (IDP) vision, streamlining CI/CD automation pipelines and reducing release integration incidents by 60% across 5 engineering teams.</i> / <i>Defined North Star metrics and performance guardrails (Latency, Error Budget) for platform services, preserving 99.99% system availability during peak traffic events.</i></li>
+            <li><b>Payment / Checkout / B2B Integration:</b> <i>Spearheaded integration strategy for multi-provider payment gateways, reducing API failure rates by 2.5% and protecting high-volume annual gross booking value (<a href="#glossary-gbv" class="term-link">GBV</a>).</i> / <i>Led cross-functional design discussions to simplify partner API integrations, shortening partner onboarding time from 14 days to 3 days.</i></li>
+        </ul>
+
+        <div class="alert-box">
+            <b>3 คำต้องห้าม & 3 คำแนะนำสำหรับ Resume:</b><br/>
+            ❌ หลีกเลี่ยง: Fixed bugs, Maintained code, Implemented Jira tickets, Refactored database<br/>
+            ✅ แทนที่ด้วย: Spearheaded, Spearheaded A/B experiments, Optimized conversion, Defined product roadmap, Reduced user friction, Accelerated adoption
+        </div>
+    </div>
+
 <!-- SECTION 3 (Org Structure & Transition) -->
+    <div class="phase-banner" id="phase2">🅱️ ส่วนที่ 2: ก่อนสัมภาษณ์ — ทำความเข้าใจองค์กรและวัฒนธรรม Agoda <small>Pre-Interview Research: องค์กร, Pod, วัฒนธรรมและคำถามยอดฮิต</small></div>
     <h2 id="sec3">3. 🏛️️ โครงสร้างองค์กร Agoda สำหรับ Senior PM และการเปลี่ยนสายงาน (Org Structure & Transition)</h2>
     
     <div class="star-card" id="agoda-org-structure">
@@ -1012,7 +1149,7 @@
 
             <div class="org-connector-down"></div>
 
-            <div class="org-level-title">👑 Agoda Executive Leadership (Bangkok Global HQ - CentralWorld)</div>
+            <div class="org-level-title">👑 Agoda Executive Leadership (Bangkok Global HQ - One Bangkok Tower 5)</div>
             <div class="org-box org-box-ceo">
                 <span class="org-role">Chief Executive Officer</span>
                 <h4>Omri Morgenshtern (CEO, Agoda)</h4>
@@ -1026,7 +1163,7 @@
                 <div class="org-box org-box-product">
                     <span class="org-role">Product Leadership</span>
                     <h4>Chief Product Officer (CPO) / VP Product</h4>
-                    <p class="org-desc">กำหนดทิศทาง Product Strategy, Roadmaps, North Star Metrics และดูแลวัฒนธรรมการทดลอง A/B Testing ทั่วโลก</p>
+                    <p class="org-desc">กำหนดทิศทาง Product Strategy, Roadmaps, <a href="#glossary-northstar" class="term-link">North Star Metrics</a> และดูแลวัฒนธรรมการทดลอง A/B Testing ทั่วโลก</p>
                 </div>
                 <div class="org-box org-box-tech">
                     <span class="org-role">Engineering Leadership</span>
@@ -1059,7 +1196,7 @@
                         <li>Hotels & Resorts (ระบบจองหลัก)</li>
                         <li>Agoda Homes (Non-Hotel / Villas)</li>
                         <li>Flights, Airport Transfers & Bundles</li>
-                        <li>Search (SRP), Filters & Property Details (PDP)</li>
+                        <li>Search (SRP), Filters & Property Details (<a href="#glossary-sem" class="term-link">PDP</a>)</li>
                         <li>Cart, Checkout & Booking Funnel Optimization</li>
                     </ul>
                 </div>
@@ -1069,7 +1206,7 @@
                         <span class="pillar-tag">Pillar 2: FinTech & Profit</span>
                         <h4>FinTech, Payments & Pricing</h4>
                     </div>
-                    <p class="pillar-lead"><b>เป้าหมายหลัก:</b> เสถียรภาพการเงิน, Idempotency, Dynamic Pricing & Margin</p>
+                    <p class="pillar-lead"><b>เป้าหมายหลัก:</b> เสถียรภาพการเงิน, <a href="#glossary-idempotency" class="term-link">Idempotency</a>, Dynamic Pricing & <a href="#glossary-financial-lingo" class="term-link">Margin</a></p>
                     <ul>
                         <li>Global & Local Payment Gateways (Cards, PromptPay)</li>
                         <li>Multi-Currency Settlement & FX Conversion Engine</li>
@@ -1088,7 +1225,7 @@
                     <ul>
                         <li>Agoda YCS (Yield Control System Extranet)</li>
                         <li>Homes Host Portal & Automated Onboarding</li>
-                        <li>Channel Managers & Connectivity APIs (PMS/CMS)</li>
+                        <li>Channel Managers & Connectivity APIs (<a href="#glossary-pms" class="term-link">PMS</a>/<a href="#glossary-cms" class="term-link">CMS</a>)</li>
                         <li>Sponsored Listings & AdTech (Growth Express)</li>
                         <li>Partner Insights & Revenue Optimization Dashboards</li>
                     </ul>
@@ -1105,17 +1242,17 @@
                         <li>Data Science & AI Personalization Engine</li>
                         <li>Observability, Telemetry & Cloud Compute Platform</li>
                         <li>Developer Tooling, Quality Guardrails & CI/CD</li>
-                        <li>Customer Care CRM Platform & Support AI Automation</li>
+                        <li>Customer Care <a href="#glossary-crm" class="term-link">CRM</a> Platform & Support AI Automation</li>
                     </ul>
                 </div>
             </div>
 
             <div class="org-connector-down"></div>
 
-            <div class="org-level-title">🎯 โครงสร้าง 1 Agile Pod ประจำกรุงเทพฯ (The Bangkok Cross-Functional Pod at CentralWorld)</div>
+            <div class="org-level-title">🎯 โครงสร้าง 1 Agile Pod ประจำกรุงเทพฯ (The Bangkok Cross-Functional Pod at One Bangkok Tower 5)</div>
             <div class="org-pod-detail">
                 <div class="pod-header-banner">
-                    <b>1 Dedicated Pod (Two-Pizza Team):</b> ทำงานแบบอิสระสูง (High Autonomy), ตั้งสมมติฐาน และรัน A/B Experiments เองในระดับสัปดาห์
+                    <b>1 Dedicated Pod (<a href="#glossary-two-pizza" class="term-link">Two-Pizza Team</a>):</b> ทำงานแบบอิสระสูง (High Autonomy), ตั้งสมมติฐาน และรัน A/B Experiments เองในระดับสัปดาห์
                 </div>
                 <div class="pod-roles-grid">
                     <div class="pod-role-card role-pm">
@@ -1136,32 +1273,32 @@
                     <div class="pod-role-card role-qa">
                         <span class="role-badge">Quality Guard (1-2 คน)</span>
                         <h5>QA Automation Engineers</h5>
-                        <p><b>Quality Assurance:</b> ออกแบบ Automated Tests, ตรวจสอบ Negative Edge Cases และเฝ้าระวัง Guardrail Metrics ก่อน Sign-off</p>
+                        <p><b>Quality Assurance:</b> ออกแบบ Automated Tests, ตรวจสอบ Negative Edge Cases และเฝ้าระวัง <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> ก่อน Sign-off</p>
                     </div>
                     <div class="pod-role-card role-ux">
                         <span class="role-badge">User Experience (1 คน)</span>
                         <h5>Product Designer (UX/UI)</h5>
-                        <p><b>Customer Journey:</b> ออกแบบ Flows, ทำ Low-Fi/Hi-Fi Prototypes ด้วย Agoda Design System (ADS) และทดสอบ Usability กับผู้ใช้จริง</p>
+                        <p><b>Customer Journey:</b> ออกแบบ Flows, ทำ Low-Fi/Hi-Fi Prototypes ด้วย <a href="#glossary-ads" class="term-link">Agoda Design System</a> (<a href="#glossary-ads" class="term-link">ADS</a>) และทดสอบ Usability กับผู้ใช้จริง</p>
                     </div>
                     <div class="pod-role-card role-data">
                         <span class="role-badge">Analytics Partner (1 คน)</span>
                         <h5>Data Analyst / Data Scientist</h5>
-                        <p><b>Data Rigor:</b> วางแผน Event Telemetry, สร้าง Dashboard ติดตาม Metric และคำนวณความแม่นยำทางสถิติของ A/B Test (p-value, SRM)</p>
+                        <p><b>Data Rigor:</b> วางแผน Event Telemetry, สร้าง Dashboard ติดตาม Metric และคำนวณความแม่นยำทางสถิติของ A/B Test (<a href="#glossary-pvalue" class="term-link">p-value</a>, <a href="#glossary-srm" class="term-link">SRM</a>)</p>
                     </div>
                 </div>
             </div>
 
             <!-- 🍕 Two-Pizza Team Deep-Dive Box -->
             <div class="example-box" id="two-pizza-team-deepdive" style="margin-top: 20px; border-left: 5px solid #ff7a00; background: var(--card-bg);">
-                <h4>🍕 เจาะลึกแนวคิด Two-Pizza Team: ทำไม Agoda จึงยึดโครงสร้างนี้เป็นกระดูกสันหลังการทำงาน?</h4>
+                <h4>🍕 3.2 เจาะลึกแนวคิด Two-Pizza Team: ทำไม Agoda จึงยึดโครงสร้างนี้เป็นกระดูกสันหลังการทำงาน?</h4>
                 <p>คำว่า <b>"Two-Pizza Team"</b> มีจุดกำเนิดมาจาก Jeff Bezos (ผู้ก่อตั้ง Amazon) โดยมีกฎเหล็กว่า <i>"ถ้าพิซซ่า 2 ถาดไม่พอเลี้ยงคนทั้งทีม แสดงว่าทีมนั้นใหญ่เกินไปแล้ว"</i> ซึ่งหมายถึงทีมที่มีสมาชิกประมาณ <b>6 – 8 คน (สูงสุดไม่เกิน 10 คน)</b> เพื่อคงความคล่องตัวระดับสูงสุด</p>
                 
-                <p><b>ทำไม Agoda ถึงออกแบบทุก Pod ให้เป็น Two-Pizza Team?</b></p>
+                <p><b>ทำไม Agoda ถึงออกแบบทุก Pod ให้เป็น <a href="#glossary-two-pizza" class="term-link">Two-Pizza Team</a>?</b></p>
                 <ol>
                     <li><b>ลด Communication Overhead ตามสูตรคณิตศาสตร์:</b>
                         เส้นทางการสื่อสารภายในทีมจะเพิ่มขึ้นแบบทวีคูณตามสูตร <code>C = n(n - 1) / 2</code> (เมื่อ n คือจำนวนสมาชิกในทีม)
                         <ul>
-                            <li><b>ทีมขนาด 6 คน (Two-Pizza Team):</b> มีเส้นทางสื่อสารเพียง <b>15 เส้นทาง</b> — ทุกคนพูดคุย เข้าใจบริบทตรงกัน ตัดสินใจจบได้ทันทีใน Daily Standup</li>
+                            <li><b>ทีมขนาด 6 คน (<a href="#glossary-two-pizza" class="term-link">Two-Pizza Team</a>):</b> มีเส้นทางสื่อสารเพียง <b>15 เส้นทาง</b> — ทุกคนพูดคุย เข้าใจบริบทตรงกัน ตัดสินใจจบได้ทันทีใน Daily Standup</li>
                             <li><b>ทีมขนาด 20 คน:</b> เส้นทางสื่อสารจะพุ่งสูงถึง <b>190 เส้นทาง!</b> — ต้องมีประชุมเยอะ เกิดความล่าช้า (Bureaucracy) และเกิดการรอคอยระหว่างคนในทีม</li>
                         </ul>
                     </li>
@@ -1172,12 +1309,16 @@
                     <li><b>สอดคล้องกับ Conway's Law & Microservices Architecture:</b>
                         โครงสร้างสถาปัตยกรรม Microservices ของ Agoda ถูกแบ่งตามขอบเขตงานของแต่ละ Pod ทำให้แต่ละทีมสามารถแก้ไข ทดสอบ และ Deploy บริการของตนเองได้โดยไม่บล็อกหรือกระทบ Pod อื่น (Decoupled Releases)</li>
                 </ol>
-                <p>💡 <b>มุมมองสำหรับ Senior PM ในห้องสัมภาษณ์:</b> ในฐานะ PM ของ Two-Pizza Team คุณเปรียบเสมือน <b>"Mini-CEO"</b> ประจำ Domain นั้นๆ คุณต้องรับผิดชอบทั้ง Business Metric (Why & What) และประสานงานกับ Tech Lead (How) อย่างใกล้ชิดเพื่อผลักดันการเติบโตของธุรกิจ</p>
+                <p>💡 <b>มุมมองสำหรับ Senior PM ในห้องสัมภาษณ์:</b> ในฐานะ PM ของ <a href="#glossary-two-pizza" class="term-link">Two-Pizza Team</a> คุณเปรียบเสมือน <b>"Mini-CEO"</b> ประจำ Domain นั้นๆ คุณต้องรับผิดชอบทั้ง Business Metric (Why & What) และประสานงานกับ Tech Lead (How) อย่างใกล้ชิดเพื่อผลักดันการเติบโตของธุรกิจ</p>
             </div>
         </div>
 
-        <p><b>รายละเอียด 4 เสาหลักของผลิตภัณฑ์ Agoda (Product Pillars Breakdown):</b></p>
-        
+    </div>
+
+    <!-- 3.3 (split out of 3.1 per request) -->
+    <div class="star-card" id="product-pillars-breakdown">
+        <h3 id="pillars-breakdown-h">🏛️️ 3.3 รายละเอียด 4 เสาหลักของผลิตภัณฑ์ Agoda (Product Pillars Breakdown)</h3>
+
         <div class="example-box">
             <h4>1. Consumer-Facing Products (B2C Products):</h4>
             <ul>
@@ -1193,7 +1334,7 @@
                 <li><b>Agoda YCS (Yield Control System):</b> ระบบ Extranet หลักที่โรงแรมใช้ตั้งราคา จัดการห้องว่าง (Inventory), ใส่โปรโมชั่น และรับการชำระเงิน</li>
                 <li><b>Agoda Homes Partner Portal:</b> แพลตฟอร์มสำหรับ Host หรือเจ้าของบ้านพัก/พูลวิลล่า</li>
                 <li><b>AdTech & Sponsored Listings:</b> Agoda Growth Express / Sponsored Listing แพลตฟอร์มโฆษณาประมูลอันดับ (Bidding) เพื่อดันโรงแรมขึ้นแถวหน้าในหน้าค้นหา</li>
-                <li><b>Connectivity APIs & Channel Managers:</b> ระบบ API เชื่อมต่อสต็อกห้องพักและราคากับระบบจัดการโรงแรม (PMS/CMS) ทั่วโลก</li>
+                <li><b>Connectivity APIs & Channel Managers:</b> ระบบ API เชื่อมต่อสต็อกห้องพักและราคากับระบบจัดการโรงแรม (<a href="#glossary-pms" class="term-link">PMS</a>/<a href="#glossary-cms" class="term-link">CMS</a>) ทั่วโลก</li>
             </ul>
 
             <h4>3. Institutional B2B & Enterprise Products:</h4>
@@ -1207,21 +1348,21 @@
                 <li><b>Dynamic Pricing Engine:</b> อัลกอริทึมคำนวณและปรับเปลี่ยนราคาโรงแรม/ตั๋วเครื่องบินแบบ Real-time</li>
                 <li><b>Proprietary A/B Testing Platform:</b> ระบบรัน A/B Test ขนาดใหญ่ที่รองรับการทดสอบพร้อมกันหลายร้อย Experiments ต่อวัน</li>
                 <li><b>Fraud Detection & Payment Systems:</b> ระบบคัดกรองการทุจริตชำระเงิน และการจัดการแลกเปลี่ยนเงินตราต่างประเทศ (Multi-Currency Settlement)</li>
-                <li><b>Customer Care / Operations Tooling:</b> ระบบ CRM, Chatbot และ AI Support Platform สำหรับทีมบริการลูกค้าทั่วโลก</li>
+                <li><b>Customer Care / Operations Tooling:</b> ระบบ <a href="#glossary-crm" class="term-link">CRM</a>, Chatbot และ AI Support Platform สำหรับทีมบริการลูกค้าทั่วโลก</li>
             </ul>
 
             <p>📊 <b>การจัดอันดับกลุ่ม Product ที่ต้องการ PM มากที่สุด & แมตช์กับโปรไฟล์ Ex-SWE 11 ปี:</b><br/>
-            1. <b>Accommodations & Core Booking Funnel (ความต้องการสูงสุด 🥇):</b> Core Revenue Engine (>80% ของรายได้ทั้งหมด) การขยับ Conversion เพียง 0.1% หมายถึงเม็ดเงินมหาศาลระดับหลายสิบล้านบาท ต้องการ PM ที่เข้าใจระบบ Funnel Drop-off, Data Schema, และ High-Volume Experimentation เพื่อลดความหน่วง (Latency) และ Friction<br/>
-            2. <b>FinTech, Payments & Fraud Platform (แมตช์เชิงเทคนิคสูงสุด 🥈):</b> ดูแล Payment Gateways, Multi-Currency, Settlement, Refund, Fraud Detection และ <a href="#bnpl-engine-def" class="term-link">BNPL Engine</a> เหมาะสมอย่างยิ่งกับ Ex-SWE เพราะระบบต้องการความแม่นยำระดับ 100% (Zero Fault Tolerance), Idempotency และ System Architecture ที่ซับซ้อน<br/>
-            3. <b>Supply & Partner Products (YCS Extranet & Connectivity 🥉):</b> จัดการระบบ Inventory, Room Rates, Promotions และ API เชื่อมกับ Channel Manager / PMS ทั่วโลก โดดเด่นด้าน B2B Workflow และ API Integration<br/>
-            4. <b>Internal Platforms & Core Infrastructure (🏅):</b> Proprietary A/B Testing Platform, Observability, Telemetry, CI/CD, CRM Platform ซึ่งขับเคลื่อนความเร็วและประสิทธิภาพของทั้งองค์กร</p>
+            1. <b>Accommodations & Core Booking Funnel (ความต้องการสูงสุด 🥇):</b> Core Revenue Engine (>80% ของรายได้ทั้งหมด) การขยับ Conversion เพียง 0.1% หมายถึงเม็ดเงินมหาศาลระดับหลายสิบล้านบาท ต้องการ PM ที่เข้าใจระบบ <a href="#glossary-funnel" class="term-link">Funnel Drop-off</a>, Data Schema, และ High-Volume Experimentation เพื่อลดความหน่วง (Latency) และ Friction<br/>
+            2. <b>FinTech, Payments & Fraud Platform (แมตช์เชิงเทคนิคสูงสุด 🥈):</b> ดูแล Payment Gateways, Multi-Currency, Settlement, Refund, Fraud Detection และ <a href="#bnpl-engine-def" class="term-link">BNPL Engine</a> เหมาะสมอย่างยิ่งกับ Ex-SWE เพราะระบบต้องการความแม่นยำระดับ 100% (Zero Fault Tolerance), <a href="#glossary-idempotency" class="term-link">Idempotency</a> และ System Architecture ที่ซับซ้อน<br/>
+            3. <b>Supply & Partner Products (YCS Extranet & Connectivity 🥉):</b> จัดการระบบ Inventory, Room Rates, Promotions และ API เชื่อมกับ Channel Manager / <a href="#glossary-pms" class="term-link">PMS</a> ทั่วโลก โดดเด่นด้าน B2B Workflow และ API Integration<br/>
+            4. <b>Internal Platforms & Core Infrastructure (🏅):</b> Proprietary A/B Testing Platform, Observability, Telemetry, CI/CD, <a href="#glossary-crm" class="term-link">CRM</a> Platform ซึ่งขับเคลื่อนความเร็วและประสิทธิภาพของทั้งองค์กร</p>
         </div>
     </div>
 
     <!-- 9.2 -->
     <div class="star-card" id="agoda-pod-structure">
-        <h3>🏛️️ 3.2 โครงสร้างพอดในกรุงเทพฯ และ Stakeholder Ecosystem (Bangkok Pod Structure & Alignment)</h3>
-        <p>ที่สำนักงานใหญ่กรุงเทพฯ (CentralWorld) ทีมผลิตภัณฑ์ของ Agoda ทำงานในรูปแบบ <b>"Tight Pods" / Single-Threaded Autonomous Teams</b> เพื่อความคล่องตัวสูงสุด:</p>
+        <h3>🏛️️ 3.4 โครงสร้างพอดในกรุงเทพฯ และ Stakeholder Ecosystem (Bangkok Pod Structure & Alignment)</h3>
+        <p>ที่สำนักงานใหญ่กรุงเทพฯ (<b>One Bangkok Tower 5</b> — Agoda ย้ายสำนักงานใหญ่จาก CentralWorld มาที่นี่ตั้งแต่ปลายปี 2025 เป็นต้นไป อาคารสูง 7 ชั้น พื้นที่กว่า 26,000 ตร.ม. รองรับพนักงานกว่า 4,000 คน) ทีมผลิตภัณฑ์ของ Agoda ทำงานในรูปแบบ <b>"Tight Pods" / Single-Threaded Autonomous Teams</b> เพื่อความคล่องตัวสูงสุด:</p>
         <div class="example-box">
             <h4>👥 โครงสร้างองค์ประกอบ 1 Pod (Single-Threaded Autonomous Feature Team):</h4>
             <ul>
@@ -1229,15 +1370,15 @@
                 <li><b>1 Tech Lead / Dev Lead:</b> คู่หูหลักของ PM เป็นเจ้าของ <i>'How'</i>, กำกับดูแล System Architecture, Sizing, Code Review และการแบ่งงานวิศวกร</li>
                 <li><b>4–8 Software Engineers:</b> วิศวกร Full-stack, Backend (Java/Scala/Go), และ Frontend (React/TypeScript) ที่โฟกัสการพัฒนาอย่างรวดเร็ว</li>
                 <li><b>1–2 QA Engineers:</b> วางแผน Test Scenarios, Automated Regression, Exploratory Testing และตรวจสอบความพร้อมก่อนปล่อย Release</li>
-                <li><b>1 Product Designer:</b> ดูแล UX/UI, Wireframes, User Journeys ตามระบบ Agoda Design System (ADS)</li>
-                <li><b>1 Embedded / Dedicated Data Analyst หรือ Data Scientist:</b> ช่วยออกแบบ Event Tracking, คำนวณ Sample Size, วิเคราะห์ A/B Test Results และ Guardrail Metrics</li>
+                <li><b>1 Product Designer:</b> ดูแล UX/UI, <a href="#glossary-wireframes" class="term-link">Wireframes</a>, User Journeys ตามระบบ <a href="#glossary-ads" class="term-link">Agoda Design System (ADS)</a></li>
+                <li><b>1 Embedded / Dedicated Data Analyst หรือ Data Scientist:</b> ช่วยออกแบบ Event Tracking, คำนวณ Sample Size, วิเคราะห์ A/B Test Results และ <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a></li>
             </ul>
         </div>
         <div class="example-box">
             <h4>🌐 Stakeholder Ecosystem 4 ฝ่ายรอบตัว Senior PM (The Mini-CEO Hub):</h4>
             <ol>
-                <li><b>Engineering & Design (The Builders):</b> ร่วมวาง Roadmap, กำหนด BDD Acceptance Criteria ที่ไร้ความคลุมเครือ, เจรจาเรื่อง Tech Debt vs New Features</li>
-                <li><b>Data Science & Analytics (The Truth Seekers):</b> ร่วมมือสกัด Insights, เฝ้าระวัง Sample Ratio Mismatch (SRM), และรัน Statistical Significance</li>
+                <li><b>Engineering & Design (The Builders):</b> ร่วมวาง Roadmap, กำหนด <a href="#glossary-bdd-ac" class="term-link">BDD Acceptance Criteria</a> ที่ไร้ความคลุมเครือ, เจรจาเรื่อง Tech Debt vs New Features</li>
+                <li><b>Data Science & Analytics (The Truth Seekers):</b> ร่วมมือสกัด Insights, เฝ้าระวัง <a href="#glossary-srm" class="term-link">Sample Ratio Mismatch</a> (<a href="#glossary-srm" class="term-link">SRM</a>), และรัน Statistical Significance</li>
                 <li><b>Business & Commercial (The Value Drivers):</b> ประสานงานกับ Partner Services (Supply), Performance Marketing, และ Customer Operations เพื่อนำข้อเสนอแนะจริงมาแปลงเป็นโจทย์ Product</li>
                 <li><b>Agoda Leadership (Executive Sponsors):</b> รายงานผลกระทบเชิงธุรกิจและทิศทาง Roadmap ต่อ Product Directors, VPs ผ่านโครงสร้าง <a href="#bluf-def" class="term-link">BLUF Concept</a></li>
             </ol>
@@ -1286,17 +1427,14 @@
             <h5 style="margin-top: 14px; color: var(--heading-color);">🚀 ทำไมจุดนี้จึงเป็น "Unfair Advantage มหาศาล" สำหรับตัวคุณ (Ex-SWE 11 ปี / Lead SWE 6 ปี)?</h5>
             <ul>
                 <li><b>1. High Technical Empathy & Instant Trust:</b> ด้วยความที่คุณเคยเป็น Lead SWE มานาน 6 ปี คุณเข้าใจลึกซึ้งถึงภาระ ความเครียด และความท้าทายของ Tech Lead ทำให้สามารถสร้างความไว้วางใจ (Psychological Safety) ได้ตั้งแต่วันแรกที่เริ่มงาน</li>
-                <li><b>2. คุยภาษาเดียวกัน ลดเวลาสื่อสารลง 50%:</b> คุณสามารถคุยเรื่อง Latency, Caching Invalidation, Idempotency, Microservice Boundaries, และ Database Indexing กับ Tech Lead ได้โดยตรง ไม่ต้องเสียเวลารอแปลความหมาย</li>
+                <li><b>2. คุยภาษาเดียวกัน ลดเวลาสื่อสารลง 50%:</b> คุณสามารถคุยเรื่อง Latency, Caching Invalidation, <a href="#glossary-idempotency" class="term-link">Idempotency</a>, Microservice Boundaries, และ Database Indexing กับ Tech Lead ได้โดยตรง ไม่ต้องเสียเวลารอแปลความหมาย</li>
                 <li><b>3. การเคารพเส้นแบ่ง 'Why/What' vs 'How':</b> ข้อผิดพลาดของ PM ทั่วไปคือชอบสั่ง Solution (ก้าวก่าย 'How') จนขัดแย้งกับ Tech Lead แต่คุณรู้ชัดเจนว่าหน้าที่ของคุณในฐานะ Senior PM คือการเป็นเจ้าของ <b>Problem Statement, User Value, Business ROI และ Metrics</b> แล้วมอบอำนาจเต็มที่ให้ Tech Lead เป็นคนเลือก Solution ทำให้ความสัมพันธ์ราบรื่นและทรงพลังที่สุด</li>
             </ul>
         </div>
 
-    </div>
-
-    <!-- 3.3 -->
+    <!-- 3.5 -->
     <div class="star-card" id="agoda-pm-scope">
-    <div class="star-card" id="agoda-pm-scope">
-        <h3>🏛️️ 3.3 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM (5 Core Scope Pillars)</h3>
+        <h3>🏛️️ 3.5 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM (5 Core Scope Pillars)</h3>
         <p>Agoda คาดหวังให้ Senior PM ขับเคลื่อนผลิตภัณฑ์แบบครบวงจร (End-to-End Ownership) โดยไม่ต้องรอรับคำสั่ง:</p>
         <div class="table-responsive">
             <table>
@@ -1310,18 +1448,18 @@
                 <tbody>
                     <tr>
                         <td><b>1. Product Strategy & Discovery</b></td>
-                        <td>วิเคราะห์ Funnel Drop-off, ศึกษา Competitor Dynamics, กำหนด Hypothesis และเปลี่ยน Business OKR ให้กลายเป็น Product Roadmap</td>
+                        <td>วิเคราะห์ <a href="#glossary-funnel" class="term-link">Funnel Drop-off</a>, ศึกษา Competitor Dynamics, กำหนด Hypothesis และเปลี่ยน Business OKR ให้กลายเป็น Product Roadmap</td>
                         <td>เข้าใจ Data Flow และข้อจำกัดทางเทคนิค ทำให้มองเห็นทั้งความเป็นไปได้ทางธุรกิจและขีดจำกัดของระบบควบคู่กัน</td>
                     </tr>
                     <tr>
                         <td><b>2. Agile Delivery & Execution</b></td>
-                        <td>เขียน PRD, ทำ Solution Design & High-Level Sizing, เขียน <a href="#bdd-example" class="term-link">BDD Acceptance Criteria</a>, จัดลำดับ Sprint Backlog</td>
+                        <td>เขียน <a href="#glossary-prd" class="term-link">PRD</a>, ทำ Solution Design & High-Level Sizing, เขียน <a href="#bdd-example" class="term-link">BDD Acceptance Criteria</a>, จัดลำดับ Sprint Backlog</td>
                         <td>ความแม่นยำในการเขียน AC ปราศจากความก้ำกึ่ง ช่วยลดเวลาใน Refinement Meeting ลง 50% และทำให้ทีม Dev เริ่มโค้ดได้ทันที</td>
                     </tr>
                     <tr>
                         <td><b>3. Experimentation & Decision</b></td>
-                        <td>ออกแบบ Variant, กำหนด Primary & Guardrail Metrics, คำนวณ Sample Size, ตัดสินใจ Ship 100% หรือ Rollback ตาม Statistical Significance</td>
-                        <td>ระมัดระวังเรื่อง Sample Ratio Mismatch (SRM), Network Latency, และ System Guardrails อย่างรัดกุม</td>
+                        <td>ออกแบบ Variant, กำหนด Primary & <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a>, คำนวณ Sample Size, ตัดสินใจ Ship 100% หรือ Rollback ตาม Statistical Significance</td>
+                        <td>ระมัดระวังเรื่อง <a href="#glossary-srm" class="term-link">Sample Ratio Mismatch</a> (<a href="#glossary-srm" class="term-link">SRM</a>), Network Latency, และ System Guardrails อย่างรัดกุม</td>
                     </tr>
                     <tr>
                         <td><b>4. Cross-Functional Leadership</b></td>
@@ -1340,7 +1478,7 @@
 
     <!-- 9.4 -->
     <div class="star-card" id="agoda-hiring-funnel">
-        <h3>🏛️️ 3.4 สถิติ Headcount Seasonality & Funnel การคัดออก (Hiring Funnel & Conversion Rates)</h3>
+        <h3>🏛️️ 3.6 สถิติ Headcount Seasonality & Funnel การคัดออก (Hiring Funnel & Conversion Rates)</h3>
         <p>กระบวนการคัดเลือกตำแหน่ง Senior Product Manager ของ Agoda เป็นหนึ่งในสนามที่เข้มงวดที่สุดในภูมิภาคเอเชีย:</p>
         <div class="table-responsive">
             <table>
@@ -1387,16 +1525,286 @@
         </div>
     </div>
 
+    <div class="star-card" id="pm-level-hierarchy">
+        <h3>🏛️️ 3.7 PM แต่ละ Level มีหน้าที่ต่างกันอย่างไร และมีจำนวนเท่าไหร่ในแต่ละ Level</h3>
+        <div class="table-responsive">
+            <table>
+                <thead><tr><th>Level</th><th>ขอบเขตหน้าที่หลัก</th><th>สัดส่วนโดยประมาณในองค์กร</th></tr></thead>
+                <tbody>
+                    <tr><td><b>Associate PM (APM)</b></td><td>รับผิดชอบ Feature ย่อยภายใต้การโค้ชของ Senior PM, เน้นฝึก Execution & Data Analysis</td><td>~10-15%</td></tr>
+                    <tr><td><b>Product Manager (PM)</b></td><td>เป็นเจ้าของ Feature/Sub-domain ขนาดกลาง รัน A/B Test ได้อย่างอิสระ</td><td>~40-50%</td></tr>
+                    <tr><td><b>Senior Product Manager</b></td><td>เป็นเจ้าของ Pod ทั้งหมด (Mini-CEO), วาง Roadmap ระดับไตรมาส, Mentor PM รุ่นน้อง</td><td>~25-30%</td></tr>
+                    <tr><td><b>Staff / Lead / Principal PM</b></td><td>ดูแลภาพรวมข้าม Pod หลายทีม (Cross-Pod Strategy), วาง Vision ระดับ Business Unit</td><td>~5-10%</td></tr>
+                    <tr><td><b>Group Product Manager / Director+</b></td><td>บริหารทีม PM ทั้งหมดใน Domain, จัดสรร Headcount, คุย Strategy กับ C-level</td><td>&lt; 5%</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="star-card" id="bangkok-team-distribution">
+        <h3>🏛️️ 3.8 Senior PM ที่ Based กรุงเทพฯ คุยกับทีมในกรุงเทพฯ ด้วยกันไหม? สัดส่วนคนที่ไม่ได้อยู่ Bangkok</h3>
+        <p>ใช่ Senior PM ที่ Based Bangkok จะคุยกับเพื่อนร่วม Pod ส่วนใหญ่ที่ Based Bangkok เช่นกัน (Agoda มี HQ ใหญ่ที่ <a href="#agoda-pod-structure" class="term-link">One Bangkok Tower 5</a>) แต่เนื่องจาก Agoda เป็นองค์กร Global จึงมีการทำงานร่วมกับทีมที่ไม่ได้อยู่ Bangkok เป็นประจำเช่นกัน โดยประมาณการสัดส่วนผู้ร่วมงานที่ไม่ได้ Based Bangkok:</p>
+        <div class="table-responsive">
+            <table>
+                <thead><tr><th>กลุ่มผู้ร่วมงาน</th><th>สัดส่วนที่ไม่ได้ Based Bangkok (ประมาณการ)</th></tr></thead>
+                <tbody>
+                    <tr><td>Engineering Team ใน Pod เดียวกัน</td><td>~20-30% (บางส่วนอยู่ India/Vietnam/Remote)</td></tr>
+                    <tr><td>Data/Analytics Partner</td><td>~10-20%</td></tr>
+                    <tr><td>Cross-functional Stakeholders (Finance, Legal, Partner Supply)</td><td>~15-25% (มี Office ในหลายประเทศ APAC)</td></tr>
+                    <tr><td>Leadership/Director+ ที่ต้อง Report ให้</td><td>~10-15%</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>💡 โดยรวมแล้วงานส่วนใหญ่ (~70-80%) ยังคงเป็นการทำงานร่วมกับทีมที่ Based Bangkok เนื่องจากเป็น HQ หลัก แต่ Senior PM ควรเตรียมพร้อมสื่อสารข้ามไทม์โซนและวัฒนธรรมเป็นประจำ</p>
+    </div>
+
+
+<!-- SECTION 4 (Culture, Pet Feature & 20 Questions) -->
+    <h2 id="sec4">4. 🏢 วัฒนธรรมองค์กร, ข้อควรระวัง, Pet Feature Management และคลังคำถามสัมภาษณ์ 20 ข้อ</h2>
+    
+    <h3 id="agoda-culture">4.1 เจาะลึกวัฒนธรรม Agoda: "Data Trumps Opinion" & "Speed Over Perfection"</h3>
+    
+    <div class="star-card" id="agoda-culture-data">
+        <h3>📊 1. "Data Trumps Opinion" (ข้อมูลชนะทุกความคิดเห็น)</h3>
+        <p>ที่ Agoda ยศ ตำแหน่ง หรือประสบการณ์ยาวนานของผู้บริหาร ไม่สามารถสั่งการหรือตัดสินใจเปลี่ยนทิศทาง Product ได้ หากไม่มี Data ทางสถิติมาพิสูจน์:</p>
+
+        <ul>
+            <li><b>Lifting the HiPPO Syndrome:</b> กำจัดอิทธิพลของ HiPPO (Highest Paid Person's Opinion) หากผู้บริหารระดับสูงอยากได้ฟีเจอร์ แต่ไม่มี Data รองรับ PM มีหน้าที่เสนอการรัน Small-scale A/B Test (เช่น 5% Traffic) เพื่อเก็บ Data มาพิสูจน์ก่อนสเกลจริง</li>
+            <li><b>A/B Testing as the Ultimate Judge:</b> ทุกการเปลี่ยนแปลงบน UI/Backend Optimization จะต้องผ่านการพิสูจน์ด้วย A/B Experimentation Framework โดยต้องได้ค่า Statistical Significance (<a href="#glossary-pvalue" class="term-link">p-value &lt; 0.05</a>) และไม่ส่งผลกระทบเชิงลบต่อ <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a></li>
+            <li><b>Intellectual Humility:</b> การยอมรับว่าสมมติฐานของตนเองผิดเมื่อ Data ออกมาเป็น Negative ผลทดสอบทีเคยมองว่าดี อาจล้มเหลวในความเป็นจริง ซึ่ง Agoda ชื่นชม PM ที่กล้าสั่ง Rollback ทันทีเมื่อเห็น Data ชัดเจน</li>
+        </ul>
+    </div>
+
+    <div class="star-card" id="pet-feature-def">
+        <h3>🐶 4.2 Pet Feature & Managing Upwards Strategy (การบริหารจัดการฟีเจอร์โปรดของผู้บริหาร)</h3>
+        <p><b>ความหมาย (Definition):</b> "Pet Feature" คือฟีเจอร์ที่ถูกดันโดยผู้บริหารระดับสูง (**HiPPO** - Highest Paid Person's Opinion) จากความชอบส่วนตัวหรือ Gut Feeling โดยที่ยังไม่มี Data หรือ User Research มาสนับสนุน</p>
+        
+        <div class="example-box">
+            <h4>💡 กลยุทธ์ 3 ขั้นตอนในการจัดการ Pet Feature ตามวัฒนธรรม "Data Trumps Opinion":</h4>
+            <ol>
+                <li><b>1. Don't Say No Blindly (หลีกเลี่ยงการโต้แย้งด้วยความรู้สึก):</b> รับฟังสมมติฐานเชิงธุรกิจของผู้บริหาร และแปลงความคิดเห็นนั้นให้กลายเป็น <b>Testable Hypothesis</b> ร่วมกัน</li>
+                <li><b>2. Propose Low-Cost A/B Test (เสนอ MVP สเกลเล็ก):</b> สกัด Scope ให้เหลือเพียง MVP ที่ใช้ Effort ต่ำที่สุด (เช่น ปล่อย Feature Flag เพียง 5% Traffic หรือใช้ <a href="#glossary-wizard-of-oz" class="term-link">Wizard of Oz UI</a>) เพื่อประหยัด Engineering Bandwidth</li>
+                <li><b>3. Define <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> & Data Agreement Upfront:</b> ตกลง Success Metrics และ <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> ร่วมกันตั้งแต่วันแรก หากผล A/B Test ออกมาเป็น Negative (<a href="#glossary-pvalue" class="term-link">p-value</a> &gt; 0.05) PM ใช้นำ Data นี้รายงานผู้บริหารเพื่อสั่ง Rollback อย่างราบรื่นโดยไม่กระทบความสัมพันธ์</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="star-card" id="agoda-culture-speed">
+        <h3>⚡ 2. "Speed Over Perfection" (ความเร็วสำคัญกว่าความสมบูรณ์แบบ)</h3>
+        <p>ปรัชญาการทำงานที่เน้นการเรียนรู้จริงจากตลาดให้เร็วที่สุด ผ่านการปล่อยของและทดลองอย่างต่อเนื่อง:</p>
+
+        <ul>
+            <li><b>High Experimentation Velocity:</b> Agoda รัน A/B Tests พร้อมกันนับพันแบบตลอดเวลา เน้นปล่อย Minimum Viable Product (MVP) เพื่อทดสอบสมมติฐานในวันแรก ดีกว่าใช้เวลา 6 เดือนสร้างระบบที่คิดว่าสมบูรณ์แบบแต่ไม่มีใครใช้</li>
+            <li><b>The 80/20 Execution Rule:</b> มองหา Solution ที่ใช้ Effort เพียง 20% แต่สร้าง Business Value ได้ 80% แล้วค่อยทำ Phase 2 Iteration เมื่อ Data ยืนยันว่ามาถูกทาง</li>
+            <li><b>Safety Net for Speed:</b> ความเร็วไม่ได้แปลว่าปล่อยของมั่วซั่ว แต่เป็นการซัพพอร์ตด้วย Infrastructure ที่แข็งแกร่ง เช่น Automated Test Coverage (&gt;90%), Feature Flags คุมการเปิด-ปิด, และ One-Click Rollback หากเกิด Incident</li>
+        </ul>
+    </div>
+
+    <div class="alert-box" id="culture-red-flags">
+        <b>⚠ Red Flags ที่ต้องระวังในห้องสัมภาษณ์:</b> พูดถึงการทำ Feature โดยไม่เอ่ยถึง Problem หรือ Metric วัดผล, ตอบเยิ่นเย้อไม่ใช้หลัก <a href="#bluf-def" class="term-link">BLUF</a>, และการโยนความผิดให้ทีมอื่น
+    </div>
+
+    <div class="star-card" id="agoda-core-values">
+        <h3>🧭 4.3 Agoda Core Values (ค่านิยมหลักขององค์กร)</h3>
+        <p>นอกเหนือจาก "Data Trumps Opinion" และ "Speed Over Perfection" ที่เป็นวัฒนธรรมการทำงานเฉพาะด้าน Product/Engineering แล้ว Agoda ยังประกาศ Core Values ระดับองค์กรอย่างเป็นทางการไว้ 5 ข้อ ซึ่งควรหยิบยกมาอ้างอิงในห้องสัมภาษณ์เมื่อถูกถามเรื่อง Culture Fit:</p>
+        <ul>
+            <li><b>1. Do Things the Right Way:</b> ยึดหลัก Integrity, ความซื่อสัตย์ และความเคารพในทุกการตัดสินใจ แม้จะมี Pressure เรื่อง Speed ก็ตาม</li>
+            <li><b>2. Move Fast and Be Efficient:</b> เน้น Bias for Action ทำน้อยแต่ได้ผลลัพธ์มาก (Do More with Less) สอดคล้องกับปรัชญา "Speed Over Perfection"</li>
+            <li><b>3. Be a Scientist: Experiment and Measure:</b> ใช้แนวทางวิทยาศาสตร์ ตั้งสมมติฐาน ทดลอง วัดผลด้วยข้อมูลเสมอ ตรงกับปรัชญา "Data Trumps Opinion"</li>
+            <li><b>4. Take Ownership and Make a Difference:</b> ให้พนักงานทุกระดับมีอำนาจตัดสินใจและรับผิดชอบผลลัพธ์งานของตนเองอย่างเต็มที่ (สอดคล้องกับโมเดล <a href="#glossary-two-pizza" class="term-link">Two-Pizza Team</a> ที่ PM เป็นเสมือน Mini-CEO)</li>
+            <li><b>5. Be Direct and Respectful:</b> สื่อสารตรงไปตรงมา ชัดเจน แต่ยังคงเคารพความเห็นต่างของเพื่อนร่วมงาน</li>
+        </ul>
+        <p>💡 <b>เคล็ดลับ:</b> เวลาตอบคำถามเชิงพฤติกรรม (Behavioral) ให้ลองโยงกลับไปที่ 1 ใน 5 ค่านิยมนี้เสมอ เพื่อแสดงว่าคุณเข้าใจ DNA ขององค์กรอย่างแท้จริง ไม่ใช่แค่ท่องจำ Job Description</p>
+    </div>
+
+    <h3 id="interview-questions-bank">4.4 คลังคำถามสัมภาษณ์ยอดฮิต 20 ข้อ (20 Most Frequent Interview Questions Table)</h3>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>คำถามสัมภาษณ์ (Interview Question)</th>
+                    <th>รอบ</th>
+                    <th>โอกาสเจอ (%)</th>
+                    <th>แนวทาง/กลยุทธ์การตอบ (Response Strategy)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Design a new feature for business travelers.</td><td>Round 2</td><td><b>90%</b></td><td>ใช้ <a href="#circles-script" class="term-link">CIRCLES Method</a> ตั้งเป้า เลือก Persona และ <a href="#rice-example" class="term-link">RICE</a></td></tr>
+                <tr><td>2</td><td>App Conversion dropped 7% yesterday. How to investigate?</td><td>Round 2/3</td><td><b>85%</b></td><td>ใช้ <a href="#rca-4step" class="term-link">4-Step RCA</a>: External ➡️ Dimensions ➡️ Funnel ➡️ Tech Logs</td></tr>
+                <tr><td>3</td><td>Eng wants Refactoring vs Business wants Songkran Promo.</td><td>Round 3</td><td><b>90%</b></td><td>เสนอ Phased Compromise (ทำ MVP Promo + แบ่ง 30% Capacity Refactor)</td></tr>
+                <tr><td>4</td><td>Prioritize 5 feature requests from 5 country managers.</td><td>Round 2/4</td><td><b>80%</b></td><td>ใช้ <a href="#rice-example" class="term-link">RICE Score</a> + Platform Scalability สร้าง <a href="#glossary-common-config-engine" class="term-link">Common Config Engine</a></td></tr>
+                <tr><td>5</td><td>A/B Test shows +3% conversion, but +5% support tickets. Ship it?</td><td>Round 2/3</td><td><b>85%</b></td><td>คำนวณ Net Impact หักลบ Support Cost จาก <a href="#glossary-guardrail" class="term-link">Guardrail Metric</a> ก่อนตัดสินใจ</td></tr>
+                <tr><td>6</td><td>Estimate daily hotel bookings in Bangkok in Peak Season.</td><td>Round 2</td><td><b>60%</b></td><td>ใช้ <a href="#glossary-fermi" class="term-link">Top-Down Fermi</a>: Hotel Rooms x Occupancy Rate x Agoda Share</td></tr>
+                <tr><td>7</td><td>Build BNPL engine in-house or integrate third-parties?</td><td>Round 2/3</td><td><b>75%</b></td><td>ใช้ Build vs Buy: Integrate ก่อนเพื่อทดสอบ Demand (<a href="#bnpl-engine-def" class="term-link">ดู BNPL Deep-Dive</a>)</td></tr>
+                <tr><td>8</td><td>Tell me about a disagreement with a Tech Lead on Architecture.</td><td>Round 4</td><td><b>85%</b></td><td>เน้น Data-backed Discussion และมุ่งเน้นที่ Customer Impact เป็นหลัก</td></tr>
+                <tr><td>9</td><td>Tell me about a feature you shipped that failed completely.</td><td>Round 4</td><td><b>90%</b></td><td>โชว์ <a href="#bar-raiser-def" class="term-link">Intellectual Humility</a> & <a href="#rca-def" class="term-link">Blameless RCA</a> สั่ง Rollback ทันทีด้วย Data</td></tr>
+                <tr><td>10</td><td>How does latency impact conversion? How to set SLA with Devs?</td><td>Round 3</td><td><b>80%</b></td><td>อธิบาย <a href="#glossary-latency-curve" class="term-link">Latency Curve</a> (ช้าลง 100ms Conversion Drop ~1%) ตั้ง <a href="#glossary-guardrail" class="term-link">p95 Guardrail Metric</a></td></tr>
+                <tr><td>11</td><td>A Senior VP pushes a pet feature without data. How to handle?</td><td>Round 4/5</td><td><b>85%</b></td><td>ใช้หลัก <a href="#agoda-culture-data" class="term-link">Data Trumps Opinion</a> (<a href="#pet-feature-def" class="term-link">ดู Pet Feature Strategy</a>) เสนอ MVP A/B Test 5%</td></tr>
+                <tr><td>12</td><td>Agoda wants to expand into long-term rentals. First 30 days?</td><td>Round 2/5</td><td><b>70%</b></td><td>ใช้ <a href="#onboarding-plan" class="term-link">30-Day Discovery Plan</a>: Customer Interviews ➡️ Market ➡️ <a href="#glossary-unitecon" class="term-link">Unit Economics</a></td></tr>
+                <tr><td>13</td><td>How to leverage GenAI for hotel review summarization?</td><td>Round 2/3</td><td><b>80%</b></td><td>ใช้ <a href="#ai-rag-def" class="term-link">RAG Architecture</a> สรุป 3 Key Bullets + มอนิเตอร์ Latency & Hallucination</td></tr>
+                <tr><td>14</td><td>QA discovers a non-blocking P1 bug 2 hours before release.</td><td>Round 3</td><td><b>75%</b></td><td>คุม Risk เปิดตัวใต้ Feature Flag 10% Traffic พร้อมเตรียม Hotfix Branch</td></tr>
+                <tr><td>15</td><td>How to manage 3 distinct pods without meeting fatigue?</td><td>Round 3/4</td><td><b>85%</b></td><td>บริหาร <a href="#primary-secondary-pods" class="term-link">Primary vs Secondary Pods</a> ใช้ Async Standups via Slack</td></tr>
+                <tr><td>16</td><td>What is <a href="#glossary-srm" class="term-link">Sample Ratio Mismatch</a> (<a href="#glossary-srm" class="term-link">SRM</a>) and how to handle?</td><td>Round 3</td><td><b>70%</b></td><td>สุ่มทราฟฟิกผิดปกติ ให้สั่ง Pause Test ทันที ตรวจสอบ <a href="#glossary-bot-event-tagging" class="term-link">Bot/Event Tagging</a> (<a href="#glossary-srm" class="term-link">ดู SRM</a>)</td></tr>
+                <tr><td>17</td><td>How to handle hotel rate-parity issues against competitors?</td><td>Round 2/3</td><td><b>65%</b></td><td>ใช้ Dynamic Pricing Engine + Top-up Coupons/Agoda Cash ดึงราคากลับมา</td></tr>
+                <tr><td>18</td><td>Why Agoda over <a href="Booking.com">Booking.com</a> What is our structural vulnerability?</td><td>Round 5</td><td><b>80%</b></td><td>วิเคราะห์ APAC Dominance vs ความจำเป็นในการเร่งขยาย Non-Accommodation (<a href="#comp-matrix" class="term-link">ดู Matrix</a>)</td></tr>
+                <tr><td>19</td><td>How to mentor a junior engineer/PM missing timelines?</td><td>Round 4</td><td><b>75%</b></td><td>ใช้ Task Decomposition แตกงานเป็น Micro-tasks 1-2 วัน + 1-on-1 Coaching</td></tr>
+                <tr><td>20</td><td>When to deprecate a feature with low usage but high maintenance?</td><td>Round 3/4</td><td><b>70%</b></td><td>ทำ Cost-Benefit Analysis สั่ง Soft Deprecate -> Notice 30 วัน -> Decommission</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+<!-- SECTION 5 (Interview Process Deep-Dive) -->
+    <div class="phase-banner" id="phase3">🅲️ ส่วนที่ 3: รอบสัมภาษณ์จริง Round 1-5 <small>The Interview Rounds: HR Screening → Product Sense → Analytics → Behavioral → Bar Raiser</small></div>
+    <h2 id="sec5">5. 🎯 เจาะลึกกระบวนการสัมภาษณ์ Agoda Senior PM แต่ละรอบ (Round 1 - Round 5 Deep-Dive)</h2>
+    
+    <div class="star-card">
+        <h3 id="sec5-round1">📞 5.1 Round 1: Talent Acquisition / HR Screening Call (30-45 นาที)</h3>
+        <p><b>ผู้สัมภาษณ์:</b> Senior Recruiter / Talent Acquisition Specialist</p>
+        <p><b>เป้าหมายหลักของรอบนี้:</b> คัดกรองเบื้องต้น ตรวจสอบ Profile Fit, Communication Skill, Motivation และ Salary Expectation Alignment</p>
+        <ul>
+            <li><b>สิ่งที่โดนประเมิน:</b>
+                <ul>
+                    <li>ภาษาอังกฤษในการสื่อสาร (เน้นความชัดเจน ตรงประเด็น สื่อสารสไตล์ BLUF)</li>
+                    <li>เหตุผลที่อยากมาร่วมงานกับ Agoda (แสดงความตั้งใจที่เลือก Agoda เป็น First Priority)</li>
+                    <li>การอธิบาย Career History สั้นกระชับ (โชว์ Transition จาก SWE 11 YOE ➡️ Product Leadership)</li>
+                </ul>
+            </li>
+            <li><b>คำถามยอดฮิตรอบ HR:</b>
+                <ul>
+                    <li><i>"Tell me about yourself and why do you want to transition to Senior PM at Agoda?"</i></li>
+                    <li><i>"What is your current compensation and expected salary?"</i> ➡ ใช้กลยุทธ์ตาม <a href="#sec11">Section 11 (Compensation & Negotiation)</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="star-card">
+        <h3 id="sec5-round2">🎨 5.2 Round 2: Product Sense & Design Case Round (60 นาที)</h3>
+        <p><b>ผู้สัมภาษณ์:</b> Senior Product Manager / Lead PM</p>
+        <p><b>เป้าหมายหลักของรอบนี้:</b> ทดสอบทักษะการคิดเชิง Product (Product Intuition) และการแก้โจทย์ไร้โครงสร้าง (Ambiguity)</p>
+        <ul>
+            <li><b>สิ่งที่โดนประเมิน:</b>
+                <ul>
+                    <li>ความสามารถในการใช้โครงสร้างแก้โจทย์ เช่น <a href="#circles-script" class="term-link">CIRCLES Method</a></li>
+                    <li>การตั้งเป้าหมาย (<a href="#glossary-northstar" class="term-link">North Star</a> / <a href="#glossary-primary" class="term-link">Primary Metric</a>) และการเลือก User Persona</li>
+                    <li>การทำ Prioritization ด้วย <a href="#rice-example" class="term-link">RICE</a> หรือ <a href="#moscow-def" class="term-link">MoSCoW</a></li>
+                </ul>
+            </li>
+            <li><b>ตัวอย่างโจทย์เคสสัมภาษณ์:</b>
+                <ul>
+                    <li><i>"Design a feature to improve hotel booking experience for family vacationers in SEA."</i> (ดูสคริปต์ตัวอย่างใน <a href="#circles-script" class="term-link">Section 4.1</a>)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="example-box">
+            <h4>💡 สำหรับผู้สมัครสาย Software Engineering: ใช้ BUS-PAE แทน/เสริม CIRCLES</h4>
+            <p>สมอง Dev มักถูกฝึกให้คิดแบบ "Solution-First" (DB Schema, API, Edge Cases) แต่ผู้สัมภาษณ์ต้องการเห็น <b>User-First & Problem-First Mindset</b> ก่อน ใช้โครงสร้าง <code>Business Goal & Context → User Segmentation & Friction → Solution Brainstorming → Architecture & Execution Feasibility → Evaluation & A/B Test</code> โดย Step "Architecture & Execution Feasibility" คือจุดที่ Ex-SWE ได้เปรียบคนอื่นชัดเจนที่สุด (Unfair Advantage) — เสนอ Options 2-3 ทางเลือกพร้อม Trade-off เสมอ อย่าฟันธงคำตอบเดียว แล้วปิดท้ายด้วย Primary/<a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> และวิธีตั้ง A/B Test เสมอ</p>
+        </div>
+    </div>
+
+    <div class="star-card">
+        <h3 id="sec5-round3">📊 5.3 Round 3: Product Analytics & Technical Execution Round (60 นาที)</h3>
+        <p><b>ผู้สัมภาษณ์:</b> Lead PM / Product Director / Staff Data Analyst</p>
+        <p><b>เป้าหมายหลักของรอบนี้:</b> ทดสอบความแม่นยำด้าน Data, A/B Testing Mechanics, <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> และ Technical Trade-offs</p>
+        <ul>
+            <li><b>สิ่งที่โดนประเมิน:</b>
+                <ul>
+                    <li>การเจาะวิเคราะห์ปัญหาวิกฤตด้วย <a href="#rca-4step" class="term-link">4-Step Root Cause Analysis</a></li>
+                    <li>ความเข้าใจเรื่อง Statistical Significance, <a href="#glossary-pvalue" class="term-link">p-value</a>, และการรับมือ <a href="#glossary-srm" class="term-link">Sample Ratio Mismatch (SRM)</a></li>
+                    <li>ความเข้าใจด้าน Technical Architecture เช่น Latency vs Conversion Curve และ Caching (<a href="#arch-caching" class="term-link">Section 6.6</a>)</li>
+                </ul>
+            </li>
+            <li><b>ตัวอย่างโจทย์เคสสัมภาษณ์:</b>
+                <ul>
+                    <li><i>"Mobile App Conversion Rate dropped 7% yesterday. Walk me through your step-by-step investigation."</i></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="star-card">
+        <h3 id="sec5-round4">🤝 5.4 Round 4: Cross-functional Leadership & Behavioral Round (60 นาที)</h3>
+        <p><b>ผู้สัมภาษณ์:</b> Engineering Director / Senior Staff Engineer / Cross-functional Lead</p>
+        <p><b>เป้าหมายหลักของรอบนี้:</b> ประเมินทักษะการทำงานร่วมกับทีม Dev, การจัดการข้อขัดแย้ง (Conflict Resolution) และการบริหาร Stakeholders</p>
+        <ul>
+            <li><b>สิ่งที่โดนประเมิน:</b>
+                <ul>
+                    <li>ใช้ประวัติตัวเองเล่าเรื่องผ่าน <a href="#sec9">STAR Stories</a></li>
+                    <li>การบริหารความสัมพันธ์ระหว่าง Engineering กับ Product (<a href="#severity-matrix" class="term-link">P0/P1/P2 Triaging</a>)</li>
+                    <li>การสร้างวัฒนธรรมทีม การกำจัดจุดเสี่ยง <a href="#spof-def" class="term-link">SPOF</a>, <a href="#star-security" class="term-link">Cyber Security Remediation</a> และกระบวนการ Retrospective (<a href="#rca-def" class="term-link">Blameless RCA</a>)</li>
+                </ul>
+            </li>
+            <li><b>คำถามยอดฮิตรอบ Behavioral:</b>
+                <ul>
+                    <li><i>"Tell me about a time when Engineering disagreed with your Product Roadmap. How did you resolve it?"</i></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="star-card">
+        <h3 id="sec5-round5">👑 5.5 Round 5: Director / VP / Bar Raiser Interview (60 นาที)</h3>
+        <p><b>ผู้สัมภาษณ์:</b> Senior Director / VP of Product / Bar Raiser (ผู้ประเมินอิสระจากนอกทีม)</p>
+        <p><b>เป้าหมายหลักของรอบนี้:</b> ประเมิน Strategic Fit, Cultural Alignment (<a href="#agoda-culture-data" class="term-link">Data Trumps Opinion</a>, <a href="#agoda-culture-speed" class="term-link">Speed Over Perfection</a>) และ <a href="#bar-raiser-def" class="term-link">Intellectual Humility</a></p>
+        <ul>
+            <li><b>สิ่งที่โดนประเมิน:</b>
+                <ul>
+                    <li>ความสามารถในการรับมือโจทย์ <a href="#glossary-0to1" class="term-link">0-to-1 Ambiguity</a> และ <a href="#glossary-unitecon" class="term-link">Unit Economics</a></li>
+                    <li>การมองภาพใหญ่ระหว่างสเกลระดับโลกและความยืดหยุ่นท้องถิ่น (<a href="#glossary-global-local" class="term-link">Global Scalability vs Local Relevance</a>)</li>
+                    <li>การสื่อสารระดับผู้บริหารด้วย <a href="#bluf-def" class="term-link">BLUF Method</a></li>
+                </ul>
+            </li>
+            <li><b>คำถามยอดฮิตรอบ Bar Raiser:</b>
+                <ul>
+                    <li><i>"Tell me about a product decision you made that failed based on A/B test data. What did you learn and how did you handle it?"</i></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+        
+
+    <div class="star-card" id="sec5-round5-stress">
+        <h3>👑 5.6 จิตวิทยาการรับมือ "Stress Interview" ในรอบ Director / VP (Round 5)</h3>
+        <p>รอบ Director มักไม่ถามเชิงเทคนิคตรงๆ แต่จะ <b>กดดันเพื่อดูปฏิกิริยา (Stress Test)</b>:</p>
+        <ul>
+            <li>มักจะตัดบทด้วยคำถามสั้นๆ เช่น:
+                <ul>
+                    <li><i>"So what? เรื่องนี้จะเพิ่ม Bottom-line ให้ Agoda ได้กี่บาท?"</i></li>
+                    <li><i>"ถ้าผมบอกว่าไอเดียนี้ทีมเราเคยลองทำแล้วเมื่อ 2 ปีก่อนและ Fail เละเทะ คุณจะพูดยังไงต่อ?"</i></li>
+                </ul>
+            </li>
+        </ul>
+        <h4>แนวทางการตอบแบบ Non-Defensive, Data-Anchored & First-Principles</h4>
+        <ol>
+            <li><b>ไม่เถียง / ไม่ป้องกัน Ego</b> — ยอมรับข้อเท็จจริงที่ <a href="#glossary-interlocutor" class="term-link">interlocutor</a> โยนมา</li>
+            <li><b>ถามหา Context ในอดีต</b> — "ช่วยเล่าได้ไหมว่าตอนนั้นสมมติฐาน, Metric, และ Sample Size เป็นอย่างไร?"</li>
+            <li><b>เสนอวิธีทดสอบแบบ Low-Cost</b> — เพื่อ Validate ซ้ำด้วยข้อมูลปัจจุบัน (ตลาด/พฤติกรรมผู้ใช้อาจเปลี่ยน)</li>
+            <li><b>ผูกกับ Bottom-line ทันที</b> — แปลงไอเดียเป็น $ Impact, <a href="#glossary-roomnight" class="term-link">Room Nights</a>, หรือ <a href="#glossary-takerate" class="term-link">Take Rate</a> ภายใน 1–2 ประโยค</li>
+        </ol>
+        <div class="script-box-en">
+            <p><b>ตัวอย่างคำตอบเมื่อถูกบอกว่า "เคย Fail แล้ว":</b><br/>
+            <i>"That's really useful context — thank you. I'd love to understand what the hypothesis, primary metric, and sample size were at the time. Markets and user behavior can shift; if the failure was driven by a specific constraint that no longer holds, I'd propose a low-cost re-validation (e.g., 5% traffic feature flag) with clear guardrails. If the underlying economics still don't work, I'll drop it and move on — data over ego."</i></p>
+        </div>
+        <div class="script-box-en">
+            <p><b>ตัวอย่างคำตอบเมื่อถูกถาม "So what? Bottom-line เท่าไหร่?":</b><br/>
+            <i>"Assuming we lift conversion by 1% on a segment that drives ~X <a href="#glossary-roomnight" class="term-link">Room Nights</a> per month at an average <a href="#glossary-takerate" class="term-link">Take Rate</a> of Y%, the incremental Net Revenue after expected cancellation would be roughly $Z per month. I'd validate that with a phased experiment and stop if guardrails on cancel rate or support contact rate are breached."</i></p>
+        </div>
+    </div>
+
     <!-- 9.5 -->
     <div class="star-card" id="agoda-lead-swe-positioning">
-        <h3>🏛️️ 3.5 เป็น Lead SWE มานาน 6 ปี: 3 กลยุทธ์การตอบและวาง Positioning</h3>
+        <h3>🏛️️ 5.7 เป็น Lead SWE มานาน 6 ปี: 3 กลยุทธ์การตอบและวาง Positioning</h3>
         <p><b>ข้อกังวลที่ผู้สัมภาษณ์อาจตั้งคำถาม:</b> <i>"คุณเป็น Technical Lead / Lead Software Engineer มานานถึง 6 ปี (จากประสบการณ์วิศวกรรมรวม 11 ปี) คุณจะติดนิสัยอยากลงไปเขียนโค้ดเอง ไมโครเมเนจทีม Dev หรือมองข้ามภาพรวมธุรกิจและผู้ใช้หรือไม่?"</i></p>
         
         <div class="example-box">
             <h4>💡 3 กลยุทธ์การตอบและวาง Positioning เพื่อเปลี่ยนข้อกังวลให้กลายเป็นจุดแข็งที่สุด:</h4>
             <ol>
                 <li><b>Reframe บทบาท Lead SWE ให้เป็น "Product-Minded Engineering Leadership":</b><br/>
-                ชี้แจงว่าในช่วง 6 ปีที่ผ่านมา งานของคุณไม่ใช่การนั่งเขียนโค้ดทั้งวันอีกต่อไป แต่งานกว่า 70% คือการประสานงานกับ PM และ Business Stakeholders เพื่อทำ Solution Design, ประเมิน Technical Feasibility, ทำ High-Level Sizing, และเขียน BDD Acceptance Criteria ที่ปิดช่องโหว่ทางเทคนิค คุณทำงานในหมวกของ Technical Product Owner มาอย่างต่อเนื่อง</li>
+                ชี้แจงว่าในช่วง 6 ปีที่ผ่านมา งานของคุณไม่ใช่การนั่งเขียนโค้ดทั้งวันอีกต่อไป แต่งานกว่า 70% คือการประสานงานกับ PM และ Business Stakeholders เพื่อทำ Solution Design, ประเมิน Technical Feasibility, ทำ High-Level Sizing, และเขียน <a href="#glossary-bdd-ac" class="term-link">BDD Acceptance Criteria</a> ที่ปิดช่องโหว่ทางเทคนิค คุณทำงานในหมวกของ Technical Product Owner มาอย่างต่อเนื่อง</li>
                 
                 <li><b>ประกาศหลักการ "Separation of Concerns" อย่างชัดเจน:</b><br/>
                 แสดงให้เห็นถึงวุฒิภาวะว่าคุณเข้าใจบทบาทของ PM อย่างถ่องแท้ว่า <i>"PM เป็นเจ้าของ 'What' และ 'Why' (ปัญหาของผู้ใช้และผลลัพธ์ทางธุรกิจ) ส่วน Tech Lead และทีมวิศวกรเป็นเจ้าของ 'How' (สถาปัตยกรรมและการเขียนโค้ด)"</i> หน้าที่ของคุณในฐานะ PM ไม่ใช่การบอกให้ Dev เขียนโค้ดอย่างไร แต่เป็นการปกป้องทีมจากความคลุมเครือ และช่วยตั้ง Technical Guardrails ให้ทีมส่งมอบงานได้เร็วขึ้น</li>
@@ -1427,7 +1835,7 @@
 
     <!-- 9.6 -->
     <div class="star-card" id="candidate-pros-cons">
-        <h3>🏛️️ 3.6 การตอบคำถามข้อดี-ข้อเสียส่วนตัว (Pros & Cons / Weakness Strategy)</h3>
+        <h3>🏛️️ 5.8 การตอบคำถามข้อดี-ข้อเสียส่วนตัว (Pros & Cons / Weakness Strategy)</h3>
         <p><b>โจทย์คำถามยอดฮิตในรอบสัมภาษณ์ Behavioral / Cultural Fit:</b> <i>"อะไรคือจุดแข็งและจุดอ่อนที่สุดของคุณ? และทำไมถึงตัดสินใจลาออกจากองค์กรเดิมที่ทำมานานถึง 11 ปี?"</i></p>
 
         <div class="example-box">
@@ -1443,7 +1851,7 @@
             <p><b>💬 สคริปต์การตอบภาษาไทย:</b><br/>
             <i>"ถ้าพูดอย่างตรงไปตรงมา จุดอ่อนของผมคือผมเป็นคนที่ค่อนข้าง Risk-Averse ต่อการเปลี่ยนแปลงสภาพแวดล้อมใหญ่ๆ อย่างการย้ายบริษัทครับ ด้วยความที่ผมเน้นสร้างความสัมพันธ์ลึกซึ้งกับทีม เข้าใจระบบและบริบทขององค์กรเดิมอย่างถ่องแท้ (11 ปีในสายงาน SWE/PO) ผมจึงค่อนข้างอยู่ใน Comfort Zone และไม่ได้เป็นคนที่ย้ายงานบ่อยๆ<br/><br/>
             แต่จุดเปลี่ยนคือ ผมเริ่มตระหนักว่าการเป็น Senior Product Manager ที่ดีและสร้าง High Impact ได้อย่างจริงจัง ผมไม่สามารถติดอยู่ในกรอบความคุ้นเคยเดิมๆ ได้ตลอดไป ผมจำเป็นต้องท้าทายตัวเองในสภาพแวดล้อมใหม่ที่มีสเกลงานกว้างขึ้น และมี Pace ที่เร็วขึ้น<br/><br/>
-            การมาสัมภาษณ์ที่ Agoda วันนี้จึงถือเป็น Calculated Risk และการก้าวออกจาก Comfort Zone ครั้งสำคัญของผม เพราะผมมองว่า Agoda มี Data & Experimentation Culture ที่เข้มข้น และมีสเกลระดับ Global ซึ่งเป็นสนามที่คุ้มค่าที่สุดในการผลักดันให้ผมก้าวข้ามขีดจำกัดเดิม และนำเอา Technical & Execution Rigor ที่ผมมี มาสร้าง Value ใหม่ๆ ที่นี่ครับ"</i></p>
+            การมาสัมภาษณ์ที่ Agoda วันนี้จึงถือเป็น Calculated Risk และการก้าวออกจาก Comfort Zone ครั้งสำคัญของผม เพราะผมมองว่า Agoda มี Data & Experimentation Culture ที่เข้มข้น และมีสเกลระดับ Global ซึ่งเป็นสนามที่คุ้มค่าที่สุดในการผลักดันให้ผมก้าวข้ามขีดจำกัดเดิม และนำเอา Technical & <a href="#glossary-rigor" class="term-link">Execution Rigor</a> ที่ผมมี มาสร้าง Value ใหม่ๆ ที่นี่ครับ"</i></p>
         </div>
 
         <div class="script-box-en">
@@ -1457,7 +1865,7 @@
 
     <!-- 9.7 -->
     <div class="star-card" id="background-comparison">
-        <h3>🏛️️ 3.7 เปรียบเทียบข้อได้เปรียบ - ข้อเสียเปรียบ ของเราเทียบกับ Candidate Background อื่นๆ</h3>
+        <h3>🏛️️ 5.9 เปรียบเทียบข้อได้เปรียบ - ข้อเสียเปรียบ ของเราเทียบกับ Candidate Background อื่นๆ</h3>
         <p><b>โจทย์คำถามลองเชิง:</b> <i>"ในบรรดาผู้สมัครที่มี Background หลากหลาย เช่น Business/MBA, UX/UI Design หรือ Management Consultant ทำไม Agoda ถึงควรเลือกคุณที่เป็น Ex-SWE 11 ปี (Lead SWE 6 ปี)?"</i></p>
 
         <div class="table-responsive">
@@ -1474,14 +1882,14 @@
                     <tr>
                         <td><b>Ex-SWE / Tech Lead (โปรไฟล์ของเรา) 🏆</b></td>
                         <td>
-                            • Technical Gravitas & Trust จาก Dev<br/>
+                            • <a href="#glossary-tech-gravitas" class="term-link">Technical Gravitas</a> & Trust จาก Dev<br/>
                             • เขียน AC & Edge Cases ได้รัดกุมมาก<br/>
                             • ประเมิน Sizing & Architecture Risks สมจริง
                         </td>
                         <td>
                             • เสี่ยงติดคราบ Dev (Solution-First)<br/>
                             • เสี่ยงเน้น Over-engineering MVP<br/>
-                            • ต้องเติมเต็ม Commercial Acumen
+                            • ต้องเติมเต็ม <a href="#glossary-commercial-acumen" class="term-link">Commercial Acumen</a>
                         </td>
                         <td>
                             <b>ใช้ Data-Driven Problem-First Framing:</b> ถอยมาเริ่มที่ User Problem & Business ROI ก่อนคิด Solution แสดงความเด็ดขาดในการปล่อย MVP
@@ -1490,7 +1898,7 @@
                     <tr>
                         <td><b>Business / MBA PM 💼</b></td>
                         <td>
-                            • แม่นยำด้าน P&L, Unit Economics<br/>
+                            • แม่นยำด้าน <a href="#glossary-pl" class="term-link">P&L</a>, <a href="#glossary-unitecon" class="term-link">Unit Economics</a><br/>
                             • มองภาพใหญ่ระดับ Market Strategy ได้ดี
                         </td>
                         <td>
@@ -1536,233 +1944,17 @@
 
         <div class="script-box">
             <p><b>💬 สคริปต์สรุปจุดขายในห้องสัมภาษณ์:</b><br/>
-            <i>"PM สาย Business หรือ Design อาจจะเก่งเรื่องภาพรวมตลาดหรือ Wireframe แต่ข้อได้เปรียบของผมในฐานะ Ex-SWE 11 ปี (Lead SWE 6 ปี) คือ <b>'Execution Speed & High Technical Trust'</b> ครับ ผมสามารถแปลข้อกำหนดทางธุรกิจให้กลายเป็น Jira AC ที่ปราศจากความก้ำกึ่ง ช่วยให้ทีม Dev เริ่มต้นโค้ดได้ทันที ลดเวลาในประชุม Refinement ลงได้กว่าครึ่ง และคุ้มครองระบบด้วย Quality Guardrails ทำให้ทุกการปล่อย A/B Test บน Agoda เป็นไปอย่างรวดเร็วและปลอดภัยครับ"</i></p>
+            <i>"PM สาย Business หรือ Design อาจจะเก่งเรื่องภาพรวมตลาดหรือ <a href="#glossary-wireframes" class="term-link">Wireframe</a> แต่ข้อได้เปรียบของผมในฐานะ Ex-SWE 11 ปี (Lead SWE 6 ปี) คือ <b>'Execution Speed & High Technical Trust'</b> ครับ ผมสามารถแปลข้อกำหนดทางธุรกิจให้กลายเป็น Jira AC ที่ปราศจากความก้ำกึ่ง ช่วยให้ทีม Dev เริ่มต้นโค้ดได้ทันที ลดเวลาในประชุม Refinement ลงได้กว่าครึ่ง และคุ้มครองระบบด้วย Quality Guardrails ทำให้ทุกการปล่อย A/B Test บน Agoda เป็นไปอย่างรวดเร็วและปลอดภัยครับ"</i></p>
         </div>
     </div>     
-<!-- SECTION 4 (Culture, Pet Feature & 20 Questions) -->
-    <h2 id="sec4">4. 🏢 วัฒนธรรมองค์กร, ข้อควรระวัง, Pet Feature Management และคลังคำถามสัมภาษณ์ 20 ข้อ</h2>
-    
-    <h3 id="agoda-culture">4.1 เจาะลึกวัฒนธรรม Agoda: "Data Trumps Opinion" & "Speed Over Perfection"</h3>
-    
-    <div class="star-card" id="agoda-culture-data">
-        <h3>📊 1. "Data Trumps Opinion" (ข้อมูลชนะทุกความคิดเห็น)</h3>
-        <p>ที่ Agoda ยศ ตำแหน่ง หรือประสบการณ์ยาวนานของผู้บริหาร ไม่สามารถสั่งการหรือตัดสินใจเปลี่ยนทิศทาง Product ได้ หากไม่มี Data ทางสถิติมาพิสูจน์:</p>
-
-        <ul>
-            <li><b>Lifting the HiPPO Syndrome:</b> กำจัดอิทธิพลของ HiPPO (Highest Paid Person's Opinion) หากผู้บริหารระดับสูงอยากได้ฟีเจอร์ แต่ไม่มี Data รองรับ PM มีหน้าที่เสนอการรัน Small-scale A/B Test (เช่น 5% Traffic) เพื่อเก็บ Data มาพิสูจน์ก่อนสเกลจริง</li>
-            <li><b>A/B Testing as the Ultimate Judge:</b> ทุกการเปลี่ยนแปลงบน UI/Backend Optimization จะต้องผ่านการพิสูจน์ด้วย A/B Experimentation Framework โดยต้องได้ค่า Statistical Significance (<a href="#glossary-pvalue" class="term-link">p-value &lt; 0.05</a>) และไม่ส่งผลกระทบเชิงลบต่อ <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a></li>
-            <li><b>Intellectual Humility:</b> การยอมรับว่าสมมติฐานของตนเองผิดเมื่อ Data ออกมาเป็น Negative ผลทดสอบทีเคยมองว่าดี อาจล้มเหลวในความเป็นจริง ซึ่ง Agoda ชื่นชม PM ที่กล้าสั่ง Rollback ทันทีเมื่อเห็น Data ชัดเจน</li>
-        </ul>
-    </div>
-
-    <div class="star-card" id="pet-feature-def">
-        <h3>🐶 Pet Feature & Managing Upwards Strategy (การบริหารจัดการฟีเจอร์โปรดของผู้บริหาร)</h3>
-        <p><b>ความหมาย (Definition):</b> "Pet Feature" คือฟีเจอร์ที่ถูกดันโดยผู้บริหารระดับสูง (**HiPPO** - Highest Paid Person's Opinion) จากความชอบส่วนตัวหรือ Gut Feeling โดยที่ยังไม่มี Data หรือ User Research มาสนับสนุน</p>
-        
-        <div class="example-box">
-            <h4>💡 กลยุทธ์ 3 ขั้นตอนในการจัดการ Pet Feature ตามวัฒนธรรม "Data Trumps Opinion":</h4>
-            <ol>
-                <li><b>1. Don't Say No Blindly (หลีกเลี่ยงการโต้แย้งด้วยความรู้สึก):</b> รับฟังสมมติฐานเชิงธุรกิจของผู้บริหาร และแปลงความคิดเห็นนั้นให้กลายเป็น <b>Testable Hypothesis</b> ร่วมกัน</li>
-                <li><b>2. Propose Low-Cost A/B Test (เสนอ MVP สเกลเล็ก):</b> สกัด Scope ให้เหลือเพียง MVP ที่ใช้ Effort ต่ำที่สุด (เช่น ปล่อย Feature Flag เพียง 5% Traffic หรือใช้ Wizard of Oz UI) เพื่อประหยัด Engineering Bandwidth</li>
-                <li><b>3. Define Guardrail Metrics & Data Agreement Upfront:</b> ตกลง Success Metrics และ Guardrail Metrics ร่วมกันตั้งแต่วันแรก หากผล A/B Test ออกมาเป็น Negative (p-value &gt; 0.05) PM ใช้นำ Data นี้รายงานผู้บริหารเพื่อสั่ง Rollback อย่างราบรื่นโดยไม่กระทบความสัมพันธ์</li>
-            </ol>
-        </div>
-    </div>
-
-    <div class="star-card" id="agoda-culture-speed">
-        <h3>⚡ 2. "Speed Over Perfection" (ความเร็วสำคัญกว่าความสมบูรณ์แบบ)</h3>
-        <p>ปรัชญาการทำงานที่เน้นการเรียนรู้จริงจากตลาดให้เร็วที่สุด ผ่านการปล่อยของและทดลองอย่างต่อเนื่อง:</p>
-
-        <ul>
-            <li><b>High Experimentation Velocity:</b> Agoda รัน A/B Tests พร้อมกันนับพันแบบตลอดเวลา เน้นปล่อย Minimum Viable Product (MVP) เพื่อทดสอบสมมติฐานในวันแรก ดีกว่าใช้เวลา 6 เดือนสร้างระบบที่คิดว่าสมบูรณ์แบบแต่ไม่มีใครใช้</li>
-            <li><b>The 80/20 Execution Rule:</b> มองหา Solution ที่ใช้ Effort เพียง 20% แต่สร้าง Business Value ได้ 80% แล้วค่อยทำ Phase 2 Iteration เมื่อ Data ยืนยันว่ามาถูกทาง</li>
-            <li><b>Safety Net for Speed:</b> ความเร็วไม่ได้แปลว่าปล่อยของมั่วซั่ว แต่เป็นการซัพพอร์ตด้วย Infrastructure ที่แข็งแกร่ง เช่น Automated Test Coverage (&gt;90%), Feature Flags คุมการเปิด-ปิด, และ One-Click Rollback หากเกิด Incident</li>
-        </ul>
-    </div>
-
-    <div class="alert-box" id="culture-red-flags">
-        <b>⚠ Red Flags ที่ต้องระวังในห้องสัมภาษณ์:</b> พูดถึงการทำ Feature โดยไม่เอ่ยถึง Problem หรือ Metric วัดผล, ตอบเยิ่นเย้อไม่ใช้หลัก <a href="#bluf-def" class="term-link">BLUF</a>, และการโยนความผิดให้ทีมอื่น
-    </div>
-
-    <h3 id="interview-questions-bank">4.3 คลังคำถามสัมภาษณ์ยอดฮิต 20 ข้อ (20 Most Frequent Interview Questions Table)</h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>คำถามสัมภาษณ์ (Interview Question)</th>
-                    <th>รอบ</th>
-                    <th>โอกาสเจอ (%)</th>
-                    <th>แนวทาง/กลยุทธ์การตอบ (Response Strategy)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>Design a new feature for business travelers.</td><td>Round 2</td><td><b>90%</b></td><td>ใช้ <a href="#circles-script" class="term-link">CIRCLES Method</a> ตั้งเป้า เลือก Persona และ <a href="#rice-example" class="term-link">RICE</a></td></tr>
-                <tr><td>2</td><td>App Conversion dropped 7% yesterday. How to investigate?</td><td>Round 2/3</td><td><b>85%</b></td><td>ใช้ <a href="#rca-4step" class="term-link">4-Step RCA</a>: External ➡️ Dimensions ➡️ Funnel ➡ Tech Logs</td></tr>
-                <tr><td>3</td><td>Eng wants Refactoring vs Business wants Songkran Promo.</td><td>Round 3</td><td><b>90%</b></td><td>เสนอ Phased Compromise (ทำ MVP Promo + แบ่ง 30% Capacity Refactor)</td></tr>
-                <tr><td>4</td><td>Prioritize 5 feature requests from 5 country managers.</td><td>Round 2/4</td><td><b>80%</b></td><td>ใช้ <a href="#rice-example" class="term-link">RICE Score</a> + Platform Scalability สร้าง Common Config Engine</td></tr>
-                <tr><td>5</td><td>A/B Test shows +3% conversion, but +5% support tickets. Ship it?</td><td>Round 2/3</td><td><b>85%</b></td><td>คำนวณ Net Impact หักลบ Support Cost จาก <a href="#glossary-guardrail" class="term-link">Guardrail Metric</a> ก่อนตัดสินใจ</td></tr>
-                <tr><td>6</td><td>Estimate daily hotel bookings in Bangkok in Peak Season.</td><td>Round 2</td><td><b>60%</b></td><td>ใช้ Top-Down Fermi: Hotel Rooms x Occupancy Rate x Agoda Share</td></tr>
-                <tr><td>7</td><td>Build BNPL engine in-house or integrate third-parties?</td><td>Round 2/3</td><td><b>75%</b></td><td>ใช้ Build vs Buy: Integrate ก่อนเพื่อทดสอบ Demand (<a href="#bnpl-engine-def" class="term-link">ดู BNPL Deep-Dive</a>)</td></tr>
-                <tr><td>8</td><td>Tell me about a disagreement with a Tech Lead on Architecture.</td><td>Round 4</td><td><b>85%</b></td><td>เน้น Data-backed Discussion และมุ่งเน้นที่ Customer Impact เป็นหลัก</td></tr>
-                <tr><td>9</td><td>Tell me about a feature you shipped that failed completely.</td><td>Round 4</td><td><b>90%</b></td><td>โชว์ <a href="#bar-raiser-def" class="term-link">Intellectual Humility</a> & <a href="#rca-def" class="term-link">Blameless RCA</a> สั่ง Rollback ทันทีด้วย Data</td></tr>
-                <tr><td>10</td><td>How does latency impact conversion? How to set SLA with Devs?</td><td>Round 3</td><td><b>80%</b></td><td>อธิบาย Latency Curve (ช้าลง 100ms Conversion Drop ~1%) ตั้ง <a href="#glossary-guardrail" class="term-link">p95 Guardrail Metric</a></td></tr>
-                <tr><td>11</td><td>A Senior VP pushes a pet feature without data. How to handle?</td><td>Round 4/5</td><td><b>85%</b></td><td>ใช้หลัก <a href="#agoda-culture-data" class="term-link">Data Trumps Opinion</a> (<a href="#pet-feature-def" class="term-link">ดู Pet Feature Strategy</a>) เสนอ MVP A/B Test 5%</td></tr>
-                <tr><td>12</td><td>Agoda wants to expand into long-term rentals. First 30 days?</td><td>Round 2/5</td><td><b>70%</b></td><td>ใช้ <a href="#onboarding-plan" class="term-link">30-Day Discovery Plan</a>: Customer Interviews ➡️ Market ➡️ <a href="#glossary-unitecon" class="term-link">Unit Economics</a></td></tr>
-                <tr><td>13</td><td>How to leverage GenAI for hotel review summarization?</td><td>Round 2/3</td><td><b>80%</b></td><td>ใช้ <a href="#ai-rag-def" class="term-link">RAG Architecture</a> สรุป 3 Key Bullets + มอนิเตอร์ Latency & Hallucination</td></tr>
-                <tr><td>14</td><td>QA discovers a non-blocking P1 bug 2 hours before release.</td><td>Round 3</td><td><b>75%</b></td><td>คุม Risk เปิดตัวใต้ Feature Flag 10% Traffic พร้อมเตรียม Hotfix Branch</td></tr>
-                <tr><td>15</td><td>How to manage 3 distinct pods without meeting fatigue?</td><td>Round 3/4</td><td><b>85%</b></td><td>บริหาร <a href="#primary-secondary-pods" class="term-link">Primary vs Secondary Pods</a> ใช้ Async Standups via Slack</td></tr>
-                <tr><td>16</td><td>What is Sample Ratio Mismatch (SRM) and how to handle?</td><td>Round 3</td><td><b>70%</b></td><td>สุ่มทราฟฟิกผิดปกติ ให้สั่ง Pause Test ทันที ตรวจสอบ Bot/Event Tagging (<a href="#glossary-srm" class="term-link">ดู SRM</a>)</td></tr>
-                <tr><td>17</td><td>How to handle hotel rate-parity issues against competitors?</td><td>Round 2/3</td><td><b>65%</b></td><td>ใช้ Dynamic Pricing Engine + Top-up Coupons/Agoda Cash ดึงราคากลับมา</td></tr>
-                <tr><td>18</td><td>Why Agoda over Booking.com? What is our structural vulnerability?</td><td>Round 5</td><td><b>80%</b></td><td>วิเคราะห์ APAC Dominance vs ความจำเป็นในการเร่งขยาย Non-Accommodation (<a href="#comp-matrix" class="term-link">ดู Matrix</a>)</td></tr>
-                <tr><td>19</td><td>How to mentor a junior engineer/PM missing timelines?</td><td>Round 4</td><td><b>75%</b></td><td>ใช้ Task Decomposition แตกงานเป็น Micro-tasks 1-2 วัน + 1-on-1 Coaching</td></tr>
-                <tr><td>20</td><td>When to deprecate a feature with low usage but high maintenance?</td><td>Round 3/4</td><td><b>70%</b></td><td>ทำ Cost-Benefit Analysis สั่ง Soft Deprecate -> Notice 30 วัน -> Decommission</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    
-<!-- SECTION 5 (Interview Process Deep-Dive) -->
-    <h2 id="sec5">5. 🎯 เจาะลึกกระบวนการสัมภาษณ์ Agoda Senior PM แต่ละรอบ (Round 1 - Round 5 Deep-Dive)</h2>
-    
-    <div class="star-card">
-        <h3>📞 Round 1: Talent Acquisition / HR Screening Call (30-45 นาที)</h3>
-        <p><b>ผู้สัมภาษณ์:</b> Senior Recruiter / Talent Acquisition Specialist</p>
-        <p><b>เป้าหมายหลักของรอบนี้:</b> คัดกรองเบื้องต้น ตรวจสอบ Profile Fit, Communication Skill, Motivation และ Salary Expectation Alignment</p>
-        <ul>
-            <li><b>สิ่งที่โดนประเมิน:</b>
-                <ul>
-                    <li>ภาษาอังกฤษในการสื่อสาร (เน้นความชัดเจน ตรงประเด็น สื่อสารสไตล์ BLUF)</li>
-                    <li>เหตุผลที่อยากมาร่วมงานกับ Agoda (แสดงความตั้งใจที่เลือก Agoda เป็น First Priority)</li>
-                    <li>การอธิบาย Career History สั้นกระชับ (โชว์ Transition จาก SWE 11 YOE ➡️ Product Leadership)</li>
-                </ul>
-            </li>
-            <li><b>คำถามยอดฮิตรอบ HR:</b>
-                <ul>
-                    <li><i>"Tell me about yourself and why do you want to transition to Senior PM at Agoda?"</i></li>
-                    <li><i>"What is your current compensation and expected salary?"</i> ➡ ใช้กลยุทธ์ตาม <a href="#sec11">Section 11 (Compensation & Negotiation)</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <div class="star-card">
-        <h3>🎨 Round 2: Product Sense & Design Case Round (60 นาที)</h3>
-        <p><b>ผู้สัมภาษณ์:</b> Senior Product Manager / Lead PM</p>
-        <p><b>เป้าหมายหลักของรอบนี้:</b> ทดสอบทักษะการคิดเชิง Product (Product Intuition) และการแก้โจทย์ไร้โครงสร้าง (Ambiguity)</p>
-        <ul>
-            <li><b>สิ่งที่โดนประเมิน:</b>
-                <ul>
-                    <li>ความสามารถในการใช้โครงสร้างแก้โจทย์ เช่น <a href="#circles-script" class="term-link">CIRCLES Method</a></li>
-                    <li>การตั้งเป้าหมาย (<a href="#glossary-northstar" class="term-link">North Star</a> / <a href="#glossary-primary" class="term-link">Primary Metric</a>) และการเลือก User Persona</li>
-                    <li>การทำ Prioritization ด้วย <a href="#rice-example" class="term-link">RICE</a> หรือ <a href="#moscow-def" class="term-link">MoSCoW</a></li>
-                </ul>
-            </li>
-            <li><b>ตัวอย่างโจทย์เคสสัมภาษณ์:</b>
-                <ul>
-                    <li><i>"Design a feature to improve hotel booking experience for family vacationers in SEA."</i> (ดูสคริปต์ตัวอย่างใน <a href="#circles-script" class="term-link">Section 4.1</a>)</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <div class="star-card">
-        <h3>📊 Round 3: Product Analytics & Technical Execution Round (60 นาที)</h3>
-        <p><b>ผู้สัมภาษณ์:</b> Lead PM / Product Director / Staff Data Analyst</p>
-        <p><b>เป้าหมายหลักของรอบนี้:</b> ทดสอบความแม่นยำด้าน Data, A/B Testing Mechanics, <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> และ Technical Trade-offs</p>
-        <ul>
-            <li><b>สิ่งที่โดนประเมิน:</b>
-                <ul>
-                    <li>การเจาะวิเคราะห์ปัญหาวิกฤตด้วย <a href="#rca-4step" class="term-link">4-Step Root Cause Analysis</a></li>
-                    <li>ความเข้าใจเรื่อง Statistical Significance, <a href="#glossary-pvalue" class="term-link">p-value</a>, และการรับมือ <a href="#glossary-srm" class="term-link">Sample Ratio Mismatch (SRM)</a></li>
-                    <li>ความเข้าใจด้าน Technical Architecture เช่น Latency vs Conversion Curve และ Caching (<a href="#arch-caching" class="term-link">Section 6.6</a>)</li>
-                </ul>
-            </li>
-            <li><b>ตัวอย่างโจทย์เคสสัมภาษณ์:</b>
-                <ul>
-                    <li><i>"Mobile App Conversion Rate dropped 7% yesterday. Walk me through your step-by-step investigation."</i></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <div class="star-card">
-        <h3>🤝 Round 4: Cross-functional Leadership & Behavioral Round (60 นาที)</h3>
-        <p><b>ผู้สัมภาษณ์:</b> Engineering Director / Senior Staff Engineer / Cross-functional Lead</p>
-        <p><b>เป้าหมายหลักของรอบนี้:</b> ประเมินทักษะการทำงานร่วมกับทีม Dev, การจัดการข้อขัดแย้ง (Conflict Resolution) และการบริหาร Stakeholders</p>
-        <ul>
-            <li><b>สิ่งที่โดนประเมิน:</b>
-                <ul>
-                    <li>ใช้ประวัติตัวเองเล่าเรื่องผ่าน <a href="#sec9">STAR Stories</a></li>
-                    <li>การบริหารความสัมพันธ์ระหว่าง Engineering กับ Product (<a href="#severity-matrix" class="term-link">P0/P1/P2 Triaging</a>)</li>
-                    <li>การสร้างวัฒนธรรมทีม การกำจัดจุดเสี่ยง <a href="#spof-def" class="term-link">SPOF</a>, <a href="#star-security" class="term-link">Cyber Security Remediation</a> และกระบวนการ Retrospective (<a href="#rca-def" class="term-link">Blameless RCA</a>)</li>
-                </ul>
-            </li>
-            <li><b>คำถามยอดฮิตรอบ Behavioral:</b>
-                <ul>
-                    <li><i>"Tell me about a time when Engineering disagreed with your Product Roadmap. How did you resolve it?"</i></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <div class="star-card">
-        <h3>👑 Round 5: Director / VP / Bar Raiser Interview (60 นาที)</h3>
-        <p><b>ผู้สัมภาษณ์:</b> Senior Director / VP of Product / Bar Raiser (ผู้ประเมินอิสระจากนอกทีม)</p>
-        <p><b>เป้าหมายหลักของรอบนี้:</b> ประเมิน Strategic Fit, Cultural Alignment (<a href="#agoda-culture-data" class="term-link">Data Trumps Opinion</a>, <a href="#agoda-culture-speed" class="term-link">Speed Over Perfection</a>) และ <a href="#bar-raiser-def" class="term-link">Intellectual Humility</a></p>
-        <ul>
-            <li><b>สิ่งที่โดนประเมิน:</b>
-                <ul>
-                    <li>ความสามารถในการรับมือโจทย์ <a href="#glossary-0to1" class="term-link">0-to-1 Ambiguity</a> และ <a href="#glossary-unitecon" class="term-link">Unit Economics</a></li>
-                    <li>การมองภาพใหญ่ระหว่างสเกลระดับโลกและความยืดหยุ่นท้องถิ่น (<a href="#glossary-global-local" class="term-link">Global Scalability vs Local Relevance</a>)</li>
-                    <li>การสื่อสารระดับผู้บริหารด้วย <a href="#bluf-def" class="term-link">BLUF Method</a></li>
-                </ul>
-            </li>
-            <li><b>คำถามยอดฮิตรอบ Bar Raiser:</b>
-                <ul>
-                    <li><i>"Tell me about a product decision you made that failed based on A/B test data. What did you learn and how did you handle it?"</i></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-        
-
-    <div class="star-card" id="sec5-round5-stress">
-        <h3>👑 5.5 จิตวิทยาการรับมือ "Stress Interview" ในรอบ Director / VP (Round 5)</h3>
-        <p>รอบ Director มักไม่ถามเชิงเทคนิคตรงๆ แต่จะ <b>กดดันเพื่อดูปฏิกิริยา (Stress Test)</b>:</p>
-        <ul>
-            <li>มักจะตัดบทด้วยคำถามสั้นๆ เช่น:
-                <ul>
-                    <li><i>"So what? เรื่องนี้จะเพิ่ม Bottom-line ให้ Agoda ได้กี่บาท?"</i></li>
-                    <li><i>"ถ้าผมบอกว่าไอเดียนี้ทีมเราเคยลองทำแล้วเมื่อ 2 ปีก่อนและ Fail เละเทะ คุณจะพูดยังไงต่อ?"</i></li>
-                </ul>
-            </li>
-        </ul>
-        <h4>แนวทางการตอบแบบ Non-Defensive, Data-Anchored & First-Principles</h4>
-        <ol>
-            <li><b>ไม่เถียง / ไม่ป้องกัน Ego</b> — ยอมรับข้อเท็จจริงที่ interlocutor โยนมา</li>
-            <li><b>ถามหา Context ในอดีต</b> — "ช่วยเล่าได้ไหมว่าตอนนั้นสมมติฐาน, Metric, และ Sample Size เป็นอย่างไร?"</li>
-            <li><b>เสนอวิธีทดสอบแบบ Low-Cost</b> — เพื่อ Validate ซ้ำด้วยข้อมูลปัจจุบัน (ตลาด/พฤติกรรมผู้ใช้อาจเปลี่ยน)</li>
-            <li><b>ผูกกับ Bottom-line ทันที</b> — แปลงไอเดียเป็น $ Impact, Room Nights, หรือ Take Rate ภายใน 1–2 ประโยค</li>
-        </ol>
-        <div class="script-box-en">
-            <p><b>ตัวอย่างคำตอบเมื่อถูกบอกว่า "เคย Fail แล้ว":</b><br/>
-            <i>"That's really useful context — thank you. I'd love to understand what the hypothesis, primary metric, and sample size were at the time. Markets and user behavior can shift; if the failure was driven by a specific constraint that no longer holds, I'd propose a low-cost re-validation (e.g., 5% traffic feature flag) with clear guardrails. If the underlying economics still don't work, I'll drop it and move on — data over ego."</i></p>
-        </div>
-        <div class="script-box-en">
-            <p><b>ตัวอย่างคำตอบเมื่อถูกถาม "So what? Bottom-line เท่าไหร่?":</b><br/>
-            <i>"Assuming we lift conversion by 1% on a segment that drives ~X Room Nights per month at an average Take Rate of Y%, the incremental Net Revenue after expected cancellation would be roughly $Z per month. I'd validate that with a phased experiment and stop if guardrails on cancel rate or support contact rate are breached."</i></p>
-        </div>
-    </div>
-
 
 <!-- SECTION 6 (Advanced Knowledge & Tech) -->
+    <div class="phase-banner" id="phase4">🅳️ ส่วนที่ 4: ความรู้เชิงลึกที่ต้องใช้ตอบ Round 2-4 <small>Deep-Dive Knowledge: A/B Testing, Business Model, Architecture, Marketing, Glossary</small></div>
     <h2 id="sec6">6. 🧠 คลังความรู้เชิงลึก: A/B Testing Mechanics, Competitive Matrix, Architecture, BNPL Engine & Bottom-line Trade-off</h2>
     
     <h3>6.1 CIRCLES, MoSCoW & 4-Step RCA Refinements</h3>
     <ul>
-        <li id="circles-def"><b>CIRCLES Method:</b> <code>C</code>omprehend Context ➡️ <code>I</code>dentify Personas ➡️ <code>R</code>eport Needs ➡️ <code>C</code>ut Prioritization ➡️ <code>L</code>ist Solutions ➡️ <code>E</code>valuate Trade-offs ➡ <code>S</code>ummarize (ดูบทพูดตัวอย่างแบบเต็มที่ <a href="#circles-script" class="term-link">CIRCLES Case Script</a>)</li>
+        <li id="circles-def"><b>CIRCLES Method:</b> <b>C</b>omprehend Context ➡️ <b>I</b>dentify Personas ➡️ <b>R</b>eport Needs ➡️ <b>C</b>ut Prioritization ➡️ <b>L</b>ist Solutions ➡️ <b>E</b>valuate Trade-offs ➡️ <b>S</b>ummarize (ดูบทพูดตัวอย่างแบบเต็มที่ <a href="#circles-script" class="term-link">CIRCLES Case Script</a>)</li>
     </ul>
 
     <div class="star-card" id="moscow-def">
@@ -1787,7 +1979,7 @@
                     <li><i>Traffic Source:</i> ตกเฉพาะ Paid Search หรือ Direct Organic?</li>
                 </ul>
             </li>
-            <li><b>Step 3: Funnel Drop-off Analysis (เจาะลึก Funnel ขั้นตอนที่หลุด):</b> ดูว่า Drop-off เกิดขึ้น ณ Touchpoint ไหน:
+            <li><b>Step 3: <a href="#glossary-funnel" class="term-link">Funnel Drop-off</a> Analysis (เจาะลึก Funnel ขั้นตอนที่หลุด):</b> ดูว่า Drop-off เกิดขึ้น ณ Touchpoint ไหน:
                 <code>Search PDP ➡️ Room Selection ➡️ Guest Details ➡️ Payment Page ➡️ Booking Confirmation</code>
                 (ถ้าตกเฉพาะช่วง Payment Page แสดงว่าปัญหามีความเชื่อมโยงกับ Payment Gateway หรือ Form Validation)</li>
             <li><b>Step 4: Technical & Logs Inspection (ตรวจเช็กหลังบ้าน):</b> ดึงข้อมูล APM (DataDog, CloudWatch) ตรวจดู:
@@ -1815,7 +2007,7 @@
                 <tr>
                     <td><b>Agoda</b> 🏆</td>
                     <td>Merchant-First (APAC Focus)</td>
-                    <td>Price Leadership, Dynamic Discounting/Coupons, Deep APAC Supply</td>
+                    <td>Price Leadership, Dynamic Discounting/Coupons, <a href="#glossary-deep-apac-supply" class="term-link">Deep APAC Supply</a></td>
                     <td>กำลังเร่งขยายสัดส่วน Non-Accommodation (Flights/Packages)</td>
                 </tr>
                 <tr>
@@ -1848,10 +2040,10 @@
         <div class="example-box">
             <h4>💡 4 เสาหลัก คูเมืองทางธุรกิจ (Agoda's 4 Core Competitive Moats):</h4>
             <ol>
-                <li><b>1. Deep Local APAC Supply Network (คูเมืองด้านห่วงโซ่อุปทานท้องถิ่น):</b> Agoda สะสมความสัมพันธ์และสัญญาตรงกับผู้ประกอบการโรงแรม ที่พัก B&amp;B และ Agoda Homes ในภูมิภาคเอเชียแปซิฟิกมายาวนานนับสิบปี มีทีม Partner Services ประจำท้องถิ่นดูแลเฉพาะจุด ซึ่งเป็นสินทรัพย์ที่ผู้เล่นหน้าใหม่ไม่สามารถใช้เงินซื้อได้ในเวลาอันสั้น</li>
-                <li><b>2. Dynamic Pricing & Yield Management Engine (คูเมืองด้านเทคโนโลยีราคา):</b> ระบบหลังบ้านอันทรงพลังที่คำนวณและปรับเปลี่ยนราคาส่วนลดซ้อนส่วนลด (Agoda Cash + Bank Coupons + VIP Tier Discounts + Wholesale Margin Adjustment) แบบ Real-time ทำให้ Agoda รักษาสถานะ **"Price Leader" (ผู้นำด้านราคาถูกที่สุดใน APAC)** ได้ตลอดเวลา</li>
-                <li><b>3. High-Velocity Experimentation & Data Infrastructure (คูเมืองด้านข้อมูล):</b> วัฒนธรรมการรัน A/B Test พร้อมกันหลายร้อยการทดลองบน Production Traffic หลายสิบล้านคนต่อวัน ทำให้ Agoda รู้จักพฤติกรรมผู้ใช้และสามารถปรับ UX/UI เพื่อดัน Conversion Rate ได้เร็วกว่าคู่แข่งหลายเท่า</li>
-                <li><b>4. Two-Sided Network Effects & Economies of Scale (คูเมืองด้านสเกลและเครือข่าย):</b> จำนวนผู้ใช้งานหลายสิบล้านคนดึงดูดให้โรงแรมยอมมอบ Exclusive Rates และ Inventory พิเศษให้ Agoda และเมื่อ Agoda ได้ราคาดีที่สุด ก็ยิ่งดึงดูดผู้ใช้งานใหม่ๆ เข้ามาจองเพิ่มขึ้น เกิดเป็น **Flywheel Effect** ที่หมุนเร่งการเติบโตอย่างต่อเนื่อง</li>
+                <li><b>Deep Local APAC Supply Network (คูเมืองด้านห่วงโซ่อุปทานท้องถิ่น):</b> Agoda สะสมความสัมพันธ์และสัญญาตรงกับผู้ประกอบการโรงแรม ที่พัก B&amp;B และ Agoda Homes ในภูมิภาคเอเชียแปซิฟิกมายาวนานนับสิบปี มีทีม Partner Services ประจำท้องถิ่นดูแลเฉพาะจุด ซึ่งเป็นสินทรัพย์ที่ผู้เล่นหน้าใหม่ไม่สามารถใช้เงินซื้อได้ในเวลาอันสั้น</li>
+                <li><b>Dynamic Pricing & Yield Management Engine (คูเมืองด้านเทคโนโลยีราคา):</b> ระบบหลังบ้านอันทรงพลังที่คำนวณและปรับเปลี่ยนราคาส่วนลดซ้อนส่วนลด (Agoda Cash + Bank Coupons + VIP Tier Discounts + Wholesale Margin Adjustment) แบบ Real-time ทำให้ Agoda รักษาสถานะ **"Price Leader" (ผู้นำด้านราคาถูกที่สุดใน APAC)** ได้ตลอดเวลา</li>
+                <li><b>High-Velocity Experimentation & Data Infrastructure (คูเมืองด้านข้อมูล):</b> วัฒนธรรมการรัน A/B Test พร้อมกันหลายร้อยการทดลองบน Production Traffic หลายสิบล้านคนต่อวัน ทำให้ Agoda รู้จักพฤติกรรมผู้ใช้และสามารถปรับ UX/UI เพื่อดัน Conversion Rate ได้เร็วกว่าคู่แข่งหลายเท่า</li>
+                <li><b>Two-Sided Network Effects & Economies of Scale (คูเมืองด้านสเกลและเครือข่าย):</b> จำนวนผู้ใช้งานหลายสิบล้านคนดึงดูดให้โรงแรมยอมมอบ Exclusive Rates และ Inventory พิเศษให้ Agoda และเมื่อ Agoda ได้ราคาดีที่สุด ก็ยิ่งดึงดูดผู้ใช้งานใหม่ๆ เข้ามาจองเพิ่มขึ้น เกิดเป็น <a href="#glossary-flywheel" class="term-link">**Flywheel Effect**</a> ที่หมุนเร่งการเติบโตอย่างต่อเนื่อง</li>
             </ol>
         </div>
 
@@ -1881,7 +2073,7 @@
                         <td>ลูกค้าไปจ่ายเงินสด/บัตรที่โรงแรม → โรงแรมค่อยจ่ายคอมมิชชั่นทีหลัง</td>
                     </tr>
                     <tr>
-                        <td><b>Cash Float / Working Capital</b></td>
+                        <td><b>Cash Float / <a href="#glossary-financial-lingo" class="term-link">Working Capital</a></b></td>
                         <td><b>สูงมาก</b> — Agoda ถือเงินลูกค้าชั่วคราวก่อนโอนให้โรงแรม</td>
                         <td>ต่ำ — ไม่ถือเงินลูกค้า</td>
                     </tr>
@@ -1900,14 +2092,14 @@
         </div>
         <div class="example-box">
             <b>💡 ประโยคเด็ดในห้องสัมภาษณ์:</b><br/>
-            <i>"Because Agoda operates primarily on a Merchant Model, we hold significant cash float. That gives us freedom to run Dynamic Margin and Mix & Save campaigns — something pure Agency models struggle to match at the same speed."</i>
+            <i>"Because Agoda operates primarily on a <a href="#glossary-merchant" class="term-link">Merchant Model</a>, we hold significant cash float. That gives us freedom to run Dynamic Margin and Mix & Save campaigns — something pure Agency models struggle to match at the same speed."</i>
         </div>
 
         <h4>2) Room Night (RN) — หน่วย Volume ที่แท้จริง</h4>
         <ul>
             <li><b>นิยาม:</b> จำนวนห้อง × จำนวนคืนที่พัก (ไม่ใช่แค่นับจำนวน Booking)</li>
-            <li><b>ตัวอย่าง:</b> จอง 2 ห้อง นอน 3 คืน = <b>6 Room Nights</b></li>
-            <li><b>ทำไมสำคัญ:</b> GBV และ Net Revenue ผูกกับ RN โดยตรง การพูด "เพิ่ม Bookings 10%" อาจทำให้เข้าใจผิดถ้า AOV หรือ length-of-stay เปลี่ยน — ผู้บริหาร Agoda จึงพูด <b>Room Nights</b> เป็นหลัก</li>
+            <li><b>ตัวอย่าง:</b> จอง 2 ห้อง นอน 3 คืน = <b>6 <a href="#glossary-roomnight" class="term-link">Room Nights</a></b></li>
+            <li><b>ทำไมสำคัญ:</b> <a href="#glossary-gbv" class="term-link">GBV</a> และ Net Revenue ผูกกับ RN โดยตรง การพูด "เพิ่ม Bookings 10%" อาจทำให้เข้าใจผิดถ้า <a href="#glossary-financial-lingo" class="term-link">AOV</a> หรือ length-of-stay เปลี่ยน — ผู้บริหาร Agoda จึงพูด <b>Room Nights</b> เป็นหลัก</li>
         </ul>
 
         <h4>3) GBV vs. Net Revenue vs. Take Rate (และผลกระทบจาก Cancellation)</h4>
@@ -2008,28 +2200,31 @@ Net Incremental Profit = (Incremental Revenue from Conversion Gain) - (Increment
     <div class="star-card" id="prototype-strategy">
         <h3>6.7 การทำ Prototype: Low-Fi vs Hi-Fi & Agoda Design System (ADS)</h3>
         <p><b>โจทย์คำถาม:</b> <i>"Agoda PM ต้องทำ Prototype เองไหม?"</i><br/>
-        <b>คำตอบ:</b> <b>"ไม่จำเป็นต้องทำ Prototype ละเอียดเองครับ แต่ต้องสร้าง Wireframe / Low-Fidelity Mockup เพื่อสื่อสาร Concept ได้"</b></p>
+        <b>คำตอบ:</b> <b>"ไม่จำเป็นต้องทำ Prototype ละเอียดเองครับ แต่ต้องสร้าง <a href="#glossary-wireframes" class="term-link">Wireframe</a> / Low-Fidelity Mockup เพื่อสื่อสาร Concept ได้"</b></p>
         
         <div class="example-box">
             <h4>3 ระดับในกระบวนการ Prototype ที่ Agoda:</h4>
             <ol>
-                <li><b>ระดับที่ PM ต้องทำเอง (Low-Fidelity & Concept Phase):</b> ทำ Rough Outline หรือ Low-Fi Mockup บน Figma, Whimsical, Miro หรือ Excalidraw เพื่อถ่ายทอดไอเดียจาก PRD ให้เป็นรูปธรรมก่อนส่งต่อให้ทีมดีไซน์ โดยระบุ:
+                <li><b>ระดับที่ PM ต้องทำเอง (Low-Fidelity & Concept Phase):</b> ทำ Rough Outline หรือ Low-Fi Mockup บน Figma, Whimsical, Miro หรือ Excalidraw เพื่อถ่ายทอดไอเดียจาก <a href="#glossary-prd" class="term-link">PRD</a> ให้เป็นรูปธรรมก่อนส่งต่อให้ทีมดีไซน์ โดยระบุ:
                     <ul>
                         <li><i>Information Hierarchy:</i> ข้อมูลส่วนไหนต้องเด่นที่สุดบนหน้าจอ (เช่น ปุ่ม Book Now, ส่วนลด, คะแนนรีวิว)</li>
                         <li><i>User Flow & Key Decision Points:</i> ผู้ใช้เข้าทางไหน กดแล้วไปหน้าไหน ต่อด้วย State อะไร</li>
                         <li><i>A/B Test Variant Concepts:</i> ภาพรวมความแตกต่างระหว่าง Control (Variant A) กับ Treatment (Variant B)</li>
                     </ul>
                 </li>
-                <li><b>ระดับที่ Product Designer เป็นคนทำ (Hi-Fi & Interactive Prototype):</b> ออกแบบ High-Fidelity Figma ตาม <b>Agoda Design System (ADS)</b>, ทำ Usability Testing กับผู้ใช้จริง หรือนำไป Demo ให้ทีม Dev ดู พร้อมออกแบบ Edge Case UI States (Loading, Empty, Error Message, Multi-language Wrapping)</li>
+                <li><b>ระดับที่ Product Designer เป็นคนทำ (Hi-Fi & Interactive Prototype):</b> ออกแบบ High-Fidelity Figma ตาม <b>Agoda Design System (<a href="#glossary-ads" class="term-link">ADS</a>)</b>, ทำ Usability Testing กับผู้ใช้จริง หรือนำไป Demo ให้ทีม Dev ดู พร้อมออกแบบ Edge Case UI States (Loading, Empty, Error Message, Multi-language Wrapping)</li>
                 <li><b>บทบาทของ PM ในช่วง Sign-Off Prototype:</b> ตรวจสอบ 3 มิติ:
                     <ul>
-                        <li><i>Business & Metric Alignment:</i> UI นี้กระตุ้นให้ผู้ใช้ทำ Action ที่ส่งผลต่อ Primary Metric (เช่น Conversion Rate) หรือไม่</li>
+                        <li><i>Business & Metric Alignment:</i> UI นี้กระตุ้นให้ผู้ใช้ทำ Action ที่ส่งผลต่อ <a href="#glossary-primary" class="term-link">Primary Metric</a> (เช่น Conversion Rate) หรือไม่</li>
                         <li><i>A/B Testing Feasibility:</i> Variant B ที่ออกแบบมา แตกต่างจาก Variant A มากพอจนเห็นผลต่างทางสถิติหรือไม่</li>
                         <li><i>Technical Feasibility (ร่วมกับ Dev):</i> Design นี้ใช้เวลา Implement นานเกินไปจนกระทบ Timeline หรือไม่ สามารถลด Complexity บางจุดเพื่อปล่อย MVP ให้เร็วขึ้นได้หรือไม่</li>
                     </ul>
                 </li>
             </ol>
-            <p>💡 <b>จุดเชื่อมโยงกับประสบการณ์ Ex-SWE 11 ปี:</b> คุณเข้าใจ Design System & Component Reusability ทำให้รู้วิธีหยิบ UI Components เดิมที่มีอยู่แล้วใน Agoda Design System มาใช้ช่วยให้ทีม Dev เปิดรัน A/B Test ได้เร็วขึ้น และวาด Wireframe ดักจับ Error States, Network Timeout, Data Loading ได้ครบถ้วนตั้งแต่วันแรก</p>
+            <p>💡 <b>จุดเชื่อมโยงกับประสบการณ์ Ex-SWE 11 ปี:</b> คุณเข้าใจ Design System & Component Reusability ทำให้รู้วิธีหยิบ UI Components เดิมที่มีอยู่แล้วใน <a href="#glossary-ads" class="term-link">Agoda Design System</a> มาใช้ช่วยให้ทีม Dev เปิดรัน A/B Test ได้เร็วขึ้น และวาด <a href="#glossary-wireframes" class="term-link">Wireframe</a> ดักจับ Error States, Network Timeout, Data Loading ได้ครบถ้วนตั้งแต่วันแรก</p>
+            <div class="alert-box">
+                <b>⚠️ คำแนะนำก่อนสัมภาษณ์:</b> ควรฝึกมือใช้งานจริง (Hands-on Practice) กับเครื่องมือเหล่านี้ล่วงหน้าอย่างน้อย 1-2 ชั่วโมงต่อเครื่องมือ แม้จะไม่ต้องถึงระดับ Expert เพราะผู้สัมภาษณ์อาจขอให้ Share Screen วาด <a href="#glossary-wireframes" class="term-link">Wireframe</a> หรือ Query ข้อมูลสดๆ ในห้องสัมภาษณ์: <b>Figma, Whimsical, Miro หรือ Excalidraw</b> (สำหรับ <a href="#glossary-wireframes" class="term-link">Wireframe</a>/Flow Diagram) และ <b>SQL / Presto / Hive / Spark, Apache Superset, Tableau</b> (สำหรับดึงข้อมูลและสร้าง Dashboard) — ความคล่องแคล่วแม้ระดับพื้นฐานจะช่วยเสริม <a href="#glossary-tech-gravitas" class="term-link">Technical Gravitas</a> ได้มาก
+            </div>
         </div>
     </div>
 
@@ -2039,7 +2234,7 @@ Net Incremental Profit = (Incremental Revenue from Conversion Gain) - (Increment
         
         <div class="example-box">
             <h4>1. ใครเขียน Acceptance Criteria (AC)? Dev Lead หรือ PM?</h4>
-            <p><b>คำตอบ:</b> <b>"PM เป็นคนเขียนดราฟต์หลัก (Initial Owner) แล้วนำมารีวิวและปรับแต่งร่วมกับ Dev Lead และ QA"</b> โดยใช้กฎ 3Cs (Card, Conversation, Confirmation):</p>
+            <p><b>คำตอบ:</b> <b>"PM เป็นคนเขียนดราฟต์หลัก (Initial Owner) แล้วนำมารีวิวและปรับแต่งร่วมกับ Dev Lead และ QA"</b> โดยใช้<a href="#glossary-3cs" class="term-link">กฎ 3Cs (Card, Conversation, Confirmation)</a>:</p>
             <ul>
                 <li><b>Business & User Flow AC (PM รับผิดชอบหลัก):</b> User Behavior, Business Logic & Rules, UX/UI Edge Cases, Analytics Event Tracking Name & Parameters</li>
                 <li><b>Technical & System AC (Dev Lead / Senior Dev รับผิดชอบ):</b> Performance & Latency (API ต้องตอบสนองภายในกี่ ms), Security & Encryption/Tokenization, Error Handling & Retries เมื่อ Third-party ล่ม, Tech Debt / Refactoring</li>
@@ -2134,11 +2329,11 @@ Net Incremental Profit = (Incremental Revenue from Conversion Gain) - (Increment
                     <li><b>Real-time Statistical Guardrails</b> — auto-alert เมื่อ Guardrail metric พัง</li>
                 </ul>
             </li>
-            <li>PM ต้องเข้าใจแนวคิด Sample Ratio Mismatch (SRM), p-value, และเมื่อใดควร Pause / Rollback</li>
+            <li>PM ต้องเข้าใจแนวคิด <a href="#glossary-srm" class="term-link">Sample Ratio Mismatch</a> (<a href="#glossary-srm" class="term-link">SRM</a>), <a href="#glossary-pvalue" class="term-link">p-value</a>, และเมื่อใดควร Pause / Rollback</li>
         </ul>
         <div class="script-box-en">
             <p><b>Interview-ready line:</b><br/>
-            <i>"I understand Agoda runs a proprietary experimentation platform with feature flags and phased rollouts. I'd define Primary and Guardrail metrics upfront, monitor SRM and statistical significance in real time, and be ready to roll back the moment guardrails are breached — even if the primary metric looks green."</i></p>
+            <i>"I understand Agoda runs a proprietary experimentation platform with feature flags and phased rollouts. I'd define Primary and Guardrail metrics upfront, monitor <a href="#glossary-srm" class="term-link">SRM</a> and statistical significance in real time, and be ready to roll back the moment guardrails are breached — even if the primary metric looks green."</i></p>
         </div>
     </div>
 
@@ -2155,12 +2350,12 @@ Net Incremental Profit = (Incremental Revenue from Conversion Gain) - (Increment
                 <li><b>✅ สิ่งที่ต้องรู้ลึก (Must Know):</b>
                     <ul>
                         <li><b>Go-To-Market (GTM) Alignment:</b> การวางแผนเปิดตัวฟีเจอร์ร่วมกับทีม Marketing, การกำหนด Target Segment และ Product Positioning</li>
-                        <li><b>Growth Funnel Metrics:</b> เข้าใจการไหลของผู้ใช้ตั้งแต่ Acquisition (SEO/SEM/Meta Ads) ➡️ Activation ➡️ Retention ➡️ Revenue</li>
-                        <li><b>CAC vs LTV Mechanics:</b> รู้ว่าต้นทุนการดึงลูกค้าใหม่ผ่านการตลาด (CAC) เชื่อมโยงกับ Lifetime Value (LTV) และ <a href="#glossary-unitecon" class="term-link">Unit Economics</a> อย่างไร</li>
-                        <li><b>Attribution & Marketing Tech:</b> เข้าใจวิธีที่ระบบติดตามย้อนกลับว่าลูกค้ามาจากช่องทางไหน (UTM, Deep Linking, SDKs เช่น Adjust/AppsFlyer)</li>
+                        <li><b>Growth Funnel Metrics:</b> เข้าใจการไหลของผู้ใช้ตั้งแต่ <a href="#glossary-aarrr-funnel" class="term-link">Acquisition (SEO/SEM/Meta Ads) ➡️ Activation ➡️ Retention ➡️ Revenue</a></li>
+                        <li><b>CAC vs <a href="#glossary-cac-ltv" class="term-link">LTV</a> Mechanics:</b> รู้ว่าต้นทุนการดึงลูกค้าใหม่ผ่านการตลาด (<a href="#glossary-cac-ltv" class="term-link">CAC</a>) เชื่อมโยงกับ <a href="#glossary-cac-ltv" class="term-link">Lifetime Value (LTV)</a> และ <a href="#glossary-unitecon" class="term-link">Unit Economics</a> อย่างไร</li>
+                        <li><b>Attribution & Marketing Tech:</b> เข้าใจวิธีที่ระบบติดตามย้อนกลับว่าลูกค้ามาจากช่องทางไหน (<a href="#glossary-sem" class="term-link">UTM, Deep Linking, SDKs เช่น Adjust/AppsFlyer</a>)</li>
                     </ul>
                 </li>
-                <li><b>❌ สิ่งที่ไม่ต้องทำเอง (Delegated to Marketers):</b> การตั้งค่า Campaign ใน Meta Ads Manager, การเขียน Ad Copy, การดีไซน์แบนเนอร์โฆษณา, และงาน PR สื่อมวลชน</li>
+                <li><b>❌ สิ่งที่ไม่ต้องทำเอง (Delegated to Marketers):</b> การตั้งค่า Campaign ใน <a href="#glossary-sem" class="term-link">Meta Ads</a> Manager, การเขียน Ad Copy, การดีไซน์แบนเนอร์โฆษณา, และงาน PR สื่อมวลชน</li>
             </ul>
         </div>
     </div>
@@ -2178,23 +2373,23 @@ Net Incremental Profit = (Incremental Revenue from Conversion Gain) - (Increment
         <h4>2) Performance Marketing & Acquisition Channels:</h4>
         <p>เข้าใจธรรมชาติของ Traffic Sources ที่วิ่งเข้าสู่ Agoda Funnel:</p>
         <ul>
-            <li><b>Metasearch Engines (Google Hotels, TripAdvisor, Trivago):</b> เป็นช่องทางดึง High-Intent Users ที่มีการเปรียบเทียบราคาสูง PM ต้องเข้าใจเรื่อง Rate Parity และ API Data Feed Accuracy</li>
-            <li><b>Paid Search / SEM (Google Ads) & Paid Social (Meta, TikTok):</b> ดึง Traffic ผ่าน Ads ต้องวัด CTR, Cost Per Click (CPC) และ Conversion Rate</li>
-            <li><b>Direct / Organic Traffic (SEO & Brand Loyalty):</b> ช่องทางที่มี CAC ต่ำที่สุด PM หน้า PDP/Search ต้องเพิ่ม SEO Indexing และผลักดันให้เกิด App Installs/Direct Re-visits</li>
+            <li><b>Metasearch Engines (Google Hotels, TripAdvisor, Trivago):</b> เป็นช่องทางดึง High-Intent Users ที่มีการเปรียบเทียบราคาสูง PM ต้องเข้าใจเรื่อง <a href="#glossary-rate-parity" class="term-link">Rate Parity</a> และ API Data Feed Accuracy</li>
+            <li><b>Paid Search / SEM (Google Ads) & Paid Social (Meta, TikTok):</b> ดึง Traffic ผ่าน Ads ต้องวัด <a href="#glossary-sem" class="term-link">CTR</a>, Cost Per Click (CPC) และ Conversion Rate</li>
+            <li><b>Direct / Organic Traffic (SEO & Brand Loyalty):</b> ช่องทางที่มี <a href="#glossary-cac-ltv" class="term-link">CAC</a> ต่ำที่สุด PM หน้า <a href="#glossary-sem" class="term-link">PDP</a>/Search ต้องเพิ่ม SEO Indexing และผลักดันให้เกิด App Installs/Direct Re-visits</li>
         </ul>
 
         <h4>3) Marketing Attribution Models & Deep Linking:</h4>
         <p>เข้าใจกลไกหลังบ้านในการวัดผลว่าโฆษณาช่องทางไหนเป็นคนสร้าง ยอดจอง (Conversion Attribution):</p>
         <ul>
-            <li><b>Last-Click Attribution:</b> ยกความดีความชอบให้ช่องทางสุดท้ายที่ผู้ใช้คลิกก่อนจอง (นิยมใช้ในการคำนวณ CAC)</li>
+            <li><b>Last-Click Attribution:</b> ยกความดีความชอบให้ช่องทางสุดท้ายที่ผู้ใช้คลิกก่อนจอง (นิยมใช้ในการคำนวณ <a href="#glossary-cac-ltv" class="term-link">CAC</a>)</li>
             <li><b>Multi-Touch Attribution:</b> กระจายน้ำหนักตามทุก Touchpoint ตั้งแต่ Brand Awareness จนถึง Checkout</li>
-            <li><b>Deferred Deep Linking:</b> เทคโนโลยีที่พาผู้ใช้ที่คลิกโฆษณาโรงแรมบน Web/Social ให้วิ่งตรงไปยังหน้า PDP ของโรงแรมนั้นใน Mobile App หลังติดตั้งสำเร็จทันที โดยไม่หลุด Context</li>
+            <li><b>Deferred <a href="#glossary-sem" class="term-link">Deep Linking</a>:</b> เทคโนโลยีที่พาผู้ใช้ที่คลิกโฆษณาโรงแรมบน Web/Social ให้วิ่งตรงไปยังหน้า <a href="#glossary-sem" class="term-link">PDP</a> ของโรงแรมนั้นใน Mobile App หลังติดตั้งสำเร็จทันที โดยไม่หลุด Context</li>
         </ul>
 
         <h4>4) Dynamic Discounting & Growth Loops (Agoda Specifics):</h4>
         <p>การสร้างแรงจูงใจทางการตลาดผ่าน Product Features โดยไม่ต้องพึ่งงบโฆษณาเพียวๆ (Product-Led Growth):</p>
         <ul>
-            <li><b>Agoda Cash & Loyalty Tier (VIP Program):</b> สร้าง Gamification Loop กระตุ้นให้เกิด Repeat Bookings เพื่อดัน LTV</li>
+            <li><b>Agoda Cash & Loyalty Tier (VIP Program):</b> สร้าง Gamification Loop กระตุ้นให้เกิด Repeat Bookings เพื่อดัน <a href="#glossary-cac-ltv" class="term-link">LTV</a></li>
             <li><b>Stackable Coupons & Flash Sales Engine:</b> การออกแบบ Promo Validation Engine ให้รองรับส่วนลดทับซ้อน (เช่น Hotel Discount + Bank Coupon + Agoda Cash) โดยคุม Contribution Margin ไม่ให้ขาดทุน</li>
         </ul>
 
@@ -2382,10 +2577,126 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         <div class="glossary-item" id="glossary-two-pizza">
             <b>🍕 Two-Pizza Team (กฎทีมพิซซ่าสองถาด):</b> ปรัชญาการออกแบบโครงสร้างทีมของ Tech Giants (ริเริ่มโดย Jeff Bezos / Amazon และนำมาปรับใช้เป็นหัวใจของ Agoda Pods) โดยจำกัดขนาดทีมให้ไม่เกิน 6–8 คน (คนจำนวนเท่าที่พิซซ่า 2 ถาดสามารถเลี้ยงอิ่ม) เพื่อควบคุมเส้นทางการสื่อสาร <code>C = n(n-1)/2</code> ให้อยู่ในระดับต่ำ (~15 เส้นทาง เทียบกับ 190 เส้นทางในทีม 20 คน) ส่งผลให้เกิด <b>High Autonomy, Rapid Alignment</b> และสามารถตั้งสมมติฐานรัน A/B Experiments ได้สัปดาห์ต่อสัปดาห์อย่างคล่องตัวสูงสุด
         </div>
+
+        <h4 style="margin-top:22px; color: var(--heading-color);">📚 คำศัพท์เพิ่มเติม (Extended Glossary — Technical, Product & Commercial Terms)</h4>
+
+        <div class="glossary-item" id="glossary-idempotency">
+            <b>🔁 Idempotency (ความเป็นเอกลักษณ์ไม่ซ้ำซ้อน):</b> คุณสมบัติของ API/Transaction ที่ว่าไม่ว่าจะยิง Request ซ้ำกี่ครั้งด้วย Request เดิม ผลลัพธ์สุดท้ายต้องเหมือนเดิมเสมอ (เช่น กดจ่ายเงินซ้ำ 2 ครั้งเพราะเน็ตช้า ต้องไม่ถูกหักเงิน 2 รอบ) สำคัญมากกับระบบ Payment/Booking ที่ Agoda ใช้ Idempotency Key แนบไปกับทุก Request การจอง
+        </div>
+
+        <div class="glossary-item" id="glossary-prd">
+            <b>📄 PRD (Product Requirements Document):</b> เอกสารสรุป Why/What ของฟีเจอร์ก่อนเริ่มพัฒนา ประกอบด้วย Problem Statement, Goals/Success Metrics, User Stories, Scope (In/Out), และ Acceptance Criteria เพื่อ Align ทุกฝ่าย (Eng, Design, Data, Business) ให้เข้าใจเป้าหมายตรงกันก่อนลงมือสร้าง
+        </div>
+
+        <div class="glossary-item" id="glossary-crm">
+            <b>📇 CRM (Customer Relationship Management):</b> ระบบ/แนวคิดบริหารจัดการความสัมพันธ์กับลูกค้า เก็บ Profile, Preference, ประวัติการจอง และ Communication History เพื่อใช้ทำ Personalization, Retention Campaign และ Customer Support ที่ตรงจุด
+        </div>
+
+        <div class="glossary-item" id="glossary-bdd-ac">
+            <b>✅ BDD Acceptance Criteria (Given-When-Then):</b> รูปแบบการเขียนเงื่อนไขการยอมรับงานแบบ Behavior-Driven Development คือ <code>Given</code> (สถานการณ์ตั้งต้น) <code>When</code> (Action ที่ผู้ใช้ทำ) <code>Then</code> (ผลลัพธ์ที่คาดหวัง) ช่วยให้ Dev/QA/PM เข้าใจ Scope ตรงกันแบบไม่มีช่องว่างตีความผิด
+        </div>
+
+        <div class="glossary-item" id="glossary-ads">
+            <b>🎨 Agoda Design System (ADS):</b> ชุด Component/Pattern/Guideline กลางของ Agoda (สี, Typography, Spacing, Reusable UI Components) ที่ทุกทีม Design/Dev ต้องใช้ร่วมกัน เพื่อให้ประสบการณ์ผู้ใช้สอดคล้องกันทั้งแพลตฟอร์ม และลดเวลาพัฒนา UI ซ้ำซ้อน
+        </div>
+
+        <div class="glossary-item" id="glossary-tech-gravitas">
+            <b>💪 Technical Gravitas:</b> ความน่าเชื่อถือเชิงเทคนิคที่ PM แสดงออกมาได้จนวิศวกรและ Tech Lead ยอมรับและไว้วางใจ ไม่ใช่แค่ "รู้ศัพท์เทคนิค" แต่คือความสามารถเข้าใจ Trade-off เชิงสถาปัตยกรรม ถามคำถามเจาะลึกได้ถูกจุด และตัดสินใจ Prioritize โดยเข้าใจผลกระทบเชิงเทคนิคจริง
+        </div>
+
+        <div class="glossary-item" id="glossary-wireframes">
+            <b>✏️ Wireframes:</b> แบบร่างโครงสร้างหน้าจอ (Low-Fidelity) ที่เน้น Layout/Flow/Information Hierarchy โดยยังไม่ใส่สี/รายละเอียด UI เพื่อ Align ไอเดียเร็วๆ ก่อนทำ Hi-Fi Prototype ใน ADS
+        </div>
+
+        <div class="glossary-item" id="glossary-pms">
+            <b>🏨 PMS (Property Management System):</b> ระบบบริหารจัดการโรงแรมฝั่ง Supply Partner (จัดการห้องว่าง ราคา การจองเข้า-ออก) ที่ Agoda ต้องเชื่อมต่อผ่าน API/Channel Manager เพื่อ Sync Inventory และราคาแบบ Real-time กับระบบของโรงแรม
+        </div>
+
+        <div class="glossary-item" id="glossary-bot-event-tagging">
+            <b>🏷️ Bot/Event Tagging:</b> การติดแท็ก Event ด้วยกฎ/Machine Learning เพื่อแยกแยะ Traffic จาก Bot/Scraper ออกจาก Human User จริง ป้องกันข้อมูล Analytics และผลการทำ A/B Test เพี้ยน (เช่นทำให้เกิด SRM)
+        </div>
+
+        <div class="glossary-item" id="glossary-cms">
+            <b>🗂️ CMS (Content Management System):</b> ระบบจัดการเนื้อหา (รูปภาพ, ข้อความ Promotion, Banner) ที่ให้ทีม Content/Marketing แก้ไขหน้าเว็บ/แอปได้เองโดยไม่ต้องรอ Engineering Deploy โค้ดใหม่ทุกครั้ง
+        </div>
+
+        <div class="glossary-item" id="glossary-common-config-engine">
+            <b>⚙️ Common Config Engine (Platform Scalability):</b> ระบบ Configuration กลางที่ให้แต่ละ Pod ปรับพฤติกรรม Feature/Business Rule ของตนเอง (Feature Flags, Experiment Allocation, Business Rules) ได้แบบ Self-Service โดยไม่ต้อง Deploy โค้ดใหม่ เป็นกุญแจสำคัญของ Platform Scalability เมื่อ Agoda มี Pod จำนวนมากที่ต้องทำงานพร้อมกัน
+        </div>
+
+        <div class="glossary-item" id="glossary-interlocutor">
+            <b>🗣️ Interlocutor (คู่สนทนา):</b> ผู้ร่วมสนทนา/ผู้ฟังในบริบทการสื่อสาร ใช้อธิบายทักษะ Stakeholder Management ของ PM ที่ต้องปรับภาษาและระดับรายละเอียดให้เหมาะกับ Interlocutor แต่ละกลุ่ม (เช่น คุยกับ Engineer ต่างจากคุยกับ C-level)
+        </div>
+
+        <div class="glossary-item" id="glossary-commercial-acumen">
+            <b>💼 Commercial Acumen (ไหวพริบเชิงพาณิชย์):</b> ความเข้าใจเชิงลึกว่าการตัดสินใจ Product ส่งผลต่อ P&L, Take Rate, Margin และ Unit Economics อย่างไร ไม่ใช่มองแค่มุม User Experience แต่มองทะลุไปถึงผลกระทบทางธุรกิจ
+        </div>
+
+        <div class="glossary-item" id="glossary-fermi">
+            <b>🧮 Top-Down Fermi Estimation:</b> เทคนิคประเมินตัวเลขคร่าวๆ อย่างมีเหตุผลเมื่อไม่มีข้อมูลจริง โดยเริ่มจากตัวเลขใหญ่ระดับ Top (เช่น ประชากรโลก) แล้วค่อยๆ หาร/กรองด้วย Assumption แต่ละชั้นลงมาจนถึงตัวเลขที่ต้องการ (ตรงข้ามกับ Bottom-Up ที่เริ่มจากข้อมูลย่อยแล้วรวมขึ้น)
+        </div>
+
+        <div class="glossary-item" id="glossary-latency-curve">
+            <b>📉 Latency Curve:</b> กราฟแสดงความสัมพันธ์ระหว่างเวลาโหลดหน้าเว็บ/แอป (Latency) กับ Conversion Rate ซึ่งมักเป็นเส้นโค้งลดลงแบบไม่เป็นเชิงเส้น (ทุก 100ms ที่ช้าลง Conversion อาจลดลงแบบทวีคูณ) ใช้เป็น Guardrail สำคัญเวลาเพิ่มฟีเจอร์ใหม่ที่หนักขึ้น
+        </div>
+
+        <div class="glossary-item" id="glossary-pl">
+            <b>📑 P&L (Profit & Loss Statement):</b> งบกำไรขาดทุน แสดง Revenue, Cost of Goods Sold, Operating Expense และ Net Profit ของ Business Unit หนึ่งๆ Senior PM ควรอ่าน P&L เป็นเพื่อเข้าใจว่าฟีเจอร์ที่ทำส่งผลต่อเส้น Top-line และ Bottom-line อย่างไร
+        </div>
+
+        <div class="glossary-item" id="glossary-wizard-of-oz">
+            <b>🧙 Wizard of Oz UI (Prototype แบบมีคนอยู่เบื้องหลัง):</b> เทคนิคทดสอบไอเดียผลิตภัณฑ์โดยสร้างหน้าตา UI ให้เหมือนทำงานจริง แต่เบื้องหลังเป็นคนทำ Manual Process แทน Automation (เพื่อทดสอบ Demand/Usability ก่อนลงทุนสร้างระบบ Backend จริง) ประหยัด Engineering Effort ได้มากในช่วง 0-to-1
+        </div>
+
+        <div class="glossary-item" id="glossary-deep-apac-supply">
+            <b>🌏 Deep APAC Supply:</b> ความได้เปรียบด้าน Supply ของ Agoda จากการมีสัญญาตรงกับโรงแรม/ที่พักจำนวนมากในภูมิภาคเอเชียแปซิฟิก (รวมโรงแรมขนาดเล็ก/Non-Chain ที่คู่แข่งเข้าถึงยาก) เป็นหนึ่งใน Business Moat หลักของบริษัท
+        </div>
+
+        <div class="glossary-item" id="glossary-flywheel">
+            <b>🌀 Flywheel Effect:</b> วงจรการเติบโตที่แต่ละองค์ประกอบของธุรกิจหนุนเสริมกันเองจนเกิดโมเมนตัมทวีคูณ (เช่น Supply มากขึ้น → Price ดีขึ้น → Demand มากขึ้น → Data มากขึ้น → Personalization ดีขึ้น → Conversion สูงขึ้น → ดึงดูด Supply มากขึ้นอีก) ยิ่งหมุนนานยิ่งเร่งความเร็วได้เอง
+        </div>
+
+        <div class="glossary-item" id="glossary-financial-lingo">
+            <b>🗃️ Financial Lingo ที่ PM ควรรู้:</b>
+            <ul>
+                <li><b>Cash Float / Working Capital:</b> เงินสดที่ Agoda ถือไว้ชั่วคราวภายใต้ Merchant Model (รับเงินจากลูกค้าก่อน แล้วค่อยจ่ายให้โรงแรมทีหลัง) ใช้บริหารสภาพคล่องและสร้างรายได้ดอกเบี้ยเพิ่มเติม</li>
+                <li><b>Margin:</b> ส่วนต่างกำไรหลังหักต้นทุน แบ่งเป็น Gross Margin (ก่อนหัก Operating Cost) และ Net Margin (หลังหักทุกอย่าง)</li>
+                <li><b>GBV (Gross Booking Value):</b> ดูรายละเอียดที่ <a href="#glossary-gbv" class="term-link">GBV vs Net Revenue</a></li>
+                <li><b>AOV (Average Order Value):</b> มูลค่าเฉลี่ยต่อ 1 คำสั่งจอง (Total GBV ÷ จำนวน Booking) ใช้วัดว่าแคมเปญ Upsell/Cross-sell ได้ผลหรือไม่</li>
+            </ul>
+        </div>
+
+        <div class="glossary-item" id="glossary-3cs">
+            <b>💳 กฎ 3Cs (Card, Conversation, Confirmation):</b> แนวคิด Agile ดั้งเดิม (Ron Jeffries) สำหรับเขียน User Story/Acceptance Criteria ให้ครบวงจร: <b>Card</b> (บัตร/Ticket สั้นๆ สรุปสิ่งที่ต้องการ), <b>Conversation</b> (บทสนทนาระหว่าง PM/Dev/QA เพื่อขยายความเข้าใจในรายละเอียด), <b>Confirmation</b> (เงื่อนไขการยอมรับงาน/Acceptance Criteria ที่ตกลงร่วมกันเป็นลายลักษณ์อักษรก่อนเริ่มพัฒนา) — Agoda ใช้หลักนี้กำหนดว่าใครเขียน AC ส่วนไหน (ดูตัวอย่างที่ Section 10.6)
+        </div>
+
+        <div class="glossary-item" id="glossary-rate-parity">
+            <b>⚖️ Rate Parity:</b> ข้อตกลง/นโยบายที่โรงแรมต้องเสนอราคาห้องพักผ่านทุกช่องทาง OTA (Agoda, Booking.com ฯลฯ) ในระดับใกล้เคียงกัน ป้องกันไม่ให้ช่องทางใดช่องทางหนึ่งได้เปรียบด้านราคาจนทำลาย Ecosystem
+        </div>
+
+        <div class="glossary-item" id="glossary-aarrr-funnel">
+            <b>📈 Acquisition → Activation → Retention → Revenue (Growth Funnel / AARRR):</b> โมเดล Growth แบบเป็นลำดับขั้น: <b>Acquisition</b> (ดึงผู้ใช้ใหม่เข้ามาผ่าน <a href="#glossary-sem" class="term-link">SEO/SEM/Meta Ads</a>) ➡️ <b>Activation</b> (ผู้ใช้สัมผัสคุณค่าแรกของสินค้า เช่น การจองครั้งแรกสำเร็จ) ➡️ <b>Retention</b> (กลับมาใช้ซ้ำ) ➡️ <b>Revenue</b> (สร้างรายได้ยั่งยืนจาก LTV)
+        </div>
+
+        <div class="glossary-item" id="glossary-sem">
+            <b>🔍 Acquisition Channels: SEO/SEM/Meta Ads, Landing, UTM, CTR, PDP, Deep Linking, SDKs:</b>
+            <ul>
+                <li><b>SEO (Search Engine Optimization):</b> การปรับแต่งเว็บไซต์ให้ติดอันดับ Organic Search สูงบน Google โดยไม่ต้องจ่ายเงินค่าโฆษณาต่อคลิก</li>
+                <li><b>SEM (Search Engine Marketing):</b> การซื้อโฆษณาบน Search Engine (เช่น Google Ads) แบบจ่ายต่อคลิก (PPC)</li>
+                <li><b>Meta Ads:</b> โฆษณาบนแพลตฟอร์ม Facebook/Instagram (Meta) เพื่อดึงผู้ใช้ใหม่</li>
+                <li><b>Landing (Landing Page):</b> หน้าเว็บปลายทางที่ผู้ใช้มาถึงหลังคลิกโฆษณา ออกแบบให้ Convert สูงสุด</li>
+                <li><b>UTM (Urchin Tracking Module):</b> Parameter ที่แนบท้าย URL เพื่อติดตามว่า Traffic มาจากแหล่ง/แคมเปญไหน</li>
+                <li><b>CTR (Click-Through Rate):</b> % ของคนที่เห็นโฆษณา/ลิงก์แล้วกดคลิก (Clicks ÷ Impressions)</li>
+                <li><b>PDP (Property/Product Detail Page):</b> หน้ารายละเอียดที่พัก/สินค้า ดูรายละเอียดที่ <a href="#glossary-funnel" class="term-link">Conversion Funnel</a></li>
+                <li><b>Deep Linking:</b> ลิงก์ที่พาผู้ใช้ตรงเข้าหน้าเฉพาะในแอป (ไม่ใช่แค่หน้า Home) เช่น คลิกโฆษณาโรงแรม A แล้วเปิดแอปตรงไปหน้า PDP ของโรงแรม A ทันที</li>
+                <li><b>SDKs เช่น Adjust/AppsFlyer:</b> ชุดเครื่องมือ Mobile Attribution ที่ติดตามว่าการติดตั้งแอป/การจองมาจากแคมเปญโฆษณาช่องทางไหน ใช้วัด ROI ของงบ Marketing แต่ละ Channel</li>
+            </ul>
+        </div>
     </div>
 
     
 <!-- SECTION 9 (STAR Stories) -->
+    <div class="phase-banner" id="phase5">🅴️ ส่วนที่ 5: เคสประสบการณ์ STAR สำหรับรอบ Behavioral <small>STAR Stories for Round 4: เตรียมเคสจริงสำหรับคำถามเชิงพฤติกรรม</small></div>
     <h2 id="sec9">9. 🚀 เคสประสบการณ์และบทพูดแบบ STAR Technique (STAR Stories 9.1 - 9.14 ฉบับเต็ม)</h2>
     
     <!-- 3.1 -->
@@ -2505,7 +2816,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                 <li><b>3. จัดกลุ่มงานตามประเภท (Task Batching / Color-Coding):</b>
                     <ul>
                         <li>🟥 <b>Red / Orange:</b> Critical Meetings & Alignment (Sync-up, Stakeholders)</li>
-                        <li>🟦 <b>Blue:</b> Deep Work / Product Strategy (PRD, Backlog Refinement, Data Analysis)</li>
+                        <li>🟦 <b>Blue:</b> Deep Work / Product Strategy (<a href="#glossary-prd" class="term-link">PRD</a>, Backlog Refinement, Data Analysis)</li>
                         <li>🟩 <b>Green:</b> Team Coaching / 1-on-1s / Retrospectives</li>
                         <li>🟨 <b>Yellow:</b> Admin, Email, Jira Maintenance, Slack Catch-up (Shallow Work)</li>
                     </ul>
@@ -2526,7 +2837,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                     <li><b>Timeboxed Buffer for Unplanned Issues:</b> บล็อกเวลา 30-45 นาทีช่วงบ่ายไว้เป็น Flex/Buffer Slot เพื่อรองรับ Ad-hoc Questions หรือ Hotfixes โดยเฉพาะ เพื่อไม่ให้กระทบกับเวลา Deep Work</li>
                 </ol>
             </li>
-            <li><b>R (Result):</b> "ผลลัพธ์คือ Productivity และคุณภาพงานวางแผนเพิ่มขึ้นอย่างเห็นได้ชัด ผมส่งมอบ PRD และ Jira Tickets ที่มีคุณภาพสูงขึ้นได้ตรงตามกำหนด 100% โดยไม่ต้องทำ OT ปริมาณแชตติดตามงานลดลงเพราะทุกคนรู้จังหวะเวลาในการ Sync งานกับผม และที่สำคัญคือทำให้ผมมีพลังงานเต็มที่ในการ Coaching ทีมครับ"</li>
+            <li><b>R (Result):</b> "ผลลัพธ์คือ Productivity และคุณภาพงานวางแผนเพิ่มขึ้นอย่างเห็นได้ชัด ผมส่งมอบ <a href="#glossary-prd" class="term-link">PRD</a> และ Jira Tickets ที่มีคุณภาพสูงขึ้นได้ตรงตามกำหนด 100% โดยไม่ต้องทำ OT ปริมาณแชตติดตามงานลดลงเพราะทุกคนรู้จังหวะเวลาในการ Sync งานกับผม และที่สำคัญคือทำให้ผมมีพลังงานเต็มที่ในการ Coaching ทีมครับ"</li>
         </ul>
     </div>
 
@@ -2590,7 +2901,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             <li><b>T (Task):</b> "ความท้าทายคือ Each Director มี Priority ที่ขัดแย้งกัน—ฝั่ง Product อยากเห็น Feature ใหม่, ฝั่ง Project กังวลเรื่อง Timeline Delay, ส่วนฝั่ง Engineering กังวลเรื่อง Test Coverage และ Technical Debt"</li>
             <li><b>A (Action):</b> "ผมออกแบบการ Present และการตระเตรียมข้อมูลโดยตอบโจทย์ทุกฝ่ายในเซสชันเดียว:
                 <ol>
-                    <li><b>Data-Driven Impact for Product:</b> เริ่มด้วยการ Demo ฟีเจอร์ใหม่ผ่าน Real Customer Use Cases พร้อมแสดงข้อมูล A/B Test Simulation ว่าส่งผลต่อ Conversion Funnel อย่างไร</li>
+                    <li><b>Data-Driven Impact for Product:</b> เริ่มด้วยการ Demo ฟีเจอร์ใหม่ผ่าน Real Customer Use Cases พร้อมแสดงข้อมูล A/B Test Simulation ว่าส่งผลต่อ <a href="#glossary-funnel" class="term-link">Conversion Funnel</a> อย่างไร</li>
                     <li><b>Milestone & Risk Matrix for Project Mgmt:</b> กาง Sprint Burndown & Velocity Chart พร้อมแสดง Dependency & Test Coverage Matrix เพื่อยืนยันว่าโปรเจกต์อยู่ใน On-Track Timeline โดยไม่มี Scope Creep</li>
                     <li><b>Architectural & Quality Assurance for Dev Director:</b> นำเสนอตัวเลข Automated Test Coverage (90%+ บน Core Flows) และ Latency Benchmark เพื่อพิสูจน์ว่าการส่งมอบงานด่วนครั้งนี้ไม่สร้าง Technical Debt สะสม</li>
                 </ol>
@@ -2667,7 +2978,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                     <ol>
                         <li><b>Immediate Containment:</b> สั่ง Rollback ผ่าน Feature Flag ทันทีเพื่อคุม Damage</li>
                         <li><b>Root Cause Analysis (5 Whys):</b> ทำ Blameless Post-Mortem ร่วมกับ Dev Lead และ QA เพื่อหาเหตุผลที่แท้จริง (เช่น เกิดจาก Data Schema ไม่ตรงกันระหว่าง Microservices หรือขาด Event Validation)</li>
-                        <li><b>Preventive Action (Closure Loop):</b> ไม่จบแค่การแก้โค้ด แต่เพิ่ม Checkpoints เพื่อไม่ให้เกิดซ้ำ เช่น เพิ่ม Test Case นั้นลงใน Automated Regression Suite และอัปเดต PRD Template / AC Checklist ให้ครอบคลุม Edge Case ประเภทยิ่งยวดนี้ในอนาคต</li>
+                        <li><b>Preventive Action (Closure Loop):</b> ไม่จบแค่การแก้โค้ด แต่เพิ่ม Checkpoints เพื่อไม่ให้เกิดซ้ำ เช่น เพิ่ม Test Case นั้นลงใน Automated Regression Suite และอัปเดต <a href="#glossary-prd" class="term-link">PRD</a> Template / AC Checklist ให้ครอบคลุม Edge Case ประเภทยิ่งยวดนี้ในอนาคต</li>
                     </ol>
                 </li>
                 <li><b>Result:</b> Post-release defect rate ลดลงอย่างเห็นได้ชัด (ลด P1/P2 Defects ลงกว่า 40%, Production Regression Rate ลดจาก 8% เหลือต่ำกว่า 2%) และลด Incident Recovery Time (MTTR)</li>
@@ -2693,9 +3004,9 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         <h4>STAR Story (ฉบับเต็มตรงตาม):</h4>
         <ul>
             <li><b>S (Situation):</b> "หลัง Release งานขึ้น Production ผมไม่ได้จบแค่การ Demo ให้ Director ฟังครับ แต่หัวใจสำคัญคือต้องเฝ้าระวัง System Stability และ User Adoption ในช่วง 2-4 สัปดาห์แรก (Post-Launch Observability Phase)"</li>
-            <li><b>T (Task):</b> "บริหารจัดการ Post-Launch Monitoring ป้องกันไม่ให้ Regression กระทบต่อ Core Conversion Funnel และเฝ้าดู Guardrail Metrics อย่างเป็นระบบ"</li>
+            <li><b>T (Task):</b> "บริหารจัดการ Post-Launch Monitoring ป้องกันไม่ให้ Regression กระทบต่อ Core <a href="#glossary-funnel" class="term-link">Conversion Funnel</a> และเฝ้าดู <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> อย่างเป็นระบบ"</li>
             <li><b>A (Action):</b> "ผมตั้งค่า Dashboards บน DataDog และ CloudWatch ในการเฝ้าระวัง real-time metrics มอนิเตอร์ทั้ง System Health Metrics (Error Rate, Latency p95) และ Functional Success Guardrails (ความถี่การใช้งาน Transaction Success) ในช่วง 2-4 สัปดาห์แรก หากพบว่า Latency หรือ Error Rate พุ่งขึ้นเกิน threshold ที่ตั้งไว้ ผมจะมี Data-Driven Rollback Plan หรือ Quick-Fix Patch ทันที เพื่อรับประกันว่า End-User จะได้ Experience ที่เสถียรที่สุด"</li>
-            <li><b>R (Result):</b> "รับประกันว่า End-User จะได้ Experience ที่เสถียรที่สุด ป้องกัน Customer Churn รักษาความสมบูรณ์ของ Core Conversion Funnel และช่วยให้ทีมมั่นใจในการ Rollout สเกลเต็ม 100%"</li>
+            <li><b>R (Result):</b> "รับประกันว่า End-User จะได้ Experience ที่เสถียรที่สุด ป้องกัน Customer Churn รักษาความสมบูรณ์ของ Core <a href="#glossary-funnel" class="term-link">Conversion Funnel</a> และช่วยให้ทีมมั่นใจในการ Rollout สเกลเต็ม 100%"</li>
         </ul>
     </div>
 
@@ -2830,7 +3141,39 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
     </div>
 
+    <!-- 9.15 -->
+    <div class="star-card" id="star-vision-gtm">
+        <h3>9.15 Defining Product Vision & Go-To-Market Strategy (STAR Scripts สำหรับ Behavioral Round)</h3>
+        <p><b>โจทย์สถานการณ์จริง:</b> <i>"Can you tell me about a time when you had to define a product vision from scratch and align senior stakeholders behind it?"</i> และ <i>"How do you approach Go-To-Market and feature adoption when launching a major new product or system overhaul?"</i> — รอบ Behavioral & Executive Leadership ใช้ STAR Method ดูว่ามี Product Ownership จริงหรือไม่ สำหรับสาย Lead Dev/PO ควรโชว์ว่ากำหนดทิศทางเชิงกลยุทธ์ (Vision) และผลักดันให้เกิดการใช้งานจริง (GTM) ได้</p>
+
+        <h4>เคสที่ 1: การกำหนด Product Vision & Strategy</h4>
+        <div class="script-box-en">
+            <p><b>Situation:</b> "In my role as Lead Engineer and Product Owner, our internal core pipeline and developer services were struggling with high deployment latency and fragmented testing standards. Different feature pods were building their own ad-hoc validation flows, causing frequent integration bugs and slowing down release cycles."</p>
+            <p><b>Task:</b> "I recognized that patching existing tools wouldn't solve the core issue. I took ownership of defining a long-term Internal Developer & Testing Platform Vision to centralize CI/CD automation and A/B test validation across all feature pods."</p>
+            <p><b>Action:</b> "To build the vision, I first gathered qualitative feedback from 30+ engineers and analyzed deployment log data to identify the biggest bottlenecks. I then crafted a 3-Year North Star Vision: 'Zero-friction Deployment where any engineer can validate and release a hypothesis within 15 minutes without cross-team dependencies.' To align senior stakeholders and Directors who were worried about resource allocation, I translated technical complexity into business impact: I showed how reducing deployment friction would directly increase overall feature release velocity by 40% and prevent revenue-impacting production bugs."</p>
+            <p><b>Result:</b> "Stakeholders approved the strategy. Over the next two quarters, we migrated 80% of our feature pods onto the new platform. Deployment cycle time dropped from 3 days to under 30 minutes, and release-related production incidents were reduced by 65%, allowing feature pods to run experiments significantly faster."</p>
+        </div>
+
+        <h4>เคสที่ 2: Go-To-Market (GTM) Strategy & Adoption</h4>
+        <div class="script-box-en">
+            <p><b>Situation:</b> "When we overhauled our core transaction and checkout orchestration service to a high-throughput, microservices-based system, the biggest challenge wasn't just shipping the code—it was ensuring a seamless Go-To-Market rollout with zero disruption to active business transactions and 100% team adoption."</p>
+            <p><b>Task:</b> "My goal was to create a GTM strategy that minimized business risk while ensuring fast adoption by internal engineering pods and partner integrations."</p>
+            <p><b>Action:</b> "I structured a Phased Rollout GTM Strategy: (1) Alpha & Internal Enablement — created comprehensive API documentation, migration guides, and runbooks, ran hands-on enablement workshops with 2 pilot pods. (2) Dark Launch & Shadow Traffic — launched behind feature flags, running live transaction traffic in 'shadow mode' alongside the legacy system to compare data accuracy and latency without affecting end-users. (3) Phased Traffic Ramp-up — opened live traffic gradually: 1% → 5% → 25% → 100%, with automated alert thresholds on error rates and latency; any Guardrail breach auto-reverted to the legacy pipeline."</p>
+            <p><b>Result:</b> "Because of this rigorous GTM strategy, we achieved a 100% migration success rate with zero downtime or lost bookings. The transition was completed 2 weeks ahead of schedule, achieving 100% adoption across all feature pods, and improved overall payment processing speed by 35%."</p>
+        </div>
+
+        <div class="alert-box">
+            <b>💡 3 ข้อสังเกตในการตอบให้สไตล์ Agoda ปังที่สุด:</b>
+            <ol>
+                <li>ใช้โครงสร้าง STAR ชัดเจน: สรุป Situation/Task สั้น (20%) เน้นลงหนักที่ Action (50%) ปิดด้วย Result (30%)</li>
+                <li>ผูกเรื่อง Technical เข้ากับ Business Outcome เสมอ (CI/CD, Platform, Microservices → Velocity, Conversion, Loss Prevention, Resource Efficiency)</li>
+                <li>เน้นคำศัพท์ Product Leadership: <a href="#glossary-northstar" class="term-link">North Star Metric</a>, Phased Rollout, Feature Flags, Adoption Rate, Stakeholder Alignment, <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a></li>
+            </ol>
+        </div>
+    </div>
+
 <!-- SECTION 10 (Case Walkthrough & Strategic Deep-Dive) -->
+    <div class="phase-banner" id="phase6">🅵️ ส่วนที่ 6: สคริปต์เต็มและซ้อมถาม-ตอบทุกรอบ <small>Full Scripts & Rehearsal: ใช้ซ้อมได้ทุกรอบ ตั้งแต่ Round 2 ถึง Round 5</small></div>
     <h2 id="sec10">10. 💬 Full Case Walkthrough Scripts, Objection Handling, Bar Raiser & Strategic Deep-Dive Questions</h2>
 
     <h3 id="circles-script">10.1 Full Case Walkthrough Script: "How would you improve Agoda Homes?"</h3>
@@ -2848,19 +3191,19 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         <i>"Using RICE framework, Pain Point 1 (Amenity Uncertainty) has the highest Reach and Impact with low Effort. Solving amenity clarity will directly reduce Checkout Drop-off."</i></p>
 
         <p><b>5. L - List Solutions:</b><br/>
-        <i>"Solution 1: 'Verified Amenity Badges' with host-uploaded photos. Solution 2: 'AI Review Highlights' summarizing family-friendly amenities. Solution 3: 'Instant Host Q&A Widget' on PDP."</i></p>
+        <i>"Solution 1: 'Verified Amenity Badges' with host-uploaded photos. Solution 2: 'AI Review Highlights' summarizing family-friendly amenities. Solution 3: 'Instant Host Q&A Widget' on <a href="#glossary-sem" class="term-link">PDP</a>."</i></p>
 
         <p><b>6. E - Evaluate Trade-offs:</b><br/>
         <i>"Solution 2 (AI Review Highlights) offers high scalability and low implementation effort via LLM prompt engineering without requiring host action, whereas Solution 1 requires manual host verification."</i></p>
 
         <p><b>7. S - Summarize Recommendation:</b><br/>
-        <i>"I recommend launching an A/B test for Solution 2 (AI Review Highlights) on PDP. Primary Metric: PDP-to-Checkout Conversion Rate. <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a>: Page Load Latency p95 (&lt;800ms) and Host Contact Rate."</i></p>
+        <i>"I recommend launching an A/B test for Solution 2 (AI Review Highlights) on <a href="#glossary-sem" class="term-link">PDP</a>. <a href="#glossary-primary" class="term-link">Primary Metric</a>: <a href="#glossary-sem" class="term-link">PDP</a>-to-Checkout Conversion Rate. <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a>: Page Load Latency p95 (&lt;800ms) and Host Contact Rate."</i></p>
     </div>
 
     <h3 id="objection-handling">10.2 Objection Handling Scripts (การรับมือข้อโต้แย้งในห้องสัมภาษณ์)</h3>
     <div class="script-box">
         <p><b>Scenario A: เมื่อโดนท้าทายว่า "โซลูชันที่คุณเสนอซับซ้อนไปสำหรับ MVP สัปดาห์แรก?"</b><br/>
-        <i>"เป็น Point ที่ถูกต้องเลยครับ! ในเวอร์ชั่น MVP สัปดาห์แรก เราสามารถตัด Automation หลังบ้านออกทั้งหมด แล้วปรับใช้ 'Wizard of Oz' หรือ Rule-Based Static Logic ก่อน เพื่อทดสอบ CTR และ Conversion Intent ของผู้ใช้ หาก Data ยืนยันว่า Demand มีจริง เราค่อยลงทุนสร้าง Scalable Service ใน Phase 2 ครับ"</i></p>
+        <i>"เป็น Point ที่ถูกต้องเลยครับ! ในเวอร์ชั่น MVP สัปดาห์แรก เราสามารถตัด Automation หลังบ้านออกทั้งหมด แล้วปรับใช้ 'Wizard of Oz' หรือ Rule-Based Static Logic ก่อน เพื่อทดสอบ <a href="#glossary-sem" class="term-link">CTR</a> และ Conversion Intent ของผู้ใช้ หาก Data ยืนยันว่า Demand มีจริง เราค่อยลงทุนสร้าง Scalable Service ใน Phase 2 ครับ"</i></p>
     </div>
 
     <div class="script-box">
@@ -2880,7 +3223,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
     
     <div class="alert-box">
-        <b>⚡ Stress Test ในรอบนี้:</b> Director อาจตัดบทด้วย "So what?" หรือ "We tried this and failed". ใช้กรอบ Non-Defensive + Data-Anchored + First-Principles (ดูรายละเอียดและสคริปต์เต็มที่ <a href="#sec5-round5-stress" class="term-link">Section 5.5</a>)
+        <b>⚡ Stress Test ในรอบนี้:</b> Director อาจตัดบทด้วย "So what?" หรือ "We tried this and failed". ใช้กรอบ Non-Defensive + Data-Anchored + First-Principles (ดูรายละเอียดและสคริปต์เต็มที่ <a href="#sec5-round5-stress" class="term-link">Section 5.6</a>)
     </div>
 
     <h3 id="ai-rag-def">10.4 AI Questions Expansion (เจาะลึกการใช้ AI ใน Product Design)</h3>
@@ -2890,7 +3233,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             <li><b>1. Agoda Use Cases:</b> AI Review Summarizer, Conversational Travel Assistant, Automated Translation Engine</li>
             <li><b>2. RAG Architecture:</b> Retrieval-Augmented Generation ดึงข้อมูลจริงจาก Agoda DB ร่วมกับ Vector DB ก่อนส่งให้ LLM เพื่อป้องกัน Hallucination</li>
             <li><b>3. AI Technical Trade-offs:</b> ใช้ Streaming Output (SSE) ลด Perceived Latency, เลือกใช้ Small LLMs (GPT-4o-mini / Haiku) สำหรับงานย่อยเพื่อควบคุม Token Costs</li>
-            <li><b>4. Productivity Enhancement:</b> แสดงการใช้ Cursor/Copilot สำหรับ Data Analysis และ Claude/ChatGPT ช่วยวาง PRD Edge Cases</li>
+            <li><b>4. Productivity Enhancement:</b> แสดงการใช้ Cursor/Copilot สำหรับ Data Analysis และ Claude/ChatGPT ช่วยวาง <a href="#glossary-prd" class="term-link">PRD</a> Edge Cases</li>
         </ul>
     </div>
 
@@ -2917,7 +3260,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             <p><b>กลยุทธ์การ Pivot:</b><br/>
             1. ยอมรับอย่างจริงใจ (แสดง Self-Awareness) ว่าระบบเดิมเป็น B2B/Internal Platform จึงเน้น Usability Testing เชิงคุณภาพ<br/>
             2. ชูว่าเราทำงานด้วย <b>Hypothesis-Driven Approach</b> ตั้งแต่แรก<br/>
-            3. ดึงจุดแข็ง Ex-SWE โชว์ว่าเราเข้าใจ <b>Technical Mechanics ของ Experimentation Platform</b> (Feature Flags, User Randomization, Event Schema Tracking, SRM, และ System Latency Guardrails) เป็นอย่างดี</p>
+            3. ดึงจุดแข็ง Ex-SWE โชว์ว่าเราเข้าใจ <b>Technical Mechanics ของ Experimentation Platform</b> (Feature Flags, User Randomization, Event Schema Tracking, <a href="#glossary-srm" class="term-link">SRM</a>, และ System Latency Guardrails) เป็นอย่างดี</p>
         </div>
 
         <h4>Q4: "ภาษาอังกฤษไม่ได้เป็น Native Speaker / พูดตะกุกตะกัก เปิด Live Captions ช่วยได้ไหม?"</h4>
@@ -2933,7 +3276,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             <p><b>3 มิติคำถาม AI ที่ Agoda ชอบถาม:</b><br/>
             1. <i>AI Product Design:</i> ออกแบบ AI Review Summarizer หรือ Travel Assistant โดยตั้ง Success Metrics และ Guardrails<br/>
             2. <i>Technical Trade-offs (จุดเด่น Ex-SWE):</i> บริหาร Trade-off เรื่อง Latency, API Token Cost, Caching และการป้องกัน AI Hallucination<br/>
-            3. <i>Internal AI Adoption:</i> โชว์การใช้ Cursor, Copilot, ChatGPT/Claude ในการเร่ง Speed การเขียน PRD และ Data Analysis</p>
+            3. <i>Internal AI Adoption:</i> โชว์การใช้ Cursor, Copilot, ChatGPT/Claude ในการเร่ง Speed การเขียน <a href="#glossary-prd" class="term-link">PRD</a> และ Data Analysis</p>
         </div>
 
         <h4>Q6: "ข้อดี - ข้อเสีย ของบริษัทปัจจุบันของคุณคืออะไร? (What do you like and dislike?)"</h4>
@@ -3012,12 +3355,20 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
 
         <div class="example-box">
             <h4>🎯 1. สคริปต์ถาม Recruiter (รอบ HR Screen Call):</h4>
-            <p><i>"อยากทราบว่าตำแหน่ง Senior PM ที่เปิดรับในรอบนี้ กำลังโฟกัสการขยายทีมใน Domain ไหนเป็นหลักครับ (เช่น Core Booking Funnel, Payments/FinTech หรือ Partner/Supply Systems)? เพื่อที่ผมจะได้เน้นเตรียมตัวและแชร์ประสบการณ์ที่สอดคล้องกับความต้องการของทีมให้ตรงจุดที่สุดครับ"</i></p>
+            <ul>
+                <li><b>คำถามที่ 1 (ทำความเข้าใจ Scope):</b> <i>"อยากทราบว่าตำแหน่ง Senior PM ที่เปิดรับในรอบนี้ กำลังโฟกัสการขยายทีมใน Domain ไหนเป็นหลักครับ (เช่น Core Booking Funnel, Payments/FinTech หรือ Partner/Supply Systems)? เพื่อที่ผมจะได้เน้นเตรียมตัวและแชร์ประสบการณ์ที่สอดคล้องกับความต้องการของทีมให้ตรงจุดที่สุดครับ"</i></li>
+                <li><b>คำถามที่ 2 (Timeline & Process):</b> <i>"โดยปกติแล้วกระบวนการสัมภาษณ์ทั้งหมดสำหรับตำแหน่งนี้ใช้เวลาประมาณกี่สัปดาห์ และมีกี่รอบหลักๆ ครับ เพื่อที่ผมจะได้วางแผนเตรียมตัวได้อย่างเหมาะสม?"</i></li>
+                <li><b>คำถามที่ 3 (Team Composition):</b> <i>"ทีมที่ตำแหน่งนี้จะเข้าไปร่วมงาน ปัจจุบันมีขนาดเท่าไหร่ และกำลังมองหาคนมาเสริมตำแหน่งนี้เพื่อทดแทนคนเดิม หรือเป็นการขยายทีมใหม่ครับ?"</i></li>
+            </ul>
         </div>
 
         <div class="example-box">
             <h4>🎯 2. สคริปต์ถาม Peer Senior PM (รอบ Functional / Case):</h4>
-            <p><i>"อยากทราบ Scope ความรับผิดชอบของพอดที่คุณดูแลอยู่ และความถี่ในการทำ Cross-Pod Alignment กับทีมอื่นๆ เป็นอย่างไรบ้างครับ?"</i></p>
+            <ul>
+                <li><b>คำถามที่ 1 (Scope & Collaboration):</b> <i>"อยากทราบ Scope ความรับผิดชอบของพอดที่คุณดูแลอยู่ และความถี่ในการทำ Cross-Pod Alignment กับทีมอื่นๆ เป็นอย่างไรบ้างครับ?"</i></li>
+                <li><b>คำถามที่ 2 (A Day in the Life):</b> <i>"ช่วยเล่าให้ฟังหน่อยได้ไหมครับว่าหนึ่งสัปดาห์ทำงานทั่วไปของ Senior PM ใน Pod นี้มีลักษณะอย่างไร ประชุมอะไรบ้าง และใช้เวลาส่วนใหญ่ไปกับอะไร?"</i></li>
+                <li><b>คำถามที่ 3 (สิ่งที่ท้าทายที่สุด):</b> <i>"สิ่งที่ท้าทายที่สุดในการทำงานเป็น Senior PM ที่ Agoda ในมุมมองของคุณคืออะไรครับ และคุณมีวิธีรับมือกับมันอย่างไร?"</i></li>
+            </ul>
         </div>
 
         <div class="example-box">
@@ -3056,6 +3407,17 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             <p><b>Sample answer (concise):</b><br/>
             <i>"I'd run a 4-step RCA. First, rule out external factors—holidays, competitor moves, network outages. Second, segment the drop by device, app version, geo, and traffic source to isolate the blast radius. Third, drill layer by layer: client crashes and feature flags, then API latency and error rates, then payment gateway auth success. Once I have a hypothesis, I'd ship a fix behind a flag, watch conversion and guardrails (cancel rate, support contacts, latency) for 24–48 hours, and only then expand."</i></p>
         </div>
+
+        <h4>➕ เสริม: นำเสนอผล RCA/SQL ให้เป็น Business Insight ด้วย 3-Step Insight Framework</h4>
+        <p>การตอบระดับ Senior PM จะไม่หยุดแค่อ่านค่าจาก Query แต่จะลากเส้นเชื่อมโยงจากข้อมูลไปสู่พฤติกรรมผู้ใช้ (User Behavior), ผลกระทบต่อธุรกิจ (Business Impact) และแอ็กชันที่จะทำต่อ (Actionable Next Steps) ทันที ด้วยโครงสร้าง <b>What → So What → Now What</b></p>
+        <div class="example-box">
+            <ol>
+                <li><b>What (Data Fact):</b> บอกตัวเลขหรือผลสรุปจาก Query อย่างกระชับ ไม่เยิ่นเย้อ — เช่น "Conversion Rate แยกตาม Device: Desktop 4.2%, Mobile Web 1.8%, Mobile App 5.1%"</li>
+                <li><b>So What (Business Impact & Behavior):</b> อธิบายว่าตัวเลขนี้สะท้อนพฤติกรรมอะไรของ User เช่น Mobile Web ต่ำกว่า Mobile App เกือบ 3 เท่าทั้งที่เป็นสมาร์ตโฟนเหมือนกัน สะท้อน High UX Friction บน Mobile Web ซึ่งมักเป็น Organic/SEO Traffic ที่กำลังถูก Waste ไป</li>
+                <li><b>Now What (Hypothesis & Action):</b> เสนอสมมติฐานถัดไปพร้อมแอ็กชันชัดเจน เช่น ทำ <a href="#glossary-funnel" class="term-link">Funnel Drop-off</a> Analysis เจาะ Mobile Web แล้วรัน A/B Test ทดลอง Guest Checkout Flow เพื่อวัด Uplift</li>
+            </ol>
+            <p><b>3 สูตรเสริมความคม:</b> (1) เปรียบเทียบตัวเลขกับ Baseline/Control/YoY เสมอ ไม่พูดลอยๆ (2) เชื่อมกลับไปที่ <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> ทุกครั้งที่เห็นตัวเลขบวก (3) แบ่ง Segment ตาม User Type/Geography/Device เพื่อหา Hidden Insight ที่ตัวเลขเฉลี่ยซ่อนไว้</p>
+        </div>
     </div>
 
     <!-- 10.9 TRADE-OFF DILEMMA CASE -->
@@ -3066,8 +3428,8 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
         <h4>กรอบตัดสินใจระดับ Senior PM</h4>
         <ul>
-            <li><b>อย่า Launch แค่เพราะ Primary ชนะ</b> — Guardrail ที่พังอาจทำลาย Net Revenue และ Brand</li>
-            <li>คำนวณ <b>Net Impact</b>: Incremental GBV จาก +1.5% CR หักด้วย loss จาก Cancel +5% และต้นทุน CS ที่เพิ่มขึ้น</li>
+            <li><b>อย่า Launch แค่เพราะ <a href="#glossary-primary" class="term-link">Primary</a> ชนะ</b> (หมายถึง <b>Primary Metric</b> — ตัววัดผลหลักของการทดลองนี้ เช่น Conversion Rate ที่ชนะสถิติ) — Guardrail ที่พังอาจทำลาย Net Revenue และ Brand</li>
+            <li>คำนวณ <b>Net Impact</b>: Incremental <a href="#glossary-gbv" class="term-link">GBV</a> จาก +1.5% CR หักด้วย loss จาก Cancel +5% และต้นทุน CS ที่เพิ่มขึ้น</li>
             <li>ถ้า Net เป็นลบ หรือเสี่ยงต่อ Trust → <b>Rollback</b> แล้วหา root cause (UX confusion, pricing surprise, policy change)</li>
             <li>ถ้า Net ยังบวกและ CS spike อธิบายได้ด้วย temporary learning curve → พิจารณา <b>phased rollout + UX fix</b> ก่อน full launch</li>
         </ul>
@@ -3085,19 +3447,89 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         </div>
         <h4>จุดที่ PM ต้อง Align กับ Performance Marketing</h4>
         <ul>
-            <li><b>Landing Experience:</b> Deep-link ไปหน้า PDP หรือ Search ที่ match กับ query + pre-filled dates/occupancy เพื่อลด friction</li>
+            <li><b>Landing Experience:</b> Deep-link ไปหน้า <a href="#glossary-sem" class="term-link">PDP</a> หรือ Search ที่ match กับ query + pre-filled dates/occupancy เพื่อลด friction</li>
             <li><b>Message Match:</b> ราคา / โปรที่โชว์บน Ads ต้องสอดคล้องกับหน้าเว็บ (ลด sticker shock → cancel / bounce)</li>
             <li><b>Speed & Reliability:</b> Latency และ availability ของหน้า Landing ส่งผลตรงต่อ Quality Score และ CPC</li>
-            <li><b>Attribution & Unit Economics:</b> คุยเรื่อง Last-click vs Multi-touch, CAC ของ channel นี้, และ LTV ของ user ที่มาจาก Meta-search</li>
+            <li><b>Attribution & <a href="#glossary-unitecon" class="term-link">Unit Economics</a>:</b> คุยเรื่อง Last-click vs Multi-touch, <a href="#glossary-cac-ltv" class="term-link">CAC</a> ของ channel นี้, และ <a href="#glossary-cac-ltv" class="term-link">LTV</a> ของ user ที่มาจาก Meta-search</li>
             <li><b>Experiment Design:</b> A/B บน Landing / Checkout ต้องไม่ทำลาย tracking parameters (gclid, etc.) และต้องมี Guardrail เรื่อง CPC efficiency</li>
         </ul>
         <div class="script-box-en">
             <p><b>Sample collaboration answer:</b><br/>
-            <i>"I'd partner with Performance Marketing on three things: (1) deep-link users to the right PDP or pre-filled search so intent isn't lost, (2) ensure price and promo parity between the ad and the page to protect conversion and cancel rate, and (3) instrument the full funnel so we can optimize for net contribution margin—not just CPC or raw bookings. Any landing-page experiment would preserve tracking params and include CAC and cancel rate as guardrails."</i></p>
+            <i>"I'd partner with Performance Marketing on three things: (1) deep-link users to the right <a href="#glossary-sem" class="term-link">PDP</a> or pre-filled search so intent isn't lost, (2) ensure price and promo parity between the ad and the page to protect conversion and cancel rate, and (3) instrument the full funnel so we can optimize for net contribution margin—not just CPC or raw bookings. Any landing-page experiment would preserve tracking params and include <a href="#glossary-cac-ltv" class="term-link">CAC</a> and cancel rate as guardrails."</i></p>
         </div>
     </div>
 
+    <div class="star-card" id="agoda-internal-faq">
+        <h3>❓ 10.11 FAQ เจาะลึก: แนวทางปฏิบัติภายใน, สถิติ และ Benchmark ของ Agoda PM</h3>
+        <div class="alert-box">
+            <b>⚠️ หมายเหตุสำคัญ:</b> ตัวเลข % และข้อมูลเชิงสถิติภายในหัวข้อนี้ <b>ไม่ใช่ข้อมูลภายในที่เปิดเผยอย่างเป็นทางการของ Agoda</b> แต่เป็น <b>ประมาณการที่สมเหตุสมผล (Reasonable Estimate)</b> อ้างอิงจากแนวปฏิบัติทั่วไปของ Tech/OTA Companies ขนาดใหญ่ที่มีโครงสร้างคล้ายกัน ใช้เพื่อเป็นกรอบในการตอบคำถามเชิงลึกเท่านั้น ควรตรวจสอบ/ปรับปรุงตัวเลขจริงจากประสบการณ์ตรงของผู้สัมภาษณ์หากมีโอกาสถามในห้องสัมภาษณ์
+        </div>
 
+        <h4>1️⃣ Background สาย PM ที่ Agoda มาจากไหนบ้าง (เทียบกับ Tech บริษัทอื่น)</h4>
+        <div class="table-responsive">
+            <table>
+                <thead><tr><th>Background</th><th>Agoda (ประมาณการ)</th><th>Tech Company ทั่วไป (Industry Benchmark)</th></tr></thead>
+                <tbody>
+                    <tr><td>Ex-Software Engineer / Technical Background</td><td>~35-45%</td><td>~20-30%</td></tr>
+                    <tr><td>Business / MBA / Consulting</td><td>~25-35%</td><td>~35-45%</td></tr>
+                    <tr><td>Data Analyst / Data Scientist สายตรง</td><td>~10-15%</td><td>~10-15%</td></tr>
+                    <tr><td>Internal Transfer (เช่น จาก QA, Marketing, Operations)</td><td>~10-20%</td><td>~10-15%</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>💡 Agoda มีสัดส่วน Ex-SWE/Technical Background ในสาย PM สูงกว่าค่าเฉลี่ยอุตสาหกรรมพอสมควร เพราะวัฒนธรรม "Data Trumps Opinion" และ A/B Testing Velocity สูงต้องการ PM ที่มี <a href="#glossary-tech-gravitas" class="term-link">Technical Gravitas</a> คุยกับ Tech Lead ได้ทันที — เป็นจุดได้เปรียบของผู้สมัครที่มีพื้นฐาน Ex-SWE อย่างมาก</p>
+
+        <p><b>แยกตามเส้นทางย้ายสายงานเข้ามาโดยไม่เคยมีตำแหน่ง "Product Manager" มาก่อน</b> (ไม่ใช่สมัครจาก Ex-PM ที่อื่นตรงๆ) อัตรานี้ค่อนข้างน้อย (ราว <b>10-20%</b> ของ Senior PM Hiring ทั้งหมด) เพราะ Agoda เน้น Product Ownership สูงมาก หากไม่เคยเป็น PM มาก่อน ส่วนใหญ่มักได้ข้อเสนอเป็น Mid-level PM ก่อน:</p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr><th>Background</th><th>โอกาสได้ Direct Senior PM Offer</th><th>เหตุผลหลัก</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Tech Lead / Lead Software Engineer</b></td><td><b>~40-50% (สูงที่สุด)</b></td><td>มี Unfair Advantage: System Architecture, Data Literacy, Agile/Scrum Leadership</td></tr>
+                    <tr><td><b>Senior Data Scientist / Quantitative Lead</b></td><td>~25-30% (ปานกลาง)</td><td>แข็งเรื่อง Experimentation Design, Causal Inference, SQL แต่ขาด User Empathy/UI-UX/Stakeholder Alignment</td></tr>
+                    <tr><td><b>Management Consultant / Strategy</b></td><td>~15-20% (ปานกลาง-ต่ำ)</td><td>Business Sense ดี สื่อสาร C-Level ได้ แต่ขาด Technical Depth และ Software Delivery Cycle</td></tr>
+                    <tr><td><b>Project Manager / Business Analyst (BA)</b></td><td>&lt;10% (ต่ำมาก)</td><td>งาน PM/BA เน้น Schedule/Delivery/Requirements ต่างจาก Product Manager ที่เน้น Vision, Hypothesis, Outcome, P&amp;L</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>🔑 <b>ปัจจัยที่ทำให้โปรไฟล์ Lead Software Engineer "ทะลุเกณฑ์" ได้ Senior PM ทันที:</b> (1) เปลี่ยน Narrative จาก "Developer ที่อยากย้ายมาทำ PM" เป็น "Tech Lead & Product Owner ที่ดูแลทั้ง Architecture และ Product Outcomes" (2) โชว์ Business Impact ไม่ใช่แค่ Code Shipped (3) สอบผ่าน Bar รอบ Product Design ด้วยการคิดจากหน้าบ้าน (User Friction) ไม่ใช่หลังบ้าน</p>
+
+        <h4>2️⃣ Agoda คำนวณ p-value ด้วย Tool อะไร?</h4>
+        <p>โดยทั่วไป Agoda (เช่นเดียวกับ Tech Company ขนาดใหญ่ที่รัน A/B Test จำนวนมาก) จะไม่ใช้ Excel คำนวณ <a href="#glossary-pvalue" class="term-link">p-value</a> แบบ Manual ในงาน Production แต่ใช้ <b>Internal Experimentation Platform</b> (ระบบ A/B Testing Platform ที่พัฒนาเองภายใน ผูกกับ Data Warehouse โดยตรง) ที่คำนวณ <a href="#glossary-pvalue" class="term-link">p-value</a>, Confidence Interval, และตรวจ <a href="#glossary-srm" class="term-link">SRM</a> ให้อัตโนมัติทันทีที่ Dashboard แสดงผล Data Analyst/PM จึงดู Dashboard แล้วตัดสินใจได้เลยโดยไม่ต้องคำนวณเอง ส่วน Excel/Google Sheets อาจถูกใช้เฉพาะงาน Ad-hoc วิเคราะห์เสริมหรือ Sanity-check ตัวเลขเท่านั้น</p>
+
+        <h4>3️⃣ ทำไม Agoda (และวงการ Statistics) ถึงเลือก p-value &lt; 0.05 เป็นมาตรฐาน?</h4>
+        <p>ค่า <code>0.05</code> ไม่ได้มีที่มาจากสูตรคณิตศาสตร์ตายตัว แต่มาจาก <b>Sir Ronald Fisher</b> นักสถิติผู้บุกเบิก ที่เสนอไว้ในหนังสือ <i>Statistical Methods for Research Workers (1925)</i> ว่าการใช้ค่า 1 ใน 20 (5%) เป็นจุดตัดที่ <i>"สะดวก (Convenient)"</i> ในการตัดสินว่าผลลัพธ์มีนัยสำคัญทางสถิติหรือไม่ (เทียบเท่าประมาณ 2 Standard Deviations จากค่าเฉลี่ยในการแจกแจงปกติ) แม้ Fisher เองจะระบุว่าสามารถปรับเข้มขึ้นเป็น 0.01 ได้ตามบริบท แต่ 0.05 กลายเป็นค่ามาตรฐานที่ตำราสถิติทั่วโลกยึดถือสืบมา รวมถึงวงการ Tech/A-B Testing ก็รับค่านี้มาใช้เป็น Default เพื่อสร้างมาตรฐานเดียวกันทั้งองค์กรในการเปรียบเทียบผลการทดลองนับพันรายการ</p>
+
+        <h4>4️⃣ Senior PM ที่ Agoda ต้องวิเคราะห์ SWOT เป็นไหม?</h4>
+        <p>ควรทำเป็นพื้นฐาน แม้ Agoda จะไม่ได้บังคับใช้ Framework SWOT อย่างเป็นทางการในการประชุม (นิยมใช้ RICE, North Star/<a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a>, และ CIRCLES Method มากกว่าในงานประจำวัน) แต่ความสามารถวิเคราะห์ Strengths-Weaknesses-Opportunities-Threats ยังจำเป็นสำหรับ <b>Strategic Planning ระดับไตรมาส/ปี</b> และการนำเสนอ Business Case ให้ผู้บริหารเข้าใจภาพรวมการแข่งขัน โดยเฉพาะในห้องสัมภาษณ์รอบ Strategy/Director ที่อาจถามคำถามเชิง Competitive Positioning</p>
+
+        <h4>5️⃣ ตัวอย่างการทำ A/B Testing ที่ Agoda แบบเป็นรูปธรรม</h4>
+        <div class="example-box">
+            <p><b>ตัวอย่าง:</b> ทดสอบปุ่ม "จองเลย" (Book Now) บนหน้า Property Detail Page (<a href="#glossary-sem" class="term-link">PDP</a>)</p>
+            <ul>
+                <li><b>Hypothesis:</b> การเปลี่ยนสีปุ่มจองจากสีน้ำเงิน (Control) เป็นสีส้ม (Treatment) พร้อมเพิ่มข้อความ Urgency "เหลือห้องสุดท้าย!" จะเพิ่ม Click-to-Book Rate</li>
+                <li><b>Primary Metric:</b> <a href="#glossary-sem" class="term-link">PDP</a>-to-Checkout Conversion Rate</li>
+                <li><b>Guardrail Metrics:</b> Cancellation Rate, Customer Complaint Rate (ป้องกัน Dark Pattern ที่สร้างความไม่พอใจ)</li>
+                <li><b>Sample Size:</b> แบ่ง Traffic 50/50 รันจนกว่าจะถึง Sample Size ที่คำนวณไว้ล่วงหน้า (Power Analysis) มักใช้เวลา 1-2 สัปดาห์สำหรับ Traffic ระดับ <a href="#glossary-sem" class="term-link">PDP</a></li>
+                <li><b>ผลลัพธ์ตัวอย่าง:</b> Treatment ชนะ Conversion +2.3% (p &lt; 0.05) โดย Guardrail ไม่เปลี่ยนแปลงอย่างมีนัยสำคัญ ➡️ Ship เป็น Default ทันที</li>
+            </ul>
+        </div>
+
+        <h4>6️⃣ Agoda ทำ A/B Testing และ A/B/C Testing กี่ % ของการทดลองทั้งหมด?</h4>
+        <p>โดยทั่วไป Tech/OTA Company ขนาดใหญ่ที่เน้น High-Velocity Experimentation (Agoda รวมอยู่ในกลุ่มนี้) การทดลองส่วนใหญ่ <b>~80-90% เป็น A/B Testing (2 Variants)</b> เพราะง่ายต่อการตีความและใช้ Sample Size น้อยกว่า ส่วน <b>A/B/C/...N Testing (Multi-variant)</b> มีสัดส่วนราว <b>~10-20%</b> มักใช้กับการทดสอบที่ต้องเทียบหลาย Algorithm/Design พร้อมกัน (เช่น ทดสอบ Ranking Algorithm 3-4 แบบพร้อมกันบนหน้า Search Result)</p>
+
+        <h4>7️⃣ การคำนวณ Conversion Rate ของ Agoda ใช้กรอบเวลาอย่างไร เทียบกับอะไร?</h4>
+        <ul>
+            <li><b>กรอบเวลา (Time Window):</b> วัดแบบ Rolling Window (เช่น 7-day หรือ 28-day rolling) เพื่อ Smooth ผลกระทบจาก Day-of-Week Seasonality (วันธรรมดา vs วันหยุดสุดสัปดาห์มี Conversion ต่างกัน)</li>
+                <li><b>สูตรคำนวณ:</b> <code>Conversion Rate = จำนวน Booking สำเร็จ ÷ จำนวน Session/Visitor ในช่วงเวลาเดียวกัน</code></li>
+            <li><b>เทียบกับอะไร (Baseline):</b> เทียบกับ Control Group ในช่วงเวลาเดียวกันแบบ Real-time (Concurrent A/B Test) ไม่ใช่เทียบกับอดีต (Before/After) เพราะ Before/After มี Confounding Variables (ฤดูกาล, แคมเปญคู่แข่ง) ปนเปื้อนผลลัพธ์ได้ง่าย</li>
+            <li><b>Attribution Window สำหรับ Cancellation:</b> ต้องรอ Cancellation Window ผ่านไปก่อน (เช่น 24-48 ชม. สำหรับ Free Cancellation Policy) จึงจะสรุปผล Net Conversion ที่แท้จริงได้ ไม่ใช่แค่ดูตอน Booking เกิดขึ้นทันที</li>
+        </ul>
+
+    </div>
+
+<div class="phase-banner" id="phase7">🅶️ ส่วนที่ 7: หลังได้ Offer — เจรจาเงินเดือน <small>After the Offer: สูตรคำนวณ, 3 คันงัด และการรับมือ Counter Offer</small></div>
 <h2 id="sec11">11. 💰 กลยุทธ์การเจรจาตัวเลขและสวัสดิการ (Compensation, Negotiation & HR Strategy)</h2>
     
     <div class="star-card" id="salary-negotiation-guide">
@@ -3167,7 +3599,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
         <p>หากต้องการดันตัวเลขขึ้นไปแตะ <b>180k – 200k+ บาท/เดือน (Total Comp 2.4M – 2.6M+ บาท/ปี)</b> คุณต้องใช้กลยุทธ์ Leverage 3 ด้าน:</p>
                 <div class="example-box">
             <ol>
-                <li><b>1. คันงัดจากความโดดเด่นของโปรไฟล์ (The Rare Hybrid Profile):</b> ตลาด PM มีคนเก่งสาย Business เยอะ แต่หาคนที่ <i>"ลงลึก Technical SWE 11 ปี + มี Execution Rigor + คุม Quality/Architecture เองได้"</i> ยากมาก โชว์ในห้องสัมภาษณ์ว่าคุณจะช่วย Agoda ประหยัด Cost และเพิ่ม Delivery Speed ได้ทันทีตั้งแต่วันแรก</li>
+                <li><b>1. คันงัดจากความโดดเด่นของโปรไฟล์ (The Rare Hybrid Profile):</b> ตลาด PM มีคนเก่งสาย Business เยอะ แต่หาคนที่ <i>"ลงลึก Technical SWE 11 ปี + มี <a href="#glossary-rigor" class="term-link">Execution Rigor</a> + คุม Quality/Architecture เองได้"</i> ยากมาก โชว์ในห้องสัมภาษณ์ว่าคุณจะช่วย Agoda ประหยัด Cost และเพิ่ม Delivery Speed ได้ทันทีตั้งแต่วันแรก</li>
                 <li><b>2. คันงัดจากการคำนวณ "Opportunity Cost & Bonus Payout":</b> บริษัทเดิมให้โบนัสสูงถึง 3.5 เดือน (350,000 บาท) ใช้สูตร <i>"Total Compensation Loss + Replacement Value"</i> แจ้งว่าฐานเดิม 100k แต่ด้วยโบนัสการันตี 3.5 เดือน รายรับแท้จริงต่อเดือนอยู่ที่ 130k-140k อยู่แล้ว การย้ายองค์กรเพื่อรับความเสี่ยงและสร้าง Impact ใหม่ ตัวเลข Base Salary ที่ 180,000 - 200,000 บาท/เดือน จึงจะเป็นจุดที่สะท้อน Value และครอบคลุม Opportunity Cost ทั้งหมด</li>
                 <li><b>3. คันงัดจาก Multiple Offers / Counter Offer (คันงัดที่แรงที่สุด):</b> หากแสดงให้เห็นว่าบริษัทเดิมทุ่มสู้ราคา (Counter Offer) เพื่อรั้งตัว หรือมี Offer อีกแห่งในมือ HR จะมีอำนาจในการขอ Special Budget Approval จาก VP หรือ C-Level เพื่ออนุมัติเงินเดือนทะลุกรอบมาตรฐาน</li>
             </ol>
@@ -3237,6 +3669,28 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
             </table>
         </div>
 
+        <div class="example-box">
+            <h4>🗓️ ตัวอย่างคำนวณ: หากต้องการเริ่มงานเดือนเมษายน ควรยื่นสมัครตอนไหน?</h4>
+            <p>ช่วงเวลาเหมาะสมที่สุดคือ <b>กลางเดือนพฤศจิกายน ถึง ต้นเดือนมกราคม</b> โดยคำนวณถอยหลังจาก: Interview Loop ของ Agoda ใช้เวลาประมาณ <b>4-6 สัปดาห์</b> (Screening 1 สัปดาห์ + Loop 2-3 สัปดาห์ + Team Matching/Offer 1-2 สัปดาห์) บวกกับ <b>Notice Period</b> ที่ทำงานเดิม (มาตรฐาน 30-60 วัน) ที่ต้องเผื่อเวลาให้ Background Check และเอกสารสัญญาจ้างเรียบร้อยก่อนยื่นใบลาออกจริง หากยื่นช่วงปลาย พ.ย.-ธ.ค. ควรระวังช่วง 25 ธ.ค.-1 ม.ค. ที่ Interviewer มักลาพักร้อนยาว อาจทำให้รอบ Final ชะลอตัว 1-2 สัปดาห์</p>
+        </div>
+
+        <div class="example-box">
+            <h4>🗓️ ตารางเตรียมตัวสมัคร Agoda Senior PM (Application Prep Checklist)</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead><tr><th>ช่วงเวลา</th><th>สิ่งที่ต้องเตรียม</th><th>Checklist</th></tr></thead>
+                    <tbody>
+                        <tr><td><b>4-6 สัปดาห์ก่อนสมัคร</b></td><td>ปรับ Resume & LinkedIn (ดู <a href="#linkedin-optimization" class="term-link">Section 2.3</a>), ฝึกใช้ Figma/SQL/Superset พื้นฐาน</td><td>☐ Resume ☐ LinkedIn ☐ Tools Practice</td></tr>
+                        <tr><td><b>3-4 สัปดาห์ก่อนสมัคร</b></td><td>ทบทวน Glossary ทั้งหมด (Section 8), ฝึกเขียน STAR Stories 8-10 เรื่อง</td><td>☐ Glossary ☐ STAR Bank</td></tr>
+                        <tr><td><b>2-3 สัปดาห์ก่อนสมัคร</b></td><td>ฝึก Mock Case Interview (RICE, CIRCLES, 4-Step RCA), ฝึก <a href="#glossary-fermi" class="term-link">Fermi Estimation</a></td><td>☐ Mock Case x3 ☐ Fermi Drill</td></tr>
+                        <tr><td><b>1-2 สัปดาห์ก่อนสมัคร</b></td><td>ทบทวน Company Research (Core Values, Pod Structure, Competitive Moat), เตรียมคำถาม Ask-the-Interviewer</td><td>☐ Company Research ☐ Questions Bank</td></tr>
+                        <tr><td><b>วันก่อนสัมภาษณ์แต่ละรอบ</b></td><td>ทบทวน Section ที่เกี่ยวกับรอบนั้นโดยเฉพาะ (ดู <a href="#sec5">Section 5</a>), เตรียม Live Captions/อุปกรณ์</td><td>☐ Round-specific Review ☐ Tech Setup</td></tr>
+                        <tr><td><b>หลังแต่ละรอบ</b></td><td>จด Feedback/คำถามที่ตอบไม่มั่นใจ เพื่อปรับปรุงก่อนรอบถัดไป</td><td>☐ Post-Round Notes</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <h3 id="bonus-cycle-strategy">11.5 ยุทธศาสตร์การย้ายงานคู่ขนานกับวงรอบโบนัส (The Max-Bonus Strategy)</h3>
         <p>เปรียบเทียบวงรอบ: <b>บริษัทเดิมจ่าย 2 รอบ (ธันวาคม และ มีนาคม)</b> vs <b>Agoda จ่าย 1 รอบ (ปลายมีนาคม – ต้นเมษายน)</b>:</p>
         <div class="example-box">
@@ -3262,6 +3716,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
     </div>
 
 <!-- SECTION 12 (Day-to-Day Operations & Onboarding) -->
+    <div class="phase-banner" id="phase8">🅷️ ส่วนที่ 8: เริ่มงานจริงในฐานะ Senior PM <small>On the Job: Onboarding 30-60-90 วัน, Pod Strategy และตารางงานจริง</small></div>
     <h2 id="sec12">12. 🛠️ รายละเอียดการทำงานจริง, Primary vs Secondary Pod Strategy, ตารางงาน และแผน 30-60-90 วัน (Day-to-Day Operations)</h2>
     
     <h3 id="primary-secondary-pods">12.1 Primary Active Pod vs. Secondary Pod Management Strategy</h3>
@@ -3289,6 +3744,13 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                 </li>
             </ul>
         </div>
+        <div class="example-box">
+            <h4>📊 3. สถิติและข้อจำกัดเพิ่มเติม: ภาระงาน Secondary Pod & ข้อจำกัดของ Primary Pod:</h4>
+            <ul>
+                <li><b>PM เข้าร่วม Meeting ของ Secondary Pod กี่ % เทียบกับ PM ทั้งหมด:</b> PM ส่วนใหญ่ (~60-70%) จะมี Secondary Pod อย่างน้อย 1 Pod ควบคู่กับ Primary Pod โดยเข้าร่วมเฉพาะ Meeting ที่จำเป็น เช่น Sprint Planning/Review รายสัปดาห์ (ไม่ใช่ Daily Standup) คิดเป็นภาระงานเพิ่มประมาณ <b>10-20% ของเวลาทำงานทั้งหมด</b> เท่านั้น เพื่อไม่ให้กระทบ Focus หลักที่ Primary Pod</li>
+                <li><b>Agoda PM สามารถมี Primary Pod ได้หลาย Pod พร้อมกันไหม?:</b> โดยหลักการออกแบบ <a href="#two-pizza-team-deepdive" class="term-link">Two-Pizza Team</a> นั้น PM ควรมี <b>Primary Pod เพียง 1 Pod เท่านั้น</b> เพื่อรักษา Focus และความเป็นเจ้าของ (True Ownership) อย่างเต็มที่ — การมี Primary Pod มากกว่า 1 จะขัดกับหลักการพื้นฐานของโมเดลนี้ (Single-Threaded Ownership) ยกเว้นกรณีพิเศษชั่วคราว เช่น Pod ใหม่ที่ยังเล็กมากและรอ Headcount เต็ม อาจให้ Senior PM คนเดียวคุม 2 Pod เล็กๆ ไปพลางก่อนในระยะสั้น แต่ไม่ใช่โครงสร้างระยะยาวที่พึงประสงค์</li>
+            </ul>
+        </div>
     </div>
 
     <h3 id="onboarding-plan">12.2 Senior PM 30-60-90 Day Onboarding Plan</h3>
@@ -3307,7 +3769,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                     <td>Domain Immersion & Technical Trust</td>
                     <td>
                         <ul>
-                            <li>ทบทวน Domain Metrics, Conversion Funnel, และ A/B Testing Platform</li>
+                            <li>ทบทวน Domain Metrics, <a href="#glossary-funnel" class="term-link">Conversion Funnel</a>, และ A/B Testing Platform</li>
                             <li>ทำ 1-on-1 กับ Dev Leads, Data Analysts, และ Cross-pod PM Stakeholders</li>
                             <li>เข้า Shadowing User Research Sessions และมอนิเตอร์ Customer Contact Logs</li>
                         </ul>
@@ -3358,7 +3820,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                 <tbody>
                     <tr>
                         <td><b>09:30 - 10:00</b></td>
-                        <td><b>Data & Metric Health Check:</b> เช็ก Dashboards (Grafana/Tableau/Internal A/B tools) เฝ้าระวัง Guardrail Metrics (Conversion rate, Error rates, Latency drops) ของ A/B Tests ที่กำลังรันอยู่</td>
+                        <td><b>Data & Metric Health Check:</b> เช็ก Dashboards (Grafana/Tableau/Internal A/B tools) เฝ้าระวัง <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> (Conversion rate, Error rates, Latency drops) ของ A/B Tests ที่กำลังรันอยู่</td>
                         <td>ทำงานคนเดียว / Sync กับ Data Analyst หากพบ anomaly</td>
                     </tr>
                     <tr>
@@ -3368,7 +3830,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                     </tr>
                     <tr>
                         <td><b>10:30 - 12:00</b></td>
-                        <td><b>Deep Work / PRD & AC Writing:</b> เขียนเอกสาร PRD และระบุ Acceptance Criteria (AC) สำหรับ Sprint ถัดไป ออกแบบ Experiment Specs (Variants, Metrics, Target sample size)</td>
+                        <td><b>Deep Work / <a href="#glossary-prd" class="term-link">PRD</a> & AC Writing:</b> เขียนเอกสาร <a href="#glossary-prd" class="term-link">PRD</a> และระบุ Acceptance Criteria (AC) สำหรับ Sprint ถัดไป ออกแบบ Experiment Specs (Variants, Metrics, Target sample size)</td>
                         <td>ทำงานคนเดียว (เปิดโหมด Do Not Disturb)</td>
                     </tr>
                     <tr>
@@ -3427,7 +3889,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                     <tr>
                         <td><b>Data Scientist / Analytics Lead</b></td>
                         <td>Weekly / Bi-weekly</td>
-                        <td>• วางแผน Event Tracking Schema สำหรับฟีเจอร์ใหม่<br/>• วิเคราะห์ผล A/B Testing, Sample Ratio Mismatch (SRM), และ Guardrail Metrics</td>
+                        <td>• วางแผน Event Tracking Schema สำหรับฟีเจอร์ใหม่<br/>• วิเคราะห์ผล A/B Testing, <a href="#glossary-srm" class="term-link">Sample Ratio Mismatch</a> (<a href="#glossary-srm" class="term-link">SRM</a>), และ <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a></td>
                     </tr>
                     <tr>
                         <td><b>Engineering Manager (EM)</b></td>
@@ -3442,7 +3904,7 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
                     <tr>
                         <td><b>UX/UI Product Designer</b></td>
                         <td>Ad-hoc / Weekly</td>
-                        <td>• Review User Journeys, Wireframes, และ Usability Testing Results</td>
+                        <td>• Review User Journeys, <a href="#glossary-wireframes" class="term-link">Wireframes</a>, และ Usability Testing Results</td>
                     </tr>
                 </tbody>
             </table>
@@ -3450,8 +3912,10 @@ Z = (p̂_B - p̂_A) / sqrt( p̂ * (1 - p̂) * (1/n_A + 1/n_B) )
     </div>
 
     
+
+
 <div class="footer-note">
-        <p><b>✅ 100% Full Uncut Master Guide Verified (v4.2):</b> ครบถ้วนทุกหัวข้อ + Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI Search/Copy</p>
+        <p><b>✅ 100% Full Uncut Master Guide Verified (v4.5):</b> ครบถ้วนทุกหัวข้อ + Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI Search/Copy</p>
     </div>
 </div>
 
