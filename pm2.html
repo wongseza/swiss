@@ -860,9 +860,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.14">
+    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.15">
         <span class="version-dot"></span>
-        <span>v7.14</span>
+        <span>v7.15</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" type="button" aria-pressed="true" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" type="button" aria-pressed="false" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -984,7 +984,11 @@
                 </ul>
             </li>
             <li><a href="#sec7">7. 📣 ขอบเขตความรู้ด้าน Marketing สำหรับ Product Manager (Marketing & Growth Depth for PMs)</a></li>
-            <li><a href="#sec8">8. 🔍 การวิเคราะห์ Gap Analysis, กลยุทธ์การปิด Gap 9 มิติ และคลังคำศัพท์เฉพาะ (Glossary)</a></li>
+            <li><a href="#sec8">8. 🔍 การวิเคราะห์ Gap Analysis, กลยุทธ์การปิด Gap 9 มิติ และคลังคำศัพท์เฉพาะ (Glossary)</a>
+                <ul>
+                    <li><a href="#missing-experience-bridge-playbook">8.1.1 ประสบการณ์ 5 ด้านที่ Lead SWE มักยังขาด และวิธีเติมเต็มอย่างเป็นรูปธรรม (The 5 Missing Experience Gaps)</a></li>
+                </ul>
+            </li>
 
             <li class="phase-label">🅴️ ส่วนที่ 5: เคสประสบการณ์ STAR สำหรับรอบ Behavioral (Round 4)</li>
             <li><a href="#sec9">9. 🚀 เคสประสบการณ์และบทพูดแบบ STAR Technique</a>
@@ -3817,9 +3821,97 @@ LTV : CAC Ratio Target &gt; 3.0
                 <tr><td><b>9. Global Scale</b></td><td><a href="#glossary-global-local" class="term-link">Global Scalability vs Local Relevance</a></td><td>ชู Modular Architecture: Core Engine เดียวกัน เปิด Flex Layer หน้าบ้าน</td></tr>
             </tbody>
         </table>
+        </div>
+
+        <!-- 8.1.1 The 5 Missing Experience Gaps & Bridge Playbook -->
+        <div class="example-box" id="missing-experience-bridge-playbook" style="margin-top: 18px; border-left: 5px solid #f59e0b; background: var(--bg-card);">
+            <h4>🎯 8.1.1 ประสบการณ์ 5 ด้านที่ Lead SWE 11 ปีมักยังขาด และวิธีเติมเต็มอย่างเป็นรูปธรรม (The 5 Missing Experience Gaps & Bridge Playbook)</h4>
+            
+            <div class="alert-box" style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b;">
+                <b>💡 การประเมินตนเองอย่างตรงไปตรงมา (Objective Reality Check):</b><br/>
+                ในสายตาของ Hiring Committee, Director of Product, และ Bar Raiser ที่ Agoda — ผู้สมัครที่มีภูมิหลังเป็น <b>Lead Software Engineer 6 ปี (รวม 11 YOE)</b> มีจุดแข็งระดับ World-class เรื่อง System Architecture, Data Logic, และ Technical Execution... 
+                แต่สิ่งที่จะทำให้กรรมการ **"ลังเลไม่กล้าให้ตำแหน่ง Senior PM"** ไม่ใช่เรื่องเขียนโค้ด แต่คือ <b>5 มิติของ Product Management สไตล์ Agoda</b> ที่สายวิศวกรรมมักไม่ได้ทำโดยตรงในงานประจำ:
+            </div>
+
+            <!-- GAP 1 -->
+            <div class="card" style="margin-top: 14px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                <h4 style="color: #f59e0b; margin-top: 0;">💰 1. ขาดการถือตัวเลขผลประกอบการและกำไรขาดทุนตรงๆ (Direct P&amp;L &amp; Commercial Metric Ownership)</h4>
+                <p><b>ธรรมชาติของงานเดิม:</b> Lead SWE รับผิดชอบเรื่อง System Reliability (99.99%), Latency, Code Quality, Delivery Deadline, และ Cloud Infrastructure Efficiency — แต่ <i>ไม่ได้เป็นคนกำหนดราคา (Pricing), ไม่ได้คุม Marketing Budget, และไม่ได้ถือเป้าหมายรายได้ (Revenue Target) โดยตรง</i></p>
+                <p><b>ความคาดหวังของ Agoda:</b> Senior PM คือ "Mini-CEO ของ Pod" ที่ต้องคิดแบบ Commercial Owner ทุกฟีเจอร์ต้องตอบได้ว่าจะสร้าง <b>Gross Booking Value (GBV)</b>, <b>Net Take Rate</b> หรือ <b>Contribution Margin</b> เท่าไร</p>
+                <b>🛠️ วิธีเติมเต็มในห้องสัมภาษณ์ (How to Bridge):</b>
+                <ul>
+                    <li><b>แปลง Technical Metrics เดิมเป็น Financial Proxies:</b> อย่ายกตัวอย่างแค่ "ลด Latency 500ms" แต่ให้แปลงเป็นตัวเลขเงิน: <i>"การลด Latency 500ms ช่วยลด Drop-off ที่หน้า Search ได้ 1.2% ซึ่งบน Volume 1M ผู้ใช้/ปี ที่ค่าเฉลี่ยตั๋ว $80 เทียบเท่ากับการสร้าง Incremental GBV เพิ่มขึ้นราว $960,000 ต่อปี"</i></li>
+                    <li><b>ชูเคส Cloud Cost Optimization สู่ EBITDA:</b> เล่าประสบการณ์ตอนเป็น Lead SWE ที่คุณเคยคุมงบ AWS/GCP/Kubernetes ให้ลดลง 20–30% แล้วผูกเข้ากับกำไรสุทธิ: <i>"การ Optimize Infrastructure ครั้งนั้นส่งผลตรงให้ Gross Margin ของระบบดีขึ้นทันที </table>
     </div>
 
-    <div class="glossary-box">
+    <div class="glossary-box">50K/ปี โดยไม่ต้องรอเพิ่มยอดขาย"</i></li>
+                    <li><b>เข้าใจสมการ Unit Economics ของ Agoda ให้ขึ้นใจ:</b> ทบทวน <a href="#business-model-lingo" class="term-link">หมวด 6.3</a> พูดคำว่า <code>GBV = Room Nights (RN) × Average Daily Rate (ADR)</code> และรายได้สุทธิคือ <code>Take Rate (15–18%) × GBV</code> ให้เป็นธรรมชาติในทุกโจทย์ Business</li>
+                </ul>
+            </div>
+
+            <!-- GAP 2 -->
+            <div class="card" style="margin-top: 14px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                <h4 style="color: #06b6d4; margin-top: 0;">🧪 2. ขาดประสบการณ์รันการทดลองทางสถิติความถี่สูง (High-Velocity Causal Experimentation &amp; Guardrail Design)</h4>
+                <p><b>ธรรมชาติของงานเดิม:</b> ในทีม Dev ส่วนใหญ่ SWE เป็น "คน Implement" ระบบ Feature Flag, สับ Canary Release หรือติด Tracking Tag แต่ <i>ไม่ได้เป็นคนตั้งสมมติฐานทางสถิติ, ไม่ได้คำนวณ Sample Size / Minimum Detectable Effect (MDE), และไม่ได้เป็นคนเคาะ Launch/Rollback เมื่อเจอกรณี Guardrail ตก</i></p>
+                <p><b>ความคาดหวังของ Agoda:</b> Agoda รันการทดลองมากกว่า 1,000+ A/B Tests พร้อมกัน วัฒนธรรม "Data Trumps Opinion" ต้องการ PM ที่มี Analytical Rigor สูงมากในการตรวจจับ <b>Sample Ratio Mismatch (SRM)</b>, การตีความ <b>p-value</b>, และ <b>Cannibalization</b></p>
+                <b>🛠️ วิธีเติมเต็มในห้องสัมภาษณ์ (How to Bridge):</b>
+                <ul>
+                    <li><b>สร้าง "Experimentation Decision Log" ย้อนหลัง 3 เคส:</b> นำ 3 ฟีเจอร์ที่คุณเคยปล่อยตอนเป็น Lead SWE มาเรียบเรียงใหม่ในรูปแบบ A/B Test Blueprint: กำหนด Null Hypothesis ($H_0$), Primary Metric (เช่น Room-select CVR), Guardrail Metrics 2 ตัว (เช่น Cancellation Rate, API Error Spike), และเกณฑ์การตัดสินใจ Rollback หากกระทบ Guardrail > 2%</li>
+                    <li><b>เข้าใจปรัชญา p-value ของ Agoda Engineering:</b> ทำความเข้าใจว่าทำไม Agoda ใช้เกณฑ์ผ่อนปรนเช่น <code>p &lt; 0.4</code> ในการทดลองขั้นต้น (Exploratory) เพื่อเปิดรับนวัตกรรมและหลีกเลี่ยง Type II Error (พลาดโอกาสโต) แต่ใช้ <code>p &lt; 0.05</code> ใน Core Checkout Flow (ดู <a href="#agoda-internal-faq" class="term-link">หมวด 10.11</a>)</li>
+                    <li><b>ฝึกจำลองโจทย์ Metric Drop Diagnostics (หมวด 10.8):</b> ซ้อมผ่าตัดตัวเลขตกแบบเป็นระบบ: ตรวจ Data Tracking/SRM ➔ ตรวจปัจจัยภายนอก (Macro/Seasonality) ➔ ตรวจ Release Bugs/Latency ➔ เจาะ Segment Breakdown</li>
+                </ul>
+            </div>
+
+            <!-- GAP 3 -->
+            <div class="card" style="margin-top: 14px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                <h4 style="color: #ec4899; margin-top: 0;">🎨 3. ขาดประสบการณ์ขุดค้นปัญหาผู้ใช้เชิงคุณภาพ (Qualitative Customer Discovery &amp; Unmet Needs Hunting)</h4>
+                <p><b>ธรรมชาติของงานเดิม:</b> Lead SWE คุ้นเคยกับการรับ Requirement จาก Product Owner, Business Analyst, หรือ UI Designer ในรูปแบบ Figma Wireframes หรือ Jira Tickets ทำให้ <i>ไม่เคยนั่งสัมภาษณ์ผู้ใช้ตัวจริง 1-on-1 แบบไม่ชี้นำ เพื่อขุดหา Unmet Needs และปัญหาเชิงจิตวิทยา</i></p>
+                <p><b>ความคาดหวังของ Agoda:</b> ใน Round 2 (Product Sense), กรรมการจะเค้นถาม: <i>"คุณรู้ได้อย่างไรว่าฟีเจอร์นี้คือสิ่งที่ลูกค้าต้องการจริงๆ ไม่ใช่แค่สิ่งที่คุณคิดไปเองในห้องแอร์?"</i> หรือ <i>"ถ้าข้อมูล Data ยังไม่มี คุณจะค้นหา unmet need อย่างไร?"</i></p>
+                <b>🛠️ วิธีเติมเต็มในห้องสัมภาษณ์ (How to Bridge):</b>
+                <ul>
+                    <li><b>ฝึกใช้กระบวนการ Qualitative Discovery (หมวด 12.2):</b> ซ้อมถามคำถามแบบไม่ชี้นำ (ห้ามถามว่า 'อยากได้ฟีเจอร์นี้ไหม' แต่ถามว่า <i>'ครั้งล่าสุดที่คุณเลือกระหว่าง 2 ที่พัก คุณดูข้อมูลอะไร และอะไรทำให้คุณลังเลเกือบกดปิดแอป?'</i>)</li>
+                    <li><b>ทำ Cognitive Walkthrough Teardown บนแอปจริง:</b> สวมหมวกผู้ใช้ 2 กลุ่ม (Solo Budget Backpacker vs Luxury Family) แล้วเปิดแอป Agoda เปรียบเทียบกับ Booking.com และ Trip.com วิเคราะห์ Friction Point เรื่อง Cognitive Overload, Badges ความเร่งรีบ (Urgency Triggers), และ Price Breakdown Transparency</li>
+                    <li><b>พูดคำว่า "User Empathy &amp; Mental Model" ให้เป็นธรรมชาติ:</b> <i>"When designing this booking flow, before jumping into adding filters, I would conduct 5 unmoderated user recording sessions to observe where users pause and experience choice paralysis (Hick's Law)."</i></li>
+                </ul>
+            </div>
+
+            <!-- GAP 4 -->
+            <div class="card" style="margin-top: 14px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                <h4 style="color: #8b5cf6; margin-top: 0;">🤝 4. ขาดประสบการณ์โน้มน้าวทีมภายนอกโดยไม่มีอำนาจบังคับบัญชา (Non-Authoritative Cross-Functional Influence)</h4>
+                <p><b>ธรรมชาติของงานเดิม:</b> ในฐานะ Lead Developer คุณมีอำนาจทางตำแหน่ง (Positional Authority) เหนือทีมวิศวกร สามารถสั่งการทางสถาปัตยกรรมหรือปฏิเสธ PR ได้ แต่ในฐานะ Senior PM คุณต้องทำงานร่วมกับ <b>ทีม Commercial, Market Managers (ฝั่งโรงแรม), Legal, Finance, และ Customer Operations</b> ซึ่งไม่มีใครรายงานตรงต่อคุณเลย</p>
+                <p><b>ความคาดหวังของ Agoda:</b> Agoda ทดสอบความสามารถในการสร้าง <i>Psychological Safety</i>, การ Align ผลประโยชน์ร่วมกันข้ามสายงาน, และการคลี่คลาย Deadlock โดยไม่สร้างศัตรู</p>
+                <b>🛠️ วิธีเติมเต็มในห้องสัมภาษณ์ (How to Bridge):</b>
+                <ul>
+                    <li><b>เตรียม 2 STAR Stories เจาะจงเรื่อง Cross-Functional Conflict (หมวด 9.3 และ 10.3.1):</b> เล่าเคสที่คุณต้องดีลกับทีม Legal หรือ Finance ที่ต้องการขั้นตอน Verification เข้มงวดจนกระทบ Conversion และวิธีที่คุณเจรจาด้วย Data-backed Phased Rollout จนบรรลุข้อตกลงร่วมกัน</li>
+                    <li><b>สวมบทบาท "Orchestrator" ไม่ใช่ "Dictator":</b> หลีกเลี่ยงการพูดว่า <i>"I told the team to do X"</i> แต่ให้ใช้คำว่า <i>"I brought data to the table, aligned everyone on our shared North Star Metric, and facilitated a trade-off discussion using a 2x2 Priority Matrix."</i></li>
+                    <li><b>ซ้อมรับมือ Bar Raiser Pushback (หมวด 10.3):</b> เมื่อถูกกรรมการแย้งสดว่าไอเดียเราไม่เวิร์ก ให้ตอบด้วยความสุขุม: <i>"That's a very valid concern. Let me unpack the trade-off and explain how I would de-risk that with an exploratory A/B test guardrail."</i></li>
+                </ul>
+            </div>
+
+            <!-- GAP 5 -->
+            <div class="card" style="margin-top: 14px; border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                <h4 style="color: #10b981; margin-top: 0;">🏨 5. ขาดความคุ้นเคยกับพลวัตตลาดอุตสาหกรรมท่องเที่ยวและโรงแรม (Travel Tech &amp; OTA Industry Acumen)</h4>
+                <p><b>ธรรมชาติของงานเดิม:</b> หาก 11 ปีที่ผ่านมาทำงานในบริษัทเทคทั่วไป, FinTech หรือ Enterprise Software คุณจะยังไม่คุ้นเคยกับโครงสร้างความสัมพันธ์ระหว่าง <b>โรงแรม (Supply)</b> กับ <b>แพลตฟอร์ม OTA (Demand)</b> เช่น สัญญาราคาเท่ากัน (Rate Parity), ระบบโควต้าห้องพัก (Inventory Allotment), และ Channel Conflict</p>
+                <p><b>ความคาดหวังของ Agoda:</b> Agoda ต้องการคนที่เข้าใจว่าทำไมโรงแรมถึงยอมจ่ายค่าคอมมิชชัน 15–20% ให้ Agoda (เพราะต้องการถมห้องว่าง หรือ Mid-week Fill Rate) และทำไม Direct Hotelier ถึงพยายามดึงลูกค้าไปจองตรง</p>
+                <b>🛠️ วิธีเติมเต็มในห้องสัมภาษณ์ (How to Bridge):</b>
+                <ul>
+                    <li><b>อ่าน Booking Holdings Q2/Q3 Earnings Transcript (30 นาที):</b> ศึกษาบทความสรุปผลประกอบการของบริษัทแม่ Agoda เพื่อเข้าใจทิศทางระดับโลก เช่น การเติบโตของ <i>Connected Trip (Flights + Hotels + Transfers)</i>, สัดส่วน <i>Direct Mobile App Bookings</i>, และการขยายตัวของ <i>Alternative Accommodations (Agoda Homes)</i></li>
+                    <li><b>เข้าใจความต่างของ Merchant vs Agency Model อย่างแม่นยำ (หมวด 6.3):</b>
+                        <ul>
+                            <li><i>Merchant Model:</i> Agoda ตัดบัตรลูกค้าก่อน แล้วค่อยส่งเงินให้โรงแรม (Agoda กำหนดราคาโปรโมชันเองได้ มีกระแสเงินสดและ Margin สูงกว่า)</li>
+                            <li><i>Agency Model:</i> ลูกค้าไปจ่ายเงินสดที่หน้าโรงแรม (Pay at Hotel) แล้วโรงแรมค่อยจ่ายคอมมิชชันคืน Agoda (Conversion สูงกว่าแต่เสี่ยง No-show สูงกว่า)</li>
+                        </ul>
+                    </li>
+                    <li><b>ดึง Use Case การท่องเที่ยวมาใช้ในทุกคำตอบ:</b> ไม่ว่าจะถูกถามคำถามปลายเปิดแบบใด ให้ยกตัวอย่างอิงกับ Agoda เสมอ เช่น การแก้ปัญหา No-show, การเพิ่ม Room Nights ในช่วง Low Season, หรือการทำ Personalization แสดงผลราคาสำหรับ Family Travelers</li>
+                </ul>
+            </div>
+
+            <div class="alert-box" style="margin-top: 16px; border-left: 4px solid #f59e0b; background: rgba(245, 158, 11, 0.1);">
+                <b>🏁 สรุปกลยุทธ์ปิด Gap:</b> คุณไม่จำเป็นต้องแกล้งทำเป็นว่าคุณเคยทำสิ่งเหล่านี้มาครบ 100% แต่สิ่งที่คุณต้องแสดงให้เห็นคือ <b>"ความตระหนักรู้ (Self-Awareness)"</b> และ <b>"กรอบความคิดที่พร้อมสวมหมวก Senior PM ทันทีตั้งแต่วันแรก"</b> — เมื่อคุณโชว์ว่าคุณเข้าใจทั้ง 5 จุดนี้ กรรมการจะมองว่าคุณคือ <b>"The Rare Unicorn Candidate"</b> ที่มีทั้งความลึกทางสถาปัตยกรรมระบบขั้นสุดยอดและสัญชาตญาณทางธุรกิจที่เฉียบคมครับ!
+            </div>
+        </div>
+
+        <div class="glossary-box">
         <h3>📖 คลังคำศัพท์เฉพาะ (Technical & Business Glossary):</h3>
         
         <div class="glossary-item" id="glossary-rigor">
@@ -6000,7 +6092,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     </div>
 
 <div class="footer-note">
-        <p><b>✅ Interview Preparation Guide (v7.14):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
+        <p><b>✅ Interview Preparation Guide (v7.15):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
     </div>
 
 <!-- 📜 Theme Switcher JavaScript -->
