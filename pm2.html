@@ -2,7 +2,7 @@
 <html lang="th" data-theme="eye-care">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <title>คู่มือเตรียมสัมภาษณ์ Senior Product Manager @ Agoda</title>
     <style>
         /* 📜 Smooth Scrolling for Anchor Links */
@@ -693,41 +693,103 @@
             font-size: 12px;
         }
 
+        /* 📱 Mobile & Tablet Responsive Optimizations */
         @media (max-width: 768px) {
-            body { padding: 8px 4px; }
-            .container { padding: 18px 14px; border-radius: 8px; margin-top: 35px; }
-            h1 { font-size: 21px; }
-            h2 { font-size: 17.5px; padding-left: 10px; margin-top: 30px; }
-            h3 { font-size: 15.5px; margin-top: 20px; }
-            h4 { margin-top: 15px; }
-            .theme-toggle-container { top: 8px; right: 8px; padding: 2px; }
-            .version-badge { padding: 3px 7px; font-size: 10px; }
-            .theme-btn { padding: 5px 9px; font-size: 11px; }
-            .subtitle { font-size: 13px; padding: 10px 12px; }
-            .toc { padding: 14px 16px; }
-            .star-card, .topic-card { padding: 14px; margin: 18px 0; }
-            .code-block { font-size: 12px; padding: 12px; }
-            .example-box, .script-box, .script-box-en, .alert-box, .glossary-box { padding: 12px 14px; margin: 12px 0; font-size: 13px; }
-            .floating-toc-btn { bottom: 18px; right: 18px; padding: 9px 16px; font-size: 12px; }
+            body { 
+                padding: 4px; 
+                overflow-x: hidden;
+                -webkit-text-size-adjust: 100%;
+            }
+            .container { 
+                padding: 16px 12px; 
+                border-radius: 8px; 
+                margin-top: 48px; 
+                max-width: 100vw;
+                box-sizing: border-box;
+            }
+            h1 { font-size: 20px; line-height: 1.35; margin-top: 8px; word-break: break-word; }
+            h2 { font-size: 17px; padding-left: 10px; margin-top: 28px; word-break: break-word; }
+            h3 { font-size: 15px; margin-top: 20px; word-break: break-word; }
+            h4 { font-size: 14px; margin-top: 14px; word-break: break-word; }
+            p, li { font-size: 13.5px; line-height: 1.55; }
+            .theme-toggle-container { 
+                top: 8px; 
+                right: 8px; 
+                padding: 3px; 
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            }
+            .version-badge { padding: 3px 6px; font-size: 10px; }
+            .theme-btn { padding: 5px 8px; font-size: 11px; min-height: 32px; }
+            .subtitle { font-size: 12.5px; padding: 10px 12px; line-height: 1.5; }
+            .toc { padding: 14px 12px; }
+            .star-card, .topic-card { padding: 12px; margin: 16px 0; border-radius: 8px; }
+            .code-block { font-size: 12px; padding: 10px; white-space: pre-wrap; word-break: break-word; }
+            .example-box, .script-box, .script-box-en, .alert-box, .glossary-box { 
+                padding: 12px; 
+                margin: 12px 0; 
+                font-size: 13px; 
+                border-radius: 8px;
+            }
+            /* 📱 Mobile One-Click Copy Button: Full-width touch banner */
+            .script-box-en .copy-btn, .script-box .copy-btn { 
+                float: none; 
+                display: flex; 
+                width: 100%; 
+                justify-content: center; 
+                align-items: center; 
+                margin-bottom: 10px; 
+                padding: 9px 14px; 
+                font-size: 13px; 
+                min-height: 42px; 
+                border-radius: 6px; 
+                touch-action: manipulation; 
+                box-sizing: border-box;
+            }
+            .copy-status { display: block; text-align: center; margin-bottom: 6px; }
+            .floating-toc-btn { 
+                bottom: 16px; 
+                right: 16px; 
+                padding: 10px 16px; 
+                font-size: 12px; 
+                border-radius: 30px;
+                box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+                touch-action: manipulation;
+                z-index: 9999;
+            }
             ul, ol { padding-left: 18px; margin-top: 5px; margin-bottom: 12px; }
-            li { margin-bottom: 4px; }
-            table th, table td { padding: 6px 8px !important; font-size: 12.5px; }
-            .org-box-parent, .org-box-ceo, .org-box-product, .org-box-tech, .org-box-comm, .org-box-ops { max-width: 100%; }
+            li { margin-bottom: 5px; }
+            /* 📱 Responsive Tables with Touch Scroll & Visual Hint */
+            .table-responsive { 
+                margin: 12px 0;
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                -webkit-overflow-scrolling: touch;
+                box-shadow: inset -6px 0 6px -6px rgba(0,0,0,0.15);
+            }
+            table th, table td { padding: 7px 8px !important; font-size: 12px; }
+            .org-box-parent, .org-box-ceo, .org-box-product, .org-box-tech, .org-box-comm, .org-box-ops { 
+                max-width: 100%; 
+                width: 100%; 
+                box-sizing: border-box; 
+            }
         }
 
         @media (max-width: 480px) {
-            body { padding: 6px 3px; }
-            .container { padding: 12px 10px; margin-top: 30px; border-radius: 6px; }
-            h1 { font-size: 18.5px; }
-            h2 { font-size: 16px; padding-left: 8px; margin-top: 26px; }
-            h3 { font-size: 14.5px; margin-top: 16px; }
-            h4 { font-size: 13.5px; }
-            p, li { font-size: 13.5px; }
-            .toc { padding: 12px 12px; }
+            body { padding: 2px; }
+            .container { padding: 12px 8px; margin-top: 44px; border-radius: 6px; }
+            h1 { font-size: 18px; }
+            h2 { font-size: 15.5px; padding-left: 8px; margin-top: 24px; }
+            h3 { font-size: 14px; margin-top: 16px; }
+            h4 { font-size: 13px; }
+            p, li { font-size: 13px; }
+            .toc { padding: 10px 8px; }
+            .toc li { margin-bottom: 6px; }
             .star-card, .topic-card { padding: 10px; }
-            .example-box, .script-box, .script-box-en, .alert-box, .glossary-box { padding: 10px 10px; }
-            ul, ol { padding-left: 14px; }
-            table th, table td { padding: 5px 6px !important; font-size: 11.5px; }
+            .example-box, .script-box, .script-box-en, .alert-box, .glossary-box { padding: 10px 8px; }
+            ul, ol { padding-left: 15px; }
+            table th, table td { padding: 6px 6px !important; font-size: 11px; }
+            .floating-toc-btn { bottom: 12px; right: 12px; padding: 8px 12px; font-size: 11px; }
         }
         @media print {
             body { background: #fff !important; color: #111 !important; padding: 0; }
@@ -749,9 +811,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.12">
+    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.13">
         <span class="version-dot"></span>
-        <span>v7.12</span>
+        <span>v7.13</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" type="button" aria-pressed="true" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" type="button" aria-pressed="false" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -5889,7 +5951,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     </div>
 
 <div class="footer-note">
-        <p><b>✅ Interview Preparation Guide (v7.12):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
+        <p><b>✅ Interview Preparation Guide (v7.13):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
     </div>
 
 <!-- 📜 Theme Switcher JavaScript -->
