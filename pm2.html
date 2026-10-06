@@ -860,9 +860,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.17">
+    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.18">
         <span class="version-dot"></span>
-        <span>v7.17</span>
+        <span>v7.18</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" type="button" aria-pressed="true" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" type="button" aria-pressed="false" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -921,7 +921,11 @@
                     <li><a href="#two-pizza-team-deepdive">3.2 🍕 เจาะลึกแนวคิด Two-Pizza Team และการออกแบบขอบเขตทีม</a></li>
                     <li><a href="#product-pillars-breakdown">3.3 รายละเอียด 4 เสาหลักของผลิตภัณฑ์ Agoda (Product Pillars Breakdown)</a></li>
                     <li><a href="#agoda-pod-structure">3.4 โครงสร้างพอดในกรุงเทพฯ: ทำไมคู่หูเป็น Tech Lead ไม่ใช่ Engineering Manager (EM)</a></li>
-                    <li><a href="#agoda-pm-scope">3.5 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM</a></li>
+                    <li><a href="#agoda-pm-scope">3.5 ขอบเขตหน้าที่ครบวงจร 5 ด้านของ Senior PM</a>
+                        <ul>
+                            <li><a href="#senior-pm-skill-matrix-percentage">3.5.1 แผนภูมิทักษะ 5 เสาหลักของ Agoda Senior PM พร้อมสัดส่วนน้ำหนัก % (Skill Matrix %)</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#agoda-hiring-funnel">3.6 สถิติ Headcount Seasonality & Funnel การคัดออก</a></li>
                     <li><a href="#pm-level-hierarchy">3.7 PM แต่ละ Level: หน้าที่และสัดส่วนในองค์กร</a>
                         <ul>
@@ -2285,6 +2289,184 @@ Gross Booking Value (GBV)
     </div>
 
     <!-- 9.4 -->
+    
+        <!-- 3.5.1 The Senior PM 5-Pillar Competency & Percentage Weighting Matrix -->
+        <div class="star-card" id="senior-pm-skill-matrix-percentage" style="margin-top: 24px; border-left: 5px solid #06b6d4;">
+            <h3>📊 3.5.1 แผนภูมิทักษะและความรู้ 5 เสาหลักของ Agoda Senior PM พร้อมสัดส่วนน้ำหนัก % (The Senior PM 5-Pillar Competency &amp; Percentage Weighting Matrix)</h3>
+            
+            <div class="alert-box" style="background: rgba(6, 182, 212, 0.1); border-left: 4px solid #06b6d4;">
+                <b>🎯 แก่นแท้ของการประเมิน (The Evaluation Reality at Agoda):</b><br/>
+                ที่ Agoda (โดยเฉพาะสำนักงานใหญ่กรุงเทพฯ ที่ One Bangkok) การคัดเลือกและประเมินผลงานของ <b>Senior Product Manager (Band 7/8)</b> ไม่ได้วัดจากจำนวนฟีเจอร์ที่ปล่อย (Output) แต่ประเมินจาก <b>5 เสาหลักทักษะ (Core Competency Pillars)</b> โดยมีสัดส่วนน้ำหนักความสำคัญเชิงสัมพัทธ์ (Relative Weighting) ตามวัฒนธรรม <i>"Data Trumps Opinion"</i> ดังนี้:
+            </div>
+
+            <!-- VISUAL BREAKDOWN BARS -->
+            <div style="margin: 20px 0; padding: 16px; background: var(--bg-body); border-radius: 10px; border: 1px solid var(--border-color);">
+                <h4 style="margin-top: 0; color: var(--primary);">📈 สัดส่วนน้ำหนัก 5 เสาหลักของ Agoda Senior PM (รวม 100%):</h4>
+                
+                <div style="margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                        <span>1. 🧪 Analytical &amp; Experimentation Rigor (ทักษะด้านข้อมูลและ A/B Testing)</span>
+                        <span style="color: #06b6d4;">30%</span>
+                    </div>
+                    <div style="width: 100%; height: 12px; background: rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden;">
+                        <div style="width: 30%; height: 100%; background: #06b6d4; border-radius: 6px;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                        <span>2. 🎨 Product Sense, UX Psychology &amp; Discovery (เซนส์ผลิตภัณฑ์และจิตวิทยาผู้ใช้)</span>
+                        <span style="color: #ec4899;">25%</span>
+                    </div>
+                    <div style="width: 100%; height: 12px; background: rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden;">
+                        <div style="width: 25%; height: 100%; background: #ec4899; border-radius: 6px;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                        <span>3. 💰 Commercial &amp; Business Acumen (ความเฉียบคมเชิงพาณิชย์และ P&amp;L)</span>
+                        <span style="color: #f59e0b;">20%</span>
+                    </div>
+                    <div style="width: 100%; height: 12px; background: rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden;">
+                        <div style="width: 20%; height: 100%; background: #f59e0b; border-radius: 6px;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                        <span>4. ⚙️ Technical Depth &amp; Engineering Partnership (สถาปัตยกรรมระบบและคู่หู Tech Lead)</span>
+                        <span style="color: #3b82f6;">15%</span>
+                    </div>
+                    <div style="width: 100%; height: 12px; background: rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden;">
+                        <div style="width: 15%; height: 100%; background: #3b82f6; border-radius: 6px;"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px;">
+                        <span>5. 🤝 Cross-Functional Influence &amp; Leadership (ภาวะผู้นำโน้มน้าวและการสื่อสารระดับผู้บริหาร)</span>
+                        <span style="color: #10b981;">10%</span>
+                    </div>
+                    <div style="width: 100%; height: 12px; background: rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden;">
+                        <div style="width: 10%; height: 100%; background: #10b981; border-radius: 6px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAILED BREAKDOWN TABLE -->
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">เสาหลักและสัดส่วนน้ำหนัก %</th>
+                            <th style="width: 32%;">ทักษะย่อยและความรู้เฉพาะที่ Agoda คาดหวัง</th>
+                            <th style="width: 28%;">รอบที่ใช้ประเมินหลัก</th>
+                            <th style="width: 22%;">แต้มต่อของ Ex-SWE 11 ปี / Lead SWE 6 ปี</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>1. Analytical &amp; Experimentation Rigor<br/><span style="color: #06b6d4; font-size: 15px;">(30%)</span></b><br/><small style="color: var(--text-muted);">หัวใจสำคัญสูงสุด / Deal-breaker</small></td>
+                            <td>
+                                • <b>A/B Testing Framework:</b> Null Hypothesis ($H_0$), Minimum Detectable Effect (MDE), Statistical Power, และ Sample Size<br/>
+                                • <b>Data Hygiene:</b> การตรวจจับ Sample Ratio Mismatch (<a href="#glossary-srm" class="term-link">SRM</a>), การตีความ p-value (ทำไม Agoda ใช้ 0.4 ใน exploratory vs 0.05 ใน checkout)<br/>
+                                • <b>Metric Hierarchy:</b> แยก Primary Metric, Secondary Metric และ Guardrails (Error rate, Latency, Cancel rate)<br/>
+                                • <b>Self-Serve SQL &amp; RCA:</b> เขียน SQL ดึงข้อมูลเองได้, ผ่าตัดวิเคราะห์ Metric Drop 4 ขั้นตอน
+                            </td>
+                            <td>
+                                • <b>Round 3:</b> Product Analytics &amp; Execution (60 นาที)<br/>
+                                • <b>Round 5:</b> Bar Raiser (เจาะลึกความสมเหตุสมผลของตัวเลข)
+                            </td>
+                            <td>
+                                <b>ความพร้อม: 85–90%</b><br/>
+                                มีพื้นฐาน SQL และ Logic เชิงตัวเลขแน่นมากแล้ว เพียงจำสูตร MDE, SRM และ Guardrail Metrics ของ Agoda ให้คล่องปาก
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>2. Product Sense &amp; Discovery<br/><span style="color: #ec4899; font-size: 15px;">(25%)</span></b><br/><small style="color: var(--text-muted);">การแก้โจทย์ Ambiguity</small></td>
+                            <td>
+                                • <b>Structured Problem Solving:</b> การใช้ CIRCLES / BUS-PAE Framework แก้โจทย์ Product Design สดๆ<br/>
+                                • <b>User Psychology:</b> การวิเคราะห์ <a href="#glossary-friction" class="term-link">Friction 3 มิติ</a> (Cognitive, Emotional, Physical), Hick's Law, Choice Paralysis, และ Urgency Badges<br/>
+                                • <b>Qualitative Discovery:</b> การสัมภาษณ์ผู้ใช้ 1-on-1 แบบไม่ชี้นำเพื่อหา Unmet Needs ก่อนมี Data<br/>
+                                • <b>Prioritization Rigor:</b> การจัดลำดับความสำคัญด้วย RICE / MoSCoW ไม่ใช่ตามสัญชาตญาณ
+                            </td>
+                            <td>
+                                • <b>Round 2:</b> Product Sense &amp; Design Case (60 นาที)<br/>
+                                • <b>Round 5:</b> Director / VP (โจทย์นวัตกรรม 0-to-1)
+                            </td>
+                            <td>
+                                <b>ความพร้อม: 75–80%</b><br/>
+                                ต้องระวังกับดักรีบเสนอ System Solution ก่อนทำความเข้าใจ User Segment และ Pain Point (ใช้กฎ 70/30 บังคับตัวเอง)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>3. Commercial &amp; Business Acumen<br/><span style="color: #f59e0b; font-size: 15px;">(20%)</span></b><br/><small style="color: var(--text-muted);">ตัวคั่นระหว่าง Junior vs Senior</small></td>
+                            <td>
+                                • <b>OTA Unit Economics:</b> Gross Booking Value (GBV), Room Nights (RN), Take Rate (15–18%), และ Average Daily Rate (ADR)<br/>
+                                • <b>Business Models:</b> <a href="#business-model-lingo" class="term-link">Merchant Model</a> vs Agency Model (Pay at Hotel), Dynamic Pricing, Rate Parity, และ Mid-week Fill Rate<br/>
+                                • <b>Bottom-line Trade-offs:</b> การชั่งน้ำหนักระหว่าง Conversion Lift กับต้นทุนแฝง (Payment Fees, Chargebacks, Cloud Infrastructure, Partner Churn)<br/>
+                                • <b>Competitive Dynamics:</b> ความเข้าใจในคู่แข่ง (Booking.com, Expedia, Trip.com, Airbnb)
+                            </td>
+                            <td>
+                                • <b>Round 5:</b> Director / VP / Bar Raiser (วัดความเป็น Mini-CEO)<br/>
+                                • <b>Round 4:</b> Cross-functional Leadership
+                            </td>
+                            <td>
+                                <b>ความพร้อม: 65–70%</b><br/>
+                                <span style="color: #f59e0b;">จุดที่ต้องเติมเต็มมากที่สุด!</span> ศึกษา <a href="#missing-experience-bridge-playbook" class="term-link">หมวด 8.1.1</a> และแปลงผลงานเดิมเป็น Financial Proxies เสมอ
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>4. Technical Depth &amp; Engineering Partnership<br/><span style="color: #3b82f6; font-size: 15px;">(15%)</span></b><br/><small style="color: var(--text-muted);">Unfair Advantage สูงสุดของคุณ</small></td>
+                            <td>
+                                • <b>Distributed Systems Architecture:</b> Microservices, Event-Driven (Kafka), Redis Caching Invalidation, Database Sharding<br/>
+                                • <b>Transaction Integrity:</b> <a href="#glossary-idempotency" class="term-link">Idempotency</a>, 2-Phase Commit, Multi-Currency FX Settlement, และ Circuit Breakers<br/>
+                                • <b>High-Level Sizing:</b> ประเมินความยากง่ายทางเทคนิคได้แม่นยำ ไม่สัญญา Roadmap ที่เป็นไปไม่ได้<br/>
+                                • <b>Respecting Boundaries:</b> เป็นเจ้าของ 'What/Why' และยกสิทธิ์เด็ดขาดเรื่อง 'How' ให้ Tech Lead เป็นผู้เลือก
+                            </td>
+                            <td>
+                                • <b>Round 3:</b> Technical Execution (ทดสอบร่วมกับ Analytics)<br/>
+                                • <b>Round 4:</b> การจำลองทำงานคู่กับ Tech Lead
+                            </td>
+                            <td>
+                                <b>ความพร้อม: 95–100% 🏆</b><br/>
+                                <span style="color: #3b82f6;">แต้มต่อมหาศาล!</span> ชนะ Candidate สาย MBA/Business ทันที ได้คะแนนเต็ม 5/5 ในมิตินี้อย่างแน่นอน
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>5. Cross-Functional Influence &amp; Leadership<br/><span style="color: #10b981; font-size: 15px;">(10%)</span></b><br/><small style="color: var(--text-muted);">การบริหารคนโดยไร้อำนาจสั่งการ</small></td>
+                            <td>
+                                • <b>Influence without Authority:</b> การเจรจาข้ามสายงานกับทีม Commercial, Market Managers, Finance, Legal, และ Customer Support (CEG)<br/>
+                                • <b>Executive Communication:</b> สื่อสารสไตล์ <a href="#bluf-def" class="term-link">BLUF (Bottom Line Up Front)</a> และเล่าเรื่องแบบ STAR สั้นกระชับใน 2.5–3 นาที<br/>
+                                • <b>Managing Upwards:</b> การรับมือกับ Executive Pet Features ด้วย Data แทนการใช้อารมณ์<br/>
+                                • <b>Psychological Safety &amp; Humility:</b> วัฒนธรรม "It's OK to Mess Up" กล้ายอมรับข้อผิดพลาดและถอดบทเรียนเร็ว
+                            </td>
+                            <td>
+                                • <b>Round 4:</b> Cross-functional Leadership (60 นาที)<br/>
+                                • <b>Round 1:</b> Recruiter Screening &amp; Culture Fit
+                            </td>
+                            <td>
+                                <b>ความพร้อม: 80–85%</b><br/>
+                                มีประสบการณ์ Lead SWE 6 ปีคอยคุมทีมอยู่แล้ว เพียงปรับมุมมองจากการใช้อำนาจตำแหน่ง (Positional Authority) มาเป็นการใช้ Data โน้มน้าว
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SUMMARY TAKEAWAY -->
+            <div class="example-box" style="margin-top: 16px; background: rgba(6, 182, 212, 0.08); border-left: 4px solid #06b6d4;">
+                <h4 style="color: #06b6d4; margin-top: 0;">🎯 บทสรุปแต้มต่อ (Strategic Readiness Summary for You):</h4>
+                <ul>
+                    <li><b>คุณมีแต้มต่อในกระเป๋าแล้วกว่า 65%:</b> ด้วยการที่คุณมีความลึกด้าน <b>Technical Architecture (15%)</b> ระดับเต็มร้อย + <b>Analytical Logic (30%)</b> ในระดับสูงมาก + <b>Leadership (10%)</b> และบางส่วนของ Product Sense ทำให้คุณออกสตาร์ทนำหน้าผู้สมัครคนอื่นไปไกลมาก</li>
+                    <li><b>สมรภูมิชี้ขาด (The Winning Move):</b> สิ่งเดียวที่คุณต้องทุ่มเทเติมเต็มก่อนวันสัมภาษณ์คือ <b>Commercial Acumen (20%)</b> — การพูดจาด้วยตัวเลข GBV, Take Rate, Room Nights, และ Merchant vs Agency Model จะทำให้ผู้บริหาร Agoda ตัดสินใจให้ Offer ระดับ <b>Senior PM</b> ทันทีอย่างไม่มีข้อกังขาครับ!</li>
+                </ul>
+            </div>
+        </div>
+
+
+    <!-- 3.6 -->
     <div class="star-card" id="agoda-hiring-funnel">
         <h3>🏛️️ 3.6 เตรียมตัวตามหลักฐานที่แต่ละช่วงอาจต้องใช้ (Hiring Process Readiness)</h3>
         <div class="alert-box"><span class="badge badge-orange">No probability estimate</span> ไม่มีข้อมูลสาธารณะที่รองรับอัตราผ่านแต่ละรอบหรือโอกาสได้ offer สำหรับผู้สมัครกลุ่มใดกลุ่มหนึ่ง. จำนวนรอบ, ผู้สัมภาษณ์ และเกณฑ์ตัดสินอาจเปลี่ยนตามตำแหน่งและทีม; ขอ timeline/format ล่าสุดจาก Recruiter. ตารางนี้เป็น rubric เตรียมหลักฐาน ไม่ใช่ pass-rate funnel</div>
@@ -6303,7 +6485,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     </div>
 
 <div class="footer-note">
-        <p><b>✅ Interview Preparation Guide (v7.17):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
+        <p><b>✅ Interview Preparation Guide (v7.18):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
     </div>
 
 <!-- 📜 Theme Switcher JavaScript -->
