@@ -65,6 +65,13 @@
 
         * { box-sizing: border-box; transition: background-color 0.25s ease, color 0.25s ease; }
 
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
         body {
             font-family: 'Sarabun', 'Thonburi', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.75;
@@ -73,6 +80,10 @@
             margin: 0;
             padding: 20px 10px;
             -webkit-text-size-adjust: 100%;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
         }
 
         /* 🔗 Interactive Technical Term Links */
@@ -164,12 +175,15 @@
 
         .container {
             max-width: 1180px;
+            width: 100%;
             margin: 0 auto;
             background: var(--bg-card);
             padding: 40px 35px;
             border-radius: 14px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.05);
             margin-top: 25px;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
         h1 {
@@ -335,9 +349,13 @@
 
         table {
             width: 100%;
+            max-width: 100%;
             border-collapse: collapse;
             font-size: 13.5px;
-            min-width: 620px;
+        }
+
+        .table-responsive table {
+            min-width: 580px;
         }
 
         th, td {
@@ -713,14 +731,45 @@
             h4 { font-size: 14px; margin-top: 14px; word-break: break-word; }
             p, li { font-size: 13.5px; line-height: 1.55; }
             .theme-toggle-container { 
-                top: 8px; 
-                right: 8px; 
-                padding: 3px; 
-                border-radius: 8px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                position: fixed !important;
+                top: 8px !important; 
+                right: 8px !important; 
+                left: auto !important;
+                padding: 3px 4px; 
+                border-radius: 24px;
+                box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+                z-index: 99999 !important;
+                background: var(--bg-card);
+                max-width: calc(100vw - 16px);
+                box-sizing: border-box;
+                display: flex !important;
+                align-items: center;
+                gap: 3px;
             }
-            .version-badge { padding: 3px 6px; font-size: 10px; }
-            .theme-btn { padding: 5px 8px; font-size: 11px; min-height: 32px; }
+            .version-badge { 
+                display: none !important; /* Hide version badge on mobile screen to prevent overflowing */
+            }
+            .theme-btn { 
+                padding: 6px 9px !important; 
+                font-size: 11.5px !important; 
+                min-height: 34px !important;
+                border-radius: 18px !important;
+                white-space: nowrap !important;
+                touch-action: manipulation;
+            }
+            .floating-toc-btn { 
+                position: fixed !important;
+                bottom: 16px !important; 
+                right: 14px !important; 
+                left: auto !important;
+                padding: 10px 16px !important; 
+                font-size: 12px !important; 
+                font-weight: 700 !important;
+                border-radius: 30px !important;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.35) !important;
+                touch-action: manipulation !important;
+                z-index: 99999 !important;
+            }
             .subtitle { font-size: 12.5px; padding: 10px 12px; line-height: 1.5; }
             .toc { padding: 14px 12px; }
             .star-card, .topic-card { padding: 12px; margin: 16px 0; border-radius: 8px; }
@@ -811,9 +860,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.13">
+    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.14">
         <span class="version-dot"></span>
-        <span>v7.13</span>
+        <span>v7.14</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" type="button" aria-pressed="true" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" type="button" aria-pressed="false" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -5248,7 +5297,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
 
             <h4>1) เริ่มจาก decision และ research brief ไม่ใช่จาก solution</h4>
             <p>เขียน brief หนึ่งหน้าก่อนนัดผู้ใช้: <b>เราต้องตัดสินใจอะไร → ยังไม่รู้อะไร → จะหา evidence อย่างไร → evidence แบบใดทำให้เปลี่ยนใจ</b>. แยกสิ่งที่ทราบจากข้อมูลกับสมมติฐานของทีม และระบุว่า research รอบนี้ยังตอบอะไรไม่ได้.</p>
-            <table>
+            <div class="table-responsive"><table>
                 <thead><tr><th>องค์ประกอบ</th><th>ตัวอย่างสมมติ: ผู้จองที่พักสำหรับครอบครัว</th></tr></thead>
                 <tbody>
                     <tr><td>Decision</td><td>ควรลงทุนลดความไม่แน่ใจเรื่องห้องพักสำหรับเด็ก หรือแก้ friction อื่นก่อน?</td></tr>
@@ -5258,7 +5307,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
                     <tr><td>Disconfirming evidence</td><td>ผู้ใช้เข้าใจข้อมูลห้องดี แต่หยุดเพราะวันเดินทางยังไม่แน่นอน—ไม่ควรสรุปว่าเพิ่ม badge จะแก้ปัญหา</td></tr>
                     <tr><td>Deliverable</td><td>Journey, evidence-backed opportunities, confidence/limitations และ next validation พร้อม owner</td></tr>
                 </tbody>
-            </table>
+            </table></div>
 
             <h4>2) เลือกวิธีให้ตรงคำถาม</h4>
             <ul>
@@ -5279,7 +5328,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
             <p>ให้ผู้ใช้ปิดข้อมูลการจ่ายเงิน booking references และข้อมูลของบุคคลอื่นก่อน screen share; ห้ามขอให้ทำ transaction จริงเพื่อพิสูจน์ task. ถ้ามี note-taker/observer ให้แจ้งและขอความยินยอม ใช้ moderator หนึ่งคนเพื่อลดความรู้สึกถูกสอบสวน. หาก research เกี่ยวกับเด็กหรือกลุ่มเปราะบาง ให้ร่วมกับผู้เชี่ยวชาญและกระบวนการอนุมัติที่เหมาะสม.</p>
 
             <h4>5) Discussion guide ตัวอย่าง 45 นาที</h4>
-            <table>
+            <div class="table-responsive"><table>
                 <thead><tr><th>เวลาโดยประมาณ</th><th>ทำอะไร</th><th>คำถามที่ใช้ได้</th></tr></thead>
                 <tbody>
                     <tr><td>0–5 นาที</td><td>Consent, rapport, ย้ำว่าไม่ใช่การทดสอบผู้ใช้</td><td>“ไม่มีคำตอบถูกผิด เราอยากเข้าใจประสบการณ์ของคุณ”</td></tr>
@@ -5289,11 +5338,11 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
                     <tr><td>35–40 นาที</td><td>Alternatives และตรวจความเข้าใจ</td><td>“มีตัวเลือกไหนอีก? อะไรทำให้เลือก/ไม่เลือก? ถ้าผมสรุปว่า…ตรงกับที่คุณหมายถึงไหม?”</td></tr>
                     <tr><td>40–45 นาที</td><td>เปิดประเด็นที่ตกหล่นและปิด session</td><td>“มีอะไรสำคัญที่ผมยังไม่ได้ถาม? ขอ follow-up เพื่อเช็กความเข้าใจได้ไหม?”</td></tr>
                 </tbody>
-            </table>
+            </table></div>
             <p><b>Moderator technique:</b> ฟังมากกว่าพูด เว้นช่วงเงียบ ถามทีละข้อ และ probe ด้วย “ช่วยยกเหตุการณ์จริง”, “เกิดอะไรต่อ”, “อะไรทำให้ตัดสินใจแบบนั้น”. อย่า pitch หรือแก้ตัวแทนสินค้า. หากจะทดสอบ concept ใน session เดียวกัน ให้ทำหลัง discovery และแยกบันทึกเพื่อไม่ให้ solution ปนเปื้อนคำตอบก่อนหน้า.</p>
 
             <h4>6) เปลี่ยนคำถามชี้นำเป็นคำถามเกี่ยวกับพฤติกรรมจริง</h4>
-            <table>
+            <div class="table-responsive"><table>
                 <thead><tr><th>หลีกเลี่ยง</th><th>ใช้แทน</th><th>เหตุผล</th></tr></thead>
                 <tbody>
                     <tr><td>“คุณคิดว่า cancellation policy สับสนใช่ไหม?”</td><td>“ตอนเลือก rate คุณดูข้อมูลอะไร และเข้าใจเงื่อนไขยกเลิกอย่างไร?”</td><td>ไม่ใส่ปัญหาหรือคำตอบให้ผู้ใช้</td></tr>
@@ -5302,17 +5351,17 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
                     <tr><td>“ฟีเจอร์ไหนสำคัญที่สุด?”</td><td>“อะไรเกือบทำให้คุณไม่จอง? คุณแก้สถานการณ์นั้นอย่างไร?”</td><td>ค้นหา outcome และความรุนแรง ไม่ใช่ feature wishlist</td></tr>
                     <tr><td>“ทำไมไม่กดปุ่มนี้?” แบบกล่าวโทษ</td><td>“ตอนนั้นคุณคาดว่าจะทำอะไรต่อ? อะไรทำให้คุณเลือกทางนี้?”</td><td>ลดความกดดันและเข้าใจ mental model</td></tr>
                 </tbody>
-            </table>
+            </table></div>
 
             <h4>7) จด evidence แยกจาก interpretation แล้วสังเคราะห์</h4>
             <p>Debrief หลังแต่ละ session ขณะที่จำบริบทได้: เก็บ quote/พฤติกรรมพร้อม participant ID และ timestamp เมื่อมี recording ที่อนุญาต, ปัญหา, workaround, ผลกระทบ และคำถามที่ยังไม่ตอบ. แยก <b>reported behavior</b>, <b>observed behavior</b> และ <b>researcher inference</b>; อย่าเปลี่ยน paraphrase เป็นคำพูดตรงของผู้ใช้.</p>
-            <table>
+            <div class="table-responsive"><table>
                 <thead><tr><th>Evidence สมมติ</th><th>Interpretation / alternative</th><th>Next validation</th></tr></thead>
                 <tbody>
                     <tr><td>P03 รายงานว่าโทรถามที่พักเรื่องเตียงเด็กก่อนจอง; P07 เปิด policy หลายหน้าใน session ที่สังเกต</td><td>อาจมีความไม่แน่ใจเรื่อง room suitability; แต่อาจเป็น policy เฉพาะที่พักหรือความต้องการพิเศษของสองคนนี้</td><td>สัมภาษณ์ contrasting cases, ตรวจ content coverage และ support contact reasons</td></tr>
                     <tr><td>P05 เข้าใจ policy แต่ยังไม่จอง เพราะรอวันลาจากที่ทำงาน</td><td>เป็น disconfirming case: การไม่จองไม่ได้เกิดจากข้อมูลห้องเสมอ</td><td>แยก undecided trip intent ออกจาก information friction ก่อนตีความ funnel</td></tr>
                 </tbody>
-            </table>
+            </table></div>
             <ol>
                 <li><b>Code:</b> จัด evidence เป็น tags เช่น trigger, information gap, price, trust, workaround, consequence; เก็บคำผู้ใช้และเปิดให้เพิ่ม theme ที่ไม่ตรง hypothesis เดิม</li>
                 <li><b>Cluster:</b> รวมตามปัญหา/บริบท ไม่ใช่ตาม solution ที่อยากสร้าง; ทำ journey map พร้อม moments of friction และ positive cases</li>
@@ -5951,7 +6000,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     </div>
 
 <div class="footer-note">
-        <p><b>✅ Interview Preparation Guide (v7.13):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
+        <p><b>✅ Interview Preparation Guide (v7.14):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
     </div>
 
 <!-- 📜 Theme Switcher JavaScript -->
