@@ -860,9 +860,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.16">
+    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.17">
         <span class="version-dot"></span>
-        <span>v7.16</span>
+        <span>v7.17</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" type="button" aria-pressed="true" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" type="button" aria-pressed="false" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -1090,7 +1090,7 @@
             <div class="cheatsheet-card">
                 <h4>🧭 รอบ Product Sense / Case</h4>
                 <ul>
-                    <li><b>ลำดับ:</b> Goal → Persona → Friction → Options → Prioritization → Metrics</li>
+                    <li><b>ลำดับ:</b> Goal → Persona → <a href="#glossary-friction" class="term-link">Friction</a> → Options → Prioritization → Metrics</li>
                     <li><b>Framework:</b> <a href="#circles-script" class="term-link">CIRCLES</a> เมื่อโจทย์เป็น discovery; <a href="#bus-pae" class="term-link">BUS-PAE</a> เมื่อต้องโชว์ business, feasibility และ experiment</li>
                     <li><b>ปิดคำตอบ:</b> เลือก MVP หนึ่งทางพร้อมเหตุผล, dependency และความเสี่ยง</li>
                 </ul>
@@ -1313,7 +1313,7 @@
                             <td><b>ระหว่างวัน<br/>(พักเที่ยง / เบรก)</b></td>
                             <td><b>15–20 นาที</b></td>
                             <td><b>Micro-Learning & App Teardown:</b><br/>
-                            • เปิดแอป Agoda บนมือถือ ลองเสิร์ชโรงแรม/เที่ยวบิน สังเกต UI/UX Badge และ Friction Point<br/>
+                            • เปิดแอป Agoda บนมือถือ ลองเสิร์ชโรงแรม/เที่ยวบิน สังเกต UI/UX Badge และ <a href="#glossary-friction" class="term-link">Friction Point</a><br/>
                             • ทบทวนคำศัพท์ธุรกิจใน <a href="#business-model-lingo" class="term-link">หมวด 6.3</a> (GBV, RN, Take Rate, ADR) 3 คำต่อวัน</td>
                             <td>สะสมสัญชาตญาณเชิงพาณิชย์ (Commercial Product Sense) โดยไม่ต้องใช้พลังงานสมองหนัก</td>
                         </tr>
@@ -1497,7 +1497,7 @@
             <ul>
                 <li><b>Product Alignment & Delivery:</b> <i>"Collaborated directly with Product Managers and Business Stakeholders to define technical roadmaps, refine Acceptance Criteria, and evaluate trade-offs between technical debt and feature velocity."</i></li>
                 <li><b>Data-Driven Execution:</b> <i>"Institutionalized telemetry and event-logging practices to enable robust analytics, tracking key system and user metrics across critical components."</i></li>
-                <li><b>Team Leadership & Bus Factor Reduction:</b> <i>"Spearheaded internal knowledge sharing and established a Component Ownership Matrix, increasing the team's Bus Factor from 1 to 3+ and ensuring zero delivery friction during key team transitions."</i></li>
+                <li><b>Team Leadership & Bus Factor Reduction:</b> <i>"Spearheaded internal knowledge sharing and established a Component Ownership Matrix, increasing the team's Bus Factor from 1 to 3+ and ensuring zero delivery <a href="#glossary-friction" class="term-link">friction</a> during key team transitions."</i></li>
                 <li><b>Quality & Incident Management:</b> <i>"Engineered self-serve internal workflows and automated testing frameworks, reducing post-release defect rates and accelerating release cycles."</i></li>
             </ul>
         </div>
@@ -1515,7 +1515,7 @@
 
             <h4>2. หมวด Analytics, Experimentation & Data Autonomy</h4>
             <p>❌ <i>Wrote complex SQL queries to monitor system performance, database logs, and server execution metrics.</i></p>
-            <p>✅ <i>Leveraged SQL analytics and <a href="#glossary-funnel" class="term-link">funnel drop-off</a> analysis to identify critical user friction in checkout flow, leading to a targeted optimization that improved conversion by [X pp / X% relative] over [time window].</i></p>
+            <p>✅ <i>Leveraged SQL analytics and <a href="#glossary-funnel" class="term-link">funnel drop-off</a> analysis to identify critical user <a href="#glossary-friction" class="term-link">friction</a> in checkout flow, leading to a targeted optimization that improved conversion by [X pp / X% relative] over [time window].</i></p>
             <p>✅ <i>Designed and executed A/B testing frameworks on core platform services, validating feature hypotheses with pre-defined decision criteria, effect size, data-quality checks, and business guardrails before full-scale deployment.</i></p>
             <p>✅ <i>Investigated [user/system problem] by combining [SQL/logs/dashboard] with <a href="#glossary-metric-decomposition" class="term-link">metric decomposition</a>; isolated [segment/bottleneck], presented the net-impact trade-off to [stakeholders], and drove [decision] with [real, disclosable outcome].</i></p>
             <p><b>Checklist ก่อนใช้:</b> อย่าเปลี่ยน monitoring หรือ benchmark ธรรมดาให้เป็น “A/B test” หากไม่ได้ randomize/control จริง. เล่าได้อย่างแข็งแรงด้วย <i>before/after</i> หรือ comparative analysis ตราบใดที่ระบุ limitation, confounders และเหตุผลของ decision อย่างซื่อตรง.</p>
@@ -1535,7 +1535,7 @@
         <div class="alert-box">
             <b>3 คำต้องห้าม & 3 คำแนะนำสำหรับ Resume:</b><br/>
             ❌ หลีกเลี่ยง: Fixed bugs, Maintained code, Implemented Jira tickets, Refactored database<br/>
-            ✅ แทนที่ด้วย: Spearheaded, Spearheaded A/B experiments, Optimized conversion, Defined product roadmap, Reduced user friction, Accelerated adoption
+            ✅ แทนที่ด้วย: Spearheaded, Spearheaded A/B experiments, Optimized conversion, Defined product roadmap, Reduced user <a href="#glossary-friction" class="term-link">friction</a>, Accelerated adoption
         </div>
     </div>
 
@@ -1788,7 +1788,7 @@
                 <p>ผู้สัมภาษณ์ที่ Agoda ชื่นชอบผู้สมัครที่ <b>"เล่นแอปของพวกเขาจนทะลุปรุโปร่ง"</b> มากกว่าคนที่ตอบทฤษฎีสวยหรู:</p>
                 <ol>
                     <li><b>ทดลองจำลอง User Journey จริง:</b> เปิดแอป Agoda บนสมาร์ตโฟน แล้วทำการค้นหา: <i>"โรงแรมในกรุงเทพฯ ศุกร์หน้า 2 คืน สำหรับผู้ใหญ่ 2 คน"</i> เดินทางไปจนถึงหน้า Checkout (ก่อนกดชำระเงินจริง)</li>
-                    <li><b>วิเคราะห์ 4 จุดเสียดทานทางธุรกิจ (Friction Points Analysis):</b>
+                    <li><b>วิเคราะห์ 4 จุดเสียดทานทางธุรกิจ (<a href="#glossary-friction" class="term-link">Friction Points</a> Analysis):</b>
                         <ul>
                             <li><b>Urgency & Scarcity Badges:</b> ตรวจสอบป้าย <i>"เหลือเพียง 1 ห้องสุดท้ายในราคานี้!"</i> หรือ <i>"มี 18 คนกำลังดูที่พักนี้อยู่"</i> — ในฐานะ Senior PM คุณคิดว่าฟีเจอร์นี้เพิ่ม Conversion เท่าใด และส่งผลต่อ Brand Trust อย่างไร?</li>
                             <li><b>Price Breakdown Transparency:</b> สังเกตการแสดงผลราคาแบบ Room Rate vs All-Inclusive (รวม Service Fee & Tax) ในตลาดเอเชีย vs ยุโรป (สัมพันธ์กับกฎหมาย Display Pricing)</li>
@@ -2873,7 +2873,7 @@ Gross Booking Value (GBV)
                         <tr><th>หมวดหมู่</th><th>ตัวอย่างโจทย์ที่มักถูกถาม</th><th>Focus Point ที่ผู้สัมภาษณ์คาดหวัง</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><b>Automation</b></td><td>"จะเพิ่ม Self-service adoption บน Agoda app ได้อย่างไร?"</td><td>การวิเคราะห์ Contact Drivers และการออกแบบ Frictionless UX</td></tr>
+                        <tr><td><b>Automation</b></td><td>"จะเพิ่ม Self-service adoption บน Agoda app ได้อย่างไร?"</td><td>การวิเคราะห์ Contact Drivers และการออกแบบ <a href="#glossary-friction" class="term-link">Frictionless</a> UX</td></tr>
                         <tr><td><b>Internal Tools</b></td><td>"จะสร้างเครื่องมือให้ Agent ทำงานเร็วขึ้น 20% ได้อย่างไร?"</td><td>การเข้าใจ Workflow ของ Agent และการลด Cognitive Load</td></tr>
                         <tr><td><b>Trade-off Decision</b></td><td>"ถ้าฟีเจอร์ A ลด Contact Rate ได้ แต่ทำให้ Conversion Rate รวมตกลง จะตัดสินใจอย่างไร?"</td><td>การชั่งน้ำหนัก Business Value vs Support Cost</td></tr>
                     </tbody>
@@ -2899,7 +2899,7 @@ Gross Booking Value (GBV)
             <p><b>กฎจำง่ายสำหรับผู้สมัคร SWE → PM:</b> “<b>What and why before how</b>.” แม้คำตอบจะใช้ BUS-PAE ให้เริ่มจาก Business และ User เสมอ; แต่เมื่อโจทย์เป็น PM product-design case ให้ใช้ CIRCLES เป็น default แล้วปิดท้าย technical feasibility และ operational risks อย่างกระชับ. นี่เปลี่ยน technical depth จากการ “รีบเสนอ solution” ให้เป็น <b>unfair advantage</b> ที่ทำให้ trade-off สมจริงและคุยกับ Engineering ได้ลึกขึ้น.</p>
             <ol>
                 <li><b>B — Business Goal & Context:</b> ระบุเป้าหมาย, baseline, scope, constraints และเหตุผลที่ปัญหานี้สำคัญ เช่น “ลด contact rate เรื่อง refund โดยไม่ลด conversion หรือเพิ่ม cost ต่อ booking” ถ้าไม่มีข้อมูล ให้บอก assumption และถามคำถาม 1–2 ข้อก่อน</li>
-                <li><b>U — User Segmentation & Friction:</b> แยกว่าใครเจ็บที่สุดและเจ็บที่ step ไหน—customer, hotel partner หรือ agent; แยกตาม market, device, booking type, cancellation policy หรือ payment method แล้วเลือก segment แรกที่มี impact/learning สูง</li>
+                <li><b>U — User Segmentation & <a href="#glossary-friction" class="term-link">Friction</a>:</b> แยกว่าใครเจ็บที่สุดและเจ็บที่ step ไหน—customer, hotel partner หรือ agent; แยกตาม market, device, booking type, cancellation policy หรือ payment method แล้วเลือก segment แรกที่มี impact/learning สูง</li>
                 <li><b>S — Solution Brainstorming:</b> เสนออย่างน้อย 2–3 ทางเลือกต่างระดับ เช่น clarify information, self-service flow, หรือ assisted support; เปรียบเทียบ impact, effort, risk และเลือก MVP ที่ reversible ไม่กระโดดไปสร้างระบบใหญ่ทันที</li>
                 <li><b>P — Practicality: Architecture & Execution Feasibility:</b> อธิบาย dependency, scale/QPS, latency/SLA, consistency, data/event tracking, API/partner constraints, privacy, resilience/monitoring, operational workflow, rollout/rollback และ owner ของแต่ละส่วน นี่คือจุดที่พื้นฐาน SWE สร้างความน่าเชื่อถือได้โดยไม่แย่งบทบาท Tech Lead</li>
                 <li><b>A — Assessment:</b> กำหนด primary metric, baseline, time horizon และ <a href="#glossary-guardrail" class="term-link">guardrails</a>; ตัวอย่าง primary คือ refund self-service completion rate, guardrails คือ repeat contact, CSAT, refund error rate และ latency</li>
@@ -3716,7 +3716,7 @@ Net decision value = incremental contribution - one-off implementation cost
         <p>ในฝั่ง Payment & FinTech PM ต้องดูแลระบบดักจับการทุจริตแบบ Real-time:</p>
         <ul>
             <li><b>Real-time Risk Scoring API:</b> ทุกการกดชำระเงินจะถูกส่งไปประเมิน Risk Score ผ่าน ML Model ภายใน &lt; 200ms โดยวิเคราะห์จาก Device Fingerprint, IP Geo-location, Card Velocity, และ Historical Behavioral Pattern</li>
-            <li><b>Step-up Authentication (3D Secure Flex):</b> หาก Risk Score อยู่ในเกณฑ์ปานกลาง ระบบจะเรียกใช้ 3DS (OTP) เฉพาะรายนั้น แต่หาก Low Risk จะผ่านสู่ Frictionless Checkout เพื่อรักษา Conversion Rate</li>
+            <li><b>Step-up Authentication (3D Secure Flex):</b> หาก Risk Score อยู่ในเกณฑ์ปานกลาง ระบบจะเรียกใช้ 3DS (OTP) เฉพาะรายนั้น แต่หาก Low Risk จะผ่านสู่ <a href="#glossary-friction" class="term-link">Frictionless</a> Checkout เพื่อรักษา Conversion Rate</li>
         </ul>
     </div>
 
@@ -4001,7 +4001,7 @@ LTV : CAC Ratio Target &gt; 3.0
                 <b>🛠️ วิธีเติมเต็มในห้องสัมภาษณ์ (How to Bridge):</b>
                 <ul>
                     <li><b>ฝึกใช้กระบวนการ Qualitative Discovery (หมวด 12.2):</b> ซ้อมถามคำถามแบบไม่ชี้นำ (ห้ามถามว่า 'อยากได้ฟีเจอร์นี้ไหม' แต่ถามว่า <i>'ครั้งล่าสุดที่คุณเลือกระหว่าง 2 ที่พัก คุณดูข้อมูลอะไร และอะไรทำให้คุณลังเลเกือบกดปิดแอป?'</i>)</li>
-                    <li><b>ทำ Cognitive Walkthrough Teardown บนแอปจริง:</b> สวมหมวกผู้ใช้ 2 กลุ่ม (Solo Budget Backpacker vs Luxury Family) แล้วเปิดแอป Agoda เปรียบเทียบกับ Booking.com และ Trip.com วิเคราะห์ Friction Point เรื่อง Cognitive Overload, Badges ความเร่งรีบ (Urgency Triggers), และ Price Breakdown Transparency</li>
+                    <li><b>ทำ Cognitive Walkthrough Teardown บนแอปจริง:</b> สวมหมวกผู้ใช้ 2 กลุ่ม (Solo Budget Backpacker vs Luxury Family) แล้วเปิดแอป Agoda เปรียบเทียบกับ Booking.com และ Trip.com วิเคราะห์ <a href="#glossary-friction" class="term-link">Friction Point</a> เรื่อง Cognitive Overload, Badges ความเร่งรีบ (Urgency Triggers), และ Price Breakdown Transparency</li>
                     <li><b>พูดคำว่า "User Empathy &amp; Mental Model" ให้เป็นธรรมชาติ:</b> <i>"When designing this booking flow, before jumping into adding filters, I would conduct 5 unmoderated user recording sessions to observe where users pause and experience choice paralysis (Hick's Law)."</i></li>
                 </ul>
             </div>
@@ -4110,8 +4110,88 @@ LTV : CAC Ratio Target &gt; 3.0
 
             <p>• <b>หน้าที่ของ Senior PM ต่อการบริหาร Funnel:</b><br/>
             1. <b>ค้นหารอยรั่ว (Find the Leaks / Bottlenecks):</b> เช็ก Data Dashboard ดูว่า Stage ไหนมี Drop-off สูงผิดปกติ (เช่น หน้า Booking Form คนหลุดเยอะ)<br/>
-            2. <b>ตั้งสมมติฐานและทำ A/B Test (Plug the Leaks):</b> ทดลองตัดฟิลด์ที่ไม่จำเป็นออก, ทำ Auto-fill ข้อมูลเดิม, หรือเพิ่มปุ่ม Quick Checkout เพื่อลด Friction<br/>
+            2. <b>ตั้งสมมติฐานและทำ A/B Test (Plug the Leaks):</b> ทดลองตัดฟิลด์ที่ไม่จำเป็นออก, ทำ Auto-fill ข้อมูลเดิม, หรือเพิ่มปุ่ม Quick Checkout เพื่อลด <a href="#glossary-friction" class="term-link">Friction</a><br/>
             3. <b>High Leverage Value:</b> ตัวอย่างเช่น conversion จาก 2.0% เป็น 2.1% คือ +0.1 percentage point หรือ +5% relative; คำนวณ bookings/revenue เพิ่มจากจำนวน session จริง, booking quality และ unit economics ก่อนสรุปมูลค่า</p>
+        </div>
+
+        
+        <div class="glossary-item" id="glossary-friction">
+            <b>🛑 Friction (ความเสียดทาน / อุปสรรคในประสบการณ์ผู้ใช้): คืออะไร แปลว่าอะไร และสำคัญอย่างไรในงาน Agoda Senior PM?</b>
+            <p>• <b>ความหมายและคำจำกัดความ (Literal &amp; Product Definition):</b><br/>
+            ในทาง Product Management และ UX/UI คำว่า <b>"Friction"</b> (ความเสียดทาน) หมายถึง <b>"สิ่งกีดขวาง แรงต้านทาน หรือความยากลำบากใดๆ ที่ทำให้ผู้ใช้งานเกิดความลังเล (Hesitation), ต้องใช้ความพยายามทางปัญญาหรือร่างกายเพิ่มขึ้น (Cognitive or Physical Effort), ชะลอความเร็วในการใช้งาน หรือตัดสินใจละทิ้งกระบวนการกลางคัน (Drop-off / Churn / Abandonment)"</b> ขั้วตรงข้ามของ Friction คือ <i>"Frictionless Experience"</i> (ประสบการณ์ที่ไหลลื่นไร้รอยต่อ)</p>
+
+            <p>• <b>3 ประเภทของ Friction ที่ Agoda Senior PM ต้องแยกแยะให้ออก:</b></p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ประเภทของ Friction</th>
+                            <th>คำอธิบายและกลไกทางจิตวิทยา</th>
+                            <th>ตัวอย่างจริงบน Booking Funnel ของ Agoda</th>
+                            <th>วิธีแก้ไขของ Senior PM (Solution &amp; Metric)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>1. Cognitive Friction<br/>(ความเสียดทานทางความคิด)</b></td>
+                            <td>สมองต้องประมวลผลข้อมูลมากเกินไป (Information Overload), ตัวเลือกเยอะจนตัดสินใจไม่ถูก (Choice Paralysis ตามกฎ Hick's Law), หรือข้อความคลุมเครือไม่โปร่งใส</td>
+                            <td>
+                                • นโยบายยกเลิกการจอง (Cancellation Policy) ซับซ้อน อ่านไม่เข้าใจ<br/>
+                                • ราคาที่เห็นในหน้าค้นหาไม่รวมภาษี/ค่าธรรมเนียม พอถึงหน้าจ่ายเงินราคาพุ่งขึ้น (Drip Pricing / Sticker Shock)<br/>
+                                • แบดจ์เร่งรัดและป๊อปอัปแจ้งเตือนแน่นจอจนบังรูปห้องพัก
+                            </td>
+                            <td>
+                                • แสดง All-in Inclusive Pricing ตั้งแต่ Search Result Page (SRP)<br/>
+                                • สรุป Cancellation Terms เป็น Bullet สั้นๆ พร้อมแถบสีเขียว/แดง<br/>
+                                • <b>วัดผล:</b> Search-to-Detail CVR, Time-to-Select
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>2. Emotional Friction<br/>(ความเสียดทานทางอารมณ์)</b></td>
+                            <td>ความรู้สึกลังเล สงสัย ไม่ไว้วางใจ (Lack of Trust), กลัวถูกหลอก, กลัวถูกหักเงินซ้ำซ้อน, หรือกลัวว่าโรงแรมจะไม่ตรงปก</td>
+                            <td>
+                                • โรงแรมเปิดใหม่ที่ยังไม่มีรีวิว หรือมีรูปถ่ายน้อย<br/>
+                                • ขั้นตอนจ่ายเงินไม่แสดงโลโก้ความปลอดภัย (Visa/Mastercard/PCI-DSS) หรือไม่มีช่องทาง Local Payment ที่คุ้นเคย (เช่น PromptPay ในไทย)<br/>
+                                • กลัวเรื่องการขอเงินคืนหากไฟลต์ดีเลย์
+                            </td>
+                            <td>
+                                • เพิ่ม Trust Badges, Verified Guest Reviews, รีวิวที่มีรูปถ่ายจริง<br/>
+                                • เพิ่มฟังก์ชัน Price Freeze หรือ Easy Refund Guarantee<br/>
+                                • <b>วัดผล:</b> Payment Step Drop-off Rate, Payment Success Rate
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>3. Interaction / Physical Friction<br/>(ความเสียดทานทางกายภาพ)</b></td>
+                            <td>ความพยายามในการคลิก พิมพ์ หรือรอคอย เช่น หน้าเว็บโหลดช้า, แบบฟอร์มยาวเกินไป, ลิงก์เสีย, หรือปุ่มบนจอมือถือแตะยาก</td>
+                            <td>
+                                • ฟอร์มกรอกข้อมูลผู้เข้าพักต้องพิมพ์ชื่อ-นามสกุล เบอร์โทรศัพท์ อีเมลซ้ำทุกครั้งที่จอง<br/>
+                                • หน้าแอปกระตุกหรือโหลดช้า (Latency &gt; 2.5 วินาที)<br/>
+                                • ขั้นตอนยืนยันตัวตน 3D Secure (OTP) เด้งไปหน้าธนาคารแล้วค้าง
+                            </td>
+                            <td>
+                                • Auto-fill ข้อมูลจาก User Profile หรือ One-Click Apple Pay / Google Pay<br/>
+                                • ลด API Latency และทำ Optimistic UI Rendering<br/>
+                                • <b>วัดผล:</b> Form Completion Time, Latency P95, Rage Clicks
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>• <b>Good Friction vs. Bad Friction (เมื่อไหร่ที่ PM ต้อง "จงใจสร้าง Friction"?):</b><br/>
+            ไม่ใช่ว่า Friction ทุกอย่างจะต้องถูกขจัดให้เป็นศูนย์เสมอไป ในบางสถานการณ์ Senior PM ระดับเทพต้องรู้จักใช้ <b>"Intentional Friction (ความเสียดทานเชิงบวก)"</b> เพื่อปกป้องผลประโยชน์ของผู้ใช้หรือธุรกิจ:
+            <ul>
+                <li><b>ป้องกันข้อผิดพลาดร้ายแรง (Accidental Action Prevention):</b> เช่น การแสดงหน้าต่างยืนยัน <i>"คุณแน่ใจหรือไม่ที่จะยกเลิกการจองแบบ Non-refundable นี้?"</i> เพื่อป้องกันไม่ให้ผู้ใช้เผลอกดผิดและเสียเงินฟรี</li>
+                <li><b>การคัดกรองความเสี่ยงและการฉ้อโกง (Fraud &amp; Risk Mitigation):</b> ระบบ <a href="#bnpl-engine-def" class="term-link">Step-up Authentication (3DS OTP)</a> ที่จะปรากฏขึ้นเฉพาะเมื่อตรวจพบธุรกรรมเสี่ยงสูง เพื่อป้องกันบัตรเครดิตถูกขโมยใช้ แม้จะเพิ่ม Friction เล็กน้อย แต่แลกมาด้วยความปลอดภัยมหาศาล</li>
+                <li><b>การสะสมความมุ่งมั่น (IKEA Effect / Commitment):</b> ในบางฟีเจอร์ การให้ผู้ใช้เลือกระบุ Preference การเดินทางเล็กน้อยล่วงหน้า ทำให้ผู้ใช้รู้สึกว่าผลการค้นหาถูก Personalized มาเพื่อตนเองโดยเฉพาะ</li>
+            </ul>
+            </p>
+
+            <p>• <b>วิธีตอบสัมภาษณ์เมื่อกรรมการถามเรื่องการลด Friction:</b><br/>
+            <div class="script-box-en">
+                <i>"Whenever I analyze a funnel drop-off, I diagnose friction across three layers: Cognitive (information overload or hidden fees), Emotional (trust and fear of misbooking), and Physical (form fatigue and latency). I don't just eliminate all friction blindly; I remove Bad Friction that causes drop-offs while strategically placing Good Friction—like confirmation safeguards and risk-based authentication—to protect conversion quality and net margin."</i>
+            </div>
+            </p>
         </div>
 
         <div class="glossary-item" id="glossary-bottomline">
@@ -5337,7 +5417,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
             <p><i>สะท้อนความกล้าเผชิญหน้ากับความท้าทายจริง:</i></p>
             <ul>
                 <li><i>"อะไรคือ Technical หรือ Operational Bottleneck ที่ใหญ่ที่สุดที่ทีมนี้กำลังเผชิญอยู่ในปัจจุบัน ที่ยังหาโซลูชันที่ลงตัวไม่ได้ครับ?"</i></li>
-                <li><i>"ในการทำงานร่วมกันระหว่าง PM, Tech Lead และ Business Stakeholders ของทีมนี้ จุดที่มักเกิด Friction หรือความเห็นต่างบ่อยที่สุดคือเรื่องอะไร และทีมมีกลไกคลี่คลายอย่างไรครับ?"</i></li>
+                <li><i>"ในการทำงานร่วมกันระหว่าง PM, Tech Lead และ Business Stakeholders ของทีมนี้ จุดที่มักเกิด <a href="#glossary-friction" class="term-link">Friction</a> หรือความเห็นต่างบ่อยที่สุดคือเรื่องอะไร และทีมมีกลไกคลี่คลายอย่างไรครับ?"</i></li>
             </ul>
         </div>
 
@@ -5378,7 +5458,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
         <div class="example-box">
             <ol>
                 <li><b>What (Data Fact):</b> บอกตัวเลขหรือผลสรุปจาก Query อย่างกระชับ ไม่เยิ่นเย้อ — เช่น "Conversion Rate แยกตาม Device: Desktop 4.2%, Mobile Web 1.8%, Mobile App 5.1%"</li>
-                <li><b>So What (Business Impact & Behavior):</b> อธิบายว่าตัวเลขนี้สะท้อนพฤติกรรมอะไรของ User เช่น Mobile Web ต่ำกว่า Mobile App เกือบ 3 เท่าทั้งที่เป็นสมาร์ตโฟนเหมือนกัน สะท้อน High UX Friction บน Mobile Web ซึ่งมักเป็น Organic/SEO Traffic ที่กำลังถูก Waste ไป</li>
+                <li><b>So What (Business Impact & Behavior):</b> อธิบายว่าตัวเลขนี้สะท้อนพฤติกรรมอะไรของ User เช่น Mobile Web ต่ำกว่า Mobile App เกือบ 3 เท่าทั้งที่เป็นสมาร์ตโฟนเหมือนกัน สะท้อน High UX <a href="#glossary-friction" class="term-link">Friction</a> บน Mobile Web ซึ่งมักเป็น Organic/SEO Traffic ที่กำลังถูก Waste ไป</li>
                 <li><b>Now What (Hypothesis & Action):</b> เสนอสมมติฐานถัดไปพร้อมแอ็กชันชัดเจน เช่น ทำ <a href="#glossary-funnel" class="term-link">Funnel Drop-off</a> Analysis เจาะ Mobile Web แล้วรัน A/B Test ทดลอง Guest Checkout Flow เพื่อวัด Uplift</li>
             </ol>
             <p><b>3 สูตรเสริมความคม:</b> (1) เปรียบเทียบตัวเลขกับ Baseline/Control/YoY เสมอ ไม่พูดลอยๆ (2) เชื่อมกลับไปที่ <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> ทุกครั้งที่เห็นตัวเลขบวก (3) แบ่ง Segment ตาม User Type/Geography/Device เพื่อหา Hidden Insight ที่ตัวเลขเฉลี่ยซ่อนไว้</p>
@@ -5400,7 +5480,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
         </ul>
         <div class="script-box-en">
             <p><b>Sample decision script:</b><br/>
-            <i>"I'd lean toward rollback or at least hold full launch. A +1.5% relative conversion lift may be attractive, but +20% relative support contacts and +5% relative cancellations may erode contribution and customer trust. I'd quantify absolute changes, denominators, and net margin impact; if the result breaches pre-agreed guardrails, we fix the underlying friction and re-test."</i></p>
+            <i>"I'd lean toward rollback or at least hold full launch. A +1.5% relative conversion lift may be attractive, but +20% relative support contacts and +5% relative cancellations may erode contribution and customer trust. I'd quantify absolute changes, denominators, and net margin impact; if the result breaches pre-agreed guardrails, we fix the underlying <a href="#glossary-friction" class="term-link">friction</a> and re-test."</i></p>
         </div>
     </div>
 
@@ -5412,7 +5492,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
         </div>
         <h4>จุดที่ PM ต้อง Align กับ Performance Marketing</h4>
         <ul>
-            <li><b>Landing Experience:</b> Deep-link ไปหน้า <a href="#glossary-sem" class="term-link">PDP</a> หรือ Search ที่ match กับ query + pre-filled dates/occupancy เพื่อลด friction</li>
+            <li><b>Landing Experience:</b> Deep-link ไปหน้า <a href="#glossary-sem" class="term-link">PDP</a> หรือ Search ที่ match กับ query + pre-filled dates/occupancy เพื่อลด <a href="#glossary-friction" class="term-link">friction</a></li>
             <li><b>Message Match:</b> ราคา / โปรที่โชว์บน <a href="#glossary-ads" class="term-link">Ads</a> ต้องสอดคล้องกับหน้าเว็บ (ลด sticker shock → cancel / bounce)</li>
             <li><b>Speed & Reliability:</b> Latency และ availability ของหน้า Landing ส่งผลตรงต่อ Quality Score และ CPC</li>
             <li><b>Attribution & <a href="#glossary-unitecon" class="term-link">Unit Economics</a>:</b> คุยเรื่อง Last-click vs Multi-touch, <a href="#glossary-cac-ltv" class="term-link">CAC</a> ของ channel นี้, และ <a href="#glossary-cac-ltv" class="term-link">LTV</a> ของ user ที่มาจาก Meta-search</li>
@@ -5498,8 +5578,8 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
                     <thead><tr><th>งานวิจัย</th><th>สิ่งที่ PM ควรรับผิดชอบ</th><th>ตัวอย่างสำหรับฝึก ไม่ใช่โครงการภายใน Agoda</th></tr></thead>
                     <tbody>
                         <tr><td><b>Market research</b></td><td>เข้าใจ segments, คู่แข่ง/ทางเลือก, แนวโน้ม, constraints และโอกาสทางธุรกิจ เพื่อกำหนด positioning, strategy และลำดับการลงทุน</td><td>เปรียบเทียบวิธีที่แพลตฟอร์มจองที่พักให้บริการ family travelers: ความชัดเจนของราคารวม ข้อมูลห้อง และ cancellation policy; ไม่ลอกฟีเจอร์คู่แข่งโดยไม่ตรวจ user need</td></tr>
-                        <tr><td><b>Customer research</b></td><td>ค้นหา needs, behavior, decision criteria และ friction; ตั้ง research questions และแปลง evidence เป็น product decisions</td><td>สัมภาษณ์เรื่องการจองล่าสุด สังเกตวิธีเปรียบเทียบห้อง และตรวจ support-contact themes โดยไม่ถือผู้ร้องเรียนเป็นตัวแทนลูกค้าทั้งหมด</td></tr>
-                        <tr><td><b>Quantitative validation</b></td><td>ประเมินขนาด/การกระจายของปัญหาและวัดผล solution; ตรวจ metric definitions และ data quality ก่อนสรุป</td><td>ใช้ ordered funnel ตรวจ friction ตาม segment แล้วทดสอบ improvement พร้อม booking/cancellation และ customer-experience guardrails</td></tr>
+                        <tr><td><b>Customer research</b></td><td>ค้นหา needs, behavior, decision criteria และ <a href="#glossary-friction" class="term-link">friction</a>; ตั้ง research questions และแปลง evidence เป็น product decisions</td><td>สัมภาษณ์เรื่องการจองล่าสุด สังเกตวิธีเปรียบเทียบห้อง และตรวจ support-contact themes โดยไม่ถือผู้ร้องเรียนเป็นตัวแทนลูกค้าทั้งหมด</td></tr>
+                        <tr><td><b>Quantitative validation</b></td><td>ประเมินขนาด/การกระจายของปัญหาและวัดผล solution; ตรวจ metric definitions และ data quality ก่อนสรุป</td><td>ใช้ ordered funnel ตรวจ <a href="#glossary-friction" class="term-link">friction</a> ตาม segment แล้วทดสอบ improvement พร้อม booking/cancellation และ customer-experience guardrails</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -5523,7 +5603,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
             <div class="table-responsive"><table>
                 <thead><tr><th>องค์ประกอบ</th><th>ตัวอย่างสมมติ: ผู้จองที่พักสำหรับครอบครัว</th></tr></thead>
                 <tbody>
-                    <tr><td>Decision</td><td>ควรลงทุนลดความไม่แน่ใจเรื่องห้องพักสำหรับเด็ก หรือแก้ friction อื่นก่อน?</td></tr>
+                    <tr><td>Decision</td><td>ควรลงทุนลดความไม่แน่ใจเรื่องห้องพักสำหรับเด็ก หรือแก้ <a href="#glossary-friction" class="term-link">friction</a> อื่นก่อน?</td></tr>
                     <tr><td>สิ่งที่ทราบ</td><td>ข้อมูลที่ตรวจ tracking แล้วชี้ว่ามีการออกจากหน้ารายละเอียดใน segment นี้; ยังไม่ทราบเหตุผล และไม่ได้แปลว่าทุกการออกคือ abandonment</td></tr>
                     <tr><td>Research questions</td><td>เลือกที่พักอย่างไร? ต้องยืนยันข้อมูลใด? อะไรทำให้หยุด/เปลี่ยนเว็บ? มี workaround หรือค่าเสียโอกาสอะไร?</td></tr>
                     <tr><td>Competing hypotheses</td><td>ข้อมูลเตียง/เด็กไม่ชัด, cancellation policy ไม่ชัด, ราคารวมเปลี่ยน, inventory ไม่ตรง หรือกำลังเปรียบเทียบเฉย ๆ</td></tr>
@@ -5582,12 +5662,12 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
                 <thead><tr><th>Evidence สมมติ</th><th>Interpretation / alternative</th><th>Next validation</th></tr></thead>
                 <tbody>
                     <tr><td>P03 รายงานว่าโทรถามที่พักเรื่องเตียงเด็กก่อนจอง; P07 เปิด policy หลายหน้าใน session ที่สังเกต</td><td>อาจมีความไม่แน่ใจเรื่อง room suitability; แต่อาจเป็น policy เฉพาะที่พักหรือความต้องการพิเศษของสองคนนี้</td><td>สัมภาษณ์ contrasting cases, ตรวจ content coverage และ support contact reasons</td></tr>
-                    <tr><td>P05 เข้าใจ policy แต่ยังไม่จอง เพราะรอวันลาจากที่ทำงาน</td><td>เป็น disconfirming case: การไม่จองไม่ได้เกิดจากข้อมูลห้องเสมอ</td><td>แยก undecided trip intent ออกจาก information friction ก่อนตีความ funnel</td></tr>
+                    <tr><td>P05 เข้าใจ policy แต่ยังไม่จอง เพราะรอวันลาจากที่ทำงาน</td><td>เป็น disconfirming case: การไม่จองไม่ได้เกิดจากข้อมูลห้องเสมอ</td><td>แยก undecided trip intent ออกจาก information <a href="#glossary-friction" class="term-link">friction</a> ก่อนตีความ funnel</td></tr>
                 </tbody>
             </table></div>
             <ol>
                 <li><b>Code:</b> จัด evidence เป็น tags เช่น trigger, information gap, price, trust, workaround, consequence; เก็บคำผู้ใช้และเปิดให้เพิ่ม theme ที่ไม่ตรง hypothesis เดิม</li>
-                <li><b>Cluster:</b> รวมตามปัญหา/บริบท ไม่ใช่ตาม solution ที่อยากสร้าง; ทำ journey map พร้อม moments of friction และ positive cases</li>
+                <li><b>Cluster:</b> รวมตามปัญหา/บริบท ไม่ใช่ตาม solution ที่อยากสร้าง; ทำ journey map พร้อม moments of <a href="#glossary-friction" class="term-link">friction</a> และ positive cases</li>
                 <li><b>Challenge:</b> หา counterexamples, interviewer/translation bias และ segment differences; ให้เพื่อนร่วมทีมอ่าน evidence แล้วเทียบการตีความ</li>
                 <li><b>Prioritize:</b> ใช้ severity, consequence, workaround cost, strategic fit และความมั่นใจของ evidence; prevalence ต้องหาข้อมูลเพิ่มเติม ไม่ได้มาจากจำนวน quote</li>
                 <li><b>Report:</b> ระบุ sample/recruiting limits, evidence ที่สนับสนุน/ขัดแย้ง, unanswered questions และ decision recommendation โดยไม่แต่ง certainty</li>
@@ -5614,7 +5694,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
         <div class="example-box">
             <p><b>Prompt:</b> Mobile users เริ่มค้นหาแต่ booking completed ลดลง. เสนอแผนสืบค้นและ MVP โดยไม่สมมติ root cause หรือ Agoda metrics.</p>
             <ol>
-                <li><b>Product sense:</b> ชี้แจง market, trip intent, device, search/session grain และผลกระทบต่อผู้ใช้; หา friction ที่ user evidence รองรับก่อนเลือก solution</li>
+                <li><b>Product sense:</b> ชี้แจง market, trip intent, device, search/session grain และผลกระทบต่อผู้ใช้; หา <a href="#glossary-friction" class="term-link">friction</a> ที่ user evidence รองรับก่อนเลือก solution</li>
                 <li><b>Data:</b> ตรวจ instrumentation/internal flags, ordered funnel, denominator/cohort/maturity, segment mix, latency/errors, inventory/price changes และ cancellation quality; แยก descriptive findings จาก causal evidence</li>
                 <li><b>Stakeholders:</b> ร่วมกับ Design/Research, Engineering, Data, Supply, Payments, Marketing และ Support เพื่อยืนยัน constraints, availability, price parity, policy clarity, rollout/rollback</li>
                 <li><b>Answer rubric:</b> คุณภาพสูง = clarifying questions, evidence-first diagnosis, metric tree + guardrails, MVP trade-off, test plan และ decision rule; ไม่ยัด feature ก่อนพบปัญหา</li>
@@ -6137,13 +6217,13 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     <!-- 12.5 -->
     <div class="star-card">
         <h3 id="pm-customer-support-collab">12.5 การทำงานร่วมกับ Customer Support/CEG, KPI วัดผล และ Case Debugging CSAT Drop</h3>
-        <p>เป้าหมายหลักของการทำงานร่วมกันระหว่าง Senior PM และทีม <b>Customer Support (หรือ Customer Experience Group: CEG)</b> คือ "ลด Friction ในการเดินทางของลูกค้า" และ "เปลี่ยนเสียงสะท้อนจากลูกค้าให้กลายเป็นคุณค่าทางธุรกิจ" โดยแบ่งรูปแบบการทำงานออกเป็น 4 มิติหลัก:</p>
+        <p>เป้าหมายหลักของการทำงานร่วมกันระหว่าง Senior PM และทีม <b>Customer Support (หรือ Customer Experience Group: CEG)</b> คือ "ลด <a href="#glossary-friction" class="term-link">Friction</a> ในการเดินทางของลูกค้า" และ "เปลี่ยนเสียงสะท้อนจากลูกค้าให้กลายเป็นคุณค่าทางธุรกิจ" โดยแบ่งรูปแบบการทำงานออกเป็น 4 มิติหลัก:</p>
 
         <div class="example-box">
             <h4>1️⃣ การดึง Feedback และ Data จาก Support มาทำ Product Roadmap</h4>
             <ul>
                 <li><b>Quantitative Data Analysis:</b> ดึงสถิติจาก Support Tickets, Contact Drivers และ <a href="#glossary-cx-kpi" class="term-link">Contact Rate</a> มาวิเคราะห์ผ่าน SQL/Data Dashboards เพื่อหาจุดที่ทำให้ลูกค้าต้องทักหา Support</li>
-                <li><b>Cost & Friction Identification:</b> เรื่องที่มี Contact Rate สูงและ Handling Time นาน จะถูกจัดลำดับความสำคัญขึ้นเป็นระดับต้นๆ ใน Roadmap เพื่อแก้ปัญหาเชิงระบบ</li>
+                <li><b>Cost & <a href="#glossary-friction" class="term-link">Friction</a> Identification:</b> เรื่องที่มี Contact Rate สูงและ Handling Time นาน จะถูกจัดลำดับความสำคัญขึ้นเป็นระดับต้นๆ ใน Roadmap เพื่อแก้ปัญหาเชิงระบบ</li>
             </ul>
         </div>
 
@@ -6223,7 +6303,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     </div>
 
 <div class="footer-note">
-        <p><b>✅ Interview Preparation Guide (v7.16):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
+        <p><b>✅ Interview Preparation Guide (v7.17):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
     </div>
 
 <!-- 📜 Theme Switcher JavaScript -->
