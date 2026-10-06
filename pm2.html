@@ -628,41 +628,6 @@
         }
 
 
-        /* 🔍 Instant Search / Filter Bar */
-        .instant-search-bar {
-            position: sticky;
-            top: 0;
-            z-index: 9990;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px 14px;
-            margin: 0 0 18px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .instant-search-bar input {
-            flex: 1;
-            border: 1px solid var(--border-color);
-            background: var(--bg-body);
-            color: var(--text-main);
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-family: inherit;
-            outline: none;
-        }
-        .instant-search-bar input:focus {
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(140,74,26,0.15);
-        }
-        .instant-search-bar .search-hint {
-            font-size: 12px;
-            color: var(--text-muted);
-            white-space: nowrap;
-        }
         .visually-hidden {
             position: absolute;
             width: 1px;
@@ -674,30 +639,10 @@
             white-space: nowrap;
             border: 0;
         }
-        .search-controls { display: inline-flex; gap: 6px; align-items: center; }
-        .search-controls button {
-            border: 1px solid var(--border-color);
-            background: var(--bg-body);
-            color: var(--text-main);
-            border-radius: 6px;
-            padding: 6px 9px;
-            cursor: pointer;
-        }
-        .search-status, .theme-status, .copy-status { color: var(--text-muted); font-size: 12px; }
-        .search-status { min-width: 82px; text-align: center; }
+        .theme-status, .copy-status { color: var(--text-muted); font-size: 12px; }
         :focus-visible { outline: 3px solid var(--secondary); outline-offset: 2px; }
         .copy-fallback { display: block; width: 100%; min-height: 5em; margin-top: 8px; }
-        .search-hit {
-            outline: 2px solid var(--secondary);
-            outline-offset: 3px;
-            border-radius: 6px;
-            animation: search-pulse 0.6s ease;
-        }
-        @keyframes search-pulse {
-            0% { outline-color: transparent; }
-            50% { outline-color: var(--secondary); }
-            100% { outline-color: var(--secondary); }
-        }
+        
 
         /* 📋 One-Click Copy Button */
         .copy-btn {
@@ -787,7 +732,7 @@
         @media print {
             body { background: #fff !important; color: #111 !important; padding: 0; }
             .container { max-width: none; margin: 0; padding: 0; box-shadow: none; border: 0; background: #fff !important; }
-            .theme-toggle-container, .instant-search-bar, .floating-toc-btn, .copy-btn, .copy-status { display: none !important; }
+            .theme-toggle-container, .floating-toc-btn, .copy-btn, .copy-status { display: none !important; }
             .star-card, .topic-card, .example-box, .script-box, .script-box-en, .alert-box, .glossary-item, .table-responsive {
                 break-inside: avoid;
                 background: #fff !important;
@@ -804,9 +749,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.11">
+    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.12">
         <span class="version-dot"></span>
-        <span>v7.11</span>
+        <span>v7.12</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" type="button" aria-pressed="true" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" type="button" aria-pressed="false" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -820,18 +765,7 @@
     </div>
 
     <!-- 🔍 Instant Search / Filter Bar -->
-    <div class="instant-search-bar" id="instant-search-bar">
-        <label class="visually-hidden" for="guide-search">ค้นหาเนื้อหาในคู่มือ</label>
-        <input type="search" id="guide-search" placeholder="🔍 ค้นหาด่วน: พิมพ์คำ เช่น Take Rate, RICE, STAR, Stress..." autocomplete="off" aria-describedby="search-hint search-status" />
-        <span class="search-hint" id="search-hint">Enter = ค้นหา</span>
-        <span class="search-controls">
-            <button id="search-prev" type="button" aria-label="ผลลัพธ์ก่อนหน้า">ก่อนหน้า</button>
-            <button id="search-next" type="button" aria-label="ผลลัพธ์ถัดไป">ถัดไป</button>
-        </span>
-        <span class="search-status" id="search-status" role="status" aria-live="polite">พิมพ์คำเพื่อค้นหา</span>
-    </div>
-
-        <!-- Table of Contents -->
+    <!-- Table of Contents -->
     <div class="toc" id="toc">
         <h3>📌 สารบัญลำดับหัวข้อตามลำดับเหตุการณ์จริง (Chronological Interview & Onboarding Journey)</h3>
         <ul>
@@ -839,6 +773,7 @@
             <li><a href="#cheatsheet">⚡ 0. 15-Minute Pre-Interview Pocket Cheatsheet (หน้าสรุปทบทวนเร่งด่วน)</a>
                 <ul>
                     <li><a href="#evidence-and-practice">0.1 วิธีใช้คู่มืออย่างมีหลักฐาน: Source Ledger, JD Matrix, Rubric และแผนเตรียมตัว</a></li>
+                    <li><a href="#study-schedule-blueprint">0.2 ตารางแผนการเตรียมตัว 30–45 วัน และการจัดสรรเวลารายวัน (Daily Blueprint & Study Cadence)</a></li>
                 </ul>
             </li>
 
@@ -1220,6 +1155,119 @@
                 <li>อย่าเลือก solution ก่อนอธิบาย user segment, pain point และข้อจำกัด</li>
                 <li>อย่าใช้ STAR story ที่ไม่มี baseline, ผลลัพธ์, time window หรือสิ่งที่คุณทำด้วยตัวเองชัดเจน</li>
             </ul>
+        </div>
+
+    <!-- 0.2 STUDY SCHEDULE & DAILY BLUEPRINT -->
+    <div class="star-card" id="study-schedule-blueprint" style="border-left: 5px solid #06b6d4;">
+        <h3>📅 0.2 ตารางแผนการเตรียมตัว 30–45 วัน และการจัดสรรเวลารายวัน (Daily Blueprint & Study Cadence)</h3>
+        <p class="subtitle">สูตรบริหารเวลาที่ผ่านการพิสูจน์แล้วสำหรับผู้ที่ทำงานประจำ (Full-time Lead SWE / Tech Lead) เพื่อเตรียมตัวสอบ Senior PM Agoda ให้คมที่สุดใน 60–80 ชั่วโมงสุทธิ</p>
+        
+        <div class="alert-box" style="background: rgba(6, 182, 212, 0.1); border-left: 4px solid #06b6d4;">
+            <b>⏱️ สรุปตัวเลขคำนวณเวลา (Total Time Investment):</b><br/>
+            <ul>
+                <li><b>ระยะเวลารวมที่แนะนำ:</b> <b>4 – 6 สัปดาห์ (30 – 45 วัน)</b> เป็นช่วงเวลาที่กล้ามเนื้อสมองซึมซับ Product Sense และปรับภาษาอังกฤษได้ดีที่สุดโดยไม่เบิร์นเอาต์</li>
+                <li><b>วันธรรมดา (จันทร์ – ศุกร์):</b> <b>1.5 – 2 ชั่วโมงต่อวัน</b> (แบ่งเป็น รอบเช้า 30 นาที + รอบค่ำ 60–90 นาที)</li>
+                <li><b>วันหยุด (เสาร์ – อาทิตย์):</b> <b>3 – 4 ชั่วโมงต่อวัน</b> (ช่วงบ่ายหรือเช้า สำหรับ Deep-work Mock Simulation & AI Voice Drills)</li>
+                <li><b>รวมชั่วโมงสุทธิ (Net Focused Hours):</b> ประมาณ <b>60 – 80 ชั่วโมง</b> — เพียงพอต่อการครองความรู้ครบ 12 หมวดหมู่ และจำลองรอบสัมภาษณ์ครบ 5 รอบ</li>
+            </ul>
+        </div>
+
+        <div class="example-box" style="margin-top: 14px;">
+            <h4>⏰ แผนจัดสรรเวลารายวัน (Daily Time Allocation Blueprint) สำหรับคนทำงานประจำ:</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ช่วงเวลา</th>
+                            <th>ระยะเวลา</th>
+                            <th>ภารกิจที่ต้องทำ (Tactical Activity)</th>
+                            <th>เป้าหมายและผลลัพธ์</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>เช้าตรู่<br/>(ก่อนเริ่มงาน)</b></td>
+                            <td><b>30 นาที</b></td>
+                            <td><b>Vocal Warm-up & English Activation:</b><br/>
+                            • ฟัง Tech/Product Podcast ภาษาอังกฤษ (เช่น Lenny's Podcast หรือ Acquired) 15 นาที<br/>
+                            • อ่านออกเสียงเนื้อหาใน <a href="#cheatsheet" class="term-link">⚡ 0. Pocket Cheatsheet</a> หรือ <a href="#circles-script" class="term-link">หมวด 10.1</a> แบบ Shadowing 15 นาที</td>
+                            <td>ปลุกสมองและกล้ามเนื้อขากรรไกรให้พร้อมคิดและพูดภาษาอังกฤษโดยอัตโนมัติ ลดอาการ Cold-start Lag</td>
+                        </tr>
+                        <tr>
+                            <td><b>ระหว่างวัน<br/>(พักเที่ยง / เบรก)</b></td>
+                            <td><b>15–20 นาที</b></td>
+                            <td><b>Micro-Learning & App Teardown:</b><br/>
+                            • เปิดแอป Agoda บนมือถือ ลองเสิร์ชโรงแรม/เที่ยวบิน สังเกต UI/UX Badge และ Friction Point<br/>
+                            • ทบทวนคำศัพท์ธุรกิจใน <a href="#business-model-lingo" class="term-link">หมวด 6.3</a> (GBV, RN, Take Rate, ADR) 3 คำต่อวัน</td>
+                            <td>สะสมสัญชาตญาณเชิงพาณิชย์ (Commercial Product Sense) โดยไม่ต้องใช้พลังงานสมองหนัก</td>
+                        </tr>
+                        <tr>
+                            <td><b>ค่ำ<br/>(หลังเลิกงาน)</b></td>
+                            <td><b>60–90 นาที</b></td>
+                            <td><b>Core Skill Drilling & Simulation:</b><br/>
+                            • <b>วันจันทร์/พุธ:</b> ซ้อมแก้โจทย์สด CIRCLES Framework หรือ Metric Diagnostics (หมวด 10.8)<br/>
+                            • <b>วันอังคาร/พฤหัส:</b> ซ้อมตอบ <a href="#star-stories-hub" class="term-link">STAR Stories 15 ข้อ</a> กับกล้องเว็บแคม (จับเวลา 180 วินาทีตาม <a href="#synthetic-flight-simulator" class="term-link">หมวด 2.6.2</a>)<br/>
+                            • <b>วันศุกร์:</b> สรุป Checklist และ Feedback ที่ต้องปรับปรุง</td>
+                            <td>สร้างความเฉียบคมในการเรียงลำดับความคิดแบบ BLUF และความมั่นใจหน้ากล้อง</td>
+                        </tr>
+                        <tr>
+                            <td><b>วันหยุดสุดสัปดาห์<br/>(เสาร์ – อาทิตย์)</b></td>
+                            <td><b>3–4 ชม./วัน</b></td>
+                            <td><b>Deep-Dive Simulation & Flight Drills:</b><br/>
+                            • เปิดโหมดเสียงซ้อมกับ AI Voice 3 Personas (<a href="#synthetic-flight-simulator" class="term-link">หมวด 2.6.2 Drill 1</a>) นาน 45 นาที<br/>
+                            • ทำ Full Case Simulation จำลองเวลาจริง 60 นาทีแบบไม่เปิดโพย<br/>
+                            • ซ้อมเขียน Live Whiteboard บน Excalidraw / Miro (<a href="#synthetic-flight-simulator" class="term-link">หมวด 2.6.2 Drill 5</a>)</td>
+                            <td>จำลองสภาวะแรงกดดันเสมือนจริงของ Round 2, 3, 4, 5 ให้เหมือนอยู่ในห้องสอบจริง 100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="example-box" style="margin-top: 14px;">
+            <h4>🧭 พิมพ์เขียว 4 สัปดาห์เร่งรัด (The 4-Week Fast-Track Roadmap):</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>สัปดาห์</th>
+                            <th>ธีมหลัก (Core Focus)</th>
+                            <th>หมวดที่ต้องเจาะลึกในคู่มือนี้</th>
+                            <th>Milestone สำคัญที่ต้องบรรลุ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>สัปดาห์ที่ 1</b></td>
+                            <td><b>Mindset Pivot & Story Bank</b></td>
+                            <td><a href="#sec1">หมวด 1</a>, <a href="#sec2">หมวด 2</a>, <a href="#sec3">หมวด 3</a>, <a href="#sec4">หมวด 4</a></td>
+                            <td>ปลดหมวก Engineer ปรับเรซูเม่ด้วยสูตร XYZ (หมวด 2.4), ทำความเข้าใจ Two-Pizza Team และคัดเลือก STAR Stories 6–8 เรื่องแรก</td>
+                        </tr>
+                        <tr>
+                            <td><b>สัปดาห์ที่ 2</b></td>
+                            <td><b>Behavioral Mastery & Positioning</b></td>
+                            <td><a href="#sec5">หมวด 5</a>, <a href="#sec9">หมวด 9 (STAR 1–15)</a>, <a href="#agoda-lead-swe-positioning">หมวด 5.7</a></td>
+                            <td>เล่า STAR ทุกเรื่องจบใน 2.5–3 นาทีได้อย่างลื่นไหล พร้อมสคริปต์วาง Positioning จาก Lead SWE 6 ปีสู่ Senior PM อย่างสง่างาม</td>
+                        </tr>
+                        <tr>
+                            <td><b>สัปดาห์ที่ 3</b></td>
+                            <td><b>Product Sense & Analytics Execution</b></td>
+                            <td><a href="#sec6">หมวด 6</a>, <a href="#sec7">หมวด 7</a>, <a href="#sec8">หมวด 8</a>, <a href="#case-metric-diagnostics">หมวด 10.8</a></td>
+                            <td>คล่อง CIRCLES Framework, คำนวณ A/B Testing guardrails, วิเคราะห์สาเหตุ Metric Drop และเข้าใจโครงสร้าง Gross Booking Value (GBV)</td>
+                        </tr>
+                        <tr>
+                            <td><b>สัปดาห์ที่ 4</b></td>
+                            <td><b>Stress Calibration & Full Mock Drills</b></td>
+                            <td><a href="#sec10">หมวด 10</a>, <a href="#sec11">หมวด 11</a>, <a href="#synthetic-flight-simulator">หมวด 2.6.2</a></td>
+                            <td>ผ่าน AI Voice Grill Drill 3 Personas, ซ้อมรับมือ Bar Raiser, เตรียมชุดคำถามถามกลับ 4 เสาหลัก (หมวด 10.7) และวางแผนยื่น Referral</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="alert-box" style="margin-top: 14px; border-left: 4px solid #10b981; background: rgba(16, 185, 129, 0.1);">
+            <b>💡 เคล็ดลับไม่ให้ Burnout:</b> ไม่จำเป็นต้องอ่านคู่มือนี้รวดเดียวตั้งแต่ต้นจนจบในวันเดียว! ให้ใช้ <b>"แนวทางเชิงปฏิบัติการ (Action-First)"</b> — วันนี้จะซ้อมหัวข้อไหน ให้เปิดอ่านเฉพาะหัวข้อนั้นและกดปุ่ม <code>📋 Copy EN</code> นำสคริปต์ไปฝึกเปล่งเสียงพูดสดทันที การพูดออกเสียงจริง 30 นาที มีค่ามากกว่าการนั่งอ่านเงียบๆ 2 ชั่วโมงครับ!
         </div>
     </div>
 
@@ -5841,7 +5889,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     </div>
 
 <div class="footer-note">
-        <p><b>✅ Interview Preparation Guide (v7.11):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI Search/Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
+        <p><b>✅ Interview Preparation Guide (v7.12):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
     </div>
 
 <!-- 📜 Theme Switcher JavaScript -->
@@ -5890,89 +5938,9 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
 </a>
 
 
-<!-- 🔍 Instant Search + 📋 Copy Button JavaScript -->
+<!-- 📋 One-Click Copy Button JavaScript -->
 <script>
 (function() {
-    var input = document.getElementById('guide-search');
-    var status = document.getElementById('search-status');
-    var previous = document.getElementById('search-prev');
-    var next = document.getElementById('search-next');
-    var matches = [];
-    var currentIndex = -1;
-
-    function clearHighlights() {
-        document.querySelectorAll('.search-hit').forEach(function(el) {
-            el.classList.remove('search-hit');
-        });
-    }
-
-    function navigateTo(index) {
-        if (!matches.length) return;
-        currentIndex = (index + matches.length) % matches.length;
-        clearHighlights();
-        var found = matches[currentIndex];
-        found.classList.add('search-hit');
-        found.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        status.textContent = 'ผลลัพธ์ ' + (currentIndex + 1) + ' จาก ' + matches.length;
-    }
-
-    function findMatches() {
-        var query = input.value.trim().toLocaleLowerCase();
-        clearHighlights();
-        matches = [];
-        currentIndex = -1;
-        if (!query) {
-            status.textContent = 'พิมพ์คำเพื่อค้นหา';
-            return;
-        }
-
-        var headings = Array.prototype.slice.call(document.querySelectorAll('h1, h2, h3, h4, h5, h6'))
-            .filter(function(heading) {
-                return !heading.closest('.toc') &&
-                    (heading.textContent || '').toLocaleLowerCase().indexOf(query) !== -1;
-            });
-        if (headings.length) {
-            matches = headings;
-        } else {
-            var candidates = Array.prototype.slice.call(document.querySelectorAll(
-                '.container p, .container li, .container td, .container .example-box, ' +
-                '.container .script-box, .container .script-box-en, .container .glossary-item, ' +
-                '.container .star-card, .container .topic-card'
-            )).filter(function(element) {
-                return !element.closest('.toc') &&
-                    (element.textContent || '').toLocaleLowerCase().indexOf(query) !== -1;
-            });
-            matches = candidates.filter(function(element) {
-                return !candidates.some(function(other) {
-                    return other !== element && element.contains(other);
-                });
-            });
-        }
-
-        if (!matches.length) {
-            status.textContent = 'ไม่พบผลลัพธ์สำหรับ “' + input.value.trim() + '”';
-            return;
-        }
-        navigateTo(0);
-    }
-
-    if (input) {
-        input.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                findMatches();
-            }
-        });
-        input.addEventListener('input', function() {
-            clearHighlights();
-            matches = [];
-            currentIndex = -1;
-            status.textContent = input.value.trim() ? 'กด Enter เพื่อค้นหา' : 'พิมพ์คำเพื่อค้นหา';
-        });
-    }
-    previous.addEventListener('click', function() { navigateTo(currentIndex - 1); });
-    next.addEventListener('click', function() { navigateTo(currentIndex + 1); });
-
     // One-Click Copy for English script boxes
     function addCopyButtons() {
         document.querySelectorAll('.script-box-en').forEach(function(box) {
