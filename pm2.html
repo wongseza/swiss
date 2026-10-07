@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-    <title>คู่มือเตรียมสัมภาษณ์ Senior Product Manager @ Agoda</title>
+    <title>PM</title>
     <style>
         /* 📜 Smooth Scrolling for Anchor Links */
         html {
@@ -860,9 +860,9 @@
 
 <!-- 🎛️ Floating Top-Right Bar (Version & Theme Switcher) -->
 <div class="theme-toggle-container">
-    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.18">
+    <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.25">
         <span class="version-dot"></span>
-        <span>v7.18</span>
+        <span>v7.25</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" type="button" aria-pressed="true" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" type="button" aria-pressed="false" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -964,6 +964,7 @@
                     <li><a href="#sec5-round3">5.3 Round 3: Product Analytics & Technical Execution Round</a>
                         <ul>
                             <li><a href="#sql-interview-prep">5.3.1 SQL Interview Preparation for Senior PM</a></li>
+                            <li><a href="#sql-to-decision">5.3.2 เปลี่ยน SQL Result เป็น Business Insight และ Decision</a></li>
                         </ul>
                     </li>
                     <li><a href="#sec5-round4">5.4 Round 4: Cross-functional Leadership & Behavioral Round</a></li>
@@ -977,7 +978,12 @@
             <li class="phase-label">🅳️ ส่วนที่ 4: ความรู้เชิงลึกที่ต้องใช้ตอบ Round 2-4 (Deep-Dive Knowledge for the Rounds)</li>
             <li><a href="#sec6">6. 🧠 คลังความรู้เชิงลึก: A/B Testing, Business Model, Architecture, Tech Stack & Bottom-line</a>
                 <ul>
-                    <li><a href="#sec6">6.1 CIRCLES, MoSCoW & 4-Step RCA Refinements</a></li>
+                    <li><a href="#sec6">6.1 CIRCLES, MoSCoW & 4-Step RCA Refinements</a>
+                        <ul>
+                            <li><a href="#experiment-decision-rigor">6.1.1 Experiment decision rigor: H₀/H₁, MDE, power และ SRM</a></li>
+                            <li><a href="#ux-friction-and-discovery">6.1.2 UX friction, การค้นพบเชิงคุณภาพ และการจัดลำดับงาน</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#comp-matrix">6.2 Agoda's Moat & Competitive Landscape Matrix</a></li>
                     <li><a href="#business-model-lingo">6.3 Agoda Business Model & Financial Lingo (Merchant vs Agency, RN, GBV)</a></li>
                     <li><a href="#bnpl-engine-def">6.4 BNPL Engine & Multi-currency Settlement Mechanics</a></li>
@@ -1026,7 +1032,7 @@
                         </ul>
                     </li>
                     <li><a href="#ai-rag-def">10.4 AI Questions Expansion (RAG, Streaming & Cost Trade-offs)</a></li>
-                    <li><a href="#pdf-source-questions">10.5 รวมคำถามสัมภาษณ์เชิงลึกเพิ่มเติม</a></li>
+                    <li><a href="#additional-interview-questions">10.5 รวมคำถามสัมภาษณ์เชิงลึกเพิ่มเติม</a></li>
                     <li><a href="#english-interview-mastery">10.6 ภาษาอังกฤษสำหรับการสัมภาษณ์ Agoda และการใช้ Live Captions</a></li>
                     <li><a href="#ask-the-interviewer">10.7 คำถามที่ควรถามกลับผู้สัมภาษณ์</a>
                         <ul>
@@ -1055,6 +1061,7 @@
                     <li><a href="#hiring-seasons">11.4 วางแผนการสมัครตาม role และ timeline ที่ยืนยันได้</a>
                         <ul>
                             <li><a href="#pass-probability-and-dec-jan-gap-strategy">11.4.1 Readiness rubric และวางแผนตาม timeline จริง</a></li>
+                            <li><a href="#application-date-fields">11.4.2 การกรอก Start/End Date ในแบบฟอร์มสมัคร</a></li>
                         </ul>
                     </li>
                     <li><a href="#bonus-cycle-strategy">11.5 ตรวจสอบสิทธิ์โบนัสและวางแผนวันเริ่มงาน</a></li>
@@ -1326,7 +1333,7 @@
                             <td><b>60–90 นาที</b></td>
                             <td><b>Core Skill Drilling & Simulation:</b><br/>
                             • <b>วันจันทร์/พุธ:</b> ซ้อมแก้โจทย์สด CIRCLES Framework หรือ Metric Diagnostics (หมวด 10.8)<br/>
-                            • <b>วันอังคาร/พฤหัส:</b> ซ้อมตอบ <a href="#star-stories-hub" class="term-link">STAR Stories 15 ข้อ</a> กับกล้องเว็บแคม (จับเวลา 180 วินาทีตาม <a href="#synthetic-flight-simulator" class="term-link">หมวด 2.6.2</a>)<br/>
+                            • <b>วันอังคาร/พฤหัส:</b> ซ้อมตอบ <a href="#sec9" class="term-link">STAR Stories 15 ข้อ</a> กับกล้องเว็บแคม (จับเวลา 180 วินาทีตาม <a href="#synthetic-flight-simulator" class="term-link">หมวด 2.6.2</a>)<br/>
                             • <b>วันศุกร์:</b> สรุป Checklist และ Feedback ที่ต้องปรับปรุง</td>
                             <td>สร้างความเฉียบคมในการเรียงลำดับความคิดแบบ BLUF และความมั่นใจหน้ากล้อง</td>
                         </tr>
@@ -1855,6 +1862,8 @@ Gross Booking Value (GBV)
                 <b>🏁 สรุปยุทธวิธี:</b> เมื่อคุณทำครบทั้ง 7 กระบวนท่านี้ ความพร้อมและระดับความคมของคุณจะ <b>"สูงกว่าคนที่ไปสัมภาษณ์ซ้อมที่อื่นแบบครึ่งๆ กลางๆ ถึง 3 เท่า"</b> เพราะนี่คือการฝึกที่เจาะจงเฉพาะตัวตน วัฒนธรรม และข้อสอบของ Agoda โดยตรง 100% ครับ!
             </div>
         </div>
+
+    
 
     </div>
 
@@ -2834,6 +2843,25 @@ Gross Booking Value (GBV)
             </table>
         </div>
 
+        <div class="example-box" id="silent-timekeeping">
+            <h4>⏱️ ใช้นาฬิกาอย่างมืออาชีพ: Silent Timekeeping สำหรับการสัมภาษณ์</h4>
+            <p><span class="badge badge-purple">Interview practice technique</span> เตรียมเครื่องมือดูเวลาได้ โดยเฉพาะตอนตอบ case หรือคำถามเชิงลึกที่มีหลายส่วน แต่ให้เป็น <b>เครื่องมือช่วยคุม pace ของตนเองแบบเงียบ ๆ</b> ไม่ใช่สิ่งที่ดึงความสนใจของผู้สัมภาษณ์. เป้าหมายคือบริหารโครงสร้างคำตอบและเหลือเวลาสำหรับ follow-up/คำถามกลับ—not to rush a thoughtful discussion.</p>
+            <div class="table-responsive">
+                <table>
+                    <thead><tr><th>ทำ</th><th>หลีกเลี่ยง</th></tr></thead>
+                    <tbody>
+                        <tr><td>ใช้เวลาบนหน้าจอของตนเองในการ video call หรือนาฬิกาข้อมือ/ตั้งโต๊ะที่เหลือบมองได้เป็นครั้งคราว</td><td>ตั้ง countdown ที่มีเสียง การแจ้งเตือน หรือกด Start/Stop จนผู้สัมภาษณ์เห็น/ได้ยิน</td></tr>
+                        <tr><td>ใช้ framework คุมลำดับ เช่น clarify → segment/problem → options → decision/metrics ใน case และ STAR → reflection ใน behavioral</td><td>มองเวลา/โทรศัพท์บ่อยจนเสีย eye contact หรือดูเหมือนเร่งรีบกังวลกับเวลา</td></tr>
+                        <tr><td>พัก 1–2 นาทีเพื่อจัดโครงสร้างเมื่อโจทย์ใหญ่ แล้วสื่อสาร agenda สั้น ๆ</td><td>พูดว่า “ขอจับเวลา” หรือประกาศแบ่งนาทีตายตัวราวกับการนำเสนอที่ไม่เปิดให้สนทนา</td></tr>
+                        <tr><td>check เวลาเมื่อจบช่วงหลัก และเปิดพื้นที่ให้ interviewer เลือกว่าจะ deep-dive ต่อหรือสรุป</td><td>ตัดบท/ข้ามคำถาม follow-up เพื่อยึดแผนเวลาเดิม ทั้งที่ interviewer ต้องการเจาะประเด็นสำคัญ</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><b>ประโยคที่ใช้ได้:</b> <i>“I’ll take a moment to structure my thinking. I’ll clarify the goal, identify the highest-priority user problem, compare options and trade-offs, then close with metrics and an experiment. Please stop me if you’d like to go deeper anywhere.”</i></p>
+            <p><b>แนวทางฝึก:</b> กำหนด timebox สำหรับการซ้อม ไม่ใช่ข้อบังคับในห้องจริง—เช่น ซ้อม STAR ให้เล่าแก่นเรื่องได้ภายในประมาณ 2–3 นาที แล้วเว้นพื้นที่ให้คำถามต่อ; ซ้อม case โดย checkpoint หลัง clarify, prioritization และ recommendation. เมื่อรู้ agenda จริงจาก Recruiter ให้ปรับ pace ตาม agenda นั้น และให้คุณภาพของ reasoning มาก่อนการ “ตอบให้ทันเวลา”.</p>
+            <p><b>การแบ่งเวลาใน case 30–45 นาที:</b> ใช้เป็น mental checklist แบบยืดหยุ่น: ทำความเข้าใจโจทย์และเป้าหมาย → นิยามผู้ใช้/ปัญหา → จัดลำดับและเทียบทางเลือก → recommendation พร้อม metrics/guardrails → เปิดพื้นที่ให้ follow-up และ Q&amp;A. หากผู้สัมภาษณ์อยากลงลึก ให้ตามประเด็นนั้นแล้วสรุปว่าคุณจะปรับเวลาส่วนที่เหลืออย่างไร แทนการยึดกำหนดนาทีตายตัวหรือประกาศว่ากำลังจับเวลา.</p>
+        </div>
+
         <h3 id="sec5-10-topics" style="margin-top: 24px;">5.0.2 📋 ตารางเช็กลิสต์ 10 หัวข้อต้องรู้ (10 Must-Know Topics Checklist) โดย Anna Lazutkina (Director of Product)</h3>
         <p><span class="badge badge-green">Official Product Director Guide</span> กลั่นกรองจากบทความ <a href="https://careersatagoda.com/blog/agoda-product-interview-prep-10-must-know-topics/" target="_blank" rel="noopener">Agoda Product Interview Prep: 10 Must-Know Topics</a>:</p>
         
@@ -3047,7 +3075,7 @@ Gross Booking Value (GBV)
                 <li><b>Prioritize Solution:</b> เสนอแนวทางแก้ปัญหา 2-3 ทาง พร้อมบอกวิธีเลือกตัวที่ดีที่สุด (Effort vs. Impact)</li>
                 <li><b>Define Trade-offs & Risks:</b> วิเคราะห์ผลกระทบข้างเคียง เช่น ถ้าทำ Self-service มากไป อาจส่งผลให้ Conversion แป๊กถ้า UX ไม่ชัดเจน</li>
             </ol>
-            <p>สำหรับคำถามเจาะลึกด้าน Data เช่น <i>"ถ้า CSAT ตกลง 15% ในสัปดาห์นี้ คุณจะ Debug ปัญหานี้อย่างไร?"</i> ให้ตอบแบบบีบวงแคบลงเรื่อยๆ (Segment by region, booking type, agent group, system bug หรือ external event) ไม่ใช่การคาดเดาแบบสุ่ม — ดูโครงสร้างคำตอบแบบเต็มที่ <a href="#pm-customer-support-collab" class="term-link">5-Step Metric Debugging Framework (Section 12.5)</a></p>
+            <p>สำหรับคำถามเจาะลึกด้าน Data เช่น <i>"ถ้า CSAT ตกลง 15% ในสัปดาห์นี้ คุณจะ Debug ปัญหานี้อย่างไร?"</i> ให้ตอบแบบบีบวงแคบลงเรื่อยๆ (Segment by region, booking type, agent group, system bug หรือ external event) ไม่ใช่การคาดเดาแบบสุ่ม — ดูกรณีประยุกต์ฝั่ง Support/CSAT ที่ <a href="#pm-customer-support-collab" class="term-link">Section 12.5</a> และใช้ <a href="#rca-4step" class="term-link">RCA 4-Step Drill-Down</a> เป็นกรอบหลัก</p>
 
             <div class="table-responsive">
                 <table>
@@ -3426,6 +3454,38 @@ WHERE market IN ('TH', 'SG')
         <p><b>การซ้อมที่ได้ผล:</b> ทุกวันเลือก 1 product question แล้วจับเวลา 20 นาที: เขียน metric definition 2 นาที, sketch schema/keys 3 นาที, SQL 10 นาที, data-quality caveats 2 นาที และสรุป decision/next step 3 นาที. ฝึก explain query ออกเสียง เพราะใน Senior PM interview ความชัดของ reasoning สำคัญพอ ๆ กับ syntax.</p>
     </div>
 
+    <div class="star-card" id="sql-to-decision">
+        <h3>5.3.2 📈 เปลี่ยน SQL Result เป็น Business Insight และ Decision</h3>
+        <p><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> ส่วนนี้สังเคราะห์แนวคิดจากเอกสาร “การวิเคราะห์ข้อมูลสำหรับ Product Manager” และ “เริ่มต้นการสนทนา” เพื่อฝึกการสื่อสารผลวิเคราะห์ ไม่ใช่ตัวเลข ผลการทดลอง หรือแนวปฏิบัติภายในของ Agoda. ระดับ Senior PM ไม่หยุดที่ <i>query output</i>: ต้องเชื่อม <b>what happened → why it matters → what to validate or do next</b> โดยระบุข้อจำกัดของข้อมูลเสมอ.</p>
+
+        <div class="table-responsive">
+            <table>
+                <thead><tr><th>ขั้น</th><th>สิ่งที่ต้องพูด</th><th>คำถามตรวจความเข้มงวด</th></tr></thead>
+                <tbody>
+                    <tr><td><b>1. What — Fact</b></td><td>รายงานผลที่นิยามชัด: metric, numerator/denominator, baseline, time window และ segment เช่น “Mobile web conversion ต่ำกว่า app ใน cohort เดียวกัน”</td><td>เป็นผลจริง���รือ tracking, timezone, sample, bot/internal traffic หรือ definition เปลี่ยน?</td></tr>
+                    <tr><td><b>2. So what — Meaning</b></td><td>แปลเป็นพฤติกรรมผู้ใช้และผลทางธุรกิจที่ <i>อาจ</i> เกิด: friction อยู่ที่ journey ใด, กลุ่มใดได้รับผล, และขนาดผลมีนัยเชิงปฏิบัติหรือไม่</td><td>มี confounder เช่น channel mix, seasonality, market, returning/new user หรือ supply change หรือไม่? อย่าสรุปเหตุเป็นผลจาก correlation</td></tr>
+                    <tr><td><b>3. Now what — Decision</b></td><td>เสนอ hypothesis ที่ falsifiable, owner, next query/research หรือ reversible experiment พร้อม primary metric, guardrails และ stop/scale rule</td><td>การแก้จะสร้าง friction ใหม่, เพิ่ม cancellation/refund/error, กระทบ latency หรือส่งผู้ใช้ไป Support มากขึ้นหรือไม่?</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h4>ตัวอย่างคำตอบในห้องสัมภาษณ์: ผล SQL ชี้ว่า Mobile Web conversion ต่ำกว่า</h4>
+            <p><b>What:</b> “ใน cohort และช่วงเวลาเดียวกัน ผล query ชี้ว่า Mobile Web มี conversion ต่ำกว่า Desktop และ App. ก่อนสรุป ผมจะยืนยัน definition ของ conversion, ตรวจ sample/traffic mix, event completeness และแยก new/returning users, market, device/OS กับ source.”</p>
+            <p><b>So what:</b> “หากความต่างยังอยู่หลังควบคุมปัจจัยเหล่านี้ นี่อาจสะท้อน friction เฉพาะ mobile-web journey ไม่ใช่ข้อพิสูจน์ว่า UI เป็นสาเหตุ. ผลกระทบที่ต้องประเมินคือ qualified traffic ที่ไม่จบการจอง, conversion/retention และ support contact—not just a percentage gap.”</p>
+            <p><b>Now what:</b> “ผมจะทำ funnel drill-down ตั้งแต่ search → property detail → checkout → payment, ดู latency/error และอ่าน contact drivers หรือ usability evidence. จากนั้นเลือก hypothesis หนึ่งข้อ เช่น date picker หรือ login gate, ทดสอบการลด friction แบบ phased/A-B เมื่อเหมาะสม, วัด booking conversion เป็น primary และคุม cancellation, payment error, page performance และ contact rate เป็น guardrails.”</p>
+        </div>
+
+        <h4>Evidence ladder และการเล่าเรื่องอย่างซื่อตรง</h4>
+        <ol>
+            <li><b>Observation:</b> dashboard/SQL บอก pattern; ระบุ population, grain และ limitation.</li>
+            <li><b>Diagnosis:</b> segment, metric decomposition, logs และ qualitative evidence ช่วยสร้างหรือคัดทิ้ง hypothesis.</li>
+            <li><b>Validation:</b> ใช้ controlled experiment เมื่อต้องพิสูจน์ causal impact; หากทำไม่ได้ ให้บอก design limitation ของ before/after หรือ comparison.</li>
+            <li><b>Influence:</b> สรุป recommendation แบบ BLUF พร้อม expected upside, uncertainty, trade-off และ decision ที่ต้องการจาก stakeholder.</li>
+        </ol>
+        <p><b>การวางตำแหน่งประสบการณ์เดิม:</b> ผู้สมัครจาก SWE/PO/SM สามารถใช้ SQL, telemetry, benchmark, performance optimization, backlog prioritization หรือ dashboard เป็นหลักฐานของการคิดเชิงปริมาณได้ แต่ห้ามเรียก benchmark ว่า A/B test หากไม่ได้สุ่ม/control จริง. เขียนหรือเล่าเป็น <code>problem → data/hypothesis → action → measurable result → limitation/lesson</code>; ตัวเลขทุกตัวต้องเป็นของจริงและเปิดเผยได้.</p>
+    </div>
+
     <div class="star-card">
         <h3 id="sec5-round4">🤝 5.4 Round 4: Cross-functional Leadership & Behavioral Round (60 นาที)</h3>
         <p><b>ผู้สัมภาษณ์:</b> Engineering Director / Senior Staff Engineer / Cross-functional Lead</p>
@@ -3578,6 +3638,10 @@ WHERE market IN ('TH', 'SG')
     <div class="star-card" id="background-comparison">
         <h3>🏛️️ 5.9 เปรียบเทียบข้อได้เปรียบ - ข้อเสียเปรียบ ของเราเทียบกับ Candidate Background อื่นๆ</h3>
         <p><b>โจทย์คำถามลองเชิง:</b> <i>"ในบรรดาผู้สมัครที่มี Background หลากหลาย เช่น Business/MBA, UX/UI Design หรือ Management Consultant ทำไม Agoda ถึงควรเลือกคุณที่เป็น Ex-SWE 11 ปี (Lead SWE 6 ปี)?"</i></p>
+        <div class="alert-box">
+            <span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span>
+            เอกสาร “เริ่มต้นการสนทนา” เสนอว่าโอกาสเปลี่ยนเข้า Senior PM โดยตรงอาจต่างกันตาม background และยกช่วงตัวเลขประมาณ Tech Lead/Lead SWE 40–50%, Data/Quant 25–30%, Consultant 15–20%, BA/Project Manager ต่ำกว่า 10%. ช่วงเหล่านี้ <b>ไม่มีหลักฐานการคัดเลือกสาธารณะที่ตรวจสอบได้</b> จึงห้ามใช้เป็นสถิติ Agoda, probability ของตนเอง หรือเหตุผลในการต่อรอง. คุณค่าที่นำมาใช้ได้คือการเตรียมหลักฐานให้ครบ: product ownership จริง, user/business outcome, data/experimentation literacy, cross-functional influence และ product-sense case—not title เดิมหรือการจัดอันดับ background.
+        </div>
 
         <div class="table-responsive">
             <table>
@@ -3703,58 +3767,89 @@ WHERE market IN ('TH', 'SG')
         </ol>
     </div>
 
+    <div class="example-box" id="experiment-decision-rigor">
+        <h4>🧪 Experiment decision rigor: จาก hypothesis สู่การตัดสินใจที่เชื่อถือได้</h4>
+        <p><span class="badge badge-orange">General experimentation practice</span> นี่คือกรอบฝึกคิด—not a claim about one universal Agoda process. เริ่มจาก <b>Null hypothesis (H₀)</b>: การเปลี่ยนแปลงไม่ทำให้ metric ต่างจาก control; แล้วกำหนด <b>H₁</b>, primary metric, assignment unit, eligibility, guardrails และ decision rule <b>ก่อน</b> เห็นผล. <b>MDE</b> คือ effect ที่เล็กที่สุดซึ่งยังคุ้มค่าจะตัดสินใจ ไม่ใช่ target ที่ต้อง “ทำให้ชนะ”; MDE เล็กลง, variance สูงขึ้น, alpha เข้มขึ้น หรือ power สูงขึ้น ล้วนทำให้ต้องใช้ sample มากขึ้น.</p>
+        <div class="table-responsive">
+            <table>
+                <thead><tr><th>สิ่งที่ต้องล็อกล่วงหน้า</th><th>คำถามที่ Senior PM ควรถาม</th><th>ความเสี่ยงหากข้าม</th></tr></thead>
+                <tbody>
+                    <tr><td>Effect &amp; sample plan</td><td>ผลขั้นต่ำกี่ <i>percentage points</i> จึงคุ้มกับ effort/ความเสี่ยง? ใช้ baseline, MDE, alpha, power และ traffic คำนวณ sample/duration เท่าไร?</td><td>จบเร็วเกินจน noise ดูเป็นผล หรือรอนานโดยไม่มี decision value</td></tr>
+                    <tr><td>Randomization &amp; SRM</td><td>สุ่มที่ user, session หรือ property? allocation ที่เห็นตรงแผนหรือไม่? event/eligibility สูญหายไม่เท่ากันหรือไม่?</td><td><a href="#glossary-srm" class="term-link">Sample Ratio Mismatch (SRM)</a> อาจชี้ bug ใน diverter, tracking, filter หรือ performance และทำให้ผล causal ไม่น่าเชื่อถือ</td></tr>
+                    <tr><td>Statistical vs practical value</td><td>confidence interval ครอบ MDE หรือไม่? cancellation, latency, support contact, fraud/refund และ contribution เปลี่ยนอย่างไร?</td><td><i>p-value</i> ต่ำเพียงอย่างเดียวอาจเป็นผลเล็กเกินคุ้มค่า หรือได้ top-line lift ที่ทำลาย guardrail</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><b>เรื่อง p-value:</b> มันคือความน่าจะเป็นที่จะเห็นข้อมูลสุดโต่งอย่างที่พบ (หรือสุดโต่งกว่า) <i>หาก H₀ เป็นจริง</i>; ไม่ใช่โอกาสที่ H₀ จริง และไม่ใช่ขนาดของผล. Threshold ต้องเลือกตาม downside, multiple comparisons และ design. <span class="badge badge-purple">Public engineering reference</span> Agoda Engineering เผยแพร่เหตุผลในการใช้ threshold ที่ผ่อนปรนกว่าในบาง exploratory A/B experiments; อย่าสรุปว่า <code>0.4</code> หรือ <code>0.05</code> เป็นนโยบายตายตัวของทุกทีม/ทุก flow—ดู <a href="#agoda-internal-faq" class="term-link">10.11</a> และยืนยัน decision rule กับทีม.</p>
+        <p><b>รายละเอียดที่ต้องพูดให้ครบ:</b> Type I error (α) คือ false positive; Type II error (β) คือพลาดผลที่มีอยู่จริง และ power = 1−β. ขนาดตัวอย่างจึงขึ้นกับ baseline/variance, หน่วยสุ่ม, MDE, α และ power (เชิงแนวคิด <code>n ∝ σ²(Z<sub>1−α/2</sub> + Z<sub>1−β</sub>)² / MDE²</code>). กำหนดระยะเวลาล่วงหน้าและอย่าหยุดเพราะกราฟระหว่างทางน่าตื่นเต้น. หาก allocation ที่วางไว้ เช่น 50:50 เบี่ยงเบนอย่างมีนัยสำคัญ ให้ใช้ chi-square goodness-of-fit ตรวจ <a href="#glossary-srm" class="term-link">SRM</a> ก่อนอ่าน lift; ตรวจ diverter/hash, eligibility, bot/filter, telemetry และ node/pipeline ที่ข้อมูลหาย แล้วแก้และรันทดสอบใหม่แทนการพยายาม “ปรับ” ผลภายหลัง.</p>
+        <div class="alert-box"><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> เอกสารต้นทางยกแนวคิดเกณฑ์เชิงสำรวจที่ผ่อนคลายราว <code>p ≈ 0.4</code> (ช่วงประมาณ 0.30–0.45) สำหรับ UI/copy ที่ย้อนกลับได้และผลเสียต่ำ เทียบกับ <code>p ≤ 0.05</code> สำหรับ checkout, payment หรือ pricing. เก็บไว้เป็นตรรกะตัดสินใจ—not Agoda policy: ผลกระทบที่มี downside สูงต้องใช้หลักฐานเข้มกว่า และทุกกรณีต้องดู effect size, uncertainty, SRM, guardrails และ expected value ร่วมกัน.</div>
+    </div>
+
+    <div class="star-card" id="ux-friction-and-discovery">
+        <h3>6.1.2 UX Friction, Choice Architecture &amp; Discovery ก่อนตัดสินใจสร้าง</h3>
+        <p><span class="badge badge-orange">General product practice</span> ใช้กรอบนี้วิเคราะห์ journey ไม่ใช่ข้ออ้างว่าเป็นแนวปฏิบัติหรือข้อมูลภายในของ Agoda. แยกความฝืดเป็น <b>ความคิด</b> (ข้อมูล/ภาษาซับซ้อนหรือฟอร์มไม่เป็นกลุ่ม—เช่นฟอร์ม 20 ช่อง), <b>อารมณ์</b> (กลัวตัดสินใจผิด ทุจริต หรือเสียเงิน) และ <b>กายภาพ</b> (พิมพ์ยาก เป้าสัมผัสเล็ก ช้า หรือมีขั้นตอนเกินจำเป็น). แก้ด้วย progressive disclosure, autofill, ป้ายชัดเจน, เหตุผลที่ขอข้อมูล, สัญญาณความน่าเชื่อถือที่พิสูจน์ได้ และเงื่อนไขยกเลิก/คืนเงินที่โปร่งใส. เวลาการโหลดเกินสองวินาทีเป็นตัวอย่างสัญญาณที่ควรสืบค้น ไม่ใช่ universal threshold.</p>
+        <p><b>Choice architecture และจริยธรรม:</b> Hick’s Law อธิบายว่าเวลาตัดสินใจเพิ่มตามจำนวนและความซับซ้อนของตัวเลือก (<code>T = b·log₂(n+1)</code>). จึงควรจัดชุดเปรียบเทียบที่สั้น ช่วยแนะนำ/default ที่เปลี่ยนได้ และ filter/sort ที่ตอบโจทย์ โดยไม่ซ่อนข้อมูลสำคัญ. scarcity หรือ urgency ใช้ได้เฉพาะเมื่อเป็นจริง พอเหมาะ และตรวจสอบได้; countdown ปลอมหรือ badge มากเกินไปทำลายความไว้วางใจและเพิ่มความฝืด.</p>
+        <p><b>จาก friction สู่การตัดสินใจ:</b> ใช้ quant เพื่อเห็น pattern แล้วทำ qualitative discovery เพื่อเข้าใจบริบทและพฤติกรรมจริงก่อนตั้ง hypothesis; อ่าน playbook การวิจัยเต็มที่ <a href="#qualitative-customer-discovery" class="term-link">Qualitative Customer Discovery</a>. เมื่อมี evidence แล้ว จึงใช้ <a href="#rice-example" class="term-link">RICE</a> เพื่อเปรียบเทียบโอกาส และ <a href="#moscow-def" class="term-link">MoSCoW</a> เพื่อคุม scope ใน refinement—รายละเอียดการใช้แต่ละ framework อยู่ที่ลิงก์นั้น.</p>
+    </div>
+
     <h3 id="comp-matrix">6.2 Agoda's Moat & Competitive Landscape Matrix</h3>
+    <p><span class="badge badge-orange">Industry comparison lens</span> ตารางนี้เป็นกรอบตั้งคำถามจากข้อมูลสาธารณะและการสังเกต product ปัจจุบัน ไม่ใช่การจัดอันดับ, market-share claim หรือข้อเท็จจริงภายในของบริษัทใด. ตรวจ offer, market, rate plan และ product flow ในประเทศ/เวลาที่เกี่ยวข้องก่อนใช้ใน interview.</p>
+    <div class="alert-box"><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> เอกสารต้นทางเสนอเลนส์ APAC, local payment, supply conversion บนมือถือ, pricing/loyalty, inventory, bundling และปราการด้าน fintech pricing, supply hyper-local, mobile funnel และ experimentation. ใช้เป็นสมมติฐานเพื่อหา evidence เท่านั้น—not a claim about Agoda, Booking.com, Expedia, Trip.com, Airbnb หรือความสัมพันธ์/กลยุทธ์ภายในของบริษัทเหล่านั้น.</div>
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
                     <th>ผู้เล่น (Competitor)</th>
-                    <th>โมเดลหลัก (Primary Model)</th>
-                    <th>จุดแข็งสำคัญ (Key Strengths)</th>
-                    <th>ข้อเสียเปรียบเมื่อเทียบกับ Agoda</th>
+                    <th>คำถามเชิงกลยุทธ์ที่ควรเปรียบเทียบ</th>
+                    <th>สิ่งที่ PM ควรตรวจ ไม่ใช่คาดเดา</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><b>Agoda</b> 🏆</td>
-                    <td>Merchant-First (APAC Focus)</td>
-                    <td>Price Leadership, Dynamic Discounting/Coupons, <a href="#glossary-deep-apac-supply" class="term-link">Deep APAC Supply</a></td>
-                    <td>กำลังเร่งขยายสัดส่วน Non-Accommodation (Flights/Packages)</td>
+                    <td>ผู้ใช้เห็นราคา/เงื่อนไขรวมอย่างไร? search, payment, cancellation และ support flow ลด uncertainty หรือไม่?</td>
+                    <td>Rate plan, payment timing, taxes/fees display, inventory accuracy, localized payment และ post-booking outcome ของตลาดที่ศึกษา</td>
                 </tr>
                 <tr>
                     <td><b>Booking.com</b></td>
-                    <td>Agency-First (Global)</td>
-                    <td>Massive Global Hotel Supply, Strong European Presence, Simple UI</td>
-                    <td>ความยืดหยุ่นในการทำ Dynamic Margin & Localized Discounting ต่ำกว่า</td>
+                    <td>การค้นหา, rate/cancellation clarity, loyalty/partner proposition และ accommodation choice ส่งผลต่อ decision อย่างไร?</td>
+                    <td>เปรียบเทียบ journey เดียวกันตาม locale/device; ห้ามอนุมาน pricing power หรือความยืดหยุ่นจากหน้า UI</td>
                 </tr>
                 <tr>
                     <td><b>Expedia Group</b></td>
-                    <td>Hybrid (US/Global Focus)</td>
-                    <td>Strong Flight+Hotel Packages, Large US Corporate Travel Market</td>
-                    <td>ราคาห้องพักเดี่ยวในภูมิภาค APAC สูงกว่า และระบบ UX มีความซับซ้อน</td>
+                    <td>bundling, cross-sell, loyalty, service recovery และ travel-planning flow แก้ job ของลูกค้ากลุ่มใด?</td>
+                    <td>ข้อเสนอ/availability ที่ผู้ใช้มีสิทธิ์จริง, total price, booking conditions และ unit economics—not anecdotal price snapshots</td>
                 </tr>
                 <tr>
                     <td><b>Trip.com Group</b></td>
-                    <td>Super-App (China/Global)</td>
-                    <td>Comprehensive Travel Ecosystem (Train, Flight, Hotel, Tours)</td>
-                    <td>Brand Penetration ในกลุ่ม Western Travelers ยังไม่สูงเท่า Agoda</td>
+                    <td>ecosystem breadth, local content/payment และ cross-product journey สร้าง value ใน market ที่เลือกหรือไม่?</td>
+                    <td>ความพร้อมของ product/service แตกต่างตาม market; validate localization, regulatory constraints และ target segment</td>
+                </tr>
+                <tr>
+                    <td><b>Airbnb</b></td>
+                    <td>alternative-accommodation marketplace, host/guest trust, listing discovery และ booking certainty ตอบโจทย์ segment ใด?</td>
+                    <td>เปรียบเทียบ total cost, house rules, cancellation, confirmation flow, host tools และ supply quality โดยไม่เหมารวมจาก listing เดียว</td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="example-box">
+        <h4>วิธีเก็บรายละเอียดคู่แข่งจากเอกสารต้นทางโดยไม่ยกเป็น fact</h4>
+        <p><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> เอกสารเปรียบ Booking.com กับตลาดยุโรป/ทั่วโลก, price transparency/Genius, SEO/inventory และ agency/cross-listing; Expedia กับอเมริกาเหนือ, flight–hotel–car package และ OneKey; Trip.com กับนักเดินทางขาออกจากจีน/เอเชียเหนือ, rail/flight/insurance และ super-app; Airbnb กับ alternative accommodation, host-set price/service fee, experience discovery และการอนุมัติของโฮสต์. สิ่งเหล่านี้เป็นจุดเริ่มค้นข้อมูล—not current product, regional strategy, internal brand role, fee หรือ policy ที่ยืนยันแล้ว. ในคำตอบ ให้แปลงเป็นคำถามว่า journey, segment, total cost, local payment, loyalty/bundling และ booking certainty ใดมีคุณค่าในตลาดที่กำลังวิเคราะห์.</p>
     </div>
 
     <!-- MOAT DEEP-DIVE CARD -->
     <div class="star-card" id="comp-moat-detail">
         <h3>🏰 เจาะลึกแนวคิด Business Moat (คูเมืองทางธุรกิจของ Agoda) สำหรับ Senior PM</h3>
-        <p>ในห้องสัมภาษณ์ระดับ Executive หรือ Bar Raiser ผู้สัมภาษณ์มักลองเชิงด้วยคำถามว่า <i>"อะไรคือ คูเมือง (Moat) ทางธุรกิจที่แท้จริงของ Agoda ที่ป้องกันไม่ให้คู่แข่งยักษ์ใหญ่อย่าง Google Hotels หรือ Airbnb แย่งตลาดไปได้?"</i></p>
+        <p>ในห้องสัมภาษณ์ระดับ Executive หรือ Bar Raiser ผู้สัมภาษณ์อาจลองเชิงด้วยคำถามว่า <i>"อะไรอาจเป็นคูเมือง (Moat) ที่ป้องกันคู่แข่งได้?"</i> ตอบเป็น <b>hypothesis ที่ต้องพิสูจน์</b> ไม่ใช่ประกาศว่าเป็นข้อเท็จจริงภายใน: ระบุ mechanism → evidence ที่ต้องดู → risk ที่ทำให้ moat อ่อนลง → product investment ที่ควรทดลอง.</p>
 
         <div class="example-box">
-            <h4>💡 4 เสาหลัก คูเมืองทางธุรกิจ (Agoda's 4 Core Competitive Moats):</h4>
+            <h4>💡 4 สมมติฐานเรื่อง moat ที่ใช้วิเคราะห์ได้:</h4>
             <ol>
-                <li><b>Deep Local APAC Supply Network (คูเมืองด้านห่วงโซ่อุปทานท้องถิ่น):</b> Agoda สะสมความสัมพันธ์และสัญญาตรงกับผู้ประกอบการโรงแรม ที่พัก B&amp;B และ Agoda Homes ในภูมิภาคเอเชียแปซิฟิกมายาวนานนับสิบปี มีทีม Partner Services ประจำท้องถิ่นดูแลเฉพาะจุด ซึ่งเป็นสินทรัพย์ที่ผู้เล่นหน้าใหม่ไม่สามารถใช้เงินซื้อได้ในเวลาอันสั้น</li>
-                <li><b>Dynamic Pricing & Yield Management Engine (คูเมืองด้านเทคโนโลยีราคา):</b> ระบบหลังบ้านอันทรงพลังที่คำนวณและปรับเปลี่ยนราคาส่วนลดซ้อนส่วนลด (Agoda Cash + Bank Coupons + VIP Tier Discounts + Wholesale Margin Adjustment) แบบ Real-time ทำให้ Agoda รักษาสถานะ **"Price Leader" (ผู้นำด้านราคาถูกที่สุดใน APAC)** ได้ตลอดเวลา</li>
-                <li><b>High-Velocity Experimentation & Data Infrastructure (คูเมืองด้านข้อมูล):</b> วัฒนธรรมการรัน A/B Test พร้อมกันหลายร้อยการทดลองบน Production Traffic หลายสิบล้านคนต่อวัน ทำให้ Agoda รู้จักพฤติกรรมผู้ใช้และสามารถปรับ UX/UI เพื่อดัน Conversion Rate ได้เร็วกว่าคู่แข่งหลายเท่า</li>
-                <li><b>Two-Sided Network Effects & Economies of Scale (คูเมืองด้านสเกลและเครือข่าย):</b> จำนวนผู้ใช้งานหลายสิบล้านคนดึงดูดให้โรงแรมยอมมอบ Exclusive Rates และ Inventory พิเศษให้ Agoda และเมื่อ Agoda ได้ราคาดีที่สุด ก็ยิ่งดึงดูดผู้ใช้งานใหม่ๆ เข้ามาจองเพิ่มขึ้น เกิดเป็น <a href="#glossary-flywheel" class="term-link">Flywheel Effect</a> ที่หมุนเร่งการเติบโตอย่างต่อเนื่อง</li>
+                <li><b>Local supply &amp; operational relationships:</b> หาก supply quality, availability และ partner tooling ดีขึ้นจากความสัมพันธ์ในตลาด อาจสร้าง switching cost. ตรวจ retention, coverage, quality และ partner satisfaction; risk คือ multi-homing หรือ partner churn.</li>
+                <li><b>Pricing, payments &amp; trust capability:</b> การแสดง total price ที่เชื่อถือได้, payment methods ที่เหมาะตลาด และ refund clarity <i>อาจ</i> เพิ่ม conversion/retention. อย่าเรียกว่า “ราคาถูกที่สุด” หากไม่มี benchmark ที่เทียบได้.</li>
+                <li><b>Learning loop / experimentation:</b> data, instrumentation และการส่งผลการเรียนรู้กลับสู่ product อาจเป็น advantage หากเร็วและปลอดภัยกว่า—not simply because a team runs many tests. ตรวจ validity, rollout speed และ customer/partner guardrails.</li>
+                <li><b>Two-sided flywheel:</b> demand ที่มีคุณภาพอาจดึง supply; supply ที่เหมาะอาจดึง demand. ระบุ causal links, leakage/cannibalization และ evidence ก่อนอ้าง network effect เป็น moat.</li>
             </ol>
         </div>
 
@@ -3828,6 +3923,16 @@ Illustrative contribution = realized revenue
         <div class="alert-box">
             <b>⚠️ Insight ระดับ Director:</b> การดัน Conversion Rate โดยไม่ดูแล Cancel Rate อาจทำให้ <b>Net Revenue ไม่เพิ่ม</b> หรือแย่ลง — Senior PM ต้องออกแบบ Guardrail เรื่อง Cancellation และ Post-booking experience ควบคู่กับ Top-of-funnel metrics เสมอ
         </div>
+        <div class="example-box">
+            <h4>4) Pricing dynamics: demand, parity และการอธิบายอย่างรับผิดชอบ</h4>
+            <p><span class="badge badge-orange">Industry framework</span> ราคา/ส่วนลดของ OTA ไม่ใช่ “ปุ่มลดราคา” ที่ PM กดได้ตามใจ: ขึ้นกับ rate plan, inventory, supplier agreement, taxes/fees, payment flow, cancellation terms และกฎหมาย/ข้อผูกพันในตลาดนั้น. <b>Rate parity</b> อาจเป็นเงื่อนไขสัญญาหรือแนวปฏิบัติที่ต่างกันตาม partner/market; อย่าอ้างว่า rate ใด “ละเมิด” หรือว่า closed-user/app/member offer ใช้ได้เสมอโดยไม่ตรวจเงื่อนไขจริง.</p>
+            <ul>
+                <li><b>Mid-week / low-demand hypothesis:</b> หาก demand ต่ำในบางวัน อาจพิจารณา price, value-add, targeted promotion หรือ merchandising—but first verify occupancy/supply, incrementality และว่าไม่มีการย้าย demand จากวัน/ช่องทางอื่น (cannibalization).</li>
+                <li><b>Measure the full trade-off:</b> ดู qualified demand, booking/room nights, ADR/discount, cancellation/refund, partner response และ <a href="#bottomline-detail" class="term-link">incremental contribution</a>; conversion ที่ขึ้นจาก price cut ไม่เท่ากับกำไรเพิ่ม.</li>
+                <li><b>Safe interview phrasing:</b> <i>“I would treat a targeted price or value-add as a hypothesis. I’d confirm contractual and customer-price clarity constraints, test incrementality with guardrails, and decide on fulfilled contribution and partner health—not an assumed take rate.”</i></li>
+            </ul>
+            <p><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> เอกสารใช้ <code>GBV = Room Nights × ADR</code> และ <code>GBV × take rate</code> เป็น proxy เพื่อสอน unit economics; ยังยก take rate 15–18% (base commission 12–15% และโปรแกรมเพิ่มการมองเห็น 3–5%) และลด margin 15% → 11% เป็นสถานการณ์ตัวอย่าง. ตัวเลขเหล่านี้ไม่ใช่อัตรา ราคา สัญญา หรือนโยบายของ Agoda. เมื่อทดลอง mid-week demand ให้พิจารณา value-add เช่นอาหารเช้าหรือ late checkout ควบคู่กับ price, ตรวจ parity/กฎหมาย/สัญญา และวัด fulfilled contribution กับ cannibalization.</p>
+        </div>
     </div>
 
     <div class="star-card" id="bnpl-engine-def">
@@ -3880,6 +3985,18 @@ Net decision value = incremental contribution - one-off implementation cost
                 </ul>
             </li>
         </ul>
+        <div class="table-responsive">
+            <table>
+                <thead><tr><th>ต้นทุน/ความเสี่ยงที่มักซ่อนอยู่</th><th>คำถามก่อนตัดสินใจ</th><th>ตัวอย่าง guardrail / evidence</th></tr></thead>
+                <tbody>
+                    <tr><td>Payment, FX &amp; refunds</td><td>payment method หรือ currency presentation เพิ่ม completed/fulfilled contribution หลัง fee, FX exposure และ refund handling หรือไม่? <span class="badge badge-orange">Source illustration only</span> เอกสารยก acquiring fee 1.5–3.5%+; ต้องตรวจ market/merchant-of-record และสัญญาจริง</td><td>payment success, authorization/settlement failures, refund time, fee per fulfilled booking</td></tr>
+                    <tr><td>Fraud &amp; chargebacks</td><td>การลด verification ลด bad friction จริง หรือเพียงย้ายความเสี่ยงไป fraud, dispute และ support? <span class="badge badge-orange">Source illustration only</span> เอกสารยก $15–25 ต่อ chargeback; ไม่ใช่ต้นทุนหรือ policy ของ Agoda</td><td>fraud loss, chargeback/dispute rate, false-positive decline, customer effort; use risk-based controls with Compliance/Risk</td></tr>
+                    <tr><td>Cloud &amp; partner API cost</td><td>freshness/latency ที่ดีขึ้นคุ้มกับ compute, cache miss, API/licensing และ operational cost หรือไม่?</td><td>p95 latency, availability/price accuracy, API calls per qualified search, cache hit rate, unit cost</td></tr>
+                    <tr><td>Supply health</td><td>promotion, ranking, cancellation policy หรือ operational burden เปลี่ยน partner incentives/quality ในระยะยาวอย่างไร?</td><td>availability, content/quality, partner contacts, churn signals, complaint/cancellation trends—interpret with partner context</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><b>Decision discipline:</b> ร่วมกับ Finance, Risk, Payments, Engineering และ Supply/Partner teams ยืนยัน cost definition, owner และ observation window. ตารางนี้เป็น checklist เพื่อไม่ให้หลงกับ top-line metric—not evidence that a particular cost or practice applies to Agoda.</p>
     </div>
 
     <h3 id="arch-deepdive">6.6 Advanced Technical Architecture Deep-Dive</h3>
@@ -4209,12 +4326,7 @@ LTV : CAC Ratio Target &gt; 3.0
                 <b>🛠️ วิธีเติมเต็มในห้องสัมภาษณ์ (How to Bridge):</b>
                 <ul>
                     <li><b>อ่าน Booking Holdings Q2/Q3 Earnings Transcript (30 นาที):</b> ศึกษาบทความสรุปผลประกอบการของบริษัทแม่ Agoda เพื่อเข้าใจทิศทางระดับโลก เช่น การเติบโตของ <i>Connected Trip (Flights + Hotels + Transfers)</i>, สัดส่วน <i>Direct Mobile App Bookings</i>, และการขยายตัวของ <i>Alternative Accommodations (Agoda Homes)</i></li>
-                    <li><b>เข้าใจความต่างของ Merchant vs Agency Model อย่างแม่นยำ (หมวด 6.3):</b>
-                        <ul>
-                            <li><i>Merchant Model:</i> Agoda ตัดบัตรลูกค้าก่อน แล้วค่อยส่งเงินให้โรงแรม (Agoda กำหนดราคาโปรโมชันเองได้ มีกระแสเงินสดและ Margin สูงกว่า)</li>
-                            <li><i>Agency Model:</i> ลูกค้าไปจ่ายเงินสดที่หน้าโรงแรม (Pay at Hotel) แล้วโรงแรมค่อยจ่ายคอมมิชชันคืน Agoda (Conversion สูงกว่าแต่เสี่ยง No-show สูงกว่า)</li>
-                        </ul>
-                    </li>
+                            <li><b>เข้าใจ payment flow โดยไม่เหมารวม:</b> ทบทวน <a href="#business-model-lingo" class="term-link">Merchant / Agoda Collect และ Agency / Property Collect ในหมวด 6.3</a>; rate plan, วันรับชำระ, refund exposure และเงื่อนไข settlement แตกต่างกันตาม booking จึงต้องตรวจจาก offer และเงื่อนไขจริงก่อนสรุป</li>
                     <li><b>ดึง Use Case การท่องเที่ยวมาใช้ในทุกคำตอบ:</b> ไม่ว่าจะถูกถามคำถามปลายเปิดแบบใด ให้ยกตัวอย่างอิงกับ Agoda เสมอ เช่น การแก้ปัญหา No-show, การเพิ่ม Room Nights ในช่วง Low Season, หรือการทำ Personalization แสดงผลราคาสำหรับ Family Travelers</li>
                 </ul>
             </div>
@@ -4611,7 +4723,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
 
         
         <div class="glossary-item" id="glossary-merchant">
-            <b>🏦 Merchant Model vs Agency Model:</b> <b>Merchant / OTA Collect</b> = OTA เป็นผู้รับชำระ โดยลูกค้าอาจจ่ายตอนจองหรือในวันครบกำหนดก่อนเข้าพักตาม rate plan; หลังรับชำระจึงอาจเกิด Cash Float ก่อน settlement กับที่พัก <b>Agency / Property Collect</b> = ลูกค้าชำระกับที่พักตามเงื่อนไขของ booking ทั้งสองโมเดลอาจอยู่ร่วมกันใน OTA เดียว และไม่ควรผูกเหมารวมกับบริษัทใดบริษัทหนึ่ง
+            <b>🏦 Merchant Model vs Agency Model:</b> <b>Merchant / OTA Collect</b> คือ OTA เป็นผู้รับชำระ; <b>Agency / Property Collect</b> คือผู้เข้าพักชำระกับที่พักตามเงื่อนไข booking. ทั้งสองอาจอยู่ร่วมกันใน OTA เดียว—ดูคำอธิบาย payment timing, settlement, risk และข้อควรระวังฉบับเต็มที่ <a href="#business-model-lingo" class="term-link">หมวด 6.3</a>.
         </div>
         <div class="glossary-item" id="glossary-roomnight">
             <b>🛏️ Room Night (RN):</b> หน่วย Volume จริงของ OTA = จำนวนห้อง × จำนวนคืน (จอง 2 ห้อง 3 คืน = 6 RN) — ไม่ใช่การนับแค่จำนวน Booking
@@ -5333,6 +5445,10 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
         <p><b>7. S - Summarize Recommendation:</b><br/>
         <i>"I recommend launching an A/B test for Solution 2 (AI Review Highlights) on <a href="#glossary-sem" class="term-link">PDP</a>. <a href="#glossary-primary" class="term-link">Primary Metric</a>: <a href="#glossary-sem" class="term-link">PDP</a>-to-Checkout Conversion Rate. <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a>: Page Load Latency p95 (&lt;800ms) and Host Contact Rate."</i></p>
     </div>
+    <div class="alert-box">
+        <p><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> สำหรับ case Agoda Homes ให้ใช้ข้อมูลต่อไปนี้เป็น <b>สมมติฐานภายนอก</b> ไม่ใช่ข้อเท็จจริงบริษัท: เปรียบเทียบการค้นหาข้ามโรงแรม/บ้าน, ราคารวม, ความฝืดของการยืนยัน, เครื่องมือโฮสต์, payout, protection, calendar/channel management และ local payment กับทางเลือกอย่าง Airbnb. เอกสารยก “all-inclusive”/coupon ซ้อน, instant confirmation, split fee (โฮสต์ราว 3%/ผู้เข้าพัก 14%), host-only 14–16%, host commission 15–18% และ AirCover สูงสุด US$3m เป็นตัวอย่างเทียบเคียงเท่านั้น; fee, coverage, approval, instant confirmation และรายละเอียดการปฏิบัติงานอาจล้าสมัยหรือแตกต่างตามตลาด.</p>
+        <p>เสนอการทดลองเป็นสามทางเลือก: (1) แนะนำบ้านแก่ผู้ค้นหาโรงแรมเมื่อพื้นที่/ความคุ้มค่าเหมาะกว่า แล้ววัด qualified discovery, conversion, cancellation และความพึงพอใจ; (2) sync ปฏิทิน/ราคาผ่าน API หรือ iCal เพื่อลดงานหลายช่องทางของโฮสต์ โดยคุม inventory conflict, overbooking และ support burden; (3) ประเมิน APM/wallet ที่เหมาะกับตลาด เช่น PromptPay, TrueMoney, KakaoPay หรือ Alipay โดยดู acceptance, fee, fraud, refund และกฎระเบียบ. ก่อนแนะนำ ต้องยืนยัน segment, economics, partner constraints และ policy กับทีม.</p>
+    </div>
 
     <h3 id="objection-handling">10.2 Objection Handling Scripts (การรับมือข้อโต้แย้งในห้องสัมภาษณ์)</h3>
     <div class="script-box">
@@ -5414,7 +5530,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     </div>
 
     <!-- 4.5 -->
-    <div class="star-card" id="pdf-source-questions">
+    <div class="star-card" id="additional-interview-questions">
         <h3>10.5 รวมคำถามสัมภาษณ์เชิงลึกเพิ่มเติม</h3>
 
         <h4>Q1: "ทำไมถึงเป็น Lead Software Engineer มานานถึง 6 ปี โดยไม่ได้โปรโมทเป็น Manager?"</h4>
@@ -5617,33 +5733,16 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
         <div class="alert-box">
             <b>โจทย์สมมติ:</b> "เช้าวันจันทร์ Mobile App conversion ลดลง 4% relative จาก baseline ที่ตกลงไว้ คุณจะวาง 4-Step RCA ตรวจสอบตั้งแต่ Client-side, Network API, Payment Gateway ไปจนถึง External Factors อย่างไร?"
         </div>
-        <h4>โครงสร้างคำตอบ 4-Step RCA (แนะนำ)</h4>
-        <ol>
-            <li><b>Step 1 — External Factors:</b> วันหยุด / Campaign คู่แข่ง / ISP หรือ CDN outage / App Store review delay / Google algorithm</li>
-            <li><b>Step 2 — Dimension Segmentation:</b> ซอยตาม Device (iOS vs Android), OS version, App version, Geo, Traffic source (Organic / Meta-search / Paid), Payment method</li>
-            <li><b>Step 3 — Layer Drill-down:</b>
-                <ul>
-                    <li><b>Client-side:</b> Crash rate, JS errors, new App release, Feature Flag mis-config</li>
-                    <li><b>Network / API:</b> Latency p95, 5xx rate, timeout, payload size</li>
-                    <li><b>Payment Gateway:</b> Auth success rate, 3DS failure, specific bank/issuer</li>
-                </ul>
-            </li>
-            <li><b>Step 4 — Hypothesis → Fix → Guardrail:</b> ตั้งสมมติฐานเดียวที่ชัด, ทำ hotfix / rollback ใต้ Feature Flag, มอนิเตอร์ Primary + Guardrails ตาม severity, seasonality และ decision/rollback plan ที่กำหนด</li>
-        </ol>
+        <h4>การประยุกต์ RCA กับ Conversion Drop</h4>
+        <p>ใช้ <a href="#rca-4step" class="term-link">RCA 4-Step Drill-Down</a> เป็นกรอบหลัก แล้วให้ความสำคัญกับความต่างของ conversion domain: หลังยืนยัน metric และบีบ segment ให้ตรวจตามเส้นทาง <b>client → API/network → payment</b>. เทียบ iOS/Android, OS/app version, geo, traffic source และ payment method; ดู crash/feature flag, latency p95/5xx/timeout และ auth success/3DS/issuer เพื่อแยก blast radius. ปัจจัยภายนอกที่เกี่ยวข้องอาจเป็น outage, วันหยุด หรือ campaign แต่ต้องตรวจ evidence ไม่ใช่เดา.</p>
+        <p>เมื่อมี hypothesis ให้ hotfix หรือ rollback หลัง feature flag พร้อม conversion เป็น primary และ cancellation, payment error, latency และ support contact เป็น guardrails; กำหนด observation window และ decision/rollback gate ตาม severity.</p>
         <div class="script-box-en">
             <p><b>Sample answer (concise):</b><br/>
             <i>"I'd run a 4-step RCA. First, rule out external factors—holidays, competitor moves, network outages. Second, segment the drop by device, app version, geo, and traffic source to isolate the blast radius. Third, drill layer by layer: client crashes and feature flags, then API latency and error rates, then payment gateway auth success. Once I have a hypothesis, I'd ship a fix behind a flag, monitor conversion and immediate operational guardrails over the agreed observation window, and expand only after the pre-defined gates pass; I'd evaluate cancellation outcomes after the relevant booking-policy maturity window."</i></p>
         </div>
 
-        <h4>➕ เสริม: นำเสนอผล RCA/SQL ให้เป็น Business Insight ด้วย 3-Step Insight Framework</h4>
-        <p>การตอบระดับ Senior PM จะไม่หยุดแค่อ่านค่าจาก Query แต่จะลากเส้นเชื่อมโยงจากข้อมูลไปสู่พฤติกรรมผู้ใช้ (User Behavior), ผลกระทบต่อธุรกิจ (Business Impact) และแอ็กชันที่จะทำต่อ (Actionable Next Steps) ทันที ด้วยโครงสร้าง <b>What → So What → Now What</b></p>
         <div class="example-box">
-            <ol>
-                <li><b>What (Data Fact):</b> บอกตัวเลขหรือผลสรุปจาก Query อย่างกระชับ ไม่เยิ่นเย้อ — เช่น "Conversion Rate แยกตาม Device: Desktop 4.2%, Mobile Web 1.8%, Mobile App 5.1%"</li>
-                <li><b>So What (Business Impact & Behavior):</b> อธิบายว่าตัวเลขนี้สะท้อนพฤติกรรมอะไรของ User เช่น Mobile Web ต่ำกว่า Mobile App เกือบ 3 เท่าทั้งที่เป็นสมาร์ตโฟนเหมือนกัน สะท้อน High UX <a href="#glossary-friction" class="term-link">Friction</a> บน Mobile Web ซึ่งมักเป็น Organic/SEO Traffic ที่กำลังถูก Waste ไป</li>
-                <li><b>Now What (Hypothesis & Action):</b> เสนอสมมติฐานถัดไปพร้อมแอ็กชันชัดเจน เช่น ทำ <a href="#glossary-funnel" class="term-link">Funnel Drop-off</a> Analysis เจาะ Mobile Web แล้วรัน A/B Test ทดลอง Guest Checkout Flow เพื่อวัด Uplift</li>
-            </ol>
-            <p><b>3 สูตรเสริมความคม:</b> (1) เปรียบเทียบตัวเลขกับ Baseline/Control/YoY เสมอ ไม่พูดลอยๆ (2) เชื่อมกลับไปที่ <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a> ทุกครั้งที่เห็นตัวเลขบวก (3) แบ่ง Segment ตาม User Type/Geography/Device เพื่อหา Hidden Insight ที่ตัวเลขเฉลี่ยซ่อนไว้</p>
+            <p><b>การสื่อสารผล:</b> หลัง RCA ให้สรุปผลและ action ด้วยกรอบ <a href="#sql-to-decision" class="term-link">What → So What → Now What / SQL-to-insight-to-decision</a>: ระบุ baseline และ segment, อธิบาย hypothesis อย่างไม่สรุปเหตุเป็นผลเกินข้อมูล, แล้วเสนอ validation หรือ rollout ที่มี guardrails.</p>
         </div>
     </div>
 
@@ -6200,6 +6299,22 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
             </ul>
         </div>
 <!-- SECTION 12 (Day-to-Day Operations & Onboarding) -->
+    <div class="star-card" id="application-date-fields">
+        <h3>11.4.2 📅 การกรอก Start/End Date ในแบบฟอร์มสมัคร: ตีความ field ก่อนใส่ข้อมูล</h3>
+        <p><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> แบบฟอร์มและชื่อ field เปลี่ยนได้ตามตำแหน่ง/ระบบสมัคร จึงอย่าเดาจากตัวอย่างหน้าจอเก่าหรือระบุว่า Agoda ใช้ ATS ใดเป็นสากล. อ่าน label และ help text ของหน้าที่กำลังกรอก แล้วถาม Recruiter หากความหมายยังคลุมเครือ.</p>
+        <div class="table-responsive">
+            <table>
+                <thead><tr><th>ตำแหน่งที่พบ field</th><th>ความหมายที่มักใช้</th><th>วิธีกรอกอย่างซื่อตรง</th></tr></thead>
+                <tbody>
+                    <tr><td><b>Work experience — End Date</b></td><td>วัน/เดือนสุดท้ายของงานนั้น</td><td>หากยังทำงานอยู่ ให้เลือก <i>Current/Present/I currently work here</i> เมื่อมี. อย่าใส่วันสิ้นสุดในอนาคตหรือวันปัจจุบันจนทำให้ประวัติดูเหมือนลาออกแล้ว. หากระบบบังคับ ให้ใช้คำแนะนำในแบบฟอร์มหรือขอ Recruiter ยืนยันก่อน</td></tr>
+                    <tr><td><b>Education — Start/End Date</b></td><td>ช่วงที่ศึกษา หรือเดือน/ปีจบการศึกษาตาม field</td><td>ใช้ข้อมูลที่ตรงกับ transcript/หลักฐาน; หลักสูตรที่ยังไม่จบให้ใช้ expected graduation เฉพาะเมื่อ field ระบุชัด</td></tr>
+                    <tr><td><b>Availability / Notice period</b></td><td>วันที่พร้อมเริ่มงานหรือวันสิ้นสุด notice period ซึ่งต่างจากวันจบประวัติการทำงาน</td><td>คำนวณจากภาระตามสัญญาจริงและยืนยันกับ Recruiter; อย่ายื่นลาออกก่อนมีข้อเสนอและเงื่อนไขที่ยอมรับได้เป็นลายลักษณ์อักษร</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><b>หลักการสื่อสาร:</b> บอก availability และ notice period ตามจริงตั้งแต่ screening. หาก target start date เป็นเพียงเป้าหมาย ให้เรียกว่า target และระบุสิ่งที่ยังต้องยืนยัน เช่น notice, เอกสาร, วันเริ่มงาน และขั้นตอนของ employer ปัจจุบัน ไม่รับปากวันที่ไม่อยู่ในอำนาจตัดสินใจของตน.</p>
+    </div>
+
     <div class="phase-banner" id="phase8">🅷️ ส่วนที่ 8: เริ่มงานจริงในฐานะ Senior PM <small>On the Job: Onboarding 30-60-90 วัน, Pod Strategy และตารางงานจริง</small></div>
     <h2 id="sec12">12. 🛠️ รายละเอียดการทำงานจริง, Primary vs Secondary Pod Strategy, ตารางงาน และแผน 30-60-90 วัน (Day-to-Day Operations)</h2>
     <div class="alert-box"><span class="badge badge-orange">Industry-informed example</span> Pod size, cadence, meeting frequency, 1-on-1s และ 30-60-90 plan ในส่วนนี้เป็น template สำหรับใช้เริ่มบทสนทนากับทีม ไม่ใช่มาตรฐานบังคับของ Agoda ทุกทีม ให้ปรับตาม domain, product maturity และคำตอบจาก Hiring Manager</div>
@@ -6400,6 +6515,10 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     <div class="star-card">
         <h3 id="pm-customer-support-collab">12.5 การทำงานร่วมกับ Customer Support/CEG, KPI วัดผล และ Case Debugging CSAT Drop</h3>
         <p>เป้าหมายหลักของการทำงานร่วมกันระหว่าง Senior PM และทีม <b>Customer Support (หรือ Customer Experience Group: CEG)</b> คือ "ลด <a href="#glossary-friction" class="term-link">Friction</a> ในการเดินทางของลูกค้า" และ "เปลี่ยนเสียงสะท้อนจากลูกค้าให้กลายเป็นคุณค่าทางธุรกิจ" โดยแบ่งรูปแบบการทำงานออกเป็น 4 มิติหลัก:</p>
+        <div class="alert-box">
+            <p><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> เอกสาร “บทบาท Senior PM Agoda กับ Customer Support” ใช้ชื่อ CEG, ตัวอย่างเครื่องมือ และรูปแบบ sync/war room เพื่ออธิบาย <b>operating model ที่เป็นไปได้</b>; ไม่ใช่หลักฐานว่าเป็นโครงสร้าง ชื่อทีม ช่องทาง หรือ cadence มาตรฐานของทุกทีม Agoda. ใช้เป็น checklist สำหรับถาม Hiring Manager ว่าใครเป็น owner ของ escalation, handover, knowledge base, operational readiness และ feedback loop ของ pod ที่สมัคร.</p>
+            <p><b>หลักความปลอดภัยและคุณภาพ:</b> เป้าหมายลด contact หรือ AHT ไม่ใช่เหตุผลให้ปิดทางช่วยเหลือที่จำเป็น. Self-service, chatbot, automated refund/waiver และ agent tooling ต้องมี eligibility/policy ที่ชัด, human escalation สำหรับเคสเสี่ยงหรือผู้ใช้ที่ติดขัด, permission/audit trail, privacy-minimised data access, monitoring ของ error/re-open/complaint และ rollback/incident path. วัด CSAT, FCR, cancellation/refund error, repeat contact และ customer effort ควบคู่กับ efficiency เสมอ.</p>
+        </div>
 
         <div class="example-box">
             <h4>1️⃣ การดึง Feedback และ Data จาก Support มาทำ Product Roadmap</h4>
@@ -6471,21 +6590,18 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
 
         <h4>🧪 ตัวอย่าง Case Debugging: "ถ้า CSAT ตกลง 15% ในสัปดาห์นี้ คุณจะ Debug อย่างไร?"</h4>
         <div class="example-box">
-            <p>ใช้ <b>5-Step Metric Debugging Framework</b> แสดง Structured Thinking แบบบีบวงแคบลงเรื่อยๆ (Funnel Approach):</p>
-            <ol>
-                <li><b>Clarify & Validate Data:</b> เช็กก่อนว่า 15% drop เป็น "Real Drop" ไม่ใช่ "Data Anomaly" — ตรวจ Data Pipeline/Tracking Code, Sample Size ของ Respondents และดูว่าเป็น Spike Drop หรือ Gradual Trend</li>
-                <li><b>Segment & Isolate the Problem:</b> บีบวงแคบหา Pattern ผ่าน 4 มิติ: Channel/Touchpoint (App/Web/Chatbot/Phone), Journey (Self-service vs Human Agent), Category (Cancellation/Refund/Check-in), และ Geography/Market</li>
-                <li><b>Formulate & Test Hypotheses:</b> ตั้งสมมติฐาน 3 ฝั่ง — <b>System/Product Failure</b> (เช็ก Deployment Log, Error Rates), <b>Operational Bottleneck</b> (ดู Ticket Volume, Waiting Time), <b>Measurement/Sampling Bias</b> (เปรียบเทียบ CSAT Trigger Logic)</li>
-                <li><b>Actionable Mitigation:</b> แบ่งเป็น Short-term (Rollback/Hotfix, Auto-reply สื่อสารล่วงหน้า, บรีฟทีม Ops แก้ SOP) และ Long-term (สร้าง Alerting System แจ้งเตือนเมื่อ Contact Rate/CSAT ตกเกิน Threshold)</li>
-                <li><b>Define Metrics to Monitor Recovery:</b> Primary Metric = CSAT Recovery Rate (กลับถึง Baseline ภายในกี่วัน), Secondary = FCR, AHT, Ticket Re-open Rate</li>
-            </ol>
+            <p>ใช้ <a href="#rca-4step" class="term-link">RCA 4-Step Drill-Down</a> เป็นกรอบหลัก แต่สำหรับ support/CSAT ให้เปลี่ยนเลนส์ตาม domain: ยืนยันว่า survey trigger, response mix และ sample ไม่ทำให้เกิดภาพลวง; segment ตาม contact channel, self-service/agent journey, cancellation/refund/check-in category และ market. จากนั้นเทียบ hypothesis ระหว่าง product/system change กับ operational queue, SOP, staffing และ knowledge-base readiness—not only telemetry.</p>
+            <p>การแก้ระยะสั้นอาจเป็น rollback/hotfix, customer communication หรือ ops handover; ระยะยาวอาจเป็น alerting, workflow หรือ tooling. วัดการฟื้นตัวของ CSAT พร้อม FCR, AHT, ticket re-open, repeat contact และ refund/cancellation error เพื่อไม่ให้ efficiency ซ่อนความเสียหายต่อประสบการณ์ลูกค้า.</p>
         </div>
     </div>
 
     </div>
+</div>
+
+
 
 <div class="footer-note">
-        <p><b>✅ Interview Preparation Guide (v7.18):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
+        <p><b>✅ Interview Preparation Guide (v7.25):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
     </div>
 
 <!-- 📜 Theme Switcher JavaScript -->
