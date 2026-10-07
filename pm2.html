@@ -862,7 +862,7 @@
 <div class="theme-toggle-container">
     <div class="version-badge" title="Agoda Senior PM Interview Preparation Guide - Version 7.25">
         <span class="version-dot"></span>
-        <span>v7.25</span>
+        <span>v7.26</span>
     </div>
     <button class="theme-btn active" id="btn-eye-care" type="button" aria-pressed="true" onclick="setTheme('eye-care')">☀️ กลางวัน</button>
     <button class="theme-btn" id="btn-dark" type="button" aria-pressed="false" onclick="setTheme('dark')">🌙 กลางคืน</button>
@@ -978,10 +978,13 @@
             <li class="phase-label">🅳️ ส่วนที่ 4: ความรู้เชิงลึกที่ต้องใช้ตอบ Round 2-4 (Deep-Dive Knowledge for the Rounds)</li>
             <li><a href="#sec6">6. 🧠 คลังความรู้เชิงลึก: A/B Testing, Business Model, Architecture, Tech Stack & Bottom-line</a>
                 <ul>
-                    <li><a href="#sec6">6.1 CIRCLES, MoSCoW & 4-Step RCA Refinements</a>
+                    <li><a href="#sec6">6.1 CIRCLES Framework (สคริปต์เต็ม), การใช้ Framework & Metric Precision</a>
                         <ul>
-                            <li><a href="#experiment-decision-rigor">6.1.1 Experiment decision rigor: H₀/H₁, MDE, power และ SRM</a></li>
-                            <li><a href="#ux-friction-and-discovery">6.1.2 UX friction, การค้นพบเชิงคุณภาพ และการจัดลำดับงาน</a></li>
+                            <li><a href="#circles-script">6.1.1 Full Case Walkthrough Script: Agoda Homes Improvement (สคริปต์เต็ม CIRCLES)</a></li>
+                            <li><a href="#framework-scaffolding-rule">6.1.2 กฎการใช้ Framework: ควรบอกไหมว่าเรากำลังใช้ CIRCLES หรือ STAR? (The Scaffolding Rule)</a></li>
+                            <li><a href="#conversion-metric-relative-vs-absolute">6.1.3 Metric Precision: Conversion Rate ลด 10% คือ 18% หรือ 10%? (Relative % vs. pp)</a></li>
+                            <li><a href="#experiment-decision-rigor">6.1.4 Experiment decision rigor: H₀/H₁, MDE, power และ SRM</a></li>
+                            <li><a href="#ux-friction-and-discovery">6.1.5 UX friction, การค้นพบเชิงคุณภาพ และการจัดลำดับงาน</a></li>
                         </ul>
                     </li>
                     <li><a href="#comp-matrix">6.2 Agoda's Moat & Competitive Landscape Matrix</a></li>
@@ -1024,7 +1027,7 @@
             <li class="phase-label">🅵️ ส่วนที่ 6: สคริปต์เต็มและซ้อมถาม-ตอบทุกรอบ (Full Scripts & Rehearsal)</li>
             <li><a href="#sec10">10. 💬 Full Case Walkthrough Scripts, Objection Handling, Bar Raiser & Strategic Deep-Dive</a>
                 <ul>
-                    <li><a href="#circles-script">10.1 Full Case Walkthrough Script: Agoda Homes Improvement</a></li>
+                    <li><a href="#circles-script">10.1 [ดูสคริปต์เต็มที่ 6.1] Full Case Walkthrough: Agoda Homes Improvement</a></li>
                     <li><a href="#objection-handling">10.2 Objection Handling Scripts</a></li>
                     <li><a href="#bar-raiser-def">10.3 Bar Raiser Decoding & Stress Interview Psychology</a>
                         <ul>
@@ -3727,10 +3730,165 @@ WHERE market IN ('TH', 'SG')
     <div class="phase-banner" id="phase4">🅳️ ส่วนที่ 4: ความรู้เชิงลึกที่ต้องใช้ตอบ Round 2-4 <small>Deep-Dive Knowledge: A/B Testing, Business Model, Architecture, Marketing, Glossary</small></div>
     <h2 id="sec6">6. 🧠 คลังความรู้เชิงลึก: A/B Testing Mechanics, Competitive Matrix, Architecture, BNPL Engine & Bottom-line Trade-off</h2>
     
-    <h3>6.1 CIRCLES, MoSCoW & 4-Step RCA Refinements</h3>
-    <ul>
-        <li id="circles-def"><b>CIRCLES Method:</b> <b>C</b>omprehend Context ➡️ <b>I</b>dentify Personas ➡️ <b>R</b>eport Needs ➡️ <b>C</b>ut Prioritization ➡️ <b>L</b>ist Solutions ➡️ <b>E</b>valuate Trade-offs ➡️ <b>S</b>ummarize (ดูบทพูดตัวอย่างแบบเต็มที่ <a href="#circles-script" class="term-link">CIRCLES Case Script</a>)</li>
-    </ul>
+    <h3>6.1 CIRCLES Framework (พร้อมสคริปต์เต็ม), เทคนิคการใช้ Framework & การคำนวณ Metric Precision</h3>
+
+    <div class="star-card" id="circles-script">
+        <h4>🎯 6.1.1 CIRCLES Method Overview & Full Case Walkthrough Script: "How would you improve Agoda Homes?"</h4>
+        <p id="circles-def"><b>CIRCLES Method Anatomy:</b> <b>C</b>omprehend Context ➡️ <b>I</b>dentify Personas ➡️ <b>R</b>eport Needs ➡️ <b>C</b>ut Prioritization ➡️ <b>L</b>ist Solutions ➡️ <b>E</b>valuate Trade-offs ➡️ <b>S</b>ummarize</p>
+        <p>นี่คือตัวอย่างสคริปต์การตอบแบบ Word-by-Word สำหรับโจทย์ Product Sense / Design Case ยอดฮิตที่ Agoda มักใช้ทดสอบ: <i>"คุณจะปรับปรุง Agoda Homes ให้ดีขึ้นอย่างไร?"</i> โดยจำลองการตอบภาษาอังกฤษที่แสดงความเป็น Senior PM:</p>
+
+        <div class="script-box-en">
+            <p><b>1. C - Comprehend Context:</b><br/>
+            <i>"To align on the goal, are we focusing on increasing supply/listings, or improving the booking conversion rate for existing travelers on Agoda Homes? Let's assume a hypothetical target of a 5% relative increase in booking conversion from a defined baseline in a defined market."</i></p>
+
+            <p><b>2. I - Identify Personas:</b><br/>
+            <i>"I see 2 main user segments: Segment A: Family/Group Vacationers looking for multi-room stays. Segment B: Long-stay Digital Nomads needing dedicated workspaces. Let's focus on Segment A (Family Vacationers) as they have higher AOV and booking intent."</i></p>
+
+            <p><b>3. R - Report User Needs & Pain Points:</b><br/>
+            <i>"Family vacationers face 3 main pain points: 1) Uncertainty about amenities (e.g., parking, kitchen equipment), 2) Complex check-in instructions compared to traditional hotels, 3) Strict cancellation policies."</i></p>
+
+            <p><b>4. C - Cut through Prioritization (<a href="#rice-example" class="term-link">RICE</a>):</b><br/>
+            <i>"Using RICE framework, Pain Point 1 (Amenity Uncertainty) has the highest Reach and Impact with low Effort. Solving amenity clarity will directly reduce Checkout Drop-off."</i></p>
+
+            <p><b>5. L - List Solutions:</b><br/>
+            <i>"Solution 1: 'Verified Amenity Badges' with host-uploaded photos. Solution 2: 'AI Review Highlights' summarizing family-friendly amenities. Solution 3: 'Instant Host Q&A Widget' on <a href="#glossary-sem" class="term-link">PDP</a>."</i></p>
+
+            <p><b>6. E - Evaluate Trade-offs:</b><br/>
+            <i>"Solution 2 (AI Review Highlights) offers high scalability and low implementation effort via LLM prompt engineering without requiring host action, whereas Solution 1 requires manual host verification."</i></p>
+
+            <p><b>7. S - Summarize Recommendation:</b><br/>
+            <i>"I recommend launching an A/B test for Solution 2 (AI Review Highlights) on <a href="#glossary-sem" class="term-link">PDP</a>. <a href="#glossary-primary" class="term-link">Primary Metric</a>: <a href="#glossary-sem" class="term-link">PDP</a>-to-Checkout Conversion Rate. <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a>: Page Load Latency p95 (&lt;800ms) and Host Contact Rate."</i></p>
+        </div>
+
+        <div class="alert-box">
+            <p><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> สำหรับ case Agoda Homes ให้ใช้ข้อมูลต่อไปนี้เป็น <b>สมมติฐานภายนอก</b> ไม่ใช่ข้อเท็จจริงบริษัท: เปรียบเทียบการค้นหาข้ามโรงแรม/บ้าน, ราคารวม, ความฝืดของการยืนยัน, เครื่องมือโฮสต์, payout, protection, calendar/channel management และ local payment กับทางเลือกอย่าง Airbnb. เอกสารยก “all-inclusive”/coupon ซ้อน, instant confirmation, split fee (โฮสต์ราว 3%/ผู้เข้าพัก 14%), host-only 14–16%, host commission 15–18% และ AirCover สูงสุด US$3m เป็นตัวอย่างเทียบเคียงเท่านั้น; fee, coverage, approval, instant confirmation และรายละเอียดการปฏิบัติงานอาจล้าสมัยหรือแตกต่างตามตลาด.</p>
+            <p>เสนอการทดลองเป็นสามทางเลือก: (1) แนะนำบ้านแก่ผู้ค้นหาโรงแรมเมื่อพื้นที่/ความคุ้มค่าเหมาะกว่า แล้ววัด qualified discovery, conversion, cancellation และความพึงพอใจ; (2) sync ปฏิทิน/ราคาผ่าน API หรือ iCal เพื่อลดงานหลายช่องทางของโฮสต์ โดยคุม inventory conflict, overbooking และ support burden; (3) ประเมิน APM/wallet ที่เหมาะกับตลาด เช่น PromptPay, TrueMoney, KakaoPay หรือ Alipay โดยดู acceptance, fee, fraud, refund และกฎระเบียบ. ก่อนแนะนำ ต้องยืนยัน segment, economics, partner constraints และ policy กับทีม.</p>
+        </div>
+    </div>
+
+    <div class="star-card" id="framework-scaffolding-rule">
+        <h4>🗣️ 6.1.2 ควรบอกผู้สัมภาษณ์ไหมว่าเรากำลังใช้ CIRCLES, STAR หรือ Framework ใดๆ อยู่? (The Framework Scaffolding Rule)</h4>
+        <div class="alert-box" style="border-left: 4px solid #ef4444; background: rgba(239, 68, 68, 0.08);">
+            <b>🛑 คำตอบฟันธง:</b> <b>"ไม่ควรพูดชื่อ Framework หรือท่องตัวย่อออกมาตรงๆ เด็ดขาด! (Avoid Robotic Framework Recitation)"</b><br/>
+            อย่าเดินเข้าห้องสัมภาษณ์แล้วพูดว่า: <i>"Now I will use CIRCLES. First, C stands for Comprehend Context..."</i> หรือในรอบสัมภาษณ์พฤติกรรมพูดว่า: <i>"For this story, my Situation is... my Task is... my Action is..."</i>
+        </div>
+
+        <div class="example-box">
+            <h4>🧠 3 เหตุผลสำคัญทำไมผู้สัมภาษณ์ระดับ Senior / Director ที่ Agoda ถึงไม่ชอบการท่อง Framework:</h4>
+            <ol>
+                <li><b>The "Junior Bootcamp" Trap (กับดักเด็กจบใหม่ท่องจำ):</b> ผู้สัมภาษณ์ระดับ Director หรือ Bar Raiser สัมภาษณ์แคนดิเดตมานับร้อยคน เมื่อได้ยินคำว่า "C stands for Comprehend Context..." พวกเขาจะรู้สึกทันทีว่าคุณเป็น <i>"Formulaic Candidate"</i> ที่ท่องจำตำราสอบ ขาดประสบการณ์การแก้ปัญหาจริง และไม่เป็นธรรมชาติ (Stilted & Robotic)</li>
+                <li><b>Real-World Workplace Reality (ชีวิตจริงไม่มีใครทำแบบนี้):</b> ในการทำงานจริงที่ Agoda ไม่มี Senior PM หรือ Director คนไหนเดินเข้าห้องประชุมผู้บริหารหรือคุยกับ Engineering แล้วพูดว่า <i>"วันนี้ผมจะใช้ CIRCLES เพื่อแก้ปัญหานะครับ"</i> แต่พวกเขาจะตั้งคำถามที่เฉียบคมและสื่อสารอย่างเป็นธรรมชาติ</li>
+                <li><b>The Mental Scaffolding Principle (Framework มีไว้เป็น 'โครงค้ำยันในใจ'):</b> Framework เช่น CIRCLES, STAR, BUS-PAE เปรียบเสมือน <b>"นั่งร้านที่ซ่อนอยู่ในสมอง (Invisible Scaffolding)"</b> เพื่อป้องกันไม่ให้คุณลืมประเด็น ไม่กระโดดข้ามขั้นตอน และจัดระเบียบตรรกะในหัว — <b>แต่สิ่งที่เปล่งเสียงออกมาเป็นภาษาอังกฤษ ต้องเป็น "เนื้อหาและคำเชื่อมบทสนทนาระดับมืออาชีพ (Conversational Signposts)"</b></li>
+            </ol>
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">ขั้นตอน</th>
+                        <th style="width: 40%; color: #ef4444;">❌ สิ่งที่มือใหม่พูด (Robotic / ห้ามทำ)</th>
+                        <th style="width: 40%; color: #10b981;"> สิ่งที่ Senior PM พูด (Conversational Signposting)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>C (Context)</b></td>
+                        <td><i>"First, C is Comprehend Context. I want to ask who is the user and what is the goal?"</i></td>
+                        <td><i>"That's a fascinating challenge. To make sure we're tackling the highest-leverage opportunity, let me start by aligning on the core business objective and any key constraints. Are we aiming for booking conversion or supply expansion?"</i></td>
+                    </tr>
+                    <tr>
+                        <td><b>I (Identify)</b></td>
+                        <td><i>"Next, I is Identify Personas. I will list 2 personas: family and nomad."</i></td>
+                        <td><i>"Looking at traveler behavior, I see two distinct segments with very different needs: First, family vacationers; and second, solo digital nomads. Let's focus on families because..."</i></td>
+                    </tr>
+                    <tr>
+                        <td><b>R (Report Needs)</b></td>
+                        <td><i>"Now R, Report Needs. The family has 3 pain points."</i></td>
+                        <td><i>"If we map out the family journey, their biggest friction points emerge around accommodation uncertainty—specifically..."</i></td>
+                    </tr>
+                    <tr>
+                        <td><b>C (Cut Prioritization)</b></td>
+                        <td><i>"Next is C, Cut through Prioritization. I will use RICE."</i></td>
+                        <td><i>"To prioritize which friction to tackle first, let's look at reach and impact relative to engineering effort. Pain point #1 gives us the clearest immediate lift..."</i></td>
+                    </tr>
+                    <tr>
+                        <td><b>L & E (List & Evaluate)</b></td>
+                        <td><i>"Now L is List Solutions and E is Evaluate."</i></td>
+                        <td><i>"Here are three potential ways we could address this, with different trade-offs in speed and scalability..."</i></td>
+                    </tr>
+                    <tr>
+                        <td><b>S (Summarize)</b></td>
+                        <td><i>"Finally S, Summarize. I recommend Solution 2."</i></td>
+                        <td><i>"To wrap this up into an actionable rollout plan, I recommend starting with a phased A/B test on..."</i></td>
+                    </tr>
+                    <tr>
+                        <td><b>Behavioral (STAR)</b></td>
+                        <td><i>"My Situation was in 2023. My Task was to fix the latency. My Action was I talked to dev. My Result was latency dropped."</i></td>
+                        <td><i>"In late 2023, we faced an urgent challenge where peak-season checkout latency spiked by 35%. My responsibility was to orchestrate the resolution without pausing live transactions. Specifically, I took three concrete actions: First... Second... Third... As a result, we reduced p95 latency down to 210ms and preserved an estimated $1.2M in booking volume."</i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h4>💡 ข้อยกเว้นเพียง 2 กรณีที่คุณ "สามารถเอ่ยชื่อ Framework ได้":</h4>
+            <ul>
+                <li><b>กรณีที่ 1: เมื่อผู้สัมภาษณ์ถามตรงๆ ว่าใช้ Framework อะไร:</b> เช่น <i>"How do you usually prioritize your product backlog?"</i> ➡️ คุณสามารถตอบได้ทันที: <i>"I typically leverage RICE or MoSCoW, depending on whether we need quantitative reach/impact scoring or strict release-scope boundaries."</i></li>
+                <li><b>กรณีที่ 2: ใช้ในการอ้างอิง Methodology สั้นๆ ระหว่าง Prioritization:</b> เช่น <i>"Evaluating this through a RICE lens..."</i> หรือ <i>"Applying a quick 80/20 MoSCoW cut..."</i> เพื่อเป็นคำเชื่อมสั้นๆ แต่ไม่ใช่การท่องตัวอักษรทีละคำ</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="star-card" id="conversion-metric-relative-vs-absolute">
+        <h4>📊 6.1.3 เจาะลึก Metric Precision: "Conversion Rate ลดลง 10%" หมายถึงลดจาก 20% เหลือ 10% หรือลดจาก 20% เหลือ 18%?</h4>
+        <div class="alert-box" style="border-left: 4px solid #10b981; background: rgba(16, 185, 129, 0.08);">
+            <b>🎯 คำตอบฟันธง:</b> <b>"หมายถึงลดจาก 20% เหลือ 18% (Relative Drop / Relative Change) ครับ!"</b><br/>
+            ในภาษาของ Data Science, E-commerce, OTA และการวิเคราะห์ผล A/B Testing ที่ Agoda: เมื่อมีคนพูดว่า <i>"Conversion dropped by 10%"</i> หรือ <i>"We achieved a 5% conversion lift"</i> — <b>99% ของอุตสาหกรรมหมายถึง Relative Change เสมอ</b>
+        </div>
+
+        <div class="example-box">
+            <h4>🧮 การคำนวณและเปรียบเทียบชัดเจนระหว่าง Relative Change vs. Absolute Percentage Points:</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>มิติการวัด</th>
+                            <th>การคำนวณจาก Baseline 20%</th>
+                            <th>ผลลัพธ์ที่ได้</th>
+                            <th>ความหมายในบริบทธุรกิจ & Product ที่ Agoda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>1. Relative Change (%)<br/>(การเปลี่ยนแปลงสัมพัทธ์ — ความหมายมาตรฐาน)</b></td>
+                            <td><code>Baseline × (1 - 0.10)<br/>= 20% × 0.90</code></td>
+                            <td><b style="color: #f59e0b; font-size: 16px;">18.0%</b><br/>(ลดลงไป 2.0% ของยอดรวม คิดเป็น 10% ของฐานเดิม)</td>
+                            <td><b>นี่คือความหมายสากลในวงการ Tech:</b> เป็นการแกว่งตัวของ Conversion ที่เกิดจาก UX Friction, A/B Test Variant ที่มี Defect, การเปลี่ยนแปลงของ Marketing Traffic Mix หรือ Seasonality</td>
+                        </tr>
+                        <tr>
+                            <td><b>2. Absolute Change (% points / pp)<br/>(จุดเปอร์เซ็นต์ / ความต่างสมบูรณ์)</b></td>
+                            <td><code>Baseline - 10 percentage points<br/>= 20% - 10%</code></td>
+                            <td><b style="color: #ef4444; font-size: 16px;">10.0%</b><br/>(หายไปถึงครึ่งหนึ่ง! คิดเป็น <b>50% Relative Drop!</b>)</td>
+                            <td><b>🚨 นี่คือมหันตภัย P0 Outage (ระบบพังทั้งระบบ):</b> ถ้า Conversion ลดลง 10 percentage points จาก 20% เหลือ 10% แปลว่า Booking หายไปครึ่งหนึ่งของบริษัท! สาเหตุแทบจะไม่ใช่เรื่อง UX เล็กน้อย แต่เป็น Payment Gateway พังทั่วโลก, Server 500 error ทั้งระบบ หรือ Tracking Code หลุดหาย</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="script-box">
+            <h4>🏆 Winning Interview Script: ประโยคทองคำสร้างความประทับใจระดับ Senior PM ในห้องสัมภาษณ์</h4>
+            <p>เมื่อผู้สัมภาษณ์เปิดโจทย์ Case Metric Drop เช่น: <i>"Suppose Agoda's booking conversion rate dropped by 10% yesterday. How would you investigate it?"</i></p>
+            <p><b>อย่าเพิ่งรีบเดาสาเหตุทันที! ให้แสดง Data Rigor & Precision ด้วยการ Clarify ประโยคนี้ก่อน:</b></p>
+            <div class="script-box-en">
+                <p><b>Clarifying Question:</b><br/>
+                <i>"Before I dive into the root cause investigation, let me clarify the metric semantics: When you mention conversion dropped by 10%, do you mean a <b>10% relative decline</b>—for example, from a baseline of 20% down to 18%—or an <b>absolute drop of 10 percentage points</b> down to 10%?<br/><br/>
+                The reason I ask is that a 10% relative shift typically points to an A/B test regression, localized checkout latency, or a marketing traffic channel mix shift. However, an absolute 10 percentage point collapse represents a catastrophic 50% business loss, which indicates a severe P0 system outage, payment gateway downtime, or broken telemetry that requires an immediate emergency rollback."</i></p>
+            </div>
+            <p><b>💡 ทำไมประโยคนี้ถึงได้คะแนนระดับ Exceptional:</b> ผู้สัมภาษณ์ที่ Agoda คาดหวังว่า Senior PM จะไม่พูดคำว่า "เปอร์เซ็นต์" ลอยๆ แต่เข้าใจความต่างระหว่าง <b>% (Percent Relative)</b> กับ <b>%pt (Percentage Points Absolute)</b> อย่างลึกซึ้ง การตั้งคำถามนี้จะสะท้อนความเฉียบคมด้านสถิติ (Statistical Rigor) และความเป็นผู้นำทางเทคนิคทันที!</p>
+        </div>
+    </div>
 
     <div class="star-card" id="moscow-def">
         <h3>📌 ตัวอย่างการประยุกต์ใช้ MoSCoW Framework ในการตัด Scope (Checkout Domain):</h3>
@@ -5422,32 +5580,10 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
     <div class="phase-banner" id="phase6">🅵️ ส่วนที่ 6: สคริปต์เต็มและซ้อมถาม-ตอบทุกรอบ <small>Full Scripts & Rehearsal: ใช้ซ้อมได้ทุกรอบ ตั้งแต่ Round 2 ถึง Round 5</small></div>
     <h2 id="sec10">10. 💬 Full Case Walkthrough Scripts, Objection Handling, Bar Raiser & Strategic Deep-Dive Questions</h2>
 
-    <h3 id="circles-script">10.1 Full Case Walkthrough Script: "How would you improve Agoda Homes?"</h3>
-    <div class="script-box-en">
-        <p><b>1. C - Comprehend Context:</b><br/>
-        <i>"To align on the goal, are we focusing on increasing supply/listings, or improving the booking conversion rate for existing travelers on Agoda Homes? Let's assume a hypothetical target of a 5% relative increase in booking conversion from a defined baseline in a defined market."</i></p>
-
-        <p><b>2. I - Identify Personas:</b><br/>
-        <i>"I see 2 main user segments: Segment A: Family/Group Vacationers looking for multi-room stays. Segment B: Long-stay Digital Nomads needing dedicated workspaces. Let's focus on Segment A (Family Vacationers) as they have higher AOV and booking intent."</i></p>
-
-        <p><b>3. R - Report User Needs & Pain Points:</b><br/>
-        <i>"Family vacationers face 3 main pain points: 1) Uncertainty about amenities (e.g., parking, kitchen equipment), 2) Complex check-in instructions compared to traditional hotels, 3) Strict cancellation policies."</i></p>
-
-        <p><b>4. C - Cut through Prioritization (<a href="#rice-example" class="term-link">RICE</a>):</b><br/>
-        <i>"Using RICE framework, Pain Point 1 (Amenity Uncertainty) has the highest Reach and Impact with low Effort. Solving amenity clarity will directly reduce Checkout Drop-off."</i></p>
-
-        <p><b>5. L - List Solutions:</b><br/>
-        <i>"Solution 1: 'Verified Amenity Badges' with host-uploaded photos. Solution 2: 'AI Review Highlights' summarizing family-friendly amenities. Solution 3: 'Instant Host Q&A Widget' on <a href="#glossary-sem" class="term-link">PDP</a>."</i></p>
-
-        <p><b>6. E - Evaluate Trade-offs:</b><br/>
-        <i>"Solution 2 (AI Review Highlights) offers high scalability and low implementation effort via LLM prompt engineering without requiring host action, whereas Solution 1 requires manual host verification."</i></p>
-
-        <p><b>7. S - Summarize Recommendation:</b><br/>
-        <i>"I recommend launching an A/B test for Solution 2 (AI Review Highlights) on <a href="#glossary-sem" class="term-link">PDP</a>. <a href="#glossary-primary" class="term-link">Primary Metric</a>: <a href="#glossary-sem" class="term-link">PDP</a>-to-Checkout Conversion Rate. <a href="#glossary-guardrail" class="term-link">Guardrail Metrics</a>: Page Load Latency p95 (&lt;800ms) and Host Contact Rate."</i></p>
-    </div>
-    <div class="alert-box">
-        <p><span class="badge badge-orange">การวิเคราะห์จากเอกสารต้นทาง — ต้องตรวจสอบก่อนกล่าวอ้าง</span> สำหรับ case Agoda Homes ให้ใช้ข้อมูลต่อไปนี้เป็น <b>สมมติฐานภายนอก</b> ไม่ใช่ข้อเท็จจริงบริษัท: เปรียบเทียบการค้นหาข้ามโรงแรม/บ้าน, ราคารวม, ความฝืดของการยืนยัน, เครื่องมือโฮสต์, payout, protection, calendar/channel management และ local payment กับทางเลือกอย่าง Airbnb. เอกสารยก “all-inclusive”/coupon ซ้อน, instant confirmation, split fee (โฮสต์ราว 3%/ผู้เข้าพัก 14%), host-only 14–16%, host commission 15–18% และ AirCover สูงสุด US$3m เป็นตัวอย่างเทียบเคียงเท่านั้น; fee, coverage, approval, instant confirmation และรายละเอียดการปฏิบัติงานอาจล้าสมัยหรือแตกต่างตามตลาด.</p>
-        <p>เสนอการทดลองเป็นสามทางเลือก: (1) แนะนำบ้านแก่ผู้ค้นหาโรงแรมเมื่อพื้นที่/ความคุ้มค่าเหมาะกว่า แล้ววัด qualified discovery, conversion, cancellation และความพึงพอใจ; (2) sync ปฏิทิน/ราคาผ่าน API หรือ iCal เพื่อลดงานหลายช่องทางของโฮสต์ โดยคุม inventory conflict, overbooking และ support burden; (3) ประเมิน APM/wallet ที่เหมาะกับตลาด เช่น PromptPay, TrueMoney, KakaoPay หรือ Alipay โดยดู acceptance, fee, fraud, refund และกฎระเบียบ. ก่อนแนะนำ ต้องยืนยัน segment, economics, partner constraints และ policy กับทีม.</p>
+    <div class="star-card" style="border-left: 4px solid var(--accent); background: rgba(59, 130, 246, 0.05); padding: 18px; border-radius: 8px; margin-bottom: 24px;">
+        <h4 style="margin-top: 0; color: var(--accent);">📌 สคริปต์เต็ม CIRCLES Framework ย้ายไปรวมอยู่ที่ Section 6.1 แล้ว</h4>
+        <p>ตัวอย่างสคริปต์ตอบคำถามสดแบบ Word-by-Word <b>"How would you improve Agoda Homes?"</b> (7 ขั้นตอน C-I-R-C-L-E-S พร้อมบทวิเคราะห์ Trade-offs, RICE Prioritization, A/B Testing Metric & Guardrails) ได้รับการย้ายไปรวบรวมไว้ที่ <a href="#circles-script" class="term-link"><b>Section 6.1 CIRCLES Method Walkthrough</b></a> เพื่อให้อ่านคู่กับหลักการ Framework, กฎการสื่อสารแบบ Conversational Signposting และการคำนวณ Metric Precision ได้ครบวงจรในที่เดียว</p>
+        <p style="margin-bottom: 0;"><a href="#circles-script" class="btn btn-sm btn-primary" style="display: inline-block; padding: 7px 14px; background: var(--secondary); color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 13px;">➡️ กดตรงนี้เพื่อไปดูสคริปต์ CIRCLES ฉบับเต็มที่ Section 6.1</a></p>
     </div>
 
     <h3 id="objection-handling">10.2 Objection Handling Scripts (การรับมือข้อโต้แย้งในห้องสัมภาษณ์)</h3>
@@ -6601,7 +6737,7 @@ Overall         180 / 1000 = 18%     729 / 1000 = 72.9%</code></pre>
 
 
 <div class="footer-note">
-        <p><b>✅ Interview Preparation Guide (v7.25):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
+        <p><b>✅ Interview Preparation Guide (v7.26):</b> ครอบคลุม Business Model Lingo, Case Simulations, Tech Stack, Stress Interview, Cheatsheet และ UI One-Click Copy — โปรดยืนยันนโยบาย ตัวเลข สวัสดิการ และแนวปฏิบัติเฉพาะทีมกับ Recruiter/Interviewer ก่อนนำไปกล่าวอ้าง</p>
     </div>
 
 <!-- 📜 Theme Switcher JavaScript -->
